@@ -29,7 +29,7 @@ from vision import reader as R  # noqa: E402
 OUT = ROOT / "web" / "public" / "evidence"
 SETS = [("normal", ROOT / "data" / "synth200", "Rendered gauges, up to 35° tilt, some glare and blur"),
         ("hard", ROOT / "data" / "hard100", "Rendered gauges, up to 50° tilt, heavy glare and blur"),
-        ("real", ROOT / "eval" / "real", "Photos of real gauges from Wikimedia Commons, read by eye")]
+        ("real", ROOT / "eval" / "real", "Real photos from Wikimedia Commons, read by eye (development set)")]
 
 
 def _one(args):

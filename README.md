@@ -69,7 +69,7 @@ Numbers from `scripts/evidence.py` and `scripts/agent_eval.py`; the [Evidence pa
 |---|---|---|---|---|---|---|
 | Rendered, ordinary photos | 200 | 200 | 178 | 99.4% | 0 | 0.29% |
 | Rendered, bad photos (to 50°, glare, blur) | 100 | 75 | 42 | 97.6% | 0 | 0.34% |
-| Real photos (Wikimedia Commons, read by eye) | 22 | 16 | 7 | 100.0% | 0 | 0.97% |
+| Real photos (Wikimedia Commons, read by eye; used during development) | 22 | 16 | 7 | 100.0% | 0 | 0.97% |
 
 Photos it should decline (two needles, two gauges in one frame, dials too small to read): accepted **0 of 16**. Agent scenarios: **8/8** with the rule engine, **8/8** with NVIDIA Nemotron on Nebius.
 

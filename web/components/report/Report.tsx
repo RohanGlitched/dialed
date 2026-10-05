@@ -28,7 +28,7 @@ export function Report() {
       <section className={s.abstract}>
         <h2>Summary</h2>
         <p>
-          Dialed reads analog pressure and temperature gauges from ordinary phone photos. A classical OpenCV 5 pipeline finds the dial, removes the camera&apos;s tilt, locates the true pivot from the tick marks and the needle&apos;s own line, reads the printed scale with two OpenCV Model Zoo networks run through <code>cv.dnn</code>, and interpolates the needle&apos;s value. A calibrated confidence decides whether the reading is trusted. An agent then logs the reading, asks for a better photo with the measured reason, or drafts a maintenance work order that waits for a supervisor. On {sets.real?.rows.length ?? 0} photos of real gauges read by eye, accepted readings were {pct(sets.real?.summary.accepted_within_2pct ?? 0, 0)} within 2% of the scale; across {allRows.length} test photos, {acc.filter((x) => (x.err ?? 1) < 0.02).length} of {acc.length} accepted readings were within 2% and none was off by more than 5%.
+          Dialed reads analog pressure and temperature gauges from ordinary phone photos. A classical OpenCV 5 pipeline finds the dial, removes the camera&apos;s tilt, locates the true pivot from the tick marks and the needle&apos;s own line, reads the printed scale with two OpenCV Model Zoo networks run through <code>cv.dnn</code>, and interpolates the needle&apos;s value. A calibrated confidence decides whether the reading is trusted. An agent then logs the reading, asks for a better photo with the measured reason, or drafts a maintenance work order that waits for a supervisor. On {sets.real?.rows.length ?? 0} photos of real gauges read by eye (a development set), accepted readings were {pct(sets.real?.summary.accepted_within_2pct ?? 0, 0)} within 2% of the scale; across {allRows.length} test photos, {acc.filter((x) => (x.err ?? 1) < 0.02).length} of {acc.length} accepted readings were within 2% and none was off by more than 5%.
         </p>
       </section>
 
@@ -100,7 +100,7 @@ export function Report() {
             ))}
           </tbody>
         </table>
-        <p>Rendered sets have exact ground truth (the generator places the needle). Real photos are from Wikimedia Commons (CC0, CC BY, CC BY-SA), read by eye from the photo with an uncertainty of about 1% of the scale; on two-scale dials the reading is scored against the scale the reader used. {oos.length} further real photos that should not be read (two needles, two gauges, dials too small) were accepted {oos.filter((x) => x.accepted).length} times.</p>
+        <p>Rendered sets have exact ground truth (the generator places the needle). Real photos are from Wikimedia Commons (CC0, CC BY, CC BY-SA), read by eye from the photo with an uncertainty of about 1% of the scale. They were used during development (failures on them guided the needle and number-reading fixes), so they are a development set and their figures are optimistic; on two-scale dials the reading is scored against the scale the reader used. {oos.length} further real photos that should not be read (two needles, two gauges, dials too small) were accepted {oos.filter((x) => x.accepted).length} times.</p>
         <div className={s.charts}>
           <figure><Scatter rows={synthRows} /><figcaption>Error against camera tilt (rendered sets). Filled: accepted.</figcaption></figure>
           <figure><Coverage rows={synthRows} /><figcaption>Coverage and accuracy against the threshold.</figcaption></figure>
