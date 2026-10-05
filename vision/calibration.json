@@ -1,27 +1,22 @@
 {
  "weights": {
-  "contrast": 3.39264,
-  "disagree": -0.26902,
-  "glare": -0.70325,
-  "glare_needle": 0.27399,
-  "inlier_share": 0.5927,
-  "inliers": 0.73767,
-  "outside": -1.75597,
-  "resid": -0.56877,
-  "sharp": 1.8287,
-  "support": 0.20517,
-  "tick_lines": 0.88436,
-  "ticks": -0.62485,
-  "tilt": -2.02992
+  "contrast": 3.19442,
+  "disagree": -0.26787,
+  "glare": -0.43189,
+  "glare_needle": -0.79989,
+  "inlier_share": 0.81015,
+  "inliers": 0.66535,
+  "outside": -1.82127,
+  "resid": -0.5795,
+  "sharp": 1.96263,
+  "support": 0.22617,
+  "tick_lines": 0.90082,
+  "ticks": -0.51557,
+  "tilt": -2.21568
  },
- "bias": -6.50332,
- "accept_at": 0.99,
+ "bias": -6.20912,
  "fitted_on": {
-  "gauges": 591,
-  "within_2pct": 473
- },
- "at_threshold": {
-  "accepted": 115,
-  "precision": 0.9826
+  "gauges": 592,
+  "within_2pct": 470
  }
 }

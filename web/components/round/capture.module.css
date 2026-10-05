@@ -1,0 +1,60 @@
+.capture { border: 1.5px solid var(--ink); background: var(--paper); padding: clamp(18px, 2.4vw, 32px); display: grid; gap: 28px; }
+.card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; gap: 22px; align-items: center; position: relative; padding-bottom: 22px; border-bottom: 1px solid var(--rule); }
+.tagBubble { width: 64px; height: 64px; border-radius: 50%; border: 2.5px solid var(--ink); display: grid; place-content: center; text-align: center; font: 800 16px / 1.05 var(--cond); }
+.title { margin: 0; font: 800 clamp(26px, 2.6vw, 36px) / 1 var(--cond); }
+.service { margin: 4px 0 0; color: var(--ink-2); font-size: 15px; }
+.spec { display: grid; grid-template-columns: repeat(2, auto); gap: 4px 20px; margin: 0; font-size: 14px; }
+.spec div { display: flex; gap: 8px; }
+.spec dt { color: var(--steel); }
+.spec dd { margin: 0; font-weight: 700; }
+.spark { display: grid; gap: 4px; }
+.sparkLabel { margin: 0; font-size: 12px; color: var(--steel); }
+.bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: -12px; }
+.barLabel { margin: 0; font: 600 13px var(--cond); color: var(--steel); }
+.close { background: none; border: 1px solid var(--rule); padding: 4px 10px; font-size: 13px; cursor: pointer; color: var(--ink-2); }
+.close:hover { border-color: var(--ink); color: var(--ink); }
+
+.pick { display: grid; grid-template-columns: auto auto 1fr; gap: 16px; align-items: start; }
+.big { padding: 16px 22px; }
+.demo { display: grid; gap: 8px; padding-left: 20px; border-left: 1px solid var(--rule); }
+.demoHead { margin: 0; font: 700 16px var(--cond); }
+.demoList { list-style: none; margin: 0; padding: 0; display: flex; gap: 12px; flex-wrap: wrap; }
+.demoBtn { background: none; border: 1px solid var(--rule); padding: 0; cursor: pointer; display: grid; width: 150px; text-align: left; transition: border-color 120ms, transform 120ms; }
+.demoBtn:hover { border-color: var(--ink); transform: translateY(-2px); }
+.demoBtn img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.demoBtn span { padding: 6px 8px; font-size: 13px; color: var(--ink-2); }
+.small { margin: 0; font-size: 13px; color: var(--steel); }
+
+.busy { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 32px; align-items: center; }
+.busy img { width: 100%; max-height: 380px; object-fit: contain; background: var(--panel); border: 1px solid var(--rule); }
+.progress { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; counter-reset: p; }
+.progress li { counter-increment: p; font: 700 24px / 1.1 var(--cond); color: var(--rule); display: flex; gap: 12px; align-items: baseline; }
+.progress li::before { content: counter(p); font-size: 15px; color: var(--steel); width: 16px; }
+.progress li.pDone { color: var(--ink-2); }
+.progress li.pOn { color: var(--ink); }
+.progress li.pOn::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--needle); animation: blink 900ms ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0.2; } }
+.error { border-left: 3px solid var(--needle); padding-left: 16px; display: grid; gap: 12px; justify-items: start; }
+.error p { margin: 0; }
+
+.result { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px; align-items: start; }
+.outcome { display: grid; gap: 14px; align-content: start; }
+.outcome :global(.tag) { justify-self: start; font-size: 18px; padding: 6px 12px; }
+.value { margin: 0; font: 800 clamp(56px, 6vw, 88px) / 0.85 var(--cond); }
+.value small { font-size: 0.36em; margin-left: 6px; color: var(--ink-2); }
+.message { margin: 0; font-size: 17px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.evidence { min-width: 0; }
+.photo { width: 100%; max-height: 420px; object-fit: contain; background: var(--panel); border: 1px solid var(--rule); }
+.traceBox { grid-column: 1 / -1; border-top: 1px solid var(--rule); padding-top: 22px; display: grid; gap: 12px; }
+
+@media (max-width: 1100px) {
+  .card { grid-template-columns: auto minmax(0, 1fr); }
+  .spec, .spark { grid-column: 1 / -1; }
+  .pick { grid-template-columns: 1fr; }
+  .demo { padding-left: 0; border-left: 0; }
+}
+@media (max-width: 860px) {
+  .busy, .result { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .progress li.pOn::after { animation: none; } }

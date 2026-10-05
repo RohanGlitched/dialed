@@ -1,9 +1,9 @@
 """Fit the reader's confidence on gauges it has never been scored on.
 
 Renders a calibration set (separate seeds from the evaluation sets), reads every gauge,
-and fits a logistic model: P(error < 2% of span | reader measurements). Then picks the
-auto-accept threshold as the lowest confidence that keeps accepted readings at least
-99% within 2% on this set. Writes vision/calibration.json.
+and fits a logistic model: P(error < 2% of span | reader measurements). Reports how clean
+accepted readings are at a few thresholds; the threshold itself (0.90) is checked on the
+separate evaluation sets (vision/evaluate.py). Writes vision/calibration.json.
 """
 from __future__ import annotations
 
@@ -18,9 +18,6 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import synth  # noqa: E402
 from reader import CALIBRATION, read  # noqa: E402
-
-TARGET_PRECISION = 0.99
-
 
 def _one(args):
     folder, t = args
@@ -66,20 +63,16 @@ def main():
     w = fit(X, y)
     p = 1 / (1 + np.exp(-(np.hstack([X, np.ones((len(X), 1))]) @ w)))
     ok = np.array([d["ok"] for d in data])
-    # lowest threshold whose accepted set (ok and p >= t) is >= 99% within 2%
-    thr = 0.99
-    for t in np.arange(0.5, 0.995, 0.005):
+    # how clean the accepted readings are at a few thresholds (the agent uses 0.90; see agent/capture.py)
+    at = {}
+    for t in (0.8, 0.9, 0.95):
         acc = ok & (p >= t)
-        if acc.sum() >= 20 and y[acc].mean() >= TARGET_PRECISION:
-            thr = float(t)
-            break
-    acc = ok & (p >= thr)
+        at[f"{t:.2f}"] = {"accepted": int(acc.sum()), "within_2pct": round(float(y[acc].mean()), 4) if acc.any() else None}
     out = {
         "weights": {k: round(float(v), 5) for k, v in zip(keys, w[:-1])},
         "bias": round(float(w[-1]), 5),
-        "accept_at": round(thr, 3),
         "fitted_on": {"gauges": len(data), "within_2pct": int(y.sum())},
-        "at_threshold": {"accepted": int(acc.sum()), "precision": round(float(y[acc].mean()), 4) if acc.any() else None},
+        "on_fit_set": at,
     }
     CALIBRATION.write_text(json.dumps(out, indent=1))
     print(json.dumps(out, indent=1))

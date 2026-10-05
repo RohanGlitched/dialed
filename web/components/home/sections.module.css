@@ -1,0 +1,67 @@
+/* coach */
+.coachGrid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.phone { justify-self: center; width: min(320px, 100%); border: 10px solid var(--ink); border-radius: 38px; background: #0f1318; padding: 18px 12px 22px; display: grid; gap: 12px; box-shadow: var(--shadow); }
+.screen { position: relative; border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 3; background: #222; }
+.screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.screenOver { position: absolute; inset: 0; width: 100%; height: 100%; }
+.coachRing { fill: none; stroke: #fff; stroke-width: 0.8; vector-effect: non-scaling-stroke; }
+.screenHint { position: absolute; left: 8px; right: 8px; bottom: 8px; margin: 0; background: var(--needle); color: #fff; font: 700 14px var(--cond); padding: 6px 9px; }
+.chips { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.chips li { color: #e9ecef; font-size: 12px; border: 1px solid #3a434d; padding: 5px 7px; }
+.shutter { justify-self: center; width: 58px; height: 58px; border-radius: 50%; border: 4px solid #fff; background: var(--needle); }
+.coachText { display: grid; gap: 18px; justify-items: start; }
+.coachText :global(.lede) { margin: 0; }
+.list { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); width: 100%; }
+.list li { padding: 11px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+.list b { color: var(--ink); }
+
+/* round */
+.skel { aspect-ratio: 1200 / 640; background: var(--panel); }
+.skelRound { aspect-ratio: 1; border-radius: 50%; background: var(--panel); max-width: 600px; }
+.rowEnd { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 18px; flex-wrap: wrap; }
+.rowEnd p { margin: 0; }
+
+/* recorder */
+.recGrid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(32px, 5vw, 80px); align-items: center; }
+.recText { display: grid; gap: 16px; justify-items: start; }
+.recText p { margin: 0; }
+.recText p:not(:global(.lede)) { color: var(--ink-2); }
+
+/* accuracy */
+.accGrid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 4vw, 64px); align-items: start; margin-bottom: 28px; }
+.big { margin: 0; display: grid; grid-template-columns: 1fr 1fr; border-top: 1.5px solid var(--ink); }
+.big div { padding: 18px 18px 18px 0; border-bottom: 1px solid var(--rule); }
+.big dt { font-size: 14px; color: var(--ink-2); }
+.big dd { margin: 6px 0 0; font: 800 58px / 0.9 var(--cond); }
+.big dd small { font-size: 20px; color: var(--ink-2); margin-left: 4px; font-weight: 700; }
+.hist { margin: 0; display: grid; gap: 10px; }
+.hist svg { width: 100%; height: auto; }
+.bar { fill: var(--ink); }
+.barN { font: 700 13px var(--cond); fill: var(--ink-2); }
+.axis { font: 600 12px var(--cond); fill: var(--steel); }
+
+/* architecture */
+.arch { width: 100%; height: auto; display: block; background: var(--paper); border: 1px solid var(--rule); }
+.ah { fill: var(--ink); }
+.line { fill: none; stroke: var(--ink); stroke-width: 2; }
+.node { fill: var(--enamel); stroke: var(--ink); stroke-width: 1.5; }
+.nodeBold { fill: var(--enamel); stroke: var(--needle); stroke-width: 3; }
+.nodeT { font: 800 19px var(--cond); fill: var(--ink); }
+.nodeL { font: 500 14px var(--text); fill: var(--ink-2); }
+.archNotes { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1.5px solid var(--ink); }
+.archNotes li { padding: 16px 22px 16px 0; color: var(--ink-2); font-size: 15px; }
+.archNotes b { display: block; color: var(--ink); font: 700 18px var(--cond); }
+
+/* limits */
+.limGrid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); }
+.limits { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.limits li { padding: 15px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+.limits b { color: var(--ink); }
+
+@media (max-width: 960px) {
+  .coachGrid, .recGrid, .accGrid, .limGrid { grid-template-columns: 1fr; }
+  .archNotes { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .big { grid-template-columns: 1fr; }
+}

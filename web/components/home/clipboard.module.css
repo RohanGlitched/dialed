@@ -1,0 +1,28 @@
+.grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 4.5vw, 72px); align-items: center; }
+.board { min-width: 0; position: relative; background: #b98b5a; padding: 46px 18px 22px; border-radius: 10px; box-shadow: var(--shadow); transform: rotate(-1.2deg); }
+.clip { position: absolute; left: 50%; top: -14px; width: 150px; height: 50px; margin-left: -75px; background: linear-gradient(#c9ccd0, #8e949b); border-radius: 8px 8px 14px 14px; border: 1px solid #6c737b; }
+.paper { background: #fbfaf5; color: #1e2228; padding: 22px 22px 16px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); overflow-x: auto; }
+.formHead { margin: 0 0 12px; font: 800 18px var(--cond); letter-spacing: 0.04em; display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: baseline; }
+.formHead span { font: 600 13px var(--text); letter-spacing: 0; color: #5d646d; }
+.form { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 520px; }
+.form th, .form td { border: 1px solid #9aa3ad; padding: 6px 7px; text-align: left; }
+.form thead th { font: 700 12px var(--cond); background: #eef1f3; }
+.form tbody th { font: 800 14px var(--cond); white-space: nowrap; }
+.range { color: #5d646d; white-space: nowrap; font-size: 12px; }
+.hand { font-size: 21px; line-height: 1; color: #1c3d8f; text-align: center !important; display: table-cell; }
+.hand del { color: #1c3d8f; text-decoration-thickness: 2px; }
+.blank { display: inline-block; width: 22px; }
+.sign { margin: 10px 0 0; font-size: 22px; color: #1c3d8f; text-align: right; }
+.text { display: grid; gap: 18px; }
+.text :global(.lede) { margin: 0; }
+.points { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.points li { padding: 11px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); font-size: 16px; }
+.points b { color: var(--ink); }
+.after { margin: 0; font-weight: 600; }
+@media (max-width: 1000px) {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .board { transform: none; }
+}
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"])) .board { background: #6e5435; }
+}

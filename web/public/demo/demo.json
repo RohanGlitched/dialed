@@ -1,0 +1,68 @@
+{
+ "PI-101": [
+  {
+   "src": "/demo/PI-101.jpg",
+   "variant": "clear",
+   "truth": 1.85
+  }
+ ],
+ "PI-102": [
+  {
+   "src": "/demo/PI-102.jpg",
+   "variant": "clear",
+   "truth": 8.45
+  }
+ ],
+ "TI-201": [
+  {
+   "src": "/demo/TI-201.jpg",
+   "variant": "clear",
+   "truth": 64.0
+  }
+ ],
+ "PI-103": [
+  {
+   "src": "/demo/PI-103.jpg",
+   "variant": "clear",
+   "truth": 0.2
+  }
+ ],
+ "PI-104": [
+  {
+   "src": "/demo/PI-104.jpg",
+   "variant": "clear",
+   "truth": 7.15
+  },
+  {
+   "src": "/demo/PI-104-shaky.jpg",
+   "variant": "shaky",
+   "truth": 7.15
+  },
+  {
+   "src": "/demo/PI-104-glare.jpg",
+   "variant": "glare",
+   "truth": 7.15
+  }
+ ],
+ "PI-105": [
+  {
+   "src": "/demo/PI-105.jpg",
+   "variant": "clear",
+   "truth": 5.8
+  }
+ ],
+ "PI-106": [
+  {
+   "src": "/demo/PI-106.jpg",
+   "variant": "clear",
+   "truth": 108.0
+  }
+ ],
+ "PI-107": [
+  {
+   "src": "/demo/PI-107.jpg",
+   "variant": "clear",
+   "truth": 4.55
+  }
+ ]
+}

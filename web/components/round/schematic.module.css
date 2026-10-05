@@ -1,0 +1,38 @@
+.svg { width: 100%; height: auto; display: block; background: var(--paper); border: 1px solid var(--rule); }
+.pipe { fill: none; stroke: var(--ink); stroke-width: 3.2; }
+.pipeThin { fill: none; stroke: var(--ink); stroke-width: 2; }
+.arrowHead { fill: var(--ink); }
+.conn { stroke: var(--steel); stroke-width: 1.6; stroke-dasharray: 6 5; }
+.equip { fill: var(--enamel); stroke: var(--ink); stroke-width: 2.4; }
+.vessel { fill: var(--enamel); stroke: var(--ink); stroke-width: 2.6; }
+.media { stroke: none; }
+.hatch { stroke: var(--steel); stroke-width: 1.5; }
+.pumpTri { fill: none; stroke: var(--ink); stroke-width: 2; }
+.shaft { stroke: var(--ink); stroke-width: 2.4; }
+.equipText { font: 700 17px var(--cond); fill: var(--ink); }
+.label { font: 700 16px var(--cond); fill: var(--ink-2); }
+.labelSmall { font: 600 13px var(--cond); fill: var(--steel); }
+
+.bubble { cursor: default; }
+.bubble[role="button"] { cursor: pointer; }
+.halo { fill: transparent; stroke: transparent; stroke-width: 3; transition: stroke 150ms; }
+.ring { fill: var(--enamel); stroke: var(--ink); stroke-width: 2.4; transition: fill 200ms, stroke 200ms; }
+.fn { font: 800 15px var(--cond); fill: var(--ink); pointer-events: none; }
+.num { font: 700 15px var(--cond); fill: var(--ink); pointer-events: none; }
+.reading { font: 800 16px var(--cond); fill: var(--ink); }
+.readingRed { font: 800 15px var(--cond); fill: var(--needle); }
+.bubble[role="button"]:hover .halo, .bubble:focus-visible .halo { stroke: var(--needle); }
+.bubble:focus { outline: none; }
+.sel .halo { stroke: var(--needle); stroke-width: 4; }
+
+.pending .ring { stroke: var(--steel); stroke-dasharray: 4 3; }
+.pending .fn, .pending .num { fill: var(--ink-2); }
+.logged .ring { fill: var(--ink); stroke: var(--ink); }
+.logged .fn, .logged .num { fill: var(--enamel); }
+.held .ring { fill: var(--hold); stroke: var(--ink); }
+.held .fn, .held .num { fill: var(--hold-ink); }
+.reshoot .ring { stroke: var(--needle); stroke-width: 3; }
+.reshoot .fn, .reshoot .num { fill: var(--needle); }
+.mismatch .ring { stroke-dasharray: 3 3; stroke: var(--needle); }
+
+.compact .labelSmall { display: none; }

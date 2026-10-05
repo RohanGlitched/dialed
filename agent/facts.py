@@ -96,6 +96,8 @@ def check_numbers(text: str, allowed: list[float], tol: float) -> tuple[str, lis
     bad = []
 
     def sub(m):
+        if re.search(r"[A-Za-z]{1,3}-$", text[max(0, m.start() - 4): m.start()]):
+            return m.group(0)  # part of a tag like TI-201, P-1 or WO-1043
         v = float(m.group(0))
         if any(abs(v - a) <= tol for a in allowed) or (v.is_integer() and 0 <= v <= 31 and _likely_date(text, m.start())):
             return m.group(0)

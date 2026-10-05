@@ -110,7 +110,7 @@ export function InspectView({ ins, compact = false }: { ins: Inspect; compact?: 
   );
 }
 
-function caption(stage: StageKey, ins: Inspect): string {
+export function caption(stage: StageKey, ins: Inspect): string {
   const g = ins.geometry;
   const r = ins.reading;
   const n = g.candidates.length;

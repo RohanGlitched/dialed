@@ -1,0 +1,46 @@
+.head { padding-top: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(260px, 4fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.title { display: flex; gap: 24px; align-items: center; }
+.bubble { flex: none; width: 96px; height: 96px; border-radius: 50%; border: 3px solid var(--ink); display: grid; place-content: center; text-align: center; font: 800 24px / 1.05 var(--cond); }
+.h1 { font-size: clamp(44px, 5.2vw, 84px); margin-top: 8px; }
+.latest { border: 1.5px solid var(--ink); background: var(--paper); padding: 18px 22px; display: grid; gap: 6px; }
+.latestLabel { margin: 0; font: 600 13px var(--cond); color: var(--steel); }
+.value { margin: 0; font: 800 72px / 0.86 var(--cond); }
+.value small { font-size: 26px; margin-left: 6px; color: var(--ink-2); }
+.latestWhen { margin: 0; color: var(--ink-2); font-size: 14px; }
+.pager { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--rule); font-size: 14px; }
+.chartSec { margin-top: clamp(56px, 7vw, 96px); }
+.chartHead { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.toggle { display: inline-flex; border: 1.5px solid var(--ink); }
+.toggle button { background: none; border: 0; padding: 9px 14px; font: 700 14px var(--text); cursor: pointer; color: var(--ink-2); }
+.toggle button[aria-pressed="true"] { background: var(--ink); color: var(--enamel); }
+.chartGrid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 40px; align-items: start; }
+.chartText { display: grid; gap: 14px; color: var(--ink-2); }
+.chartText p { margin: 0; }
+.chartText b { color: var(--ink); }
+.skel { aspect-ratio: 1; background: var(--panel); border-radius: 50%; max-width: 640px; }
+.orders ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 10px; font-size: 15px; }
+.orders li { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; color: var(--ink); }
+.dials { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
+.dials img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--rule); display: block; }
+.dials p { margin: 8px 0 0; display: flex; gap: 8px; align-items: center; font: 800 18px var(--cond); }
+.dials :global(.tag) { font-size: 11px; padding: 1px 6px; }
+.dialWhen { font: 400 13px var(--text) !important; color: var(--steel); margin-top: 2px !important; }
+.tblWrap { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; min-width: 720px; font-size: 15px; }
+.tbl th { text-align: left; font: 600 13px var(--cond); color: var(--steel); padding: 0 14px 8px 0; border-bottom: 1.5px solid var(--ink); }
+.tbl td { padding: 9px 14px 9px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); vertical-align: top; }
+.tbl :global(.tag) { font-size: 12px; padding: 1px 6px; }
+.v { font: 800 18px var(--cond); color: var(--ink) !important; white-space: nowrap; }
+.hist { font-size: 13px; color: var(--steel); }
+.note { font-size: 14px; max-width: 34em; }
+.spec { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); margin: 0; border-top: 1.5px solid var(--ink); }
+.spec div { padding: 14px 18px 14px 0; border-bottom: 1px solid var(--rule); }
+.spec dt { font: 600 13px var(--cond); color: var(--steel); }
+.spec dd { margin: 2px 0 0; font: 700 19px var(--cond); }
+@media (max-width: 960px) {
+  .head, .chartGrid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .bubble { width: 64px; height: 64px; font-size: 16px; }
+  .title { gap: 14px; }
+}

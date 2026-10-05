@@ -143,7 +143,9 @@ def route(method: str, path: str, event: dict):
 # ---------- helpers ----------
 
 def _slim(r: dict) -> dict:
-    return {k: r.get(k) for k in ("id", "gauge", "at", "outcome", "value", "read_value", "unit", "confidence", "message", "engine", "images", "order", "seeded", "issues")}
+    out = {k: r.get(k) for k in ("id", "gauge", "at", "outcome", "value", "read_value", "unit", "confidence", "message", "engine", "images", "order", "seeded", "issues")}
+    out["tool_calls"] = sum(1 for s in r.get("steps") or [] if s.get("kind") == "tool")
+    return out
 
 
 def _point(r: dict) -> dict:

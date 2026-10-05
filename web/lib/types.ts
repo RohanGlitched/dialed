@@ -37,6 +37,7 @@ export type Reading = {
   order: string | null;
   seeded: boolean;
   issues: Issue[];
+  tool_calls?: number;
   inspect?: string | null;
   assessment?: Assessment | null;
   steps?: Step[];

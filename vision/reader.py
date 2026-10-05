@@ -68,16 +68,20 @@ _det = None
 _rec = None
 
 
-ENGINE = cv2.dnn.ENGINE_CLASSIC  # measured ~3x faster than the new engine for these two small models on CPU
+# Measured on CPU (scripts/evidence.py): OpenCV 5's new engine runs the DB text detector about 4x faster
+# than the classic engine, while the classic engine runs the small CRNN recogniser about 3x faster.
+# So each model uses the engine that suits it.
+DET_ENGINE = cv2.dnn.ENGINE_NEW
+REC_ENGINE = cv2.dnn.ENGINE_CLASSIC
 
 
 def _models():
     global _det, _rec
     if _det is None:
-        _det = cv2.dnn.TextDetectionModel_DB(cv2.dnn.readNetFromONNX(str(MODELS / "text_detection_en_ppocrv3_2023may.onnx"), ENGINE))
+        _det = cv2.dnn.TextDetectionModel_DB(cv2.dnn.readNetFromONNX(str(MODELS / "text_detection_en_ppocrv3_2023may.onnx"), DET_ENGINE))
         _det.setBinaryThreshold(0.3).setPolygonThreshold(0.5).setMaxCandidates(200).setUnclipRatio(2.0)
         _det.setInputParams(1.0 / 255.0, (DIAL, DIAL), (122.67891434, 116.66876762, 104.00698793))
-        _rec = cv2.dnn.TextRecognitionModel(cv2.dnn.readNetFromONNX(str(MODELS / "text_recognition_CRNN_EN_2021sep.onnx"), ENGINE))
+        _rec = cv2.dnn.TextRecognitionModel(cv2.dnn.readNetFromONNX(str(MODELS / "text_recognition_CRNN_EN_2021sep.onnx"), REC_ENGINE))
         _rec.setDecodeType("CTC-greedy")
         _rec.setVocabulary(VOCAB)
         _rec.setInputParams(1.0 / 127.5, (100, 32), (127.5, 127.5, 127.5))
@@ -480,9 +484,31 @@ def photo_checks(img, e, dial, needle_deg, ring, center=(DIAL / 2, DIAL / 2)):
         issues.append({"code": "blur", "level": "warn", "text": "The photo is a little soft."})
     hsv = cv2.cvtColor(dial, cv2.COLOR_BGR2HSV)
     # glare: blown-out highlights clearly brighter than the face itself (a white face is not glare)
-    vface = float(np.median(hsv[:, :, 2][face]))
-    glare = (hsv[:, :, 2] >= min(254, max(240, vface + 18))) & (hsv[:, :, 1] < 40) & face
-    glare = cv2.morphologyEx(glare.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8)).astype(bool)
+    # glare = compact specular highlights: near-white, clearly brighter than the face, and local.
+    # Broad over-exposure (half the face washed out by light) doesn't hide the needle, so it isn't glare.
+    v = hsv[:, :, 2]
+    vface = float(np.median(v[face]))
+    cand = (v >= 248) & (hsv[:, :, 1] < 45) & face
+    k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(RAD * 0.035) | 1,) * 2)  # wider than a printed stroke
+    cand = cv2.morphologyEx(cand.astype(np.uint8), cv2.MORPH_OPEN, k)
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(cand)
+    glare = np.zeros_like(face)
+    face_area = max(1, int(face.sum()))
+    if cand.sum() > 0.22 * face_area:
+        n = 0  # a washed-out face, not a reflection
+    for i in range(1, n):
+        area = stats[i, cv2.CC_STAT_AREA]
+        if area < 0.22 * face_area and 255 - vface >= 6:
+            blob = (lab == i).astype(np.uint8)
+            ring = cv2.dilate(blob, k, iterations=2).astype(bool) & ~blob.astype(bool) & face
+            # real glare washes out what's under it; if dark print still shows through, it's just a bright patch
+            cs, _ = cv2.findContours(blob, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+            filled = np.zeros_like(blob)
+            cv2.drawContours(filled, cs, -1, 1, -1)
+            filled = filled.astype(bool)
+            print_share = float(((v < vface - 60) & filled).sum()) / max(1, int(filled.sum()))
+            if ring.any() and float(np.median(v[ring])) <= 249 and print_share < 0.002:
+                glare |= lab == i
     frac = glare.mean() / max(face.mean(), 1e-6)
     near_needle = False
     if needle_deg is not None and glare.any():
@@ -579,6 +605,7 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
             a = _unwrap_deg(needle_deg, scale.start + (rot if abs(rot) < 25 else 0.0))
             val = scale.min + (scale.max - scale.min) * a / scale.sweep
             vmin, vmax = scale.min, scale.max
+            check_lo, check_hi = vmin, vmax
         else:
             rd.issues.append({"code": "scale", "level": "block", "text": "Can't read the scale numbers. Get closer or reduce glare."})
             return rd
@@ -586,11 +613,18 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
         val = predict(needle_deg)
         vals = [n["value"] for n in inliers]
         vmin, vmax = min(vals), max(vals)
+        check_lo, check_hi = vmin, vmax
+        # the printed scale runs from the first tick after the blank gap to the last one before it
+        if len(ticks) >= 4:
+            rel = sorted(_unwrap_deg(t["deg"], gap) for t in ticks)
+            ends = [predict.linear(gap + rel[0]), predict.linear(gap + rel[-1])]
+            check_lo, check_hi = min(vmin, *ends), max(vmax, *ends)
         if scale:
             vmin, vmax = scale.min, scale.max
+            check_lo, check_hi = min(check_lo, vmin), max(check_hi, vmax)
     span = max(vmax - vmin, 1e-6)
     # needle beyond the printed scale by more than a few percent means a wrong needle or a wrong fit
-    if val < vmin - 0.06 * span or val > vmax + 0.06 * span:
+    if val < check_lo - 0.06 * span or val > check_hi + 0.06 * span:
         rd.issues.append({"code": "range", "level": "block", "text": "The needle points outside the scale. Re-shoot straight on."})
     contrast = (peak - second) / max(peak, 1e-6)
     for i in rd.issues:

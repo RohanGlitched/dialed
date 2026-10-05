@@ -1,0 +1,18 @@
+.grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 4.5vw, 72px); align-items: start; }
+.sticky { position: sticky; top: 28px; }
+.fig { display: grid; gap: 10px; }
+.cell { margin: 0; font: 700 14px var(--cond); color: var(--needle); }
+.steps { list-style: none; margin: 0; padding: 0; }
+.steps li { padding: 22vh 0 22vh; opacity: 0.35; transition: opacity 250ms; display: grid; gap: 8px; }
+.steps li:first-child { padding-top: 8vh; }
+.steps li:last-child { padding-bottom: 20vh; }
+.steps li.on { opacity: 1; }
+.steps li p { margin: 0; color: var(--ink-2); }
+.no { font: 800 44px / 1 var(--cond); color: var(--needle); }
+.fn { font: 700 15px var(--cond) !important; color: var(--ink) !important; }
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+  .sticky { top: 0; z-index: 2; background: var(--enamel); padding: 10px 0; }
+  .steps li { padding: 22vh 0; }
+}
+@media (prefers-reduced-motion: reduce) { .steps li { transition: none; } }

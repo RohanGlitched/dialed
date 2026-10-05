@@ -120,7 +120,10 @@ class Capture:
         out["unit_matches"] = unit_read is None or unit_read == g["unit"]
         if nums and mode == "auto":
             span = g["max"] - g["min"]
-            out["range_matches"] = abs(min(nums) - g["min"]) <= 0.15 * span and abs(max(nums) - g["max"]) <= 0.15 * span
+            # the printed numbers must sit inside the registered scale and cover a good part of it
+            # (end labels are often missed, so they needn't reach both ends)
+            inside = all(g["min"] - 0.05 * span <= v <= g["max"] + 0.05 * span for v in nums)
+            out["range_matches"] = inside and (max(nums) - min(nums)) >= 0.5 * span
         else:
             out["range_matches"] = True
         if rd["value"] is not None:
@@ -242,7 +245,8 @@ class Capture:
             try:
                 self._model_loop()
             except LLMError as e:
-                self.steps.append({"kind": "note", "text": f"Model unavailable ({str(e)[:120]}); the rule engine took over."})
+                print("model unavailable:", e)
+                self.steps.append({"kind": "note", "text": "No model answered, so the rule engine made the decision with the same tools and guards."})
                 self.engine = None
         if self.outcome is None:
             self._rules()
