@@ -125,25 +125,30 @@ export function caption(stage: StageKey, ins: Inspect): string {
       return r.tilt != null ? `The ellipse becomes a circle: one affine warp undoes about ${Math.round(r.tilt)}° of camera tilt. Upright text stays upright.` : "The dial was not straightened.";
     case "centre": {
       const k = g.tick_lines?.length ?? 0;
+      const nl = g.needle_line;
       const d = g.center ? Math.hypot(g.center[0] - g.dial_size / 2, g.center[1] - g.dial_size / 2) : 0;
-      return k
-        ? `${k} tick marks were measured as short lines. Lines stay straight under perspective, so where they meet is the true pivot: ${d.toFixed(0)} px from the rim's centre (cross). Angles are measured from here.`
-        : "Too few tick marks were clear enough to locate the pivot, so the rim's centre is used.";
+      const ticks = k >= 6 ? `${k} tick marks were measured as short lines; lines stay straight under perspective, so where they meet is the pivot. ` : "";
+      const needle = nl
+        ? `The needle is a straight line through the pivot${nl.hub ? ", and its hub was found on that line" : ""}: that fixes the centre ${d.toFixed(0)} px from the rim's centre (grey cross). The longer run from the pivot is the pointer, the shorter one its counterweight.`
+        : k >= 6
+          ? `The pivot sits ${d.toFixed(0)} px from the rim's centre (grey cross).`
+          : "Too few tick marks and no clear needle line, so the rim's centre is used.";
+      return ticks + needle + " Every angle is measured from here.";
     }
     case "ink":
       return "Black-hat (or top-hat on dark faces) keeps only strokes thinner than about a tenth of the radius: needle, ticks, numbers. Glare, shading and the face colour drop out, so the needle stands alone.";
     case "unroll": {
       const span = (r.max ?? 1) - (r.min ?? 0);
       const v = r.value != null ? r.value.toFixed(span <= 20 ? 2 : span <= 200 ? 1 : 0) : null;
-      return `The ring between the numbers and the rim is unwrapped into a straight strip around the true centre. The needle becomes one vertical line on a ruler${v != null ? `, at ${v} ${r.unit ?? ""}` : ""}.`;
+      return `The ring between the numbers and the rim is unwrapped into a straight strip around the true centre. The needle becomes one vertical line on a ruler${v != null ? `, at ${[v, r.unit].filter(Boolean).join(" ")}` : ""}.`;
     }
     case "numbers": {
       const t = g.text?.length ?? 0;
       const used = g.text?.filter((x) => x.used).length ?? 0;
-      return `${t} text regions found by PP-OCRv3 and read by CRNN (OpenCV Model Zoo, cv.dnn classic engine). ${used} printed numbers agreed on one scale and were used; the rest were units, brand names or misreads.`;
+      return `${t} text regions found by PP-OCRv3 (OpenCV 5's new DNN engine) and read by CRNN (classic engine), each in its own orientation, from a sharper straightened copy of the photo. ${used} printed numbers agreed on one scale and were used; the rest were units, brand names or misreads.`;
     }
     case "fit":
-      return "Each number's angle and value; RANSAC throws out misreads, then the value is interpolated between neighbouring numbers, which absorbs leftover perspective error.";
+      return "Each number's angle and value. Each ring of numbers is fitted on its own (some dials print two scales); RANSAC throws out misreads and tries lost decimal points, then the value is interpolated between neighbouring numbers, which absorbs leftover perspective error.";
     case "needle":
       return "For every quarter degree, how much ink runs the whole inner band. The needle is the one angle where a stroke reaches from the hub to the ticks.";
   }

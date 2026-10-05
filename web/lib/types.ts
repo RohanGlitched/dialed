@@ -111,6 +111,7 @@ export type Inspect = {
     ticks?: { deg: number; inner: number }[];
     tick_lines?: { p: [number, number]; d: [number, number]; len: number }[];
     needle_profile?: number[];
+    needle_line?: { pivot: [number, number]; hub: [number, number, number] | null; tip_len: number; tail_len: number; line_len: number } | null;
     text?: { text: string; box: [number, number, number, number]; deg: number; r: number; number: boolean; used: boolean }[];
     fit?: { points: { deg: number; value: number }[]; curve: { from_gap: number; deg: number; value: number }[] };
   };

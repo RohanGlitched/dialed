@@ -4,7 +4,7 @@ import { REPO_URL } from "@/lib/site";
 import s from "./evidence.module.css";
 
 type Credit = { title: string; author: string; license: string; source: string };
-type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string; credit?: Credit };
+export type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string; credit?: Credit };
 type Oos = { file: string; why: string; read: number | null; ok: boolean; conf: number; accepted: boolean; issues: string[]; thumb?: string; credit: Credit };
 type SetT = { label: string; summary: Record<string, number | null>; rows: Row[] };
 type Scenario = { name: string; gauge: string; expected: string; expected_breach: string | null; outcome: string; breaches: string[]; pass: boolean; engine: string; tools: number; refusals: string[]; message: string };
@@ -25,6 +25,10 @@ export function EvidencePage() {
         <p className="cell">Sheet 06</p>
         <h1 className={`display ${s.h1}`}>Evidence</h1>
         <p className="lede">How accurate the reader is, how its confidence was calibrated, where it fails, how fast it runs, and whether the agent does what it should. Every figure on this page comes from files in the repository and can be regenerated with one command.</p>
+        <p className={s.links}>
+          <a className="btn ghost" href="/report/Dialed-technical-report.pdf">Technical report (PDF)</a>
+          <a className="btn ghost" href="/report/architecture.png">Architecture diagram</a>
+        </p>
         <dl className={s.top}>
           <div><dt>Accepted readings off by 2% of the span or more</dt><dd>{off2}<small> of {accepted.length}</small></dd></div>
           <div><dt>Gauges scored</dt><dd>{allWithReal.length}<small>{sets.real ? ` incl. ${sets.real.rows.length} real` : ""}</small></dd></div>
@@ -121,7 +125,7 @@ export function EvidencePage() {
           </figure>
           <figure className={s.chart}>
             <Coverage rows={all} />
-            <figcaption><b>The threshold trade-off.</b> As the confidence threshold rises, fewer readings are accepted (coverage) and the accepted ones get cleaner. {Math.round(ev.accept_at * 100)}% is the first threshold with no accepted reading off by 2% or more.</figcaption>
+            <figcaption><b>The threshold trade-off.</b> As the confidence threshold rises, fewer readings are accepted (coverage) and the accepted ones get cleaner. The agent accepts at {Math.round(ev.accept_at * 100)}%.</figcaption>
           </figure>
           <figure className={s.chart}>
             <Reliability rows={all} />
@@ -223,7 +227,7 @@ function Section({ id, title, children }: { id: string; title: string; children:
 /* ---------- charts (plain SVG) ---------- */
 const W = 520, H = 330, PL = 46, PB = 38, PT = 14, PR = 14;
 
-function Scatter({ rows }: { rows: Row[] }) {
+export function Scatter({ rows }: { rows: Row[] }) {
   const pts = rows.filter((r) => r.err != null && r.tilt != null);
   const ymax = 0.1;
   const X = (t: number) => PL + (t / 60) * (W - PL - PR);
@@ -238,7 +242,7 @@ function Scatter({ rows }: { rows: Row[] }) {
   );
 }
 
-function Coverage({ rows }: { rows: Row[] }) {
+export function Coverage({ rows }: { rows: Row[] }) {
   const ts = Array.from({ length: 20 }, (_, i) => 0.5 + i * 0.025);
   const data = ts.map((t) => {
     const acc = rows.filter((r) => r.ok && r.read != null && r.conf >= t);
@@ -261,7 +265,7 @@ function Coverage({ rows }: { rows: Row[] }) {
   );
 }
 
-function Reliability({ rows }: { rows: Row[] }) {
+export function Reliability({ rows }: { rows: Row[] }) {
   const bins = Array.from({ length: 10 }, (_, i) => i / 10);
   const pts = bins.map((b) => {
     const g = rows.filter((r) => r.read != null && r.conf >= b && r.conf < b + 0.1);
@@ -279,10 +283,10 @@ function Reliability({ rows }: { rows: Row[] }) {
   );
 }
 
-function IssueBars({ rows }: { rows: Row[] }) {
+export function IssueBars({ rows }: { rows: Row[] }) {
   const counts: Record<string, number> = {};
   rows.filter((r) => !r.accepted).forEach((r) => (r.issues.length ? r.issues : ["low confidence"]).forEach((c) => (counts[c] = (counts[c] ?? 0) + 1)));
-  const names: Record<string, string> = { tilt: "Turned too far", blur: "Blurred", glare: "Glare on the face", glare_needle: "Glare on the needle", scale: "Numbers unreadable", range: "Needle off the scale", small: "Too far away", nodial: "No dial found", "low confidence": "Low confidence" };
+  const names: Record<string, string> = { tilt: "Turned too far", blur: "Blurred", glare: "Glare on the face", glare_needle: "Glare on the needle", scale: "Numbers unreadable", range: "Needle off the scale", small: "Too far away", nodial: "No dial found", multiple: "Two gauges in the frame", "low confidence": "Low confidence" };
   const items = Object.entries(counts).sort((a, b) => b[1] - a[1]).slice(0, 8);
   const max = Math.max(...items.map((x) => x[1]), 1);
   return (

@@ -69,6 +69,7 @@ def inspect(img: np.ndarray, scale: R.Scale | None = None, images: bool = True) 
             "ticks": [{"deg": round(t["deg"], 2), "inner": round(t["inner"], 1)} for t in d["ticks"]],
             "tick_lines": [{"p": [round(v, 1) for v in p], "d": [round(v, 4) for v in dv], "len": round(ln, 1)} for p, dv, ln in d.get("tick_lines_geo", [])],
             "needle_profile": _downsample(d["needle_score"], 720),
+            "needle_line": d.get("needle_line"),
             "text": [_text(t, d, rd) for t in d["found"]],
         })
         pred = d.get("predict")

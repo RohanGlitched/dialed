@@ -90,7 +90,12 @@ export function RoundPage() {
       <section className={`wrap ${s.drawing}`} aria-label="Plant drawing">
         {err && <p className={s.err} role="alert">{err} <button className="btn ghost" onClick={load}>Try again</button></p>}
         {data ? (
-          <Schematic gauges={data.gauges} selected={sel} onSelect={setSel} doneToday={done} />
+          <>
+            <div className={s.scroller}>
+              <Schematic gauges={data.gauges} selected={sel} onSelect={setSel} doneToday={done} />
+            </div>
+            <p className={s.scrollHint}>Swipe the drawing sideways to see the whole plant, or pick a gauge from the round log below.</p>
+          </>
         ) : !err ? (
           <div className={s.skeleton} aria-busy="true" />
         ) : null}

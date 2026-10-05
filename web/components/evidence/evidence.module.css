@@ -56,3 +56,4 @@
 .vs { font: 600 13px var(--text); color: var(--steel); }
 .credit { margin: 4px 0 0; font-size: 12px; color: var(--steel); }
 .credit a { color: var(--ink-2); }
+.links { display: flex; gap: 12px; flex-wrap: wrap; margin: 4px 0 0 !important; }

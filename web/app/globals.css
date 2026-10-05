@@ -79,7 +79,7 @@ button { font: inherit; color: inherit; }
 .skip:focus { left: 30px; }
 
 .wrap { padding-left: var(--gutter); padding-right: var(--gutter); max-width: 1500px; margin: 0 auto; }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.sr { position: absolute; left: 0; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* shared type */
 .display { font-family: var(--cond); font-weight: 800; line-height: 0.95; letter-spacing: -0.01em; margin: 0; }
@@ -126,4 +126,9 @@ button { font: inherit; color: inherit; }
 
 @media (max-width: 900px) {
   .section-head { grid-template-columns: 1fr; align-items: start; }
+}
+
+@media print {
+  body > header, body > footer, body > div[aria-hidden="true"], .skip { display: none !important; }
+  body { background: #fff; }
 }

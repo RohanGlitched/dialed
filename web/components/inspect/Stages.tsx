@@ -9,10 +9,10 @@ export const STAGES = [
   { key: "find", title: "Find the dial", fn: "Canny, findContours, fitEllipse" },
   { key: "edges", title: "Edges", fn: "Sobel, Canny" },
   { key: "straight", title: "Straighten", fn: "warpAffine" },
-  { key: "centre", title: "True centre", fn: "connectedComponents, least squares" },
+  { key: "centre", title: "True centre", fn: "connectedComponents, HoughLinesP, HoughCircles" },
   { key: "ink", title: "Strokes only", fn: "morphologyEx black-hat / top-hat" },
   { key: "unroll", title: "Unroll", fn: "warpPolar" },
-  { key: "numbers", title: "Read the numbers", fn: "dnn TextDetectionModel_DB, TextRecognitionModel" },
+  { key: "numbers", title: "Read the numbers", fn: "dnn TextDetectionModel_DB, CRNN" },
   { key: "fit", title: "Fit the scale", fn: "RANSAC, interpolation" },
   { key: "needle", title: "Find the needle", fn: "polar ink profile" },
 ] as const;
@@ -67,6 +67,16 @@ export function StageView({ ins, stage }: { ins: Inspect; stage: StageKey }) {
               const L = D;
               return <line key={i} x1={l.p[0] - l.d[0] * L} y1={l.p[1] - l.d[1] * L} x2={l.p[0] + l.d[0] * L} y2={l.p[1] + l.d[1] * L} className={s.ray} />;
             })}
+            {g.needle_line && r.needle_angle != null && (
+              <line
+                x1={c[0] - g.needle_line.tail_len * (g.ring?.[0] ?? g.rad) * Math.sin((r.needle_angle * Math.PI) / 180)}
+                y1={c[1] + g.needle_line.tail_len * (g.ring?.[0] ?? g.rad) * Math.cos((r.needle_angle * Math.PI) / 180)}
+                x2={c[0] + g.needle_line.tip_len * (g.ring?.[0] ?? g.rad) * Math.sin((r.needle_angle * Math.PI) / 180)}
+                y2={c[1] - g.needle_line.tip_len * (g.ring?.[0] ?? g.rad) * Math.cos((r.needle_angle * Math.PI) / 180)}
+                className={s.needleLine}
+              />
+            )}
+            {g.needle_line?.hub && <circle cx={g.needle_line.hub[0]} cy={g.needle_line.hub[1]} r={g.needle_line.hub[2]} className={s.crossNew} />}
             <Cross x={D / 2} y={D / 2} className={s.crossOld} />
             <Cross x={c[0]} y={c[1]} className={s.crossNew} />
           </>
