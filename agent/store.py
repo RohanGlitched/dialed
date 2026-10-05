@@ -109,19 +109,19 @@ class AwsStore:
     def delete(self, kind: str, id: str, partition: str | None = None) -> None:
         self.table.delete_item(Key={"pk": self._pk(kind, partition), "sk": id})
 
+    # blobs live under media/ in the site bucket; CloudFront serves /media/* from there
     def put_blob(self, key: str, data: bytes, content_type: str = "application/octet-stream") -> str:
-        self.s3.put_object(Bucket=self.bucket, Key=key, Body=data, ContentType=content_type, CacheControl="public, max-age=31536000, immutable")
+        self.s3.put_object(Bucket=self.bucket, Key=f"media/{key}", Body=data, ContentType=content_type, CacheControl="public, max-age=31536000, immutable")
         return key
 
     def get_blob(self, key: str) -> bytes | None:
         try:
-            return self.s3.get_object(Bucket=self.bucket, Key=key)["Body"].read()
+            return self.s3.get_object(Bucket=self.bucket, Key=f"media/{key}")["Body"].read()
         except self.s3.exceptions.NoSuchKey:
             return None
 
     def blob_url(self, key: str) -> str:
-        # blobs are served through the site's CDN (CloudFront /media/* -> bucket), see infra/template.yaml
-        return f"/media/{key}"
+        return f"/media/{key}"  # see infra/template.yaml
 
 
 def _safe(id: str) -> str:

@@ -39,8 +39,8 @@ Your job: decide what happens to this reading, using only the tools. Be brief.
 
 Rules:
 1. Always call read_gauge first (mode "auto").
-2. If the dial's unit or printed range doesn't match the gauge spec, call read_gauge with mode "enrolled" if the gauge is enrolled; if it still doesn't match, call flag_wrong_gauge.
-3. If the reading isn't ok or confidence is below the threshold, call request_reshoot. Use the measured issues; never invent advice.
+2. If the reading isn't ok or confidence is below the threshold, call request_reshoot. Use the measured issues; never invent advice.
+3. If the reading is ok but the dial's unit or printed range doesn't match the gauge spec, call read_gauge with mode "enrolled" if the gauge is enrolled; if it still doesn't match, call flag_wrong_gauge.
 4. If the reading is good, call compare_history. If there are no breaches, call log_reading.
 5. If compare_history reports breaches, call hold_work_order with a short title and reason that use the measured figures. Pick priority from the most severe breach: urgent, high or medium.
 6. Finish with one plain sentence for the operator (no markdown).
@@ -207,6 +207,8 @@ class Capture:
 
     def _t_flag_wrong_gauge(self, detail: str) -> dict:
         r = self.read or {}
+        if not r.get("ok"):
+            return {"refused": "the photo isn't clear enough to judge which gauge it shows; request a re-shoot"}
         if r.get("unit_matches", True) and r.get("range_matches", True):
             return {"refused": "unit and range match this gauge"}
         self.outcome = "mismatch"
@@ -304,6 +306,10 @@ class Capture:
         if self.read is None:
             self.tool("read_gauge", {"mode": "auto"})
         r = self.read
+        if not r.get("ok") or r.get("value") is None:
+            # a photo too poor to read can't tell us which gauge it shows either
+            self.tool("request_reshoot", {"issue_codes": [i["code"] for i in r.get("issues", [])]})
+            return
         if (r.get("unit_matches") is False or r.get("range_matches") is False) and self.gauge.get("enrolled"):
             self.tool("read_gauge", {"mode": "enrolled"})
             r = self.read

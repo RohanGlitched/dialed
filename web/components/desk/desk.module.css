@@ -1,4 +1,4 @@
-.head { padding-top: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.head { padding-top: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr); gap: clamp(28px, 4vw, 64px); align-items: flex-end; }
 .head :global(.lede) { margin: 18px 0 0; }
 .h1 { font-size: clamp(54px, 6.4vw, 104px); margin-top: 12px; }
 .stats { display: grid; grid-template-columns: 1fr 1fr; margin: 0; border: 1.5px solid var(--ink); background: var(--paper); }
@@ -34,7 +34,7 @@
 .detail { margin-top: 44px; scroll-margin-top: 20px; }
 .skel { height: 420px; background: var(--panel); border: 1px solid var(--rule); }
 .sheet { border: 1.5px solid var(--ink); background: var(--paper); padding: clamp(18px, 2.4vw, 34px); display: grid; gap: 30px; }
-.ordHead { display: flex; justify-content: space-between; gap: 24px; align-items: end; border-bottom: 1px solid var(--rule); padding-bottom: 20px; flex-wrap: wrap; }
+.ordHead { display: flex; justify-content: space-between; gap: 24px; align-items: flex-end; border-bottom: 1px solid var(--rule); padding-bottom: 20px; flex-wrap: wrap; }
 .ordId { margin: 0; font: 800 20px var(--cond); display: flex; gap: 10px; align-items: center; }
 .ordTitle { margin: 6px 0 0; font: 800 clamp(28px, 3vw, 42px) / 1.02 var(--cond); max-width: 22em; }
 .ordMeta { margin: 8px 0 0; color: var(--ink-2); font-size: 15px; }
@@ -55,7 +55,7 @@
 .thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 .thumbs img { width: 100%; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--rule); background: var(--panel); }
 .trend, .trace { display: grid; gap: 14px; border-top: 1px solid var(--rule); padding-top: 22px; }
-.decide { display: flex; gap: 14px; align-items: end; flex-wrap: wrap; border-top: 1.5px solid var(--ink); padding-top: 22px; }
+.decide { display: flex; gap: 14px; align-items: flex-end; flex-wrap: wrap; border-top: 1.5px solid var(--ink); padding-top: 22px; }
 .field { display: grid; gap: 6px; font-size: 13px; color: var(--steel); }
 .field input { font: 500 16px var(--text); padding: 11px 12px; border: 1.5px solid var(--ink); background: var(--enamel); color: var(--ink); min-width: 180px; }
 .grow { flex: 1; }

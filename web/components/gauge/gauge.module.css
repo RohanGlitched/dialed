@@ -1,4 +1,4 @@
-.head { padding-top: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(260px, 4fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+.head { padding-top: clamp(40px, 6vw, 80px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(260px, 4fr); gap: clamp(28px, 4vw, 64px); align-items: flex-end; }
 .title { display: flex; gap: 24px; align-items: center; }
 .bubble { flex: none; width: 96px; height: 96px; border-radius: 50%; border: 3px solid var(--ink); display: grid; place-content: center; text-align: center; font: 800 24px / 1.05 var(--cond); }
 .h1 { font-size: clamp(44px, 5.2vw, 84px); margin-top: 8px; }
@@ -9,7 +9,7 @@
 .latestWhen { margin: 0; color: var(--ink-2); font-size: 14px; }
 .pager { display: flex; justify-content: space-between; gap: 10px; margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--rule); font-size: 14px; }
 .chartSec { margin-top: clamp(56px, 7vw, 96px); }
-.chartHead { display: flex; justify-content: space-between; align-items: end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.chartHead { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
 .toggle { display: inline-flex; border: 1.5px solid var(--ink); }
 .toggle button { background: none; border: 0; padding: 9px 14px; font: 700 14px var(--text); cursor: pointer; color: var(--ink-2); }
 .toggle button[aria-pressed="true"] { background: var(--ink); color: var(--enamel); }

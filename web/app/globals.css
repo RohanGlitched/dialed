@@ -107,7 +107,7 @@ button { font: inherit; color: inherit; }
 
 /* section rhythm */
 .section { margin-top: clamp(96px, 11vw, 168px); }
-.section-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
+.section-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); align-items: flex-end; margin-bottom: clamp(32px, 4vw, 56px); }
 .section-head p { margin: 0; }
 .cell { font-family: var(--cond); font-weight: 600; font-size: 13px; color: var(--steel); letter-spacing: 0.02em; }
 

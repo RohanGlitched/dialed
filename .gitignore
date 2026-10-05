@@ -1,15 +1,25 @@
+# Python
 .venv/
 __pycache__/
 *.pyc
+
+# local data, renders and builds
 .data/
 data/
-models/*.onnx
 build/
 dist/
+models/*.onnx
+
+# web
+node_modules/
+web/.next/
+web/.next-build/
+web/out/
+
+# secrets
 .env*
 !.env.example
-node_modules/
-web/out/
-web/.next/
+!web/.env.development
+
 *.log
 .DS_Store

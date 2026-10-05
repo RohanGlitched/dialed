@@ -16,7 +16,7 @@
 .steps li.on { color: var(--ink); border-top-color: var(--needle); }
 .steps li.done { color: var(--ink-2); border-top-color: var(--ink); }
 
-.readout { display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: end; margin-top: 26px; opacity: 0; transform: translateY(6px); transition: opacity 450ms, transform 450ms; }
+.readout { display: grid; grid-template-columns: auto 1fr auto; gap: 28px; align-items: flex-end; margin-top: 26px; opacity: 0; transform: translateY(6px); transition: opacity 450ms, transform 450ms; }
 .readoutOn { opacity: 1; transform: none; }
 .value { font: 800 clamp(64px, 7vw, 104px) / 0.82 var(--cond); margin: 0; letter-spacing: -0.01em; }
 .value small { font-size: 0.36em; font-weight: 700; margin-left: 8px; color: var(--ink-2); }
