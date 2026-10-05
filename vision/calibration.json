@@ -1,0 +1,27 @@
+{
+ "weights": {
+  "contrast": 3.39264,
+  "disagree": -0.26902,
+  "glare": -0.70325,
+  "glare_needle": 0.27399,
+  "inlier_share": 0.5927,
+  "inliers": 0.73767,
+  "outside": -1.75597,
+  "resid": -0.56877,
+  "sharp": 1.8287,
+  "support": 0.20517,
+  "tick_lines": 0.88436,
+  "ticks": -0.62485,
+  "tilt": -2.02992
+ },
+ "bias": -6.50332,
+ "accept_at": 0.99,
+ "fitted_on": {
+  "gauges": 591,
+  "within_2pct": 473
+ },
+ "at_threshold": {
+  "accepted": 115,
+  "precision": 0.9826
+ }
+}

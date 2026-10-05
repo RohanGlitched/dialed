@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.data/
+data/
+models/*.onnx
+build/
+dist/
+.env*
+!.env.example
+node_modules/
+web/out/
+web/.next/
+*.log
+.DS_Store
