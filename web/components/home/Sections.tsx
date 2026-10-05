@@ -92,12 +92,16 @@ export function RecorderPreview() {
 /* ---------- accuracy ---------- */
 type Row = { err: number | null; accepted: boolean; tilt: number | null };
 export function Accuracy() {
-  const n = evidence.sets.normal.summary;
-  const h = evidence.sets.hard.summary;
-  const rows = [...(evidence.sets.normal.rows as Row[]), ...(evidence.sets.hard.rows as Row[])];
-  const acc = n.accepted + h.accepted;
-  const off2 = rows.filter((r) => r.accepted && r.err != null && r.err >= 0.02).length;
-  const all = n.n + h.n;
+  const sets = evidence.sets as unknown as Record<string, { summary: Record<string, number>; rows: Row[] }>;
+  const n = sets.normal.summary;
+  const h = sets.hard.summary;
+  const real = sets.real;
+  const rows = Object.values(sets).flatMap((x) => x.rows);
+  const accRows = rows.filter((r) => r.accepted);
+  const acc = accRows.length;
+  const all = rows.length;
+  const within2 = accRows.filter((r) => r.err != null && r.err < 0.02).length;
+  const over5 = accRows.filter((r) => r.err != null && r.err >= 0.05).length;
   const bins = Array.from({ length: 10 }, (_, i) => i * 0.5); // % of span
   const hist = bins.map((b) => rows.filter((r) => r.accepted && r.err != null && r.err * 100 >= b && r.err * 100 < b + 0.5).length);
   const max = Math.max(...hist, 1);
@@ -105,14 +109,14 @@ export function Accuracy() {
     <section className="wrap section" aria-labelledby="acc-h">
       <div className="section-head">
         <h2 id="acc-h" className="h2">Accuracy, measured</h2>
-        <p className="lede">Scored on {all} rendered gauges with known answers that the confidence model never saw: {n.n} ordinary photos and {h.n} deliberately bad ones (up to 50° off-axis, heavy glare and blur). Real phone photos are added on the evidence sheet.</p>
+        <p className="lede">Scored on {all} gauges the confidence model never saw: {n.n} rendered ordinary photos, {h.n} rendered bad ones (up to 50° off-axis, heavy glare and blur){real ? `, and ${real.rows.length} photos of real gauges from Wikimedia Commons, read by eye` : ""}.</p>
       </div>
       <div className={s.accGrid}>
         <dl className={s.big}>
-          <div><dt>Accepted readings off by more than 2% of the scale</dt><dd>{off2} <small>of {acc}</small></dd></div>
-          <div><dt>Median error of accepted readings</dt><dd>{((n.accepted_median_err ?? 0) * 100).toFixed(2)}<small>% of span</small></dd></div>
+          <div><dt>Accepted readings within 2% of the scale</dt><dd>{Math.round((within2 / Math.max(1, acc)) * 1000) / 10}<small>% of {acc}</small></dd></div>
+          <div><dt>Accepted readings off by more than 5%</dt><dd>{over5}</dd></div>
           <div><dt>Ordinary photos accepted first time</dt><dd>{Math.round((n.accepted / n.n) * 100)}<small>%</small></dd></div>
-          <div><dt>Bad photos sent back for a re-shoot</dt><dd>{Math.round((h.reshoot / h.n) * 100)}<small>%</small></dd></div>
+          <div><dt>{real ? "Real photos read within 2%" : "Bad photos sent back for a re-shoot"}</dt><dd>{real ? Math.round((real.summary.within_2pct_all ?? 0) * real.summary.read) : Math.round((h.reshoot / h.n) * 100)}<small>{real ? ` of ${real.summary.n}` : "%"}</small></dd></div>
         </dl>
         <figure className={s.hist}>
           <svg viewBox="0 0 520 260" role="img" aria-label="Histogram of errors of accepted readings">
@@ -125,7 +129,7 @@ export function Accuracy() {
             ))}
             <text x={30} y={258} className={s.axis}>error as % of the scale span (accepted readings)</text>
           </svg>
-          <figcaption className="muted small">{off2 === 0 ? "Every accepted reading lands within 2% of the span; most within half a percent." : `${off2} accepted readings were off by 2% or more.`} The confidence threshold is 90%; below it the agent asks for another photo instead of guessing.</figcaption>
+          <figcaption className="muted small">Errors of every accepted reading, as a share of the scale. The confidence threshold is 90%; below it the agent asks for another photo instead of guessing. {acc - within2} of {acc} accepted readings were off by 2% or more{over5 === 0 ? ", none by more than 5%" : ""}.</figcaption>
         </figure>
       </div>
       <Link className="btn ghost" href="/evidence/">See every chart, the failures and the method</Link>
@@ -158,7 +162,7 @@ export function Architecture() {
         <path d="M1030,195 H1056" className={s.line} markerEnd="url(#aa)" />
       </svg>
       <ul className={s.archNotes}>
-        <li><b>One function, cold start included.</b> OpenCV 5 and both text models ship in the Lambda package; a read takes about 0.3 s of CPU on a laptop.</li>
+        <li><b>One function, cold start included.</b> OpenCV 5 and both text models ship in the Lambda package; reading the printed numbers is most of the time, about two seconds a photo.</li>
         <li><b>Two DNN engines, each where it&apos;s faster.</b> OpenCV 5&apos;s new engine runs the text detector about 4× faster; the classic engine runs the recogniser about 3× faster.</li>
         <li><b>Repeatable.</b> One CloudFormation template creates every resource; one script builds and deploys.</li>
       </ul>

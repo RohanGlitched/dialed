@@ -31,6 +31,7 @@
 .resultHead { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1.5px solid var(--ink); }
 .resultLabel { margin: 0; font: 800 26px var(--cond); }
 .truth { margin: 0; color: var(--ink-2); align-self: center; }
+.credit { flex-basis: 100%; margin: 0; font-size: 13px; color: var(--steel); }
 
 @media (max-width: 900px) {
   .inputs, .reading { grid-template-columns: 1fr; }

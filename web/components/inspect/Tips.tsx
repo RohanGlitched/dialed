@@ -35,7 +35,7 @@ export function Tips() {
           </div>
           <ol className={s.flow}>
             <li><b>On your device</b> the photo is resized to 1600 px on its long side. With the camera guide, OpenCV.js checks framing, tilt, glare and focus live and nothing leaves the phone until you take the shot.</li>
-            <li><b>On AWS Lambda</b> OpenCV 5 reads it: dial, straightening, centre, needle, numbers, fit. That takes about a second.</li>
+            <li><b>On AWS Lambda</b> OpenCV 5 reads it: dial, straightening, centre, needle, numbers, fit. That takes a couple of seconds, most of it reading the printed numbers.</li>
             <li><b>Back to you</b> come the reading, every intermediate image and every measurement. On this page nothing is stored; the photo exists only for that request.</li>
             <li><b>On a round</b> (sheet 03) the photo is kept with the reading as evidence, because a supervisor may need to see what the agent saw before approving a work order.</li>
           </ol>

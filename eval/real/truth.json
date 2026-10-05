@@ -1,0 +1,423 @@
+[
+ {
+  "file": "r03.jpg",
+  "value": 185,
+  "min": 0,
+  "max": 400,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Canadian_Pacific_pressure_gauge_(2800301396).jpg",
+  "author": "RAF-YYC from Calgary, Canada",
+  "license": "CC BY-SA 2.0",
+  "title": "File:Canadian Pacific pressure gauge (2800301396).jpg"
+ },
+ {
+  "file": "r04.jpg",
+  "value": 69,
+  "min": -40,
+  "max": 120,
+  "unit": "°F",
+  "alt": [
+   {
+    "min": -40,
+    "max": 50,
+    "unit": "°C",
+    "value": 20.6
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Conant_Decor_Bronze_Dial_Outdoor_Thermometer.jpg",
+  "author": "Conant",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Conant Decor Bronze Dial Outdoor Thermometer.jpg"
+ },
+ {
+  "file": "r05.jpg",
+  "value": 70,
+  "min": -30,
+  "max": 130,
+  "unit": "°F",
+  "alt": [
+   {
+    "min": -30,
+    "max": 50,
+    "unit": "°C",
+    "value": 21
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Conant_Decor_Satin_Nickel_Large_Dial_Thermometer.jpg",
+  "author": "Conant",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Conant Decor Satin Nickel Large Dial Thermometer.jpg"
+ },
+ {
+  "file": "r06.jpg",
+  "value": 74,
+  "min": 0,
+  "max": 220,
+  "unit": "°F",
+  "alt": [
+   {
+    "min": -10,
+    "max": 100,
+    "unit": "°C",
+    "value": 23.5
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Dial_thermometer.jpg",
+  "author": "Mike Shaw",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Dial thermometer.jpg"
+ },
+ {
+  "file": "r09.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 4000,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 250,
+    "unit": "bar",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Gauge.jpg",
+  "author": "Hey Paul from State College, PA, USA",
+  "license": "CC BY 2.0",
+  "title": "File:Gauge.jpg"
+ },
+ {
+  "file": "r10.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 4,
+  "unit": "MPa",
+  "alt": [
+   {
+    "min": 0,
+    "max": 40,
+    "unit": "bar",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Glycerine-filled_pressure_gauge_up_to_4_MPa.JPG",
+  "author": "Deyan Levski",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Glycerine-filled pressure gauge up to 4 MPa.JPG"
+ },
+ {
+  "file": "r12.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 15,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 1,
+    "unit": "bar",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Hyperbaric_oxygen_cell_testing_pot_pressure_gauge_IMG_20201209_153847.jpg",
+  "author": "Pbsouthwood",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Hyperbaric oxygen cell testing pot pressure gauge IMG 20201209 153847.jpg"
+ },
+ {
+  "file": "r15.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 2500,
+  "unit": "bar",
+  "alt": [
+   {
+    "min": 0,
+    "max": 36000,
+    "unit": "psi",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:MAXIMATOR-High-Pressure-Manometer-01.jpg",
+  "author": "CEphoto, Uwe Aranas",
+  "license": "CC BY-SA 3.0",
+  "title": "File:MAXIMATOR-High-Pressure-Manometer-01.jpg"
+ },
+ {
+  "file": "r18.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 15,
+  "unit": "kg/cm²",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Manometer_104026.jpg",
+  "author": "Nord68",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Manometer 104026.jpg"
+ },
+ {
+  "file": "r20.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 3,
+  "unit": "bar",
+  "alt": [
+   {
+    "min": 0,
+    "max": 40,
+    "unit": "psi",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Man%C3%B3metro_3_psi_1.jpg",
+  "author": "Amfeli",
+  "license": "CC BY 4.0",
+  "title": "File:Manómetro 3 psi 1.jpg"
+ },
+ {
+  "file": "r23.jpg",
+  "value": 0.5,
+  "min": 0.5,
+  "max": 4.5,
+  "unit": "bar",
+  "alt": [
+   {
+    "min": 10,
+    "max": 65,
+    "unit": "psi",
+    "value": 7
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Porsche_Tire_Pressure_Gauge_(9207945919).jpg",
+  "author": "Antti",
+  "license": "CC BY 2.0",
+  "title": "File:Porsche Tire Pressure Gauge (9207945919).jpg"
+ },
+ {
+  "file": "r24.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 300,
+  "unit": "kg/cm²",
+  "alt": [
+   {
+    "min": 0,
+    "max": 4000,
+    "unit": "psi",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Portable_cylinder_pressure_gauge_with_DIN_connector_P8160036.jpg",
+  "author": "Peter Southwood",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Portable cylinder pressure gauge with DIN connector P8160036.jpg"
+ },
+ {
+  "file": "r25.jpg",
+  "value": 110,
+  "min": 0,
+  "max": 300,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 2000,
+    "unit": "kPa",
+    "value": 758
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Pressure_Gauge_at_UCSD.jpg",
+  "author": "Ncysea",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Pressure Gauge at UCSD.jpg"
+ },
+ {
+  "file": "r26.jpg",
+  "value": 22,
+  "min": 0,
+  "max": 60,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 4.2,
+    "unit": "kg/cm²",
+    "value": 1.55
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Pressure_Gauge.jpg",
+  "author": "In Transit",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Pressure Gauge.jpg"
+ },
+ {
+  "file": "r27.jpg",
+  "value": 580,
+  "min": 0,
+  "max": 1000,
+  "unit": "kPa",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_of_air_supply_pipe.jpg",
+  "author": "Fumikas Sagisavas",
+  "license": "CC0",
+  "title": "File:Pressure gauge of air supply pipe.jpg"
+ },
+ {
+  "file": "r28.jpg",
+  "value": 640,
+  "min": 0,
+  "max": 1000,
+  "unit": "kPa",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_of_brake_pipe.jpg",
+  "author": "Fumikas Sagisavas",
+  "license": "CC0",
+  "title": "File:Pressure gauge of brake pipe.jpg"
+ },
+ {
+  "file": "r30.jpg",
+  "value": 800,
+  "min": 0,
+  "max": 4000,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 28000,
+    "unit": "kPa",
+    "value": 5500
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Psidial.jpg",
+  "author": "leapingllamas",
+  "license": "CC BY 2.0",
+  "title": "File:Psidial.jpg"
+ },
+ {
+  "file": "r31.jpg",
+  "value": 62,
+  "min": 0,
+  "max": 270,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Queen_Street_Mill_-_Lancashire_Boilers_Steam_pressure_gauge_5453.JPG",
+  "author": "Clem Rutter, Rochester, Kent.",
+  "license": "CC BY 3.0",
+  "title": "File:Queen Street Mill - Lancashire Boilers Steam pressure gauge 5453.JPG"
+ },
+ {
+  "file": "r33.jpg",
+  "value": 22,
+  "min": -20,
+  "max": 60,
+  "unit": "°C",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Round_dial_thermometer.jpg",
+  "author": "Cjp24",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Round dial thermometer.jpg"
+ },
+ {
+  "file": "r35.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 10,
+  "unit": "bar",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:VDO_engine_oil_pressure_gauge.jpg",
+  "author": "R. Henrik Nilsson",
+  "license": "CC BY 4.0",
+  "title": "File:VDO engine oil pressure gauge.jpg"
+ },
+ {
+  "file": "r36.jpg",
+  "value": 122,
+  "min": 0,
+  "max": 160,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Victoria_Baths_2008_Pressure_(2915056465).jpg",
+  "author": "Pete Birkinshaw from Manchester, UK",
+  "license": "CC BY 2.0",
+  "title": "File:Victoria Baths 2008 Pressure (2915056465).jpg"
+ },
+ {
+  "file": "r37.jpg",
+  "value": 250,
+  "min": 0,
+  "max": 400,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Virginia_V_(ship,_1922)_engine_room_16_-_Babcock_%26_Wilcox_pressure_gauge_on_boiler.jpg",
+  "author": "Joe Mabel",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Virginia V (ship, 1922) engine room 16 - Babcock & Wilcox pressure gauge on boiler.jpg"
+ }
+]

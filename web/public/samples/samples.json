@@ -1,56 +1,138 @@
 [
  {
-  "id": "boiler-feed",
-  "label": "Pump discharge, 16 bar",
-  "src": "/samples/boiler-feed.jpg",
-  "thumb": "/samples/boiler-feed-thumb.jpg",
-  "truth": 8.6,
-  "unit": "bar",
-  "synthetic": true
- },
- {
-  "id": "bearing",
-  "label": "Bearing temperature",
-  "src": "/samples/bearing.jpg",
-  "thumb": "/samples/bearing-thumb.jpg",
-  "truth": 64,
-  "unit": "\u00b0C",
-  "synthetic": true
- },
- {
-  "id": "air-receiver",
-  "label": "Air receiver, steep angle",
-  "src": "/samples/air-receiver.jpg",
-  "thumb": "/samples/air-receiver-thumb.jpg",
-  "truth": 118,
+  "id": "r37",
+  "label": "Boiler gauge, 1922 steamship",
+  "src": "/samples/r37.jpg",
+  "thumb": "/samples/r37-thumb.jpg",
+  "truth": 250,
   "unit": "psi",
-  "synthetic": true
+  "min": 0,
+  "max": 400,
+  "alt": [],
+  "synthetic": false,
+  "credit": {
+   "author": "Joe Mabel",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Virginia_V_(ship,_1922)_engine_room_16_-_Babcock_%26_Wilcox_pressure_gauge_on_boiler.jpg",
+   "title": "File:Virginia V (ship, 1922) engine room 16 - Babcock & Wilcox pressure gauge on boiler.jpg"
+  }
  },
  {
-  "id": "filter",
-  "label": "Filter inlet, with glare",
-  "src": "/samples/filter.jpg",
-  "thumb": "/samples/filter-thumb.jpg",
-  "truth": 6.9,
-  "unit": "bar",
-  "synthetic": true
+  "id": "r05",
+  "label": "Outdoor dial thermometer",
+  "src": "/samples/r05.jpg",
+  "thumb": "/samples/r05-thumb.jpg",
+  "truth": 70,
+  "unit": "°F",
+  "min": -30,
+  "max": 130,
+  "alt": [
+   {
+    "min": -30,
+    "max": 50,
+    "unit": "°C",
+    "value": 21
+   }
+  ],
+  "synthetic": false,
+  "credit": {
+   "author": "Conant",
+   "license": "CC BY-SA 3.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Conant_Decor_Satin_Nickel_Large_Dial_Thermometer.jpg",
+   "title": "File:Conant Decor Satin Nickel Large Dial Thermometer.jpg"
+  }
  },
  {
-  "id": "intake",
-  "label": "Intake header, 6 bar",
-  "src": "/samples/intake.jpg",
-  "thumb": "/samples/intake-thumb.jpg",
-  "truth": 1.9,
-  "unit": "bar",
-  "synthetic": true
+  "id": "r03",
+  "label": "Railway boiler pressure",
+  "src": "/samples/r03.jpg",
+  "thumb": "/samples/r03-thumb.jpg",
+  "truth": 185,
+  "unit": "psi",
+  "min": 0,
+  "max": 400,
+  "alt": [],
+  "synthetic": false,
+  "credit": {
+   "author": "RAF-YYC from Calgary, Canada",
+   "license": "CC BY-SA 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Canadian_Pacific_pressure_gauge_(2800301396).jpg",
+   "title": "File:Canadian Pacific pressure gauge (2800301396).jpg"
+  }
  },
  {
-  "id": "steam",
-  "label": "Steam header, 25 bar",
-  "src": "/samples/steam.jpg",
-  "thumb": "/samples/steam-thumb.jpg",
-  "truth": 14.2,
-  "unit": "bar",
-  "synthetic": true
+  "id": "r30",
+  "label": "Gas regulator gauge",
+  "src": "/samples/r30.jpg",
+  "thumb": "/samples/r30-thumb.jpg",
+  "truth": 800,
+  "unit": "psi",
+  "min": 0,
+  "max": 4000,
+  "alt": [
+   {
+    "min": 0,
+    "max": 28000,
+    "unit": "kPa",
+    "value": 5500
+   }
+  ],
+  "synthetic": false,
+  "credit": {
+   "author": "leapingllamas",
+   "license": "CC BY 2.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Psidial.jpg",
+   "title": "File:Psidial.jpg"
+  }
+ },
+ {
+  "id": "r25",
+  "label": "Fire sprinkler gauge",
+  "src": "/samples/r25.jpg",
+  "thumb": "/samples/r25-thumb.jpg",
+  "truth": 110,
+  "unit": "psi",
+  "min": 0,
+  "max": 300,
+  "alt": [
+   {
+    "min": 0,
+    "max": 2000,
+    "unit": "kPa",
+    "value": 758
+   }
+  ],
+  "synthetic": false,
+  "credit": {
+   "author": "Ncysea",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Pressure_Gauge_at_UCSD.jpg",
+   "title": "File:Pressure Gauge at UCSD.jpg"
+  }
+ },
+ {
+  "id": "r26",
+  "label": "Pressure gauge, two scales",
+  "src": "/samples/r26.jpg",
+  "thumb": "/samples/r26-thumb.jpg",
+  "truth": 22,
+  "unit": "psi",
+  "min": 0,
+  "max": 60,
+  "alt": [
+   {
+    "min": 0,
+    "max": 4.2,
+    "unit": "kg/cm²",
+    "value": 1.55
+   }
+  ],
+  "synthetic": false,
+  "credit": {
+   "author": "In Transit",
+   "license": "CC BY-SA 4.0",
+   "source": "https://commons.wikimedia.org/wiki/File:Pressure_Gauge.jpg",
+   "title": "File:Pressure Gauge.jpg"
+  }
  }
 ]

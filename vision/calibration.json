@@ -1,22 +1,36 @@
 {
  "weights": {
-  "contrast": 3.19442,
-  "disagree": -0.26787,
-  "glare": -0.43189,
-  "glare_needle": -0.79989,
-  "inlier_share": 0.81015,
-  "inliers": 0.66535,
-  "outside": -1.82127,
-  "resid": -0.5795,
-  "sharp": 1.96263,
-  "support": 0.22617,
-  "tick_lines": 0.90082,
-  "ticks": -0.51557,
-  "tilt": -2.21568
+  "contrast": 3.18229,
+  "disagree": -0.06243,
+  "glare": -0.02761,
+  "glare_needle": -0.9397,
+  "inlier_share": 1.19697,
+  "inliers": 0.65841,
+  "outside": -0.62581,
+  "resid": -0.21192,
+  "sharp": -0.18712,
+  "support": -0.29871,
+  "tick_lines": 0.21078,
+  "ticks": -0.23101,
+  "tilt": -1.31974
  },
- "bias": -6.20912,
+ "bias": -3.44172,
  "fitted_on": {
-  "gauges": 592,
-  "within_2pct": 470
+  "gauges": 535,
+  "within_2pct": 467
+ },
+ "on_fit_set": {
+  "0.80": {
+   "accepted": 413,
+   "within_2pct": 0.9782
+  },
+  "0.90": {
+   "accepted": 388,
+   "within_2pct": 0.982
+  },
+  "0.95": {
+   "accepted": 322,
+   "within_2pct": 0.9876
+  }
  }
 }

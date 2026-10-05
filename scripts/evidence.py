@@ -29,15 +29,18 @@ from vision import reader as R  # noqa: E402
 OUT = ROOT / "web" / "public" / "evidence"
 SETS = [("normal", ROOT / "data" / "synth200", "Rendered gauges, up to 35° tilt, some glare and blur"),
         ("hard", ROOT / "data" / "hard100", "Rendered gauges, up to 50° tilt, heavy glare and blur"),
-        ("real", ROOT / "data" / "real", "Phone photos of real gauges, read by eye for the truth")]
+        ("real", ROOT / "eval" / "real", "Photos of real gauges from Wikimedia Commons, read by eye")]
 
 
 def _one(args):
     folder, t = args
     img = cv2.imread(str(Path(folder) / t["file"]))
     r = R.read(img)
-    span = t["max"] - t["min"]
-    err = abs(r.value - t["value"]) / span if r.value is not None else None
+    err = None
+    if r.value is not None:
+        # dual-scale dials: score against whichever printed scale the reader used (the closest)
+        scales = [t] + t.get("alt", [])
+        err = min(abs(r.value - sc["value"]) / (sc["max"] - sc["min"]) for sc in scales)
     return {
         "file": t["file"],
         "truth": t["value"],
@@ -54,7 +57,16 @@ def _one(args):
         "blur": t.get("blur"),
         "issues": [i["code"] for i in r.issues],
         "ms": {k: round(v * 1000, 1) for k, v in r.timings.items()},
+        **({"credit": {"title": t["title"], "author": t["author"], "license": t["license"], "source": t["source"]}} if "source" in t else {}),
     }
+
+
+def _oos(args):
+    folder, t = args
+    r = R.read(cv2.imread(str(Path(folder) / t["file"])))
+    return {"file": t["file"], "why": t["why"], "read": r.value, "ok": r.ok, "conf": r.confidence,
+            "accepted": bool(r.ok and r.value is not None and r.confidence >= ACCEPT_AT), "issues": [i["code"] for i in r.issues],
+            "credit": {"title": t["title"], "author": t["author"], "license": t["license"], "source": t["source"]}}
 
 
 def summary(rows):
@@ -115,9 +127,12 @@ def main():
         with Pool(6) as pool:
             rows = pool.map(_one, [(str(folder), t) for t in truth])
         # thumbnails: worst accepted, worst read, refusals, and a few clean reads
-        picks = sorted([r for r in rows if r["err"] is not None], key=lambda r: -r["err"])[:6]
-        picks += [r for r in rows if r["err"] is None][:4]
-        picks += sorted([r for r in rows if r["accepted"]], key=lambda r: r["err"])[:4]
+        if key == "real":
+            picks = rows  # every real photo is shown, with its credit
+        else:
+            picks = sorted([r for r in rows if r["err"] is not None], key=lambda r: -r["err"])[:6]
+            picks += [r for r in rows if r["err"] is None][:4]
+            picks += sorted([r for r in rows if r["accepted"]], key=lambda r: r["err"])[:4]
         for r in picks:
             img = cv2.imread(str(folder / r["file"]))
             s = 360 / max(img.shape[:2])
@@ -126,6 +141,19 @@ def main():
             r["thumb"] = f"/evidence/img/{name}"
         bundle["sets"][key] = {"label": label, "summary": summary(rows), "rows": rows}
         print(key, json.dumps(bundle["sets"][key]["summary"]))
+    oos_f = ROOT / "eval" / "real" / "out_of_scope.json"
+    if oos_f.exists():
+        items = json.loads(oos_f.read_text(encoding="utf-8"))
+        with Pool(6) as pool:
+            oos = pool.map(_oos, [(str(ROOT / "eval" / "real"), t) for t in items])
+        for r in oos:
+            img = cv2.imread(str(ROOT / "eval" / "real" / r["file"]))
+            s_ = 360 / max(img.shape[:2])
+            name = f"oos-{r['file'].rsplit('.', 1)[0]}.jpg"
+            cv2.imwrite(str(OUT / "img" / name), cv2.resize(img, None, fx=s_, fy=s_, interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 80])
+            r["thumb"] = f"/evidence/img/{name}"
+        bundle["out_of_scope"] = oos
+        print("out of scope: accepted", sum(r["accepted"] for r in oos), "of", len(oos))
     bundle["bench"] = bench()
     bundle["calibration"] = json.loads((ROOT / "vision" / "calibration.json").read_text())
     (OUT / "results.json").write_text(json.dumps(bundle))

@@ -5,20 +5,20 @@
   "text": "Shoot from in front, not from the side. A little angle is fine; the reader straightens up to about 40\u00b0.",
   "bad": {
    "src": "/tips/tilt-bad.jpg",
-   "value": 8.6034,
+   "value": 8.5975,
    "truth": 8.6,
    "ok": false,
-   "confidence": 0.966,
+   "confidence": 0.967,
    "issues": [
     "The dial is turned 62\u00b0 away. Face it more squarely."
    ]
   },
   "good": {
    "src": "/tips/tilt-good.jpg",
-   "value": 8.5963,
+   "value": 8.6113,
    "truth": 8.6,
    "ok": true,
-   "confidence": 0.996,
+   "confidence": 0.998,
    "issues": []
   }
  },
@@ -28,10 +28,10 @@
   "text": "Get close enough that the dial fills most of the photo. Small dials lose their numbers.",
   "bad": {
    "src": "/tips/size-bad.jpg",
-   "value": 8.5992,
+   "value": 8.5963,
    "truth": 8.6,
    "ok": true,
-   "confidence": 0.969,
+   "confidence": 0.996,
    "issues": [
     "The gauge is small in the frame. Move closer.",
     "The photo is a little soft."
@@ -39,10 +39,10 @@
   },
   "good": {
    "src": "/tips/size-good.jpg",
-   "value": 8.5988,
+   "value": 8.6104,
    "truth": 8.6,
    "ok": true,
-   "confidence": 0.996,
+   "confidence": 0.998,
    "issues": []
   }
  },
@@ -52,20 +52,20 @@
   "text": "Glass faces reflect lights. Step sideways until the bright spot moves off the needle and the numbers.",
   "bad": {
    "src": "/tips/glare-bad.jpg",
-   "value": 8.5244,
+   "value": 8.5404,
    "truth": 8.6,
    "ok": true,
-   "confidence": 0.981,
+   "confidence": 0.969,
    "issues": [
     "Glare crosses the needle. Step to the left or tilt the phone."
    ]
   },
   "good": {
    "src": "/tips/glare-good.jpg",
-   "value": 8.5963,
+   "value": 8.6113,
    "truth": 8.6,
    "ok": true,
-   "confidence": 0.996,
+   "confidence": 0.998,
    "issues": []
   }
  },
@@ -86,10 +86,10 @@
   },
   "good": {
    "src": "/tips/blur-good.jpg",
-   "value": 8.5963,
+   "value": 8.6113,
    "truth": 8.6,
    "ok": true,
-   "confidence": 0.996,
+   "confidence": 0.998,
    "issues": []
   }
  }

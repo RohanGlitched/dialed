@@ -60,11 +60,14 @@ export function Hero() {
             <li><b>{Math.round(r.timings.total ?? 0)} ms</b> to read</li>
           </ul>
           <div className={s.hangTag}>
-            LOGGED
-            <span>PI-106 air receiver, inside 90–125 psi</span>
+            READ
+            <span>Boiler steam pressure, steamship Virginia V (1922)</span>
           </div>
         </div>
-        <figcaption className="sr">A photo of a pressure gauge taken at an angle is straightened, its scale unrolled into a ruler, and the needle read.</figcaption>
+        <figcaption className={s.credit}>
+          <span className="sr">A photo of a boiler pressure gauge taken at an angle is straightened, its scale unrolled into a ruler, and the needle read. </span>
+          Photo: <a href="https://commons.wikimedia.org/wiki/File:Virginia_V_(ship,_1922)_engine_room_16_-_Babcock_%26_Wilcox_pressure_gauge_on_boiler.jpg">Joe Mabel</a>, CC BY-SA 4.0, via Wikimedia Commons. Derived images under the same licence.
+        </figcaption>
       </figure>
     </section>
   );

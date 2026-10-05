@@ -3,17 +3,21 @@ import ev from "@/public/evidence/results.json";
 import { REPO_URL } from "@/lib/site";
 import s from "./evidence.module.css";
 
-type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string };
+type Credit = { title: string; author: string; license: string; source: string };
+type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string; credit?: Credit };
+type Oos = { file: string; why: string; read: number | null; ok: boolean; conf: number; accepted: boolean; issues: string[]; thumb?: string; credit: Credit };
 type SetT = { label: string; summary: Record<string, number | null>; rows: Row[] };
 type Scenario = { name: string; gauge: string; expected: string; expected_breach: string | null; outcome: string; breaches: string[]; pass: boolean; engine: string; tools: number; refusals: string[]; message: string };
 
 const sets = ev.sets as unknown as Record<string, SetT>;
+const oos = ((ev as unknown as { out_of_scope?: Oos[] }).out_of_scope ?? []) as Oos[];
 const pct = (v: number | null | undefined, d = 1) => (v == null ? "–" : `${(v * 100).toFixed(d)}%`);
 const OUT: Record<string, string> = { logged: "LOGGED", held: "HOLD", reshoot: "RE-SHOOT", mismatch: "CHECK TAG" };
 
 export function EvidencePage() {
-  const all = Object.values(sets).flatMap((x) => x.rows);
-  const accepted = all.filter((r) => r.accepted);
+  const all = Object.entries(sets).filter(([k]) => k !== "real").flatMap(([, x]) => x.rows);
+  const allWithReal = Object.values(sets).flatMap((x) => x.rows);
+  const accepted = allWithReal.filter((r) => r.accepted);
   const off2 = accepted.filter((r) => (r.err ?? 0) >= 0.02).length;
   return (
     <>
@@ -23,7 +27,7 @@ export function EvidencePage() {
         <p className="lede">How accurate the reader is, how its confidence was calibrated, where it fails, how fast it runs, and whether the agent does what it should. Every figure on this page comes from files in the repository and can be regenerated with one command.</p>
         <dl className={s.top}>
           <div><dt>Accepted readings off by 2% of the span or more</dt><dd>{off2}<small> of {accepted.length}</small></dd></div>
-          <div><dt>Gauges scored</dt><dd>{all.length}</dd></div>
+          <div><dt>Gauges scored</dt><dd>{allWithReal.length}<small>{sets.real ? ` incl. ${sets.real.rows.length} real` : ""}</small></dd></div>
           <div><dt>Agent scenarios passing</dt><dd>{agent.rules.filter((r) => r.pass).length}<small> of {agent.rules.length}</small></dd></div>
           <div><dt>OpenCV</dt><dd>{ev.opencv}</dd></div>
         </dl>
@@ -35,7 +39,7 @@ export function EvidencePage() {
             <p><b>Ground truth.</b> Photos of real gauges don&apos;t come with their true reading, so the main sets are rendered: a generator draws a gauge face (scale, ticks, numbers, needle, red zone, brand text), places it in 3D at a random angle, lights it, adds glare, blur, sensor noise and JPEG compression. The needle&apos;s value is known exactly.</p>
             <p><b>Two sets the model never saw.</b> The confidence model was fitted on 600 other rendered gauges. The normal set allows up to 35° tilt and occasional glare; the hard set allows up to 50°, glare on almost half the photos and heavy blur.</p>
             <p><b>Error</b> is |read − true| as a share of the scale&apos;s span, so 1% on a 0–16 bar gauge is 0.16 bar. A reading is <b>accepted</b> when no photo check blocks it and its confidence is at least {Math.round(ev.accept_at * 100)}%; otherwise the agent asks for a new photo.</p>
-            <p><b>Real photos</b> of gauges, read by eye, are scored the same way when present (<code>data/real</code>).</p>
+            <p><b>Real photos.</b> {sets.real ? `${sets.real.summary.n} photos of real gauges` : "Photos of real gauges"} from Wikimedia Commons (CC0, CC BY and CC BY-SA), each read by eye from the photo for its true value. Where a dial prints two scales, the reading is scored against the scale the reader used. A further {oos.length || "set of"} photos the reader shouldn&apos;t accept (two needles, two gauges in one frame, a gauge too small to read) test whether it declines.</p>
           </div>
           <ul className={s.sampleGrid} aria-label="Examples from the sets">
             {all.filter((r) => r.thumb).slice(0, 9).map((r) => (
@@ -57,7 +61,7 @@ export function EvidencePage() {
             <tbody>
               {Object.entries(sets).map(([k, v]) => (
                 <tr key={k}>
-                  <th scope="row">{k === "normal" ? "Normal" : k === "hard" ? "Hard" : "Real photos"}<span className={s.setLabel}>{v.label}</span></th>
+                  <th scope="row">{k === "normal" ? "Rendered, normal" : k === "hard" ? "Rendered, hard" : "Real photos"}<span className={s.setLabel}>{v.label}</span></th>
                   <td>{v.summary.n}</td>
                   <td>{v.summary.read}</td>
                   <td>{pct(v.summary.within_2pct_all as number)}</td>
@@ -71,6 +75,43 @@ export function EvidencePage() {
           </table>
         </div>
       </Section>
+
+      {sets.real && (
+        <Section id="real" title="Real photos, one by one">
+          <p className={s.intro}>Every real photo in the set: what the reader said, what the gauge shows by eye, and whether the agent would have accepted the reading. Credits are the photographers&apos;; derived images keep the photos&apos; licences.</p>
+          <ul className={s.real}>
+            {sets.real.rows.map((r) => (
+              <li key={r.file}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {r.thumb && <img src={r.thumb} alt={r.credit?.title ?? r.file} loading="lazy" />}
+                <p className={s.failVal}>{r.read == null ? "No reading" : `${r.read.toFixed(r.max - r.min <= 20 ? 2 : r.max - r.min <= 200 ? 1 : 0)}`} <span className={s.vs}>read; by eye {r.truth} {r.unit}</span></p>
+                <p className={s.failMeta}>
+                  {r.err != null ? `${(r.err * 100).toFixed(1)}% of the scale off. ` : ""}
+                  {r.accepted ? <b>Accepted.</b> : r.read == null ? `Refused (${r.issues.join(", ") || "low confidence"}).` : `Sent back, ${Math.round(r.conf * 100)}% confidence.`}
+                </p>
+                {r.credit && <p className={s.credit}><a href={r.credit.source}>{r.credit.author}</a>, {r.credit.license}</p>}
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
+
+      {oos.length > 0 && (
+        <Section id="decline" title="Photos it should decline">
+          <p className={s.intro}>Real photos outside what Dialed reads. The right answer is not to log a number. {oos.filter((r) => r.accepted).length === 0 ? `It accepted none of the ${oos.length}.` : `It accepted ${oos.filter((r) => r.accepted).length} of ${oos.length}; those are listed first.`}</p>
+          <ul className={s.real}>
+            {[...oos].sort((a, b) => Number(b.accepted) - Number(a.accepted)).map((r) => (
+              <li key={r.file}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {r.thumb && <img src={r.thumb} alt={r.credit.title} loading="lazy" />}
+                <p className={s.failVal}>{r.why}</p>
+                <p className={s.failMeta}>{r.accepted ? <b>Accepted (wrongly).</b> : r.read == null ? `Refused (${r.issues.join(", ") || "no dial"}).` : `Not accepted, ${Math.round(r.conf * 100)}% confidence.`}</p>
+                <p className={s.credit}><a href={r.credit.source}>{r.credit.author}</a>, {r.credit.license}</p>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      )}
 
       <Section id="charts" title="Where errors come from">
         <div className={s.charts}>

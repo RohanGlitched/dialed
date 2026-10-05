@@ -7,7 +7,9 @@ import { InspectView } from "./InspectView";
 import s from "./reader.module.css";
 
 type Sample = (typeof samples)[number];
-type State = { kind: "idle" } | { kind: "reading"; preview: string; label: string } | { kind: "done"; ins: Inspect; label: string; truth?: { value: number; unit: string } } | { kind: "error"; message: string };
+type Truth = { value: number; unit: string; min?: number; max?: number; alt?: { value: number; unit: string; min: number; max: number }[] };
+type Credit = { author: string; license: string; source: string; title: string };
+type State = { kind: "idle" } | { kind: "reading"; preview: string; label: string } | { kind: "done"; ins: Inspect; label: string; truth?: Truth; credit?: Credit } | { kind: "error"; message: string };
 
 const STEPS = ["Uploading", "Finding the dial", "Straightening", "Reading the numbers", "Fitting the scale"];
 
@@ -26,11 +28,11 @@ export function Reader({ compact = false, onCamera, incoming }: { compact?: bool
     return () => clearInterval(t);
   }, [st.kind]);
 
-  const read = useCallback(async (photo: string, label: string, truth?: { value: number; unit: string }) => {
+  const read = useCallback(async (photo: string, label: string, truth?: Truth, credit?: Credit) => {
     setSt({ kind: "reading", preview: photo, label });
     try {
       const ins = await post<Inspect>("/api/read", { photo });
-      setSt({ kind: "done", ins, label, truth });
+      setSt({ kind: "done", ins, label, truth, credit });
       requestAnimationFrame(() => result.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
     } catch (e) {
       setSt({ kind: "error", message: e instanceof ApiError ? e.message : "Reading failed. Try another photo." });
@@ -56,7 +58,8 @@ export function Reader({ compact = false, onCamera, incoming }: { compact?: bool
 
   const onSample = async (x: Sample) => {
     const blob = await (await fetch(x.src)).blob();
-    read(await shrink(blob), x.label, { value: x.truth, unit: x.unit });
+    const y = x as typeof x & { min?: number; max?: number; alt?: Truth["alt"]; credit?: Credit };
+    read(await shrink(blob), x.label, { value: x.truth, unit: x.unit, min: y.min, max: y.max, alt: y.alt }, y.credit);
   };
 
   return (
@@ -101,7 +104,7 @@ export function Reader({ compact = false, onCamera, incoming }: { compact?: bool
               </li>
             ))}
           </ul>
-          <p className={s.note}>Samples are rendered test gauges with known answers. Your photo is read and discarded; nothing is stored.</p>
+          <p className={s.note}>Samples are real photos from Wikimedia Commons, read by eye for the known answer; credits appear with each result. Your own photo is read and discarded; nothing is stored.</p>
         </div>
       </div>
 
@@ -127,9 +130,10 @@ export function Reader({ compact = false, onCamera, incoming }: { compact?: bool
           <>
             <div className={s.resultHead}>
               <p className={s.resultLabel}>Read: {st.label}</p>
-              {st.truth && st.ins.reading.value != null && (
-                <p className={s.truth}>
-                  Known answer {st.truth.value} {st.truth.unit}; off by {Math.abs(st.ins.reading.value - st.truth.value).toFixed(2)} {st.truth.unit}
+              {st.truth && st.ins.reading.value != null && <TruthLine truth={st.truth} value={st.ins.reading.value} />}
+              {st.credit && (
+                <p className={s.credit}>
+                  Photo: <a href={st.credit.source}>{st.credit.author}</a>, {st.credit.license}, via Wikimedia Commons
                 </p>
               )}
             </div>
@@ -138,5 +142,17 @@ export function Reader({ compact = false, onCamera, incoming }: { compact?: bool
         )}
       </div>
     </div>
+  );
+}
+
+/** Read by eye vs read by the reader; on two-scale dials, against the scale the reader used. */
+function TruthLine({ truth, value }: { truth: Truth; value: number }) {
+  const scales = [{ value: truth.value, unit: truth.unit, min: truth.min ?? 0, max: truth.max ?? 1 }, ...(truth.alt ?? [])];
+  const best = scales.reduce((a, b) => (Math.abs(value - b.value) / ((b.max - b.min) || 1) < Math.abs(value - a.value) / ((a.max - a.min) || 1) ? b : a));
+  return (
+    <p className={s.truth}>
+      Read by eye: {best.value} {best.unit}. Off by {Math.abs(value - best.value).toFixed(2)} {best.unit}
+      {best.max !== best.min ? `, ${((Math.abs(value - best.value) / (best.max - best.min)) * 100).toFixed(1)}% of the scale` : ""}
+    </p>
   );
 }

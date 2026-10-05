@@ -24,6 +24,7 @@ import numpy as np
 
 MODELS = Path(__file__).resolve().parent.parent / "models"
 DIAL = 640  # straightened dial image size
+TEXT_DIAL = 960  # the copy the numbers are read from
 RAD = 280  # dial edge radius in the straightened image
 ANG_BINS = 1440  # quarter-degree polar resolution
 VOCAB = list("0123456789abcdefghijklmnopqrstuvwxyz")
@@ -138,7 +139,7 @@ def find_dial(img: np.ndarray, trace: dict | None = None):
             continue
         s = _support(thick, e)
         score = s * math.sqrt(major / max(H, W)) * (0.6 + 0.4 * minor / major)
-        if trace is not None and s > 0.2:
+        if s > 0.2:
             cands.append((score, e))
         if score > best_score:
             best, best_score = e, score
@@ -154,6 +155,13 @@ def find_dial(img: np.ndarray, trace: dict | None = None):
         trace["candidates"] = [{"ellipse": [e[0][0], e[0][1], e[1][0], e[1][1], e[2]], "score": round(sc, 4)} for sc, e in keep]
     if best is None:
         return None, 0.0
+    # another strong dial elsewhere in the photo (not a concentric rim of this one)
+    (bx, by), (bw_, bh_), _ = best
+    rb = max(bw_, bh_) / 2
+    find_dial.others = [
+        e for sc, e in cands
+        if sc > 0.55 * best_score and max(e[1]) / 2 > 0.45 * rb and math.hypot(e[0][0] - bx, e[0][1] - by) > 0.8 * (rb + max(e[1]) / 2)
+    ]
     return best, _support(thick, best)
 
 
@@ -197,7 +205,11 @@ def ink_map(dial: np.ndarray) -> tuple[np.ndarray, bool]:
     yy, xx = np.mgrid[0:DIAL, 0:DIAL]
     rr = np.hypot(xx - DIAL / 2, yy - DIAL / 2)
     ring = (rr > 0.3 * RAD) & (rr < 0.6 * RAD)
-    light = float(np.median(L[ring])) >= 110
+    # strokes are the minority pixels: if the darkest ones sit further from the face than the brightest,
+    # the print is dark on a lighter face (also true of under-exposed photos of white dials)
+    vals = L[ring]
+    med = float(np.median(vals))
+    light = (med - float(np.percentile(vals, 2))) >= (float(np.percentile(vals, 98)) - med)
     k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(RAD * 0.11) | 1,) * 2)
     lum = cv2.morphologyEx(L, cv2.MORPH_BLACKHAT if light else cv2.MORPH_TOPHAT, k)
     # coloured needles (red, orange) on either face
@@ -210,26 +222,133 @@ def ink_map(dial: np.ndarray) -> tuple[np.ndarray, bool]:
 
 # ---------- 4. needle ----------
 
+def _reach(polar_ink: np.ndarray, row: int, rstep: float, ring_r: float) -> float:
+    """How far out (as a share of the tick ring radius) a stroke at this angle runs without a break."""
+    rows = [(row + k) % ANG_BINS for k in range(-3, 4)]
+    prof = polar_ink[rows].astype(np.float32).max(axis=0)
+    r0 = int(0.2 * ring_r / rstep)
+    top = float(prof[r0: int(0.6 * ring_r / rstep)].max()) if prof.size > r0 else 0.0
+    thr = max(25.0, 0.35 * top)
+    gap, r = 0, r0
+    while r < len(prof) - 1 and r * rstep < 1.08 * ring_r:
+        gap = gap + 1 if prof[r] < thr else 0
+        if gap * rstep > 0.035 * ring_r:
+            break
+        r += 1
+    return (r - gap) * rstep / ring_r
+
+
 def find_needle(polar_ink: np.ndarray, rstep: float, ring_r: float):
+    """The needle is the stroke that runs from the hub out toward the ticks.
+    Counterweight tails can be just as dark near the hub, so among the strongest candidates
+    the one that reaches furthest out is the pointer."""
     r0, r1 = int(0.22 * ring_r / rstep), int(0.62 * ring_r / rstep)
     band = polar_ink[:, r0:r1].astype(np.float32)
     score = np.percentile(band, 40, axis=1)
-    score = cv2.GaussianBlur(score.reshape(-1, 1), (1, 9), 0).ravel()
-    # circular smoothing at the wrap
-    i = int(np.argmax(score))
+    wrapped = np.concatenate([score[-8:], score, score[:8]])
+    score = cv2.GaussianBlur(wrapped.reshape(-1, 1), (1, 9), 0).ravel()[8:-8]
+    peak_all = float(score.max())
+    # candidate peaks at least 12 degrees apart
+    order = np.argsort(-score)
+    sep = int(12 * ANG_BINS / 360)
+    cands: list[int] = []
+    for i in order:
+        if score[i] < 0.35 * peak_all or len(cands) == 4:
+            break
+        if all(min(abs(i - j), ANG_BINS - abs(i - j)) > sep for j in cands):
+            cands.append(int(i))
+    reach = {i: _reach(polar_ink, i, rstep, ring_r) for i in cands}
+    # longest stroke wins; strength only breaks near-ties
+    i = max(cands, key=lambda k: (round(reach[k], 1), score[k]))
     peak = float(score[i])
-    # second-best peak at least 8 degrees away
-    far = np.ones_like(score, bool)
-    w = int(8 * ANG_BINS / 360)
-    idx = (np.arange(i - w, i + w + 1)) % ANG_BINS
-    far[idx] = False
-    second = float(score[far].max()) if far.any() else 0.0
-    # sub-bin refinement
+    others = [float(score[k]) for k in cands if k != i and reach[k] >= reach[i] - 0.15]
+    second = max(others) if others else float(np.percentile(score, 90))
     a, b, c = score[(i - 1) % ANG_BINS], score[i], score[(i + 1) % ANG_BINS]
     den = a - 2 * b + c
     off = 0.5 * (a - c) / den if abs(den) > 1e-6 else 0.0
-    # tip vs tail: tip is the side whose ink reaches further out
+    find_needle.last = {"candidates": [{"deg": row_to_deg(k), "score": float(score[k]), "reach": reach[k]} for k in cands]}
     return row_to_deg(i + off), peak, second, score
+
+
+def needle_line(ink: np.ndarray, gray: np.ndarray, center, ring_r: float):
+    """The needle as a straight line through the pivot.
+
+    Line segments (probabilistic Hough on the thin-stroke map) that pass close to the estimated centre
+    and are long enough to be a needle are grouped by direction; the strongest group is the needle
+    (pointer and tail together). The pivot is the hub circle on that line if one is visible
+    (Hough circles), otherwise the point on the line nearest the estimated centre. The tip is the end
+    that runs further from the pivot: pointers are longer than their counterweight tails.
+    Returns (pivot (x, y), tip angle in degrees, details) or None."""
+    _, bw = cv2.threshold(ink, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    yy, xx = np.mgrid[0:DIAL, 0:DIAL]
+    bw[np.hypot(xx - center[0], yy - center[1]) > 0.98 * ring_r] = 0
+    segs = cv2.HoughLinesP(bw, 1, np.pi / 720, threshold=40, minLineLength=int(0.22 * ring_r), maxLineGap=int(0.04 * ring_r))
+    if segs is None:
+        return None
+    c = np.array(center, float)
+    groups: list[dict] = []
+    for x1, y1, x2, y2 in segs.reshape(-1, 4):  # OpenCV 5 returns (N, 4); 4.x returned (N, 1, 4)
+        p, q = np.array([x1, y1], float), np.array([x2, y2], float)
+        d = q - p
+        L = float(np.hypot(*d))
+        u = d / L
+        n = np.array([-u[1], u[0]])
+        dist = abs(float((c - p) @ n))
+        if dist > 0.22 * ring_r:
+            continue
+        ang = math.degrees(math.atan2(u[1], u[0])) % 180
+        for g in groups:
+            if min(abs(g["ang"] - ang), 180 - abs(g["ang"] - ang)) < 3 and abs(float((p - g["p"]) @ g["n"])) < 0.03 * ring_r:
+                g["len"] += L
+                g["pts"] += [p, q]
+                break
+        else:
+            groups.append({"ang": ang, "p": p, "u": u, "n": n, "len": L, "dist": dist, "pts": [p, q]})
+    if not groups:
+        return None
+    g = max(groups, key=lambda g: g["len"] - 0.5 * g["dist"])
+    p, u, n = g["p"], g["u"], g["n"]
+    foot = p + ((c - p) @ u) * u  # point on the line nearest the estimated centre
+    pivot = foot
+    # a hub: a small circle on the needle line near the centre
+    hub = None
+    x0, y0 = int(max(0, foot[0] - 0.35 * ring_r)), int(max(0, foot[1] - 0.35 * ring_r))
+    x1, y1 = int(min(DIAL, foot[0] + 0.35 * ring_r)), int(min(DIAL, foot[1] + 0.35 * ring_r))
+    roi = cv2.GaussianBlur(gray[y0:y1, x0:x1], (5, 5), 1.5)
+    circles = cv2.HoughCircles(roi, cv2.HOUGH_GRADIENT, dp=1.2, minDist=8, param1=90, param2=18,
+                               minRadius=max(3, int(0.025 * ring_r)), maxRadius=int(0.13 * ring_r))
+    if circles is not None:
+        # circles come strongest first; the first one sitting on the needle line near the centre is the hub
+        for cx, cy, cr in circles.reshape(-1, 3):
+            q = np.array([cx + x0, cy + y0], float)
+            off_line = abs(float((q - p) @ n))
+            off_c = float(np.hypot(*(q - foot)))
+            if off_line < max(4.0, 0.035 * ring_r) and off_c < 0.2 * ring_r:
+                hub = (q, float(cr))
+                pivot = p + ((q - p) @ u) * u
+                break
+    # how far the needle's own segments run each way from the pivot: text and ticks along the same
+    # direction don't count, only collinear Hough segments do
+    # walk outward from the pivot along the merged segment intervals; a gap wider than ~6% of the
+    # radius ends the stroke (so ticks or print further out along the same line don't count)
+    spans = sorted(tuple(sorted((float((a - pivot) @ u), float((b - pivot) @ u)))) for a, b in zip(g["pts"][::2], g["pts"][1::2]))
+    ext = {}
+    for sgn in (1, -1):
+        iv = sorted(((lo * sgn, hi * sgn) if sgn > 0 else (-hi, -lo)) for lo, hi in spans)
+        reach = 0.0
+        for lo, hi in iv:
+            if hi <= reach:
+                continue
+            if lo > reach + 0.06 * ring_r:
+                break
+            reach = hi
+        ext[sgn] = reach
+    sgn = 1 if ext[1] >= ext[-1] else -1
+    d = sgn * u
+    deg = math.degrees(math.atan2(d[0], -d[1]))
+    info = {"pivot": [float(pivot[0]), float(pivot[1])], "hub": [float(hub[0][0]), float(hub[0][1]), hub[1]] if hub else None,
+            "tip_len": ext[sgn] / ring_r, "tail_len": ext[-sgn] / ring_r, "line_len": g["len"] / ring_r}
+    return (float(pivot[0]), float(pivot[1])), deg, info
 
 
 # ---------- 5. ticks ----------
@@ -344,34 +463,89 @@ _fix = str.maketrans({"o": "0", "q": "0", "d": "0", "l": "1", "i": "1", "t": "1"
 UNITS = {"bar": "bar", "psi": "psi", "kpa": "kPa", "mpa": "MPa", "c": "°C", "f": "°F", "kgcm2": "kg/cm²", "inhg": "inHg"}
 
 
-def read_text(dial: np.ndarray, center=(DIAL / 2, DIAL / 2)):
-    det, rec = _models()
+_rec_net = None
+
+
+def _recognise(gray: np.ndarray) -> tuple[str, float]:
+    """CRNN on one 100 x 32 crop, decoded here (greedy CTC) so each read comes with a confidence:
+    the mean of the per-character probabilities."""
+    global _rec_net
+    if _rec_net is None:
+        _rec_net = cv2.dnn.readNetFromONNX(str(MODELS / "text_recognition_CRNN_EN_2021sep.onnx"), REC_ENGINE)
+    blob = cv2.dnn.blobFromImage(gray, 1 / 127.5, (100, 32), 127.5)
+    _rec_net.setInput(blob)
+    out = _rec_net.forward().reshape(-1, len(VOCAB) + 1)
+    e = np.exp(out - out.max(axis=1, keepdims=True))
+    prob = e / e.sum(axis=1, keepdims=True)
+    idx = prob.argmax(axis=1)
+    text, ps, prev = [], [], 0
+    for t, k in enumerate(idx):
+        if k != 0 and k != prev:
+            text.append(VOCAB[k - 1])
+            ps.append(prob[t, k])
+        prev = k
+    return "".join(text), float(np.mean(ps)) if ps else 0.0
+
+
+def read_text(dial: np.ndarray, center=(DIAL / 2, DIAL / 2), detect_on: np.ndarray | None = None):
+    """PP-OCRv3 finds text boxes; each box is cut out along its own angle and read by CRNN in four
+    orientations (numbers on gauges may be upright, radial or upside down); the most confident read wins."""
+    det, _ = _models()
     gray = cv2.cvtColor(dial, cv2.COLOR_BGR2GRAY)
-    boxes, confs = det.detect(dial)
+    # find text on the smaller image (fast), cut it out of the sharper one
+    src = dial if detect_on is None else detect_on
+    det.setInputSize((src.shape[1], src.shape[0]))
+    boxes, _confs = det.detect(src)
+    up = dial.shape[0] / src.shape[0]
     found = []
-    for box in boxes:
-        q = np.array(box, np.float32)
-        # crop axis-aligned (numbers on gauges are upright), with a margin
+    # strongest detections first, at most 36 of them
+    order = np.argsort(-np.asarray(_confs, np.float32).ravel())[:36] if len(boxes) else []
+    for bi in order:
+        q = np.array(boxes[bi], np.float32).reshape(4, 2) * up
+        (rcx, rcy), (rw, rh), ra = cv2.minAreaRect(q)
+        long_, short = max(rw, rh), min(rw, rh)
+        if short < 6 or long_ < 8 or long_ > 0.45 * dial.shape[0] or long_ > 5 * short:
+            continue  # specks, and lines of print too long to be a scale number (brand names, legends)
+        # cut the box out upright with a margin, long side horizontal
+        if rw < rh:
+            rw, rh, ra = rh, rw, ra + 90
+        mw, mh = rw * 1.12 + 4, rh * 1.3 + 4
+        M = cv2.getRotationMatrix2D((rcx, rcy), ra, 1.0)
+        M[:, 2] += (mw / 2 - rcx, mh / 2 - rcy)
+        crop = cv2.warpAffine(gray, M, (int(mw), int(mh)), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+        if np.median(crop) < 110:
+            crop = 255 - crop  # light print on a dark face
+        best = ("", 0.0)
+        # the box's long side is already horizontal, so text is upright or upside down; only a nearly
+        # square box (one or two digits) can also be sideways; the most confident read wins.
+        rots = [None, cv2.ROTATE_180] + ([cv2.ROTATE_90_CLOCKWISE, cv2.ROTATE_90_COUNTERCLOCKWISE] if rw < 1.3 * rh else [])
+
+        for rot in rots:
+            c = crop if rot is None else cv2.rotate(crop, rot)
+            t, p = _recognise(c)
+            if p > best[1]:
+                best = (t, p)
+
         x0, y0 = q.min(0)
         x1, y1 = q.max(0)
-        w, h = x1 - x0, y1 - y0
-        if w < 6 or h < 6:
-            continue
-        mx, my = 0.12 * w + 2, 0.15 * h + 2
-        X0, Y0 = int(max(0, x0 - mx)), int(max(0, y0 - my))
-        X1, Y1 = int(min(DIAL, x1 + mx)), int(min(DIAL, y1 + my))
-        crop = gray[Y0:Y1, X0:X1]
-        if crop.size == 0:
-            continue
-        # dark text on light works best; flip light-on-dark
-        if np.median(crop) < 110:
-            crop = 255 - crop
-        text = rec.recognize(crop)
-        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
-        r = math.hypot(cx - center[0], cy - center[1])
-        deg = math.degrees(math.atan2(cx - center[0], -(cy - center[1])))
-        found.append({"text": text, "box": [round(float(x0)), round(float(y0)), round(float(x1)), round(float(y1))], "deg": deg, "r": r})
+        r = math.hypot(rcx - center[0], rcy - center[1])
+        deg = math.degrees(math.atan2(rcx - center[0], -(rcy - center[1])))
+        found.append({"text": best[0], "conf": round(best[1], 3), "box": [round(float(x0)), round(float(y0)), round(float(x1)), round(float(y1))], "deg": deg, "r": r})
     return found
+
+
+def _readings(fixed: str) -> list[tuple[float, float]]:
+    """Possible values of a printed number, with a small cost for each reinterpretation.
+    The text model has no "." "," or "-", so "05" or "15" may be 0.5 or 1.5 and "20" may be -20."""
+    v = float(fixed)
+    opts = []
+    if len(fixed) > 1 and fixed.startswith("0"):
+        opts.append((v / 10 ** (len(fixed) - 1), 0.0))  # "05" is never five: a lost decimal point
+    else:
+        opts.append((v, 0.0))
+        if len(fixed) in (2, 3) and fixed[-1] == "5":
+            opts.append((v / 10, 0.35))  # "15", "25", "125": maybe 1.5, 2.5, 12.5
+    return opts
 
 
 def numbers_from(found):
@@ -383,8 +557,14 @@ def numbers_from(found):
             unit = UNITS[key]
             continue
         fixed = t.translate(_fix)
-        if _num.match(fixed) and len(fixed) <= 4 and f["r"] > 0.35 * RAD:
-            nums.append({**f, "value": float(fixed)})
+        digits = sum(ch.isdigit() for ch in t)
+        # a number needs real digits: letters may stand in for at most one of them ("1o" -> 10), never all
+        if f.get("conf", 1.0) < 0.55 or digits == 0 or digits < len(t) - 1:
+            fixed = None
+        if not fixed:
+            continue
+        if _num.match(fixed) and len(fixed) <= 4 and f["r"] > 0.3 * RAD:
+            nums.append({**f, "value": float(fixed), "options": _readings(fixed)})
     return nums, unit
 
 
@@ -396,40 +576,77 @@ def _unwrap_deg(d, ref):
     return x
 
 
-def fit_scale(nums, gap_deg: float):
-    """value = f(angle). Angles measured clockwise from the scale gap.
-    Returns (predict(deg)->value, inliers, residual, step)."""
-    if len(nums) < 2:
-        return None, [], None
-    pts = sorted([(_unwrap_deg(n["deg"], gap_deg), n["value"], n) for n in nums], key=lambda p: p[0])
-    seen = {}
-    for k, (a, v, n) in enumerate(pts):
+def _rings(nums: list[dict]) -> list[list[dict]]:
+    """Group numbers by distance from the centre: two printed scales sit on two rings."""
+    if not nums:
+        return []
+    srt = sorted(nums, key=lambda n: n["r"])
+    rings, cur = [], [srt[0]]
+    for n in srt[1:]:
+        if n["r"] - cur[-1]["r"] > 0.07 * RAD:
+            rings.append(cur)
+            cur = [n]
+        else:
+            cur.append(n)
+    rings.append(cur)
+    return rings
+
+
+def _ransac(ring: list[dict], gap_deg: float):
+    pts = sorted([(_unwrap_deg(n["deg"], gap_deg), n) for n in ring], key=lambda t: t[0])
+    # a number printed twice on one ring (thermometers: -20 ... 20) lost its minus sign on the first copy
+    seen: dict[float, int] = {}
+    for k, (a, n) in enumerate(pts):
+        v = n["value"]
         if v > 0 and v in seen and a - pts[seen[v]][0] > 15:
-            a0, v0, n0 = pts[seen[v]]
-            pts[seen[v]] = (a0, -v0, {**n0, "value": -v0, "sign_fixed": True})
+            a0, n0 = pts[seen[v]]
+            pts[seen[v]] = (a0, {**n0, "options": n0["options"] + [(-o, c + 0.3) for o, c in n0["options"]]})
         seen.setdefault(v, k)
-    best, best_in = None, []
+    best = None  # (score, m, c, inliers)
     for i in range(len(pts)):
         for j in range(i + 1, len(pts)):
-            (a1, v1, _), (a2, v2, _) = pts[i], pts[j]
-            if abs(a2 - a1) < 8 or v1 == v2:
+            (a1, n1), (a2, n2) = pts[i], pts[j]
+            if abs(a2 - a1) < 8:
                 continue
-            m = (v2 - v1) / (a2 - a1)
-            if m <= 0:
-                continue  # values rise clockwise on every gauge we support
-            span = abs(m) * 300
-            tol = 0.03 * span + 1e-9
-            inl = []
-            for a, v, n in pts:
-                pv = v1 + m * (a - a1)
-                if abs(pv - v) < tol:
-                    inl.append((a, v, n))
-                elif abs(pv + v) < tol and v > 0:
-                    inl.append((a, -v, {**n, "value": -v, "sign_fixed": True}))  # lost minus sign
-            if len(inl) > len(best_in):
-                best, best_in = (m, v1 - m * a1), inl
-    if best is None or len(best_in) < 2:
+            for v1, c1 in n1["options"]:
+                for v2, c2 in n2["options"]:
+                    if v1 == v2:
+                        continue
+                    m = (v2 - v1) / (a2 - a1)
+                    if m <= 0:
+                        continue  # values rise clockwise on every gauge we support
+                    tol = 0.03 * m * 300
+                    inl, cost = [], 0.0
+                    for a, n in pts:
+                        pv = v1 + m * (a - a1)
+                        fit = [(abs(pv - v), cc, v) for v, cc in n["options"] if abs(pv - v) < tol]
+                        if fit:
+                            _, cc, v = min(fit, key=lambda f: (f[1], f[0]))
+                            inl.append((a, v, {**n, "value": v}))
+                            cost += cc
+                    score = len(inl) - cost
+                    if len(inl) >= 2 and (best is None or score > best[0]):
+                        best = (score, inl)
+    return best
+
+
+def fit_scale(nums, gap_deg: float):
+    """value = f(angle), angles measured clockwise from the scale gap.
+    Each ring of numbers is fitted on its own (dual-scale dials), RANSAC over every reading of every
+    number; the ring with the most consistent numbers wins (outer ring on a tie).
+    Returns (predict(deg)->value, inliers, residual)."""
+    if len(nums) < 2:
         return None, [], None
+    best = None
+    for ring in _rings(nums):
+        if len(ring) < 2:
+            continue
+        got = _ransac(ring, gap_deg)
+        if got and (best is None or (got[0], np.mean([n["r"] for n in ring])) > (best[0], best[2])):
+            best = (got[0], got[1], float(np.mean([n["r"] for n in ring])))
+    if best is None:
+        return None, [], None
+    best_in = best[1]
     A = np.array([[a, 1] for a, _, _ in best_in])
     y = np.array([v for _, v, _ in best_in])
     (m, c), *_ = np.linalg.lstsq(A, y, rcond=None)
@@ -445,7 +662,7 @@ def fit_scale(nums, gap_deg: float):
         return float(m * a + c)
 
     predict.linear = lambda deg: float(m * _unwrap_deg(deg, gap_deg) + c)
-    predict.n_candidates = len(pts)
+    predict.n_candidates = len(nums)
     return predict, [n for _, _, n in order], resid
 
 
@@ -583,20 +800,45 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
         ring, ticks = find_ticks(polar, rstep)
     ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
     needle_deg, peak, second, nscore = find_needle(polar, rstep, ring_r)
+    # the needle line fixes the pivot (and with it every angle) and says which end is the tip
+    gray_d = cv2.cvtColor(dial, cv2.COLOR_BGR2GRAY)
+    tries = [needle_line(ink, gray_d, c, ring_r) for c in (center, (DIAL / 2, DIAL / 2))]
+    tries = [t for t in tries if t is not None and math.hypot(t[0][0] - center[0], t[0][1] - center[1]) < 0.3 * RAD]
+    nl = max(tries, key=lambda t: t[2]["line_len"] + 0.5 * t[2]["tip_len"]) if tries else None
+    needle_info = None
+    if nl is not None:
+        pivot, line_deg, needle_info = nl
+        if needle_info["tip_len"] > 0.45:
+            center = pivot
+            polar, rstep = unwrap(ink, center)
+            ring, ticks = find_ticks(polar, rstep)
+            ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
+            _, peak, second, nscore = find_needle(polar, rstep, ring_r)
+            needle_deg = line_deg
     tm["geometry"] = time.perf_counter() - t0 - tm["dial"]
     t1 = time.perf_counter()
-    found = read_text(dial, center)
+    # numbers are read from a sharper straightened copy taken from the full-resolution photo
+    k = TEXT_DIAL / DIAL
+    A = np.vstack([M, [0, 0, 1]]) @ np.diag([f, f, 1.0]) if f < 1 else np.vstack([M, [0, 0, 1]])
+    M_hi = (np.diag([k, k, 1.0]) @ A)[:2].astype(np.float32)
+    dial_hi = cv2.warpAffine(img, M_hi, (TEXT_DIAL, TEXT_DIAL), flags=cv2.INTER_AREA if k * f < 1 else cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+    found = read_text(dial_hi, (center[0] * k, center[1] * k))
+    for t in found:
+        t["box"] = [round(v / k) for v in t["box"]]
+        t["r"] /= k
     nums, unit = numbers_from(found)
     tm["text"] = time.perf_counter() - t1
     gap = scale_gap(ticks)
     predict, inliers, resid = fit_scale(nums, gap)
 
     issues, tilt, sharp, glare_frac, glare_needle = photo_checks(small, e, dial, needle_deg, ring, center)
+    if getattr(find_dial, "others", None):
+        issues.append({"code": "multiple", "level": "block", "text": "There's more than one gauge in the photo. Photograph one gauge at a time."})
     ellipse = [round(e[0][0] / f, 1), round(e[0][1] / f, 1), round(e[1][0] / f, 1), round(e[1][1] / f, 1), round(e[2], 1)]
     rd = Reading(False, needle_angle=round(needle_deg, 2), ellipse=ellipse, tilt=round(tilt, 1), issues=issues, timings=tm, dial=dial,
                  numbers=[{"value": n["value"], "deg": round(n["deg"], 1), "box": n["box"]} for n in inliers])
     if keep_debug:
-        rd.debug = {"predict": predict, "nums": nums, "unit_read": unit, "tick_lines_geo": getattr(tick_center, "last", []), "polar": polar, "rstep": rstep, "light": light, "center": center, "tick_lines": n_lines, "ink": ink, "ticks": ticks, "found": found, "gap": gap, "ring": ring, "needle_score": nscore, "peak": peak, "second": second, "M": M, "f": f}
+        rd.debug = {"needle_line": needle_info, "predict": predict, "nums": nums, "unit_read": unit, "tick_lines_geo": getattr(tick_center, "last", []), "polar": polar, "rstep": rstep, "light": light, "center": center, "tick_lines": n_lines, "ink": ink, "ticks": ticks, "found": found, "gap": gap, "ring": ring, "needle_score": nscore, "peak": peak, "second": second, "M": M, "f": f}
 
     if predict is None or (scale and scale.prefer and scale.start is not None and scale.sweep):
         if scale and scale.start is not None and scale.sweep:

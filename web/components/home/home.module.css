@@ -29,6 +29,8 @@
   transform: rotate(-3deg); clip-path: polygon(14px 0, 100% 0, 100% 100%, 14px 100%, 0 50%);
 }
 .hangTag::before { content: ""; position: absolute; left: 15px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; border: 2px solid var(--ink); }
+.credit { margin-top: 18px; font-size: 12px; color: var(--steel); }
+.credit a { color: var(--ink-2); }
 .hangTag span { display: block; font: 600 12px var(--text); letter-spacing: 0; color: var(--ink-2); }
 
 @media (max-width: 1000px) {
