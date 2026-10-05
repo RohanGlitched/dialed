@@ -1,0 +1,56 @@
+[
+ {
+  "id": "boiler-feed",
+  "label": "Pump discharge, 16 bar",
+  "src": "/samples/boiler-feed.jpg",
+  "thumb": "/samples/boiler-feed-thumb.jpg",
+  "truth": 8.6,
+  "unit": "bar",
+  "synthetic": true
+ },
+ {
+  "id": "bearing",
+  "label": "Bearing temperature",
+  "src": "/samples/bearing.jpg",
+  "thumb": "/samples/bearing-thumb.jpg",
+  "truth": 64,
+  "unit": "\u00b0C",
+  "synthetic": true
+ },
+ {
+  "id": "air-receiver",
+  "label": "Air receiver, steep angle",
+  "src": "/samples/air-receiver.jpg",
+  "thumb": "/samples/air-receiver-thumb.jpg",
+  "truth": 118,
+  "unit": "psi",
+  "synthetic": true
+ },
+ {
+  "id": "filter",
+  "label": "Filter inlet, with glare",
+  "src": "/samples/filter.jpg",
+  "thumb": "/samples/filter-thumb.jpg",
+  "truth": 6.9,
+  "unit": "bar",
+  "synthetic": true
+ },
+ {
+  "id": "intake",
+  "label": "Intake header, 6 bar",
+  "src": "/samples/intake.jpg",
+  "thumb": "/samples/intake-thumb.jpg",
+  "truth": 1.9,
+  "unit": "bar",
+  "synthetic": true
+ },
+ {
+  "id": "steam",
+  "label": "Steam header, 25 bar",
+  "src": "/samples/steam.jpg",
+  "thumb": "/samples/steam-thumb.jpg",
+  "truth": 14.2,
+  "unit": "bar",
+  "synthetic": true
+ }
+]

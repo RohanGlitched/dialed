@@ -1,0 +1,26 @@
+.coach { display: grid; grid-template-columns: minmax(0, 8fr) minmax(260px, 4fr); gap: 28px; align-items: start; }
+.viewport { position: relative; background: #0f1318; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--rule); }
+.video { width: 100%; height: 100%; object-fit: contain; display: block; }
+.overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; object-fit: contain; }
+.veil { position: absolute; inset: 0; display: grid; place-items: center; padding: 32px; text-align: center; color: #e9ecef; font-size: 17px; max-width: 30em; margin: auto; }
+.hint { position: absolute; left: 12px; right: 12px; bottom: 12px; margin: 0; padding: 10px 14px; background: rgba(15, 19, 24, 0.82); color: #fff; font: 700 18px var(--cond); }
+.hintOk { background: var(--needle); }
+.panel { display: grid; gap: 14px; align-content: start; }
+.target { margin: 0; font: 800 22px var(--cond); }
+.meter { margin: 0; display: flex; align-items: center; gap: 12px; }
+.meter svg { width: 120px; height: 100px; }
+.meter figcaption { color: var(--ink-2); font-size: 15px; }
+.meter b { display: block; font: 800 34px / 1 var(--cond); color: var(--ink); }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.checks li { display: flex; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); font-size: 15px; }
+.checks li.ok { color: var(--ink); }
+.box { width: 20px; height: 20px; border: 1.5px solid var(--steel); display: grid; place-items: center; font-size: 13px; font-weight: 800; flex: none; }
+.ok .box { background: var(--ink); border-color: var(--ink); color: var(--enamel); }
+.shutter { justify-content: center; padding: 16px 22px; font-size: 18px; }
+.skip { background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; color: var(--ink-2); font-size: 14px; cursor: pointer; justify-self: start; }
+.skip:disabled { opacity: 0.4; cursor: not-allowed; }
+.small { margin: 0; font-size: 13px; color: var(--steel); }
+@media (max-width: 860px) {
+  .coach { grid-template-columns: 1fr; }
+  .viewport { aspect-ratio: 3 / 4; }
+}

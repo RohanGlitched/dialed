@@ -1,0 +1,11 @@
+.plate { position: relative; aspect-ratio: 900 / 470; background: var(--panel); border: 1px solid var(--rule); overflow: hidden; }
+.photo { position: absolute; left: 0; top: 0; transform-origin: 0 0; max-width: none; will-change: transform, opacity; user-select: none; }
+.svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.final { animation: rise 420ms ease both; }
+.valueText { font: 800 21px var(--cond); fill: var(--needle); }
+.tickText { font: 700 15px var(--cond); fill: var(--ink-2); }
+.replay { position: absolute; right: 10px; top: 10px; font: 600 13px var(--text); background: var(--enamel); border: 1px solid var(--rule); padding: 6px 10px; cursor: pointer; color: var(--ink-2); }
+.replay:hover { color: var(--ink); border-color: var(--ink); }
+@keyframes rise { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .final { animation: none; } }

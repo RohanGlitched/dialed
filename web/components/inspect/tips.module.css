@@ -1,0 +1,24 @@
+.pairs { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; border-top: 1.5px solid var(--ink); }
+.pair { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr); gap: 28px; padding: 28px 0; border-bottom: 1px solid var(--rule); align-items: start; }
+.pairText { display: grid; gap: 8px; align-content: start; }
+.pairText p { margin: 0; color: var(--ink-2); }
+.no { font: 800 44px / 1 var(--cond); color: var(--needle); }
+.shot { margin: 0; display: grid; gap: 10px; }
+.shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--panel); border: 1px solid var(--rule); }
+.shot figcaption { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; align-items: center; }
+.val { font: 800 22px var(--cond); }
+.why { grid-column: 1 / -1; font-size: 14px; color: var(--ink-2); }
+
+.two { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(24px, 4vw, 64px); }
+.flow { margin: 0; padding: 0; list-style: none; counter-reset: f; display: grid; gap: 0; border-top: 1.5px solid var(--ink); }
+.flow li { counter-increment: f; padding: 16px 0 16px 44px; border-bottom: 1px solid var(--rule); position: relative; color: var(--ink-2); }
+.flow li::before { content: counter(f); position: absolute; left: 0; top: 12px; font: 800 28px / 1 var(--cond); color: var(--needle); }
+.flow b, .limits b { color: var(--ink); }
+.limits { margin: 0; padding: 0; list-style: none; display: grid; border-top: 1.5px solid var(--ink); }
+.limits li { padding: 16px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+
+@media (max-width: 900px) {
+  .pair { grid-template-columns: 1fr 1fr; }
+  .pairText { grid-column: 1 / -1; }
+  .two { grid-template-columns: 1fr; }
+}

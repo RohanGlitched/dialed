@@ -1,0 +1,96 @@
+[
+ {
+  "key": "tilt",
+  "title": "Face it squarely",
+  "text": "Shoot from in front, not from the side. A little angle is fine; the reader straightens up to about 40\u00b0.",
+  "bad": {
+   "src": "/tips/tilt-bad.jpg",
+   "value": 8.6034,
+   "truth": 8.6,
+   "ok": false,
+   "confidence": 0.967,
+   "issues": [
+    "The dial is turned 62\u00b0 away. Face it more squarely."
+   ]
+  },
+  "good": {
+   "src": "/tips/tilt-good.jpg",
+   "value": 8.5963,
+   "truth": 8.6,
+   "ok": true,
+   "confidence": 0.996,
+   "issues": []
+  }
+ },
+ {
+  "key": "size",
+  "title": "Fill the frame",
+  "text": "Get close enough that the dial fills most of the photo. Small dials lose their numbers.",
+  "bad": {
+   "src": "/tips/size-bad.jpg",
+   "value": 8.5992,
+   "truth": 8.6,
+   "ok": true,
+   "confidence": 0.969,
+   "issues": [
+    "The gauge is small in the frame. Move closer.",
+    "The photo is a little soft."
+   ]
+  },
+  "good": {
+   "src": "/tips/size-good.jpg",
+   "value": 8.5988,
+   "truth": 8.6,
+   "ok": true,
+   "confidence": 0.996,
+   "issues": []
+  }
+ },
+ {
+  "key": "glare",
+  "title": "Keep glare off the needle",
+  "text": "Glass faces reflect lights. Step sideways until the bright spot moves off the needle and the numbers.",
+  "bad": {
+   "src": "/tips/glare-bad.jpg",
+   "value": 8.5244,
+   "truth": 8.6,
+   "ok": true,
+   "confidence": 0.98,
+   "issues": [
+    "Glare crosses the needle. Step to the left or tilt the phone."
+   ]
+  },
+  "good": {
+   "src": "/tips/glare-good.jpg",
+   "value": 8.5963,
+   "truth": 8.6,
+   "ok": true,
+   "confidence": 0.996,
+   "issues": []
+  }
+ },
+ {
+  "key": "blur",
+  "title": "Hold still",
+  "text": "Brace your arm or wait for the camera to focus. Blur smears the thin ticks the reader measures.",
+  "bad": {
+   "src": "/tips/blur-bad.jpg",
+   "value": null,
+   "truth": 8.6,
+   "ok": false,
+   "confidence": 0.0,
+   "issues": [
+    "The photo is a little soft.",
+    "Can't read the scale numbers. Get closer or reduce glare."
+   ]
+  },
+  "good": {
+   "src": "/tips/blur-good.jpg",
+   "value": 8.5963,
+   "truth": 8.6,
+   "ok": true,
+   "confidence": 0.996,
+   "issues": []
+  }
+ }
+]

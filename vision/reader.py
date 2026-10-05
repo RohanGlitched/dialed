@@ -479,7 +479,10 @@ def photo_checks(img, e, dial, needle_deg, ring, center=(DIAL / 2, DIAL / 2)):
     elif sharp < 60:
         issues.append({"code": "blur", "level": "warn", "text": "The photo is a little soft."})
     hsv = cv2.cvtColor(dial, cv2.COLOR_BGR2HSV)
-    glare = (hsv[:, :, 2] > 245) & (hsv[:, :, 1] < 40) & face
+    # glare: blown-out highlights clearly brighter than the face itself (a white face is not glare)
+    vface = float(np.median(hsv[:, :, 2][face]))
+    glare = (hsv[:, :, 2] >= min(254, max(240, vface + 18))) & (hsv[:, :, 1] < 40) & face
+    glare = cv2.morphologyEx(glare.astype(np.uint8), cv2.MORPH_OPEN, np.ones((3, 3), np.uint8)).astype(bool)
     frac = glare.mean() / max(face.mean(), 1e-6)
     near_needle = False
     if needle_deg is not None and glare.any():

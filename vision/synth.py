@@ -173,18 +173,23 @@ def tilt_homography(size: int, out_w: int, out_h: int, rx: float, ry: float, rz:
     return cv2.getPerspectiveTransform(src, dst)
 
 
-def render(seed: int, hard: bool = False, spec: tuple | None = None, value: float | None = None, max_tilt: float | None = None, glare: bool | None = None):
+def render(seed: int, hard: bool = False, spec: tuple | None = None, value: float | None = None, max_tilt: float | None = None, glare: bool | None = None,
+           tilt: tuple | None = None, size: float | None = None, blur: float | None = None, glare_at: tuple | None = None):
+    """`tilt` = (rx, ry) degrees, `size` = dial share of the short side, `blur` = Gaussian sigma,
+    `glare_at` = (dx, dy) glare offset as a share of the dial size; each overrides the random choice."""
     rng = random.Random(seed)
     np.random.seed(seed % (1 << 31))
     img, sc = face(rng, spec=spec, value=value)
-    size = img.shape[0]
+    size_px = img.shape[0]
     W, H = rng.choice([(1280, 960), (960, 1280), (1200, 1200)])
     max_tilt = max_tilt if max_tilt is not None else (50 if hard else 35)
     rx, ry = rng.uniform(-max_tilt, max_tilt), rng.uniform(-max_tilt, max_tilt)
+    if tilt is not None:
+        rx, ry = tilt
     rz = rng.uniform(-12, 12)
-    scale = rng.uniform(0.55, 0.85) * min(W, H) / size
+    scale = rng.uniform(0.55, 0.85) * min(W, H) / size_px if size is None else size * min(W, H) / size_px
     cx, cy = W / 2 + rng.uniform(-0.12, 0.12) * W, H / 2 + rng.uniform(-0.12, 0.12) * H
-    Hm = tilt_homography(size, W, H, rx, ry, rz, scale, cx, cy)
+    Hm = tilt_homography(size_px, W, H, rx, ry, rz, scale, cx, cy)
     bg = background(rng, W, H)
     warped = cv2.warpPerspective(img, Hm, (W, H), flags=cv2.INTER_LINEAR)
     alpha = warped[:, :, 3:4].astype(np.float32) / 255
@@ -192,7 +197,7 @@ def render(seed: int, hard: bool = False, spec: tuple | None = None, value: floa
 
     # dial outline (bezel circle) mapped through the homography, as an ellipse fit
     ang = np.linspace(0, 2 * np.pi, 72, endpoint=False)
-    circ = np.stack([size / 2 + sc["R"] * np.cos(ang), size / 2 + sc["R"] * np.sin(ang)], 1).astype(np.float32)
+    circ = np.stack([size_px / 2 + sc["R"] * np.cos(ang), size_px / 2 + sc["R"] * np.sin(ang)], 1).astype(np.float32)
     mapped = cv2.perspectiveTransform(circ[None], Hm)[0]
     (ex, ey), (ew, eh), ea = cv2.fitEllipse(mapped)
 
@@ -203,10 +208,13 @@ def render(seed: int, hard: bool = False, spec: tuple | None = None, value: floa
     if glare:
         mask = np.zeros((H, W), np.float32)
         gx, gy = ex + rng.uniform(-0.3, 0.3) * ew, ey + rng.uniform(-0.3, 0.3) * eh
+        if glare_at is not None:
+            gx, gy = ex + glare_at[0] * ew, ey + glare_at[1] * eh
         cv2.ellipse(mask, (int(gx), int(gy)), (int(ew * rng.uniform(0.08, 0.2)), int(eh * rng.uniform(0.04, 0.1))), rng.uniform(0, 180), 0, 360, 1.0, -1)
         mask = cv2.GaussianBlur(mask, (0, 0), ew * 0.03 + 1)
         out = np.clip(out + mask[:, :, None] * rng.uniform(140, 255), 0, 255).astype(np.uint8)
-    blur = rng.choice([0, 0, 0.8, 1.5]) + (rng.choice([0, 2.5]) if hard else 0)
+    sigma = rng.choice([0, 0, 0.8, 1.5]) + (rng.choice([0, 2.5]) if hard else 0)
+    blur = sigma if blur is None else blur
     if blur:
         out = cv2.GaussianBlur(out, (0, 0), blur)
     noise = np.random.normal(0, rng.uniform(2, 7), out.shape)
