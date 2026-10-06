@@ -11,7 +11,7 @@
 
 **[Try it live](https://d3p9dcbwy0l1n8.cloudfront.net)** &nbsp; **[Read a gauge](https://d3p9dcbwy0l1n8.cloudfront.net/read/)** &nbsp; **[Walk the round](https://d3p9dcbwy0l1n8.cloudfront.net/round/)** &nbsp; **[Evidence](https://d3p9dcbwy0l1n8.cloudfront.net/evidence/)**
 
-**Demo video:** _link added at submission_
+**[Watch the demo video (4:24)](https://youtu.be/N0-4lAUUxtw)**
 
 </div>
 
