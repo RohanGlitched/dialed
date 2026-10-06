@@ -94,14 +94,23 @@ One CloudFormation template (`infra/template.yaml`) creates every resource; `pyt
 
 Spending guards: the API function is capped at 5 concurrent runs, model-assisted captures at 400 a day (after that the rule engine decides alone), and each model reply at 600 tokens.
 
+## Deploy to AWS
+
+1. Create an IAM user with access to CloudFormation, Lambda, S3, DynamoDB, CloudFront, IAM (for the function's role), CloudWatch and Bedrock, and export its key as `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
+2. `pip install -r requirements-dev.txt`, `python scripts/get_models.py`, and `npm ci` in `web/`.
+3. `python infra/deploy.py --region ap-southeast-2`. It packages Linux arm64 wheels (no Docker), creates the stack from `infra/template.yaml`, builds and uploads the site, and seeds the sample plant. The first run takes 5 to 15 minutes while CloudFront deploys; it prints the site URL at the end.
+4. Optionally set `NEXT_PUBLIC_SITE_URL` to that URL and run it again so the site's links point at itself.
+
+Stack parameters (`LlmOrder`, `BedrockModels`, `DailyModelCap`, `MaxConcurrency`) set the model order and the spending guards. Python dependencies are pinned in `requirements.txt` and `requirements-dev.txt`, and the site's in `web/package-lock.json`.
+
 ## Run it locally
 
 ```bash
-python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt   # or .venv/bin/pip
+python -m venv .venv && .venv/Scripts/pip install -r requirements-dev.txt   # or .venv/bin/pip (Python 3.12)
 python scripts/get_models.py        # the two OpenCV Model Zoo text models, hash-checked
 python scripts/seed.py              # the sample pump house with two weeks of history
 python -m api.local 3840            # the API
-cd web && npm install && npm run dev -- --port 3850
+cd web && npm ci && npm run dev -- --port 3850
 ```
 
 Open http://localhost:3850. Without a model configured, the rule engine makes the decisions.
