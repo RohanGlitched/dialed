@@ -46,7 +46,7 @@ All classical OpenCV 5, except two small text models from the OpenCV Model Zoo r
 | 8. Fit the scale: each ring of numbers fitted on its own (two-scale dials), RANSAC over every reading of every number, then local interpolation | |
 | 9. Check the photo: tilt, distance, blur, glare on the needle, a second gauge in the frame; a calibrated confidence | `Laplacian`, logistic model |
 
-OpenCV 5's new DNN engine runs the text detector about 4x faster than the classic engine on CPU; the classic engine runs the small recogniser about 3x faster. The reader loads each model with the engine that suits it.
+On CPU, OpenCV 5's new DNN engine ran the text detector 2 to 4 times faster than the classic engine across our runs, while the classic engine ran the small recogniser 3 to 4 times faster. The reader loads each model with the engine that suits it.
 
 ## The agent
 
@@ -68,10 +68,14 @@ Numbers from `scripts/evidence.py` and `scripts/agent_eval.py`; the [Evidence pa
 | Set | Gauges | Read | Accepted | Accepted within 2% of the scale | Accepted off by >5% | Median error, accepted |
 |---|---|---|---|---|---|---|
 | Rendered, ordinary photos | 200 | 200 | 178 | 99.4% | 0 | 0.29% |
-| Rendered, bad photos (to 50°, glare, blur) | 100 | 75 | 42 | 97.6% | 0 | 0.34% |
-| Real photos (Wikimedia Commons, read by eye; used during development) | 22 | 16 | 7 | 100.0% | 0 | 0.97% |
+| Rendered, bad photos (to 50°, glare, blur) | 100 | 74 | 41 | 97.6% | 0 | 0.35% |
+| Real photos, development set (Wikimedia Commons, read by eye) | 37 | 29 | 12 | 91.7% | 1 | 0.96% |
+| Real photos, blind batch 1, its one run before any fix | 15 | 13 | 4 | 50.0% | 1 | 2.40% |
+| Real photos, blind batch 2, after the fixes | 3 | 1 | 0 | – | 0 | – |
 
-Photos it should decline (two needles, two gauges in one frame, dials too small to read): accepted **0 of 16**. Agent scenarios: **8/8** with the rule engine, **8/8** with NVIDIA Nemotron on Nebius.
+Real photos are much harder than rendered ones, and the blind runs show it. Blind batch 1 was labelled by eye and read once; it exposed print in the blank part of a dial being taken for the needle and handwheels being taken for a second gauge. Both were fixed, and that batch joined the development set. Blind batch 2, drawn at random after the fixes, held only 3 scorable dials among 22 photos, too few for a rate; the Evidence page lists each one.
+
+Photos it should decline (two needles, two gauges in one frame, the back of a gauge, no gauge): accepted **1 of 27** in development (an oven thermometer resting below its printed scale) and **0 of 19** in blind batch 2. Agent scenarios: **8/8** with the rule engine, **8/8** with NVIDIA Nemotron on Nebius.
 
 ## On AWS
 
@@ -118,7 +122,7 @@ agent/    round agent: tools, guards, facts, model clients, storage, sample plan
 api/      Lambda handler and local server
 web/      Next.js static site (drawing-sheet design), OpenCV.js camera guide
 infra/    CloudFormation template and deploy script
-eval/     real gauge photos with by-eye readings (credited in CREDITS.md)
+eval/     real gauge photos with by-eye readings: real and blind1 (development), blind (credited in CREDITS.md)
 scripts/  seeding, evidence, scenarios, samples
 tests/    pytest
 ```
@@ -127,6 +131,7 @@ tests/    pytest
 
 - Vacuum and compound gauges whose labels carry minus signs or decimals on every number can be misread from a single photo; on a round the gauge's registered range catches it.
 - Digital displays, sight glasses and two-needle dials aren't read reliably.
+- An idle needle resting on its stop below the first printed number is extrapolated from the nearest numbers and can read a few percent high.
 - Below 90% confidence there's no number, only a request for a better photo and the reason.
 - It replaces the clipboard, not the safety system.
 

@@ -1,10 +1,13 @@
-"""Write CREDITS.md from eval/real/truth.json and out_of_scope.json."""
+"""Write CREDITS.md from truth.json and out_of_scope.json in eval/real, eval/blind1 and eval/blind."""
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-D = ROOT / "eval" / "real"
-rows = json.loads((D / "truth.json").read_text(encoding="utf-8")) + json.loads((D / "out_of_scope.json").read_text(encoding="utf-8"))
+rows = []
+for D in (ROOT / "eval" / k for k in ("real", "blind1", "blind")):
+    for f in ("truth.json", "out_of_scope.json"):
+        if (D / f).exists():
+            rows += [{**r, "file": f"{D.name}/{r['file']}"} for r in json.loads((D / f).read_text(encoding="utf-8"))]
 lines = [
     "# Credits",
     "",

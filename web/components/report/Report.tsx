@@ -8,7 +8,8 @@ import s from "./report.module.css";
 
 type SetT = { label: string; summary: Record<string, number>; rows: Row[] };
 const sets = ev.sets as unknown as Record<string, SetT>;
-const oos = ((ev as unknown as { out_of_scope?: { accepted: boolean }[] }).out_of_scope ?? []);
+const oos = ((ev as unknown as { out_of_scope?: { accepted: boolean; set?: string }[] }).out_of_scope ?? []);
+const first = (ev as unknown as { blind1_first_run?: { summary: Record<string, number>; out_of_scope_n: number; out_of_scope_accepted: number } }).blind1_first_run;
 const pct = (v: number, d = 1) => `${(v * 100).toFixed(d)}%`;
 const LAT = (ev as unknown as { lambda?: { cold_ms: number; warm_ms_median: number; warm_ms_p90: number; memory_mb: number; n: number } }).lambda;
 
@@ -16,6 +17,8 @@ export function Report() {
   const allRows = Object.values(sets).flatMap((x) => x.rows);
   const synthRows = [...sets.normal.rows, ...sets.hard.rows];
   const acc = allRows.filter((r) => r.accepted);
+  const over5 = acc.filter((x) => (x.err ?? 0) >= 0.05).length;
+  const blindOos = oos.filter((x) => x.set === "blind");
   const r = hero as unknown as { reading: { value: number; unit: string; confidence: number; tilt: number; numbers: unknown[] }; images: Record<string, string> };
   return (
     <article className={s.doc}>
@@ -28,7 +31,7 @@ export function Report() {
       <section className={s.abstract}>
         <h2>Summary</h2>
         <p>
-          Dialed reads analog pressure and temperature gauges from ordinary phone photos. A classical OpenCV 5 pipeline finds the dial, removes the camera&apos;s tilt, locates the true pivot from the tick marks and the needle&apos;s own line, reads the printed scale with two OpenCV Model Zoo networks run through <code>cv.dnn</code>, and interpolates the needle&apos;s value. A calibrated confidence decides whether the reading is trusted. An agent then logs the reading, asks for a better photo with the measured reason, or drafts a maintenance work order that waits for a supervisor. On {sets.real?.rows.length ?? 0} photos of real gauges read by eye (a development set), accepted readings were {pct(sets.real?.summary.accepted_within_2pct ?? 0, 0)} within 2% of the scale; across {allRows.length} test photos, {acc.filter((x) => (x.err ?? 1) < 0.02).length} of {acc.length} accepted readings were within 2% and none was off by more than 5%.
+          Dialed reads analog pressure and temperature gauges from ordinary phone photos. A classical OpenCV 5 pipeline finds the dial, removes the camera&apos;s tilt, locates the true pivot from the tick marks and the needle&apos;s own line, reads the printed scale with two OpenCV Model Zoo networks run through <code>cv.dnn</code>, and interpolates the needle&apos;s value. A calibrated confidence decides whether the reading is trusted. An agent then logs the reading, asks for a better photo with the measured reason, or drafts a maintenance work order that waits for a supervisor. Across {allRows.length} test photos, {acc.filter((x) => (x.err ?? 1) < 0.02).length} of {acc.length} accepted readings were within 2% of the scale and {over5 === 0 ? "none" : over5} {over5 === 1 ? "was" : "were"} off by more than 5%. Real photos are harder than rendered ones: on {sets.real?.rows.length ?? 0} real gauges used during development, {pct(sets.real?.summary.accepted_within_2pct ?? 0, 0)} of accepted readings were within 2%{first ? `, and on the first blind batch, read once before any fix, ${first.summary.accepted} readings were accepted and ${Math.round(first.summary.accepted_within_2pct * first.summary.accepted)} of them were within 2%` : ""}.
         </p>
       </section>
 
@@ -100,7 +103,8 @@ export function Report() {
             ))}
           </tbody>
         </table>
-        <p>Rendered sets have exact ground truth (the generator places the needle). Real photos are from Wikimedia Commons (CC0, CC BY, CC BY-SA), read by eye from the photo with an uncertainty of about 1% of the scale. They were used during development (failures on them guided the needle and number-reading fixes), so they are a development set and their figures are optimistic; on two-scale dials the reading is scored against the scale the reader used. {oos.length} further real photos that should not be read (two needles, two gauges, dials too small) were accepted {oos.filter((x) => x.accepted).length} times.</p>
+        <p>Rendered sets have exact ground truth (the generator places the needle). Real photos are from Wikimedia Commons (CC0, CC BY, CC BY-SA), read by eye from the photo with an uncertainty of about 1% of the scale. They were used during development (failures on them guided the needle and number-reading fixes), so they are a development set and their figures are optimistic; on two-scale dials the reading is scored against the scale the reader used. {oos.length} further real photos that should not be read (two needles, two gauges, the back of a gauge, a dial too small) were accepted {oos.filter((x) => x.accepted).length} times.</p>
+        {first && <p>Blind tests. A first batch of {first.summary.n} real dials and {first.out_of_scope_n} photos to decline was labelled by eye and read once before any change: {first.summary.accepted} readings were accepted, {Math.round(first.summary.accepted_within_2pct * first.summary.accepted)} within 2% and {first.summary.accepted_over_5pct} off by more than 5%, and {first.out_of_scope_accepted} photo that should have been declined was accepted. Two causes were fixed (print in the blank part of a dial taken for the needle; handwheels and pipe ends taken for a second gauge) and the batch then joined the development set. A second random batch, drawn after the fixes, held only {sets.blind?.summary.n ?? 0} scorable dials among {(sets.blind?.summary.n ?? 0) + blindOos.length} photos: too few for a rate, so they are listed one by one on the Evidence page; {blindOos.filter((x) => x.accepted).length} of its {blindOos.length} photos to decline were accepted.</p>}
         <div className={s.charts}>
           <figure><Scatter rows={synthRows} /><figcaption>Error against camera tilt (rendered sets). Filled: accepted.</figcaption></figure>
           <figure><Coverage rows={synthRows} /><figcaption>Coverage and accuracy against the threshold.</figcaption></figure>
@@ -115,6 +119,7 @@ export function Report() {
           <li>The text model has no decimal point or minus sign; lost decimals and duplicated negatives are recovered as hypotheses, but vacuum scales labelled on every number can be misread from a single photo (on a round, the gauge&apos;s registration catches this).</li>
           <li>Two-needle dials, digital displays and sight glasses are out of scope; small or very dark dials are refused rather than read.</li>
           <li>Ground truth for real photos is a human reading of the same photo.</li>
+          <li>A needle resting on its stop below the first printed number (an idle gauge) is extrapolated from the nearest numbers and can read a few percent high; an oven thermometer at room temperature, below its printed scale, was read as a low value instead of being declined.</li>
           <li>Reading the printed numbers dominates the time; a lighter recogniser or caching the scale per enrolled gauge would cut it.</li>
         </ul>
       </section>

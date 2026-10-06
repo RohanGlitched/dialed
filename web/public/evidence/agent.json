@@ -9,12 +9,12 @@
    "breaches": [],
    "pass": true,
    "read_value": 8.3418,
-   "confidence": 0.995,
+   "confidence": 0.994,
    "engine": "Rule engine",
    "tools": 3,
    "refusals": [],
    "message": "PI-102 logged at 8.34 bar, inside its normal band.",
-   "ms": 2721
+   "ms": 3279
   },
   {
    "name": "Bearing warming all week",
@@ -27,12 +27,12 @@
    ],
    "pass": true,
    "read_value": 63.5167,
-   "confidence": 0.982,
+   "confidence": 0.98,
    "engine": "Rule engine",
    "tools": 3,
    "refusals": [],
    "message": "TI-201 logged at 63.5 \u00b0C; work order held for a supervisor.",
-   "ms": 2754
+   "ms": 5541
   },
   {
    "name": "Filter pressure drop over limit",
@@ -45,12 +45,12 @@
    ],
    "pass": true,
    "read_value": 5.7334,
-   "confidence": 0.998,
+   "confidence": 0.997,
    "engine": "Rule engine",
    "tools": 3,
    "refusals": [],
    "message": "PI-105 logged at 5.73 bar; work order held for a supervisor.",
-   "ms": 2831
+   "ms": 5735
   },
   {
    "name": "Air receiver over its alarm limit",
@@ -63,12 +63,12 @@
    ],
    "pass": true,
    "read_value": 145.5865,
-   "confidence": 0.984,
+   "confidence": 0.982,
    "engine": "Rule engine",
    "tools": 3,
    "refusals": [],
    "message": "PI-106 logged at 145.6 psi; work order held for a supervisor.",
-   "ms": 2968
+   "ms": 5757
   },
   {
    "name": "Intake below its alarm limit",
@@ -81,12 +81,12 @@
    ],
    "pass": true,
    "read_value": 0.6046,
-   "confidence": 0.97,
+   "confidence": 0.969,
    "engine": "Rule engine",
    "tools": 3,
    "refusals": [],
    "message": "PI-101 logged at 0.60 bar; work order held for a supervisor.",
-   "ms": 1697
+   "ms": 6277
   },
   {
    "name": "Shaky photo",
@@ -102,7 +102,7 @@
    "tools": 2,
    "refusals": [],
    "message": "The photo is blurred. Hold still or tap to focus. Can't read the scale numbers. Get closer or reduce glare.",
-   "ms": 645
+   "ms": 2246
   },
   {
    "name": "Photo turned 62\u00b0 away",
@@ -113,12 +113,12 @@
    "breaches": [],
    "pass": true,
    "read_value": 4.5213,
-   "confidence": 0.761,
+   "confidence": 0.735,
    "engine": "Rule engine",
    "tools": 2,
    "refusals": [],
    "message": "The dial is turned 62\u00b0 away. Face it more squarely.",
-   "ms": 1646
+   "ms": 6413
   },
   {
    "name": "Wrong gauge photographed",
@@ -134,7 +134,7 @@
    "tools": 2,
    "refusals": [],
    "message": "This doesn't look like PI-107: the scale reads 0.0\u2013160.0, the tag says 0.00\u201310.00. Check the tag and photograph the right gauge.",
-   "ms": 1466
+   "ms": 5947
   }
  ],
  "model": [
@@ -147,12 +147,12 @@
    "breaches": [],
    "pass": true,
    "read_value": 8.3418,
-   "confidence": 0.995,
+   "confidence": 0.994,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The reading of 8.34\u202fbar is within the normal operating range.",
-   "ms": 6485
+   "message": "The reading has been logged successfully.",
+   "ms": 10734
   },
   {
    "name": "Bearing warming all week",
@@ -165,12 +165,12 @@
    ],
    "pass": true,
    "read_value": 63.5167,
-   "confidence": 0.982,
+   "confidence": 0.98,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The reading has been logged and a medium\u2011priority work order held due to a rising temperature drift of 2.7\u202f\u00b0C per day over the past week.",
-   "ms": 6813
+   "message": "The gauge reading of 63.5\u202f\u00b0C indicates a rising trend of about 2.7\u202f\u00b0C per day, so a maintenance work order has been held for supervisor review.",
+   "ms": 11905
   },
   {
    "name": "Filter pressure drop over limit",
@@ -183,12 +183,12 @@
    ],
    "pass": true,
    "read_value": 5.7334,
-   "confidence": 0.998,
+   "confidence": 0.997,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The gauge reading indicates a high differential pressure across filter F\u20111 (1.44\u202fbar\u202f>\u202f1.2\u202fbar limit), so a maintenance work order has been held for supervisor review.",
-   "ms": 6951
+   "message": "The reading has been logged and a high\u2011priority work order drafted because the pressure drop across filter\u202fF\u20111 exceeds the limit.",
+   "ms": 10826
   },
   {
    "name": "Air receiver over its alarm limit",
@@ -201,12 +201,12 @@
    ],
    "pass": true,
    "read_value": 145.5865,
-   "confidence": 0.984,
+   "confidence": 0.982,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
    "message": "The gauge reading of 145.6\u202fpsi exceeds the alarm high limit of 140\u202fpsi, so a high\u2011priority work order has been held for supervisor review.",
-   "ms": 6897
+   "ms": 11339
   },
   {
    "name": "Intake below its alarm limit",
@@ -219,12 +219,12 @@
    ],
    "pass": true,
    "read_value": 0.6046,
-   "confidence": 0.97,
+   "confidence": 0.969,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "PI-101 logged at 0.60 bar; work order held for a supervisor.",
-   "ms": 6982
+   "message": "The reading of 0.60\u202fbar triggers a low\u2011pressure alarm, so a maintenance work order has been held pending supervisor review.",
+   "ms": 12296
   },
   {
    "name": "Shaky photo",
@@ -239,8 +239,8 @@
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 2,
    "refusals": [],
-   "message": "Please retake the photo\u2014ensure it\u2019s in focus, get closer, and reduce glare so the scale numbers can be read clearly.",
-   "ms": 4448
+   "message": "Please retake the photo, ensuring it\u2019s in focus and the scale numbers are clearly visible without glare.",
+   "ms": 6390
   },
   {
    "name": "Photo turned 62\u00b0 away",
@@ -251,12 +251,12 @@
    "breaches": [],
    "pass": true,
    "read_value": 4.5213,
-   "confidence": 0.761,
+   "confidence": 0.736,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 2,
    "refusals": [],
-   "message": "Please retake the photo with the gauge face square to the camera to correct the tilt.",
-   "ms": 6055
+   "message": "Please retake the photo ensuring the gauge face is square to the camera to correct the tilt issue.",
+   "ms": 7133
   },
   {
    "name": "Wrong gauge photographed",
@@ -272,7 +272,7 @@
    "tools": 2,
    "refusals": [],
    "message": "This doesn't look like PI-107: the scale reads 0.0\u2013160.0, the tag says 0.00\u201310.00. Check the tag and photograph the right gauge.",
-   "ms": 6146
+   "ms": 8040
   }
  ]
 }

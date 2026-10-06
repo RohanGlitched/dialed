@@ -1,0 +1,276 @@
+[
+ {
+  "file": "b01.jpg",
+  "value": 48,
+  "min": 0,
+  "max": 300,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Apartment_Complex_Standpipe_with_Pressure_Gauge.jpg",
+  "author": "Mark Cross",
+  "license": "CC BY 4.0",
+  "title": "File:Apartment Complex Standpipe with Pressure Gauge.jpg"
+ },
+ {
+  "file": "b02.jpg",
+  "value": 39.5,
+  "min": -50,
+  "max": 50,
+  "unit": "°C",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Au%C3%9Fenthermometer_Vorderseite.jpg",
+  "author": "Levin Holtkamp",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Außenthermometer Vorderseite.jpg"
+ },
+ {
+  "file": "b04.jpg",
+  "value": 23.3,
+  "min": -20,
+  "max": 40,
+  "unit": "°C",
+  "alt": [
+   {
+    "min": 0,
+    "max": 110,
+    "unit": "°F",
+    "value": 74
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Bimetallic_thermometer.JPG",
+  "author": "Pogrebnoj-Alexandroff",
+  "license": "CC BY 3.0",
+  "title": "File:Bimetallic thermometer.JPG"
+ },
+ {
+  "file": "b05.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 30,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Budenberg_Gauge_LBS-PSI.JPG",
+  "author": "Dcolvin (talk) (Uploads)",
+  "license": "CC0",
+  "title": "File:Budenberg Gauge LBS-PSI.JPG"
+ },
+ {
+  "file": "b11.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 100,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 7,
+    "unit": "kg/cm²",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Industrial_instruments_pressure_gauge.jpg",
+  "author": "Palagiri",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Industrial instruments pressure gauge.jpg"
+ },
+ {
+  "file": "b12.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 110,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:London_Road_Fire_Station_%E2%80%93_Interior_%E2%80%93_Kismet_Tyre_Pressure_Gauge.jpg",
+  "author": "Delusion23",
+  "license": "CC BY-SA 4.0",
+  "title": "File:London Road Fire Station – Interior – Kismet Tyre Pressure Gauge.jpg"
+ },
+ {
+  "file": "b13.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 220,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 16,
+    "unit": "bar",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Manometar_photo_Momcilo_Stokanovic.jpg",
+  "author": "Momcilo Stokanovic",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Manometar photo Momcilo Stokanovic.jpg"
+ },
+ {
+  "file": "b17.jpg",
+  "value": 82,
+  "min": 0,
+  "max": 250,
+  "unit": "kg/cm²",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Natural_gas_pressure_gauge.jpg",
+  "author": "Централизованный информационный портал Республики Башкортостан",
+  "license": "CC BY 4.0",
+  "title": "File:Natural gas pressure gauge.jpg"
+ },
+ {
+  "file": "b18.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 7,
+  "unit": "kg/cm²",
+  "alt": [
+   {
+    "min": 0,
+    "max": 100,
+    "unit": "psi",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Nissan_Skyline_R34,_Tomei_fuel_pressure_gauge.jpg",
+  "author": "Cjp24",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Nissan Skyline R34, Tomei fuel pressure gauge.jpg"
+ },
+ {
+  "file": "b19.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 10,
+  "unit": "bar",
+  "alt": [
+   {
+    "min": 0,
+    "max": 170,
+    "unit": "psi",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Old_pressure_gauge_and_tools_in_a_workshop_setting_show_signs_of_use_and_wear.jpg",
+  "author": "Shixart1985",
+  "license": "CC BY 2.0",
+  "title": "File:Old pressure gauge and tools in a workshop setting show signs of use and wear.jpg"
+ },
+ {
+  "file": "b20.jpg",
+  "value": 590,
+  "min": 0,
+  "max": 1000,
+  "unit": "kPa",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_of_brake_pipe_on_a_25T.JPG",
+  "author": "N509FZ",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Pressure gauge of brake pipe on a 25T.JPG"
+ },
+ {
+  "file": "b21.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 100,
+  "unit": "psi",
+  "alt": [
+   {
+    "min": 0,
+    "max": 226,
+    "unit": "fsw",
+    "value": 0
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_on_Siebe_Gorman_manual_diver%27s_pump_P3220126.jpg",
+  "author": "Peter Southwood",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Pressure gauge on Siebe Gorman manual diver's pump P3220126.jpg"
+ },
+ {
+  "file": "b23.jpg",
+  "value": -2,
+  "min": -20,
+  "max": 80,
+  "unit": "°F",
+  "alt": [
+   {
+    "min": -30,
+    "max": 30,
+    "unit": "°C",
+    "value": -19
+   }
+  ],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Rubbermaid_R80DC_Refrigerator_Freezer_Thermometer_(40251799920).jpg",
+  "author": "Tony Webster from Minneapolis, Minnesota, United States",
+  "license": "CC BY 2.0",
+  "title": "File:Rubbermaid R80DC Refrigerator Freezer Thermometer (40251799920).jpg"
+ },
+ {
+  "file": "b24.jpg",
+  "value": 14,
+  "min": -50,
+  "max": 50,
+  "unit": "°C",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Thermometer_13_Degree_Celsius.JPG",
+  "author": "Quant",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Thermometer 13 Degree Celsius.JPG"
+ },
+ {
+  "file": "b26.jpg",
+  "value": 0,
+  "min": 0,
+  "max": 150,
+  "unit": "psi",
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Virginia_V_(ship,_1922)_engine_room_14_-_Jos._Marsh_%26_Co._pressure_gauge_(intermediate_receiver).jpg",
+  "author": "Joe Mabel",
+  "license": "CC BY-SA 4.0",
+  "title": "File:Virginia V (ship, 1922) engine room 14 - Jos. Marsh & Co. pressure gauge (intermediate receiver).jpg"
+ }
+]

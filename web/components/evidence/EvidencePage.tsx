@@ -5,17 +5,38 @@ import s from "./evidence.module.css";
 
 type Credit = { title: string; author: string; license: string; source: string };
 export type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string; credit?: Credit };
-type Oos = { file: string; why: string; read: number | null; ok: boolean; conf: number; accepted: boolean; issues: string[]; thumb?: string; credit: Credit };
+type Oos = { set?: string; file: string; why: string; read: number | null; ok: boolean; conf: number; accepted: boolean; issues: string[]; thumb?: string; credit: Credit };
 type SetT = { label: string; summary: Record<string, number | null>; rows: Row[] };
 type Scenario = { name: string; gauge: string; expected: string; expected_breach: string | null; outcome: string; breaches: string[]; pass: boolean; engine: string; tools: number; refusals: string[]; message: string };
 
 const sets = ev.sets as unknown as Record<string, SetT>;
 const oos = ((ev as unknown as { out_of_scope?: Oos[] }).out_of_scope ?? []) as Oos[];
+type First = { summary: Record<string, number | null>; out_of_scope_n: number; out_of_scope_accepted: number };
+const first = (ev as unknown as { blind1_first_run?: First }).blind1_first_run;
+const REAL = new Set(["real", "blind"]);
+const NAME: Record<string, string> = { normal: "Rendered, normal", hard: "Rendered, hard", real: "Real photos, development", blind: "Real photos, blind" };
 const pct = (v: number | null | undefined, d = 1) => (v == null ? "–" : `${(v * 100).toFixed(d)}%`);
 const OUT: Record<string, string> = { logged: "LOGGED", held: "HOLD", reshoot: "RE-SHOOT", mismatch: "CHECK TAG" };
 
+function RealCard({ r }: { r: Row }) {
+  return (
+    <li>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      {r.thumb && <img src={r.thumb} alt={r.credit?.title ?? r.file} loading="lazy" />}
+      <p className={s.failVal}>{r.read == null ? "No reading" : `${r.read.toFixed(r.max - r.min <= 20 ? 2 : r.max - r.min <= 200 ? 1 : 0)}`} <span className={s.vs}>read; by eye {r.truth} {r.unit}</span></p>
+      <p className={s.failMeta}>
+        {r.err != null ? `${(r.err * 100).toFixed(1)}% of the scale off. ` : ""}
+        {r.accepted ? <b>Accepted.</b> : r.read == null ? `Refused (${r.issues.join(", ") || "low confidence"}).` : `Sent back, ${Math.round(r.conf * 100)}% confidence.`}
+      </p>
+      {r.credit && <p className={s.credit}><a href={r.credit.source}>{r.credit.author}</a>, {r.credit.license}</p>}
+    </li>
+  );
+}
+
 export function EvidencePage() {
-  const all = Object.entries(sets).filter(([k]) => k !== "real").flatMap(([, x]) => x.rows);
+  const all = Object.entries(sets).filter(([k]) => !REAL.has(k)).flatMap(([, x]) => x.rows);
+  const realN = (sets.real?.rows.length ?? 0) + (sets.blind?.rows.length ?? 0);
+  const blindOos = oos.filter((r) => r.set === "blind");
   const allWithReal = Object.values(sets).flatMap((x) => x.rows);
   const accepted = allWithReal.filter((r) => r.accepted);
   const off2 = accepted.filter((r) => (r.err ?? 0) >= 0.02).length;
@@ -31,7 +52,7 @@ export function EvidencePage() {
         </p>
         <dl className={s.top}>
           <div><dt>Accepted readings off by 2% of the span or more</dt><dd>{off2}<small> of {accepted.length}</small></dd></div>
-          <div><dt>Gauges scored</dt><dd>{allWithReal.length}<small>{sets.real ? ` incl. ${sets.real.rows.length} real` : ""}</small></dd></div>
+          <div><dt>Gauges scored</dt><dd>{allWithReal.length}<small>{realN ? ` incl. ${realN} real` : ""}</small></dd></div>
           <div><dt>Agent scenarios passing</dt><dd>{agent.rules.filter((r) => r.pass).length}<small> of {agent.rules.length}</small></dd></div>
           <div><dt>OpenCV</dt><dd>{ev.opencv}</dd></div>
         </dl>
@@ -43,7 +64,7 @@ export function EvidencePage() {
             <p><b>Ground truth.</b> Photos of real gauges don&apos;t come with their true reading, so the main sets are rendered: a generator draws a gauge face (scale, ticks, numbers, needle, red zone, brand text), places it in 3D at a random angle, lights it, adds glare, blur, sensor noise and JPEG compression. The needle&apos;s value is known exactly.</p>
             <p><b>Two sets the model never saw.</b> The confidence model was fitted on 600 other rendered gauges. The normal set allows up to 35° tilt and occasional glare; the hard set allows up to 50°, glare on almost half the photos and heavy blur.</p>
             <p><b>Error</b> is |read − true| as a share of the scale&apos;s span, so 1% on a 0–16 bar gauge is 0.16 bar. A reading is <b>accepted</b> when no photo check blocks it and its confidence is at least {Math.round(ev.accept_at * 100)}%; otherwise the agent asks for a new photo.</p>
-            <p><b>Real photos.</b> {sets.real ? `${sets.real.summary.n} photos of real gauges` : "Photos of real gauges"} from Wikimedia Commons (CC0, CC BY and CC BY-SA), each read by eye from the photo for its true value. These photos were used while developing the reader (its failures on them guided fixes), so they are a development set and their numbers are optimistic; the rendered sets were never used for tuning. Where a dial prints two scales, the reading is scored against the scale the reader used. A further {oos.length || "set of"} photos the reader shouldn&apos;t accept (two needles, two gauges in one frame, a gauge too small to read) test whether it declines.</p>
+            <p><b>Real photos.</b> Photos of real gauges from Wikimedia Commons (CC0, CC BY and CC BY-SA), each read by eye from the photo for its true value. Where a dial prints two scales, the reading is scored against the scale the reader used. The {sets.real?.summary.n ?? 0} in the development set were used while building the reader (its failures on them guided fixes), so their numbers are optimistic. Blind photos were labelled before the reader ever saw them and the reader was not changed afterwards; see <a href="#blind">Blind tests</a>. A further {oos.length || "set of"} photos the reader shouldn&apos;t accept (two needles, two gauges in one frame, the back of a gauge) test whether it declines.</p>
           </div>
           <ul className={s.sampleGrid} aria-label="Examples from the sets">
             {all.filter((r) => r.thumb).slice(0, 9).map((r) => (
@@ -65,7 +86,7 @@ export function EvidencePage() {
             <tbody>
               {Object.entries(sets).map(([k, v]) => (
                 <tr key={k}>
-                  <th scope="row">{k === "normal" ? "Rendered, normal" : k === "hard" ? "Rendered, hard" : "Real photos"}<span className={s.setLabel}>{v.label}</span></th>
+                  <th scope="row">{NAME[k] ?? k}<span className={s.setLabel}>{v.label}</span></th>
                   <td>{v.summary.n}</td>
                   <td>{v.summary.read}</td>
                   <td>{pct(v.summary.within_2pct_all as number)}</td>
@@ -80,22 +101,26 @@ export function EvidencePage() {
         </div>
       </Section>
 
+      <Section id="blind" title="Blind tests">
+        <div className={s.blind}>
+          <div className={s.prose}>
+            <p><b>Why.</b> A reader tuned on its own test photos will look better than it is. So real photos were set aside, read by eye first, and the reader was run on them once.</p>
+            {first && <p><b>Blind batch 1</b> ({first.summary.n} dials, {first.out_of_scope_n} photos to decline). On its one blind run the reader accepted {first.summary.accepted} readings; {pct(first.summary.accepted_within_2pct, 0)} of them were within 2% and {first.summary.accepted_over_5pct} was off by more than 5%. It wrongly accepted {first.out_of_scope_accepted} of the {first.out_of_scope_n} photos it should have declined. The batch exposed three weaknesses: print in the blank part of a dial taken for the needle, handwheels and pipe ends taken for a second gauge, and needles resting below the first printed number. The first two were fixed, and the batch joined the development set.</p>}
+            {sets.blind && <p><b>Blind batch 2</b> was drawn at random from Commons after those fixes and read by eye before the reader saw it. Most random photos turned out not to be readable gauges ({blindOos.length} of them, used as photos to decline), so only {sets.blind.summary.n} dials could be scored: too few for a percentage, so each one is listed below. It wrongly accepted {blindOos.filter((r) => r.accepted).length} of the {blindOos.length} photos it should have declined.</p>}
+          </div>
+          {sets.blind && (
+            <ul className={s.real}>
+              {sets.blind.rows.map((r) => <RealCard key={r.file} r={r} />)}
+            </ul>
+          )}
+        </div>
+      </Section>
+
       {sets.real && (
-        <Section id="real" title="Real photos, one by one">
+        <Section id="real" title="Development photos, one by one">
           <p className={s.intro}>Every real photo in the set: what the reader said, what the gauge shows by eye, and whether the agent would have accepted the reading. Credits are the photographers&apos;; derived images keep the photos&apos; licences.</p>
           <ul className={s.real}>
-            {sets.real.rows.map((r) => (
-              <li key={r.file}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {r.thumb && <img src={r.thumb} alt={r.credit?.title ?? r.file} loading="lazy" />}
-                <p className={s.failVal}>{r.read == null ? "No reading" : `${r.read.toFixed(r.max - r.min <= 20 ? 2 : r.max - r.min <= 200 ? 1 : 0)}`} <span className={s.vs}>read; by eye {r.truth} {r.unit}</span></p>
-                <p className={s.failMeta}>
-                  {r.err != null ? `${(r.err * 100).toFixed(1)}% of the scale off. ` : ""}
-                  {r.accepted ? <b>Accepted.</b> : r.read == null ? `Refused (${r.issues.join(", ") || "low confidence"}).` : `Sent back, ${Math.round(r.conf * 100)}% confidence.`}
-                </p>
-                {r.credit && <p className={s.credit}><a href={r.credit.source}>{r.credit.author}</a>, {r.credit.license}</p>}
-              </li>
-            ))}
+            {sets.real.rows.map((r) => <RealCard key={r.file} r={r} />)}
           </ul>
         </Section>
       )}

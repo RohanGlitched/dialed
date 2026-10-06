@@ -1,36 +1,36 @@
 {
  "weights": {
-  "contrast": 3.18229,
-  "disagree": -0.06243,
-  "glare": -0.02761,
-  "glare_needle": -0.9397,
-  "inlier_share": 1.19697,
-  "inliers": 0.65841,
-  "outside": -0.62581,
-  "resid": -0.21192,
-  "sharp": -0.18712,
-  "support": -0.29871,
-  "tick_lines": 0.21078,
-  "ticks": -0.23101,
-  "tilt": -1.31974
+  "contrast": 2.83873,
+  "disagree": -0.06406,
+  "glare": 0.07294,
+  "glare_needle": -0.86862,
+  "inlier_share": 1.40793,
+  "inliers": 0.62146,
+  "outside": -0.63893,
+  "resid": -0.20436,
+  "sharp": -0.10442,
+  "support": -0.67087,
+  "tick_lines": 0.34218,
+  "ticks": -0.29812,
+  "tilt": -1.50833
  },
- "bias": -3.44172,
+ "bias": -2.91495,
  "fitted_on": {
   "gauges": 535,
-  "within_2pct": 467
+  "within_2pct": 465
  },
  "on_fit_set": {
   "0.80": {
-   "accepted": 413,
-   "within_2pct": 0.9782
+   "accepted": 409,
+   "within_2pct": 0.978
   },
   "0.90": {
-   "accepted": 388,
-   "within_2pct": 0.982
+   "accepted": 380,
+   "within_2pct": 0.9868
   },
   "0.95": {
-   "accepted": 322,
-   "within_2pct": 0.9876
+   "accepted": 314,
+   "within_2pct": 0.9873
   }
  }
 }

@@ -109,14 +109,14 @@ export function Accuracy() {
     <section className="wrap section" aria-labelledby="acc-h">
       <div className="section-head">
         <h2 id="acc-h" className="h2">Accuracy, measured</h2>
-        <p className="lede">Scored on {all} gauges the confidence model never saw: {n.n} rendered ordinary photos, {h.n} rendered bad ones (up to 50° off-axis, heavy glare and blur){real ? `, and ${real.rows.length} photos of real gauges from Wikimedia Commons, read by eye` : ""}.</p>
+        <p className="lede">Scored on {all} gauges the confidence model never saw: {n.n} rendered ordinary photos, {h.n} rendered bad ones (up to 50° off-axis, heavy glare and blur){real ? `, and ${real.rows.length + (sets.blind?.rows.length ?? 0)} photos of real gauges from Wikimedia Commons, read by eye. Real photos are harder: the Evidence page keeps the development photos apart from the blind ones, and lists every failure` : ""}.</p>
       </div>
       <div className={s.accGrid}>
         <dl className={s.big}>
           <div><dt>Accepted readings within 2% of the scale</dt><dd>{Math.round((within2 / Math.max(1, acc)) * 1000) / 10}<small>% of {acc}</small></dd></div>
           <div><dt>Accepted readings off by more than 5%</dt><dd>{over5}</dd></div>
           <div><dt>Ordinary photos accepted first time</dt><dd>{Math.round((n.accepted / n.n) * 100)}<small>%</small></dd></div>
-          <div><dt>{real ? "Real photos read within 2%" : "Bad photos sent back for a re-shoot"}</dt><dd>{real ? Math.round((real.summary.within_2pct_all ?? 0) * real.summary.read) : Math.round((h.reshoot / h.n) * 100)}<small>{real ? ` of ${real.summary.n}` : "%"}</small></dd></div>
+          <div><dt>{real ? "Development photos of real gauges read within 2%" : "Bad photos sent back for a re-shoot"}</dt><dd>{real ? Math.round((real.summary.within_2pct_all ?? 0) * real.summary.read) : Math.round((h.reshoot / h.n) * 100)}<small>{real ? ` of ${real.summary.n}` : "%"}</small></dd></div>
         </dl>
         <figure className={s.hist}>
           <svg viewBox="0 0 520 260" role="img" aria-label="Histogram of errors of accepted readings">
@@ -163,7 +163,7 @@ export function Architecture() {
       </svg>
       <ul className={s.archNotes}>
         <li><b>One function, cold start included.</b> OpenCV 5 and both text models ship in the Lambda package; reading the printed numbers is most of the time, about two seconds a photo.</li>
-        <li><b>Two DNN engines, each where it&apos;s faster.</b> OpenCV 5&apos;s new engine runs the text detector about 4× faster; the classic engine runs the recogniser about 3× faster.</li>
+        <li><b>Two DNN engines, each where it&apos;s faster.</b> On CPU, OpenCV 5&apos;s new engine ran the text detector 2 to 4 times faster across our runs; the classic engine ran the recogniser 3 to 4 times faster.</li>
         <li><b>Repeatable.</b> One CloudFormation template creates every resource; one script builds and deploys.</li>
       </ul>
     </section>

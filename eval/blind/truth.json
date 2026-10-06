@@ -1,0 +1,47 @@
+[
+ {
+  "file": "c27.jpg",
+  "min": 0,
+  "max": 150,
+  "unit": "°C",
+  "value": 30,
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Industrial_instrumetns-dial_guage_stem_thermometer..jpg",
+  "author": "Palagiri",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Industrial instrumetns-dial guage stem thermometer..jpg"
+ },
+ {
+  "file": "c29.jpg",
+  "min": 0,
+  "max": 150,
+  "unit": "atm",
+  "value": 0,
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Contents_Gauge_on_Siebe_Gorman_Self-Contained_Compressed_Air_Diving_Apparatus_(SCCADA).jpg",
+  "author": "Tim Sheerman-Chase",
+  "license": "CC BY 4.0",
+  "title": "File:Contents Gauge on Siebe Gorman Self-Contained Compressed Air Diving Apparatus (SCCADA).jpg"
+ },
+ {
+  "file": "c36.jpg",
+  "min": 0,
+  "max": 50,
+  "unit": "bar",
+  "value": 15.1,
+  "alt": [],
+  "tilt": null,
+  "glare": null,
+  "blur": null,
+  "source": "https://commons.wikimedia.org/wiki/File:Manometre_hpz.jpg",
+  "author": "Michel le tigre",
+  "license": "CC BY-SA 3.0",
+  "title": "File:Manometre hpz.jpg"
+ }
+]

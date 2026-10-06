@@ -4,7 +4,8 @@
   truth, reading, error as a share of the span, the reader's own checks and its confidence.
 - Copies thumbnails of the most instructive cases (largest errors, refusals, clean reads).
 - Benchmarks cv2.dnn's classic and new engines on the two text models.
-- Real photos (data/real/*.jpg with data/real/truth.json) are added when present.
+- Real photos (eval/real, the development set) and eval/blind (labelled before the reader saw them,
+  never used for tuning) are added when present, with the photos each set should decline.
 
 python scripts/evidence.py
 """
@@ -29,7 +30,11 @@ from vision import reader as R  # noqa: E402
 OUT = ROOT / "web" / "public" / "evidence"
 SETS = [("normal", ROOT / "data" / "synth200", "Rendered gauges, up to 35° tilt, some glare and blur"),
         ("hard", ROOT / "data" / "hard100", "Rendered gauges, up to 50° tilt, heavy glare and blur"),
-        ("real", ROOT / "eval" / "real", "Real photos from Wikimedia Commons, read by eye (development set)")]
+        ("real", [ROOT / "eval" / "real", ROOT / "eval" / "blind1"], "Real photos from Wikimedia Commons, read by eye (development set)"),
+        ("blind", ROOT / "eval" / "blind", "Real photos from Wikimedia Commons, read by eye, never used for tuning (blind set)")]
+# eval/blind1 was the first blind batch; its one blind run is kept in eval/blind1/first_run.json and it has been
+# development data since. eval/blind is the second batch, labelled after the last reader change.
+DEV = [ROOT / "eval" / "real", ROOT / "eval" / "blind1"]
 
 
 def _one(args):
@@ -62,9 +67,9 @@ def _one(args):
 
 
 def _oos(args):
-    folder, t = args
+    key, folder, t = args
     r = R.read(cv2.imread(str(Path(folder) / t["file"])))
-    return {"file": t["file"], "why": t["why"], "read": r.value, "ok": r.ok, "conf": r.confidence,
+    return {"set": key, "file": t["file"], "why": t["why"], "read": r.value, "ok": r.ok, "conf": r.confidence,
             "accepted": bool(r.ok and r.value is not None and r.confidence >= ACCEPT_AT), "issues": [i["code"] for i in r.issues],
             "credit": {"title": t["title"], "author": t["author"], "license": t["license"], "source": t["source"]}}
 
@@ -115,45 +120,57 @@ def bench():
 
 
 def main():
-    if OUT.exists():
-        shutil.rmtree(OUT)
+    # only this script's own output is replaced; agent.json comes from scripts/agent_eval.py
+    if (OUT / "img").exists():
+        shutil.rmtree(OUT / "img")
     (OUT / "img").mkdir(parents=True)
     bundle = {"accept_at": ACCEPT_AT, "opencv": cv2.__version__, "sets": {}}
-    for key, folder, label in SETS:
-        tf = folder / "truth.json"
-        if not tf.exists():
+    for key, folders, label in SETS:
+        folders = folders if isinstance(folders, list) else [folders]
+        jobs = [(str(f), t) for f in folders if (f / "truth.json").exists()
+                for t in json.loads((f / "truth.json").read_text(encoding="utf-8"))]
+        if not jobs:
             continue
-        truth = json.loads(tf.read_text())
         with Pool(6) as pool:
-            rows = pool.map(_one, [(str(folder), t) for t in truth])
+            rows = pool.map(_one, jobs)
+        where = {t["file"]: Path(f) for f, t in jobs}
         # thumbnails: worst accepted, worst read, refusals, and a few clean reads
-        if key == "real":
+        if key in ("real", "blind"):
             picks = rows  # every real photo is shown, with its credit
         else:
             picks = sorted([r for r in rows if r["err"] is not None], key=lambda r: -r["err"])[:6]
             picks += [r for r in rows if r["err"] is None][:4]
             picks += sorted([r for r in rows if r["accepted"]], key=lambda r: r["err"])[:4]
         for r in picks:
-            img = cv2.imread(str(folder / r["file"]))
+            img = cv2.imread(str(where[r["file"]] / r["file"]))
             s = 360 / max(img.shape[:2])
             name = f"{key}-{r['file'].rsplit('.', 1)[0]}.jpg"
             cv2.imwrite(str(OUT / "img" / name), cv2.resize(img, None, fx=s, fy=s, interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 80])
             r["thumb"] = f"/evidence/img/{name}"
         bundle["sets"][key] = {"label": label, "summary": summary(rows), "rows": rows}
         print(key, json.dumps(bundle["sets"][key]["summary"]))
-    oos_f = ROOT / "eval" / "real" / "out_of_scope.json"
-    if oos_f.exists():
+    oos = []
+    for key, folder in [("real", f) for f in DEV] + [("blind", ROOT / "eval" / "blind")]:
+        oos_f = folder / "out_of_scope.json"
+        if not oos_f.exists():
+            continue
         items = json.loads(oos_f.read_text(encoding="utf-8"))
         with Pool(6) as pool:
-            oos = pool.map(_oos, [(str(ROOT / "eval" / "real"), t) for t in items])
-        for r in oos:
-            img = cv2.imread(str(ROOT / "eval" / "real" / r["file"]))
+            rows = pool.map(_oos, [(key, str(folder), t) for t in items])
+        for r in rows:
+            img = cv2.imread(str(folder / r["file"]))
             s_ = 360 / max(img.shape[:2])
             name = f"oos-{r['file'].rsplit('.', 1)[0]}.jpg"
             cv2.imwrite(str(OUT / "img" / name), cv2.resize(img, None, fx=s_, fy=s_, interpolation=cv2.INTER_AREA), [cv2.IMWRITE_JPEG_QUALITY, 80])
             r["thumb"] = f"/evidence/img/{name}"
-        bundle["out_of_scope"] = oos
-        print("out of scope: accepted", sum(r["accepted"] for r in oos), "of", len(oos))
+        print(f"out of scope ({key}): accepted", sum(r["accepted"] for r in rows), "of", len(rows))
+        oos += rows
+    bundle["out_of_scope"] = oos
+    fr = ROOT / "eval" / "blind1" / "first_run.json"
+    if fr.exists():
+        first = json.loads(fr.read_text(encoding="utf-8"))
+        bundle["blind1_first_run"] = {"summary": first["summary"], "out_of_scope_n": len(first["out_of_scope"]),
+                                      "out_of_scope_accepted": first["out_of_scope_accepted"]}
     bundle["bench"] = bench()
     bundle["calibration"] = json.loads((ROOT / "vision" / "calibration.json").read_text())
     (OUT / "results.json").write_text(json.dumps(bundle))

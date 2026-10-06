@@ -1,0 +1,582 @@
+{
+ "note": "First and only run of the reader on these photos before they were used for development (commit after 8795cb5). Frozen record.",
+ "summary": {
+  "n": 15,
+  "read": 13,
+  "accepted": 4,
+  "reshoot": 11,
+  "median_err": 0.04805,
+  "within_2pct_all": 0.3077,
+  "accepted_within_2pct": 0.5,
+  "accepted_over_5pct": 1,
+  "accepted_median_err": 0.024,
+  "ms_median": 2555.1
+ },
+ "rows": [
+  {
+   "file": "b01.jpg",
+   "truth": 48,
+   "min": 0,
+   "max": 300,
+   "unit": "psi",
+   "read": 45.875,
+   "err": 0.00708,
+   "ok": false,
+   "conf": 0.949,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "multiple"
+   ],
+   "credit": {
+    "title": "File:Apartment Complex Standpipe with Pressure Gauge.jpg",
+    "author": "Mark Cross",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Apartment_Complex_Standpipe_with_Pressure_Gauge.jpg"
+   }
+  },
+  {
+   "file": "b02.jpg",
+   "truth": 39.5,
+   "min": -50,
+   "max": 50,
+   "unit": "°C",
+   "read": -56.4027,
+   "err": 0.95903,
+   "ok": false,
+   "conf": 0.354,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "range"
+   ],
+   "credit": {
+    "title": "File:Außenthermometer Vorderseite.jpg",
+    "author": "Levin Holtkamp",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Au%C3%9Fenthermometer_Vorderseite.jpg"
+   }
+  },
+  {
+   "file": "b04.jpg",
+   "truth": 23.3,
+   "min": -20,
+   "max": 40,
+   "unit": "°C",
+   "read": -55.4643,
+   "err": 1.17695,
+   "ok": true,
+   "conf": 0.029,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [],
+   "credit": {
+    "title": "File:Bimetallic thermometer.JPG",
+    "author": "Pogrebnoj-Alexandroff",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bimetallic_thermometer.JPG"
+   }
+  },
+  {
+   "file": "b05.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 30,
+   "unit": "psi",
+   "read": 10.704,
+   "err": 0.3568,
+   "ok": true,
+   "conf": 0.04,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [],
+   "credit": {
+    "title": "File:Budenberg Gauge LBS-PSI.JPG",
+    "author": "Dcolvin (talk) (Uploads)",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Budenberg_Gauge_LBS-PSI.JPG"
+   }
+  },
+  {
+   "file": "b11.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 100,
+   "unit": "psi",
+   "read": 0.3879,
+   "err": 0.00388,
+   "ok": true,
+   "conf": 0.953,
+   "accepted": true,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [],
+   "credit": {
+    "title": "File:Industrial instruments pressure gauge.jpg",
+    "author": "Palagiri",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Industrial_instruments_pressure_gauge.jpg"
+   }
+  },
+  {
+   "file": "b12.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 110,
+   "unit": "psi",
+   "read": 6.6996,
+   "err": 0.06091,
+   "ok": true,
+   "conf": 0.955,
+   "accepted": true,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "tilt",
+    "blur"
+   ],
+   "credit": {
+    "title": "File:London Road Fire Station – Interior – Kismet Tyre Pressure Gauge.jpg",
+    "author": "Delusion23",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:London_Road_Fire_Station_%E2%80%93_Interior_%E2%80%93_Kismet_Tyre_Pressure_Gauge.jpg"
+   }
+  },
+  {
+   "file": "b13.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 220,
+   "unit": "psi",
+   "read": 10.4756,
+   "err": 0.04762,
+   "ok": false,
+   "conf": 0.83,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "multiple"
+   ],
+   "credit": {
+    "title": "File:Manometar photo Momcilo Stokanovic.jpg",
+    "author": "Momcilo Stokanovic",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometar_photo_Momcilo_Stokanovic.jpg"
+   }
+  },
+  {
+   "file": "b17.jpg",
+   "truth": 82,
+   "min": 0,
+   "max": 250,
+   "unit": "kg/cm²",
+   "read": 69.9874,
+   "err": 0.04805,
+   "ok": true,
+   "conf": 0.48,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "tilt",
+    "blur"
+   ],
+   "credit": {
+    "title": "File:Natural gas pressure gauge.jpg",
+    "author": "Централизованный информационный портал Республики Башкортостан",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Natural_gas_pressure_gauge.jpg"
+   }
+  },
+  {
+   "file": "b18.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 7,
+   "unit": "kg/cm²",
+   "read": 0.6265,
+   "err": 0.00626,
+   "ok": false,
+   "conf": 0.54,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "multiple"
+   ],
+   "credit": {
+    "title": "File:Nissan Skyline R34, Tomei fuel pressure gauge.jpg",
+    "author": "Cjp24",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Nissan_Skyline_R34,_Tomei_fuel_pressure_gauge.jpg"
+   }
+  },
+  {
+   "file": "b19.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 10,
+   "unit": "bar",
+   "read": 15.0078,
+   "err": 0.08828,
+   "ok": true,
+   "conf": 0.205,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "blur"
+   ],
+   "credit": {
+    "title": "File:Old pressure gauge and tools in a workshop setting show signs of use and wear.jpg",
+    "author": "Shixart1985",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Old_pressure_gauge_and_tools_in_a_workshop_setting_show_signs_of_use_and_wear.jpg"
+   }
+  },
+  {
+   "file": "b20.jpg",
+   "truth": 590,
+   "min": 0,
+   "max": 1000,
+   "unit": "kPa",
+   "read": null,
+   "err": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "blur",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Pressure gauge of brake pipe on a 25T.JPG",
+    "author": "N509FZ",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_of_brake_pipe_on_a_25T.JPG"
+   }
+  },
+  {
+   "file": "b21.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 100,
+   "unit": "psi",
+   "read": 4.4121,
+   "err": 0.04412,
+   "ok": true,
+   "conf": 0.956,
+   "accepted": true,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [],
+   "credit": {
+    "title": "File:Pressure gauge on Siebe Gorman manual diver's pump P3220126.jpg",
+    "author": "Peter Southwood",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_on_Siebe_Gorman_manual_diver%27s_pump_P3220126.jpg"
+   }
+  },
+  {
+   "file": "b23.jpg",
+   "truth": -2,
+   "min": -20,
+   "max": 80,
+   "unit": "°F",
+   "read": -2.3089,
+   "err": 0.00309,
+   "ok": true,
+   "conf": 0.91,
+   "accepted": true,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [],
+   "credit": {
+    "title": "File:Rubbermaid R80DC Refrigerator Freezer Thermometer (40251799920).jpg",
+    "author": "Tony Webster from Minneapolis, Minnesota, United States",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rubbermaid_R80DC_Refrigerator_Freezer_Thermometer_(40251799920).jpg"
+   }
+  },
+  {
+   "file": "b24.jpg",
+   "truth": 14,
+   "min": -50,
+   "max": 50,
+   "unit": "°C",
+   "read": null,
+   "err": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "multiple",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Thermometer 13 Degree Celsius.JPG",
+    "author": "Quant",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thermometer_13_Degree_Celsius.JPG"
+   }
+  },
+  {
+   "file": "b26.jpg",
+   "truth": 0,
+   "min": 0,
+   "max": 150,
+   "unit": "psi",
+   "read": 97.9316,
+   "err": 0.65288,
+   "ok": false,
+   "conf": 0.207,
+   "accepted": false,
+   "tilt": null,
+   "glare": null,
+   "blur": null,
+   "issues": [
+    "glare_needle"
+   ],
+   "credit": {
+    "title": "File:Virginia V (ship, 1922) engine room 14 - Jos. Marsh & Co. pressure gauge (intermediate receiver).jpg",
+    "author": "Joe Mabel",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Virginia_V_(ship,_1922)_engine_room_14_-_Jos._Marsh_%26_Co._pressure_gauge_(intermediate_receiver).jpg"
+   }
+  }
+ ],
+ "out_of_scope": [
+  {
+   "set": "blind",
+   "file": "b03.jpg",
+   "why": "needle below the printed scale (oven thermometer at room temperature)",
+   "read": 43.0619,
+   "ok": true,
+   "conf": 0.939,
+   "accepted": true,
+   "issues": [],
+   "credit": {
+    "title": "File:Backofenthermometer.jpg",
+    "author": "Gmhofmann",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Backofenthermometer.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b06.jpg",
+   "why": "a valve, no gauge",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "tilt",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Close-up view of a red valve on a metallic pipe system with a pressure gauge in an industrial setting.jpg",
+    "author": "Shixart1985",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Close-up_view_of_a_red_valve_on_a_metallic_pipe_system_with_a_pressure_gauge_in_an_industrial_setting.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b07.jpg",
+   "why": "contact gauge with two set-point needles",
+   "read": 737.8813,
+   "ok": true,
+   "conf": 0.226,
+   "accepted": false,
+   "issues": [],
+   "credit": {
+    "title": "File:Contact pressure gauge.JPG",
+    "author": "S.J. de Waard",
+    "license": "CC BY 2.5",
+    "source": "https://commons.wikimedia.org/wiki/File:Contact_pressure_gauge.JPG"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b08.jpg",
+   "why": "pump with no dial",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "small",
+    "blur",
+    "multiple",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Fahrrad, Werkzeug, Reifendruckprüfer, SCHWALBE AIRMAX SV, IMGP6406.jpg",
+    "author": "Radler22",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fahrrad,_Werkzeug,_Reifendruckpr%C3%BCfer,_SCHWALBE_AIRMAX_SV,_IMGP6406.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b09.jpg",
+   "why": "pump with no dial",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "small",
+    "blur",
+    "multiple",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Fahrrad, Werkzeug, Reifendruckprüfer, SCHWALBE AIRMAX SV, IMGP6409.jpg",
+    "author": "Radler22",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Fahrrad,_Werkzeug,_Reifendruckpr%C3%BCfer,_SCHWALBE_AIRMAX_SV,_IMGP6409.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b10.jpg",
+   "why": "fire-extinguisher gauge with no numbers",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "tilt",
+    "blur",
+    "multiple",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Gauge of fire extinguisher.jpg",
+    "author": "User:connortk",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gauge_of_fire_extinguisher.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b14.jpg",
+   "why": "two gauges in one frame",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "blur",
+    "glare",
+    "multiple",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Manometer mit CO2 Flasche - Bild 001.jpg",
+    "author": "Lupus in Saxonia",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer_mit_CO2_Flasche_-_Bild_001.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b15.jpg",
+   "why": "gauge mechanism, no dial face",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "scale"
+   ],
+   "credit": {
+    "title": "File:ManometrucuTubBourdonfabricatinRomania.JPG",
+    "author": "CristianChirita",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:ManometrucuTubBourdonfabricatinRomania.JPG"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b16.jpg",
+   "why": "back of a gauge",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "tilt",
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Manómetro 3 psi 2.jpg",
+    "author": "Amfeli",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Man%C3%B3metro_3_psi_2.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b22.jpg",
+   "why": "second, red set pointer",
+   "read": null,
+   "ok": false,
+   "conf": 0.0,
+   "accepted": false,
+   "issues": [
+    "scale"
+   ],
+   "credit": {
+    "title": "File:Pressure gauge.jpg",
+    "author": "Omnibus-Trip",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge.jpg"
+   }
+  },
+  {
+   "set": "blind",
+   "file": "b25.jpg",
+   "why": "two gauges in one frame",
+   "read": -70.4918,
+   "ok": false,
+   "conf": 0.048,
+   "accepted": false,
+   "issues": [
+    "multiple"
+   ],
+   "credit": {
+    "title": "File:Thermometer with bimetallic.JPG",
+    "author": "Pogrebnoj-Alexandroff",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thermometer_with_bimetallic.JPG"
+   }
+  }
+ ],
+ "out_of_scope_accepted": 1
+}

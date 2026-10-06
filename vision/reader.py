@@ -69,8 +69,8 @@ _det = None
 _rec = None
 
 
-# Measured on CPU (scripts/evidence.py): OpenCV 5's new engine runs the DB text detector about 4x faster
-# than the classic engine, while the classic engine runs the small CRNN recogniser about 3x faster.
+# Measured on CPU (scripts/evidence.py): OpenCV 5's new engine runs the DB text detector 2-4x faster
+# than the classic engine, while the classic engine runs the small CRNN recogniser 3-4x faster.
 # So each model uses the engine that suits it.
 DET_ENGINE = cv2.dnn.ENGINE_NEW
 REC_ENGINE = cv2.dnn.ENGINE_CLASSIC
@@ -165,6 +165,24 @@ def find_dial(img: np.ndarray, trace: dict | None = None):
     return best, _support(thick, best)
 
 
+def _gauge_like(small: np.ndarray, e) -> bool:
+    """Is a second strong ellipse in the photo another gauge, or just a handwheel, a pipe end or a rubber boot?
+    A gauge prints a scale: at least two readable numbers, or one number on a fairly regular tick ring."""
+    dial, _ = straighten(small, e)
+    nums, _ = numbers_from(read_text(dial))
+    if len(nums) >= 2:
+        return True
+    if not nums:
+        return False
+    polar, rstep = unwrap(ink_map(dial)[0])
+    degs = sorted(t["deg"] % 360 for t in find_ticks(polar, rstep)[1])
+    if len(degs) < 12:
+        return False
+    gaps = np.diff(degs + [degs[0] + 360])
+    med = float(np.median(gaps))
+    return float(np.mean(np.abs(gaps - med) < 0.35 * med)) >= 0.3
+
+
 # ---------- 2/3. straighten and unwrap ----------
 
 def straighten(img: np.ndarray, e) -> tuple[np.ndarray, np.ndarray]:
@@ -238,7 +256,7 @@ def _reach(polar_ink: np.ndarray, row: int, rstep: float, ring_r: float) -> floa
     return (r - gap) * rstep / ring_r
 
 
-def find_needle(polar_ink: np.ndarray, rstep: float, ring_r: float):
+def find_needle(polar_ink: np.ndarray, rstep: float, ring_r: float, avoid=None):
     """The needle is the stroke that runs from the hub out toward the ticks.
     Counterweight tails can be just as dark near the hub, so among the strongest candidates
     the one that reaches furthest out is the pointer."""
@@ -257,6 +275,9 @@ def find_needle(polar_ink: np.ndarray, rstep: float, ring_r: float):
             break
         if all(min(abs(i - j), ANG_BINS - abs(i - j)) > sep for j in cands):
             cands.append(int(i))
+    if avoid is not None:
+        # print in the blank part of the dial (a logo, a clip, a maker's name) is never the needle
+        cands = [k for k in cands if not avoid(row_to_deg(k))] or cands
     reach = {i: _reach(polar_ink, i, rstep, ring_r) for i in cands}
     # longest stroke wins; strength only breaks near-ties
     i = max(cands, key=lambda k: (round(reach[k], 1), score[k]))
@@ -668,12 +689,26 @@ def fit_scale(nums, gap_deg: float):
 
 def scale_gap(ticks) -> float:
     """Angle in the middle of the biggest gap between ticks (the unprinted part of the dial)."""
+    return gap_span(ticks)[0]
+
+
+def gap_span(ticks) -> tuple[float, float]:
+    """Middle and width (degrees) of the biggest gap between ticks."""
     if len(ticks) < 4:
-        return 180.0
+        return 180.0, 0.0
     ds = sorted(t["deg"] % 360 for t in ticks)
     gaps = [(ds[(i + 1) % len(ds)] - ds[i]) % 360 for i in range(len(ds))]
     i = int(np.argmax(gaps))
-    return (ds[i] + gaps[i] / 2) % 360
+    return (ds[i] + gaps[i] / 2) % 360, float(gaps[i])
+
+
+def in_gap(ticks):
+    """Test for angles deep inside the unprinted gap. A needle can rest at either end of the scale,
+    so a margin next to each end stays allowed; narrow gaps (or no clear tick ring) disable the test."""
+    mid, width = gap_span(ticks)
+    if width < 45 or len(ticks) < 20:
+        return None
+    return lambda deg: abs((deg - mid + 180) % 360 - 180) < width / 2 - 12
 
 
 # ---------- 8. photo checks ----------
@@ -799,11 +834,13 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
         polar, rstep = unwrap(ink, center)
         ring, ticks = find_ticks(polar, rstep)
     ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
-    needle_deg, peak, second, nscore = find_needle(polar, rstep, ring_r)
+    avoid = in_gap(ticks)
+    needle_deg, peak, second, nscore = find_needle(polar, rstep, ring_r, avoid)
     # the needle line fixes the pivot (and with it every angle) and says which end is the tip
     gray_d = cv2.cvtColor(dial, cv2.COLOR_BGR2GRAY)
     tries = [needle_line(ink, gray_d, c, ring_r) for c in (center, (DIAL / 2, DIAL / 2))]
-    tries = [t for t in tries if t is not None and math.hypot(t[0][0] - center[0], t[0][1] - center[1]) < 0.3 * RAD]
+    tries = [t for t in tries if t is not None and math.hypot(t[0][0] - center[0], t[0][1] - center[1]) < 0.3 * RAD
+             and not (avoid and avoid(t[1]))]
     nl = max(tries, key=lambda t: t[2]["line_len"] + 0.5 * t[2]["tip_len"]) if tries else None
     needle_info = None
     if nl is not None:
@@ -813,7 +850,7 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
             polar, rstep = unwrap(ink, center)
             ring, ticks = find_ticks(polar, rstep)
             ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
-            _, peak, second, nscore = find_needle(polar, rstep, ring_r)
+            _, peak, second, nscore = find_needle(polar, rstep, ring_r, in_gap(ticks))
             needle_deg = line_deg
     tm["geometry"] = time.perf_counter() - t0 - tm["dial"]
     t1 = time.perf_counter()
@@ -832,7 +869,7 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
     predict, inliers, resid = fit_scale(nums, gap)
 
     issues, tilt, sharp, glare_frac, glare_needle = photo_checks(small, e, dial, needle_deg, ring, center)
-    if getattr(find_dial, "others", None):
+    if any(_gauge_like(small, o) for o in (getattr(find_dial, "others", None) or [])[:3]):
         issues.append({"code": "multiple", "level": "block", "text": "There's more than one gauge in the photo. Photograph one gauge at a time."})
     ellipse = [round(e[0][0] / f, 1), round(e[0][1] / f, 1), round(e[1][0] / f, 1), round(e[1][1] / f, 1), round(e[2], 1)]
     rd = Reading(False, needle_angle=round(needle_deg, 2), ellipse=ellipse, tilt=round(tilt, 1), issues=issues, timings=tm, dial=dial,
