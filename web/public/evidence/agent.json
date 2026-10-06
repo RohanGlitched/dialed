@@ -14,7 +14,74 @@
    "tools": 3,
    "refusals": [],
    "message": "PI-102 logged at 8.34 bar, inside its normal band.",
-   "ms": 3279
+   "ms": 2296,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 8.3418,
+      "confidence": 0.994,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": null,
+      "range_read": [
+       0.0,
+       16.0
+      ],
+      "numbers_read": 8,
+      "tilt_deg": 16.5,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 16
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "8.34 bar"
+     }
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 8.3418,
+      "unit": "bar",
+      "normal": [
+       7.0,
+       9.5
+      ],
+      "alarm": {
+       "low": 5.0,
+       "high": 12.0
+      },
+      "breaches": [],
+      "last": {
+       "value": 8.668,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": -0.3262,
+      "rate_per_day": 0.0728,
+      "zscore": 0.37
+     }
+    },
+    {
+     "tool": "log_reading",
+     "args": {},
+     "result": {
+      "outcome": "logged",
+      "value": "8.34 bar"
+     }
+    },
+    {
+     "done": "logged"
+    }
+   ]
   },
   {
    "name": "Bearing warming all week",
@@ -32,7 +99,85 @@
    "tools": 3,
    "refusals": [],
    "message": "TI-201 logged at 63.5 \u00b0C; work order held for a supervisor.",
-   "ms": 5541
+   "ms": 2391,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 63.5167,
+      "confidence": 0.98,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": "\u00b0C",
+      "range_read": [
+       0.0,
+       120.0
+      ],
+      "numbers_read": 6,
+      "tilt_deg": 16.2,
+      "spec": {
+       "unit": "\u00b0C",
+       "min": 0,
+       "max": 120
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "63.5 \u00b0C"
+     }
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 63.5167,
+      "unit": "\u00b0C",
+      "normal": [
+       30,
+       70
+      ],
+      "alarm": {
+       "low": null,
+       "high": 85
+      },
+      "breaches": [
+       {
+        "code": "drift",
+        "text": "Rising 2.7 \u00b0C a day over the past week",
+        "severity": "medium"
+       }
+      ],
+      "last": {
+       "value": 62.643,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": 0.8737,
+      "rate_per_day": 2.7413,
+      "zscore": 1.53
+     }
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "TI-201 Pump P-1 bearing: Rising 2.7 \u00b0C a day over the past week",
+      "reason": "Rising 2.7 \u00b0C a day over the past week.",
+      "priority": "medium"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "medium",
+      "struck": []
+     }
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Filter pressure drop over limit",
@@ -50,7 +195,99 @@
    "tools": 3,
    "refusals": [],
    "message": "PI-105 logged at 5.73 bar; work order held for a supervisor.",
-   "ms": 5735
+   "ms": 3293,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 5.7334,
+      "confidence": 0.997,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": "bar",
+      "range_read": [
+       0.0,
+       10.0
+      ],
+      "numbers_read": 9,
+      "tilt_deg": 15.9,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "5.73 bar"
+     }
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 5.7334,
+      "unit": "bar",
+      "normal": [
+       4.5,
+       7.5
+      ],
+      "alarm": {
+       "low": 3.5,
+       "high": 9.0
+      },
+      "breaches": [
+       {
+        "code": "differential",
+        "text": "Pressure drop across filter F-1 is 1.44 bar, at or over the 1.20 bar limit",
+        "severity": "high"
+       }
+      ],
+      "last": {
+       "value": 5.936,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": -0.2026,
+      "rate_per_day": -0.0437,
+      "zscore": -2.99,
+      "related": {
+       "across": "filter F-1",
+       "with": "PI-104",
+       "dp": 1.4406,
+       "limit": 1.2,
+       "unit": "bar",
+       "breaches": [
+        {
+         "code": "differential",
+         "text": "Pressure drop across filter F-1 is 1.44 bar, at or over the 1.20 bar limit",
+         "severity": "high"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "PI-105 Filter F-1 outlet: Pressure drop across filter F-1 is 1.44 bar",
+      "reason": "Pressure drop across filter F-1 is 1.44 bar, at or over the 1.20 bar limit.",
+      "priority": "high"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "high",
+      "struck": []
+     }
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Air receiver over its alarm limit",
@@ -68,7 +305,85 @@
    "tools": 3,
    "refusals": [],
    "message": "PI-106 logged at 145.6 psi; work order held for a supervisor.",
-   "ms": 5757
+   "ms": 2503,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 145.5865,
+      "confidence": 0.982,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": "psi",
+      "range_read": [
+       0.0,
+       160.0
+      ],
+      "numbers_read": 6,
+      "tilt_deg": 16.0,
+      "spec": {
+       "unit": "psi",
+       "min": 0,
+       "max": 160
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "145.6 psi"
+     }
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 145.5865,
+      "unit": "psi",
+      "normal": [
+       90,
+       125
+      ],
+      "alarm": {
+       "low": 80,
+       "high": 140
+      },
+      "breaches": [
+       {
+        "code": "alarm_high",
+        "text": "145.6 psi is at or above the 140.0 psi alarm limit",
+        "severity": "urgent"
+       }
+      ],
+      "last": {
+       "value": 105.962,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": 39.6245,
+      "rate_per_day": 0.818,
+      "zscore": 6.64
+     }
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "PI-106 Air receiver: 145.6 psi is at or above the 140.0 psi alarm limit",
+      "reason": "145.6 psi is at or above the 140.0 psi alarm limit.",
+      "priority": "urgent"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "urgent",
+      "struck": []
+     }
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Intake below its alarm limit",
@@ -86,7 +401,85 @@
    "tools": 3,
    "refusals": [],
    "message": "PI-101 logged at 0.60 bar; work order held for a supervisor.",
-   "ms": 6277
+   "ms": 2830,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 0.6046,
+      "confidence": 0.969,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": null,
+      "range_read": [
+       0.0,
+       6.0
+      ],
+      "numbers_read": 5,
+      "tilt_deg": 16.2,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 6
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "0.60 bar"
+     }
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 0.6046,
+      "unit": "bar",
+      "normal": [
+       1.2,
+       2.4
+      ],
+      "alarm": {
+       "low": 0.8,
+       "high": null
+      },
+      "breaches": [
+       {
+        "code": "alarm_low",
+        "text": "0.60 bar is at or below the 0.80 bar alarm limit",
+        "severity": "urgent"
+       }
+      ],
+      "last": {
+       "value": 1.937,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": -1.3324,
+      "rate_per_day": -0.0522,
+      "zscore": -15.33
+     }
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "PI-101 Intake header: 0.60 bar is at or below the 0.80 bar alarm limit",
+      "reason": "0.60 bar is at or below the 0.80 bar alarm limit.",
+      "priority": "urgent"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "urgent",
+      "struck": []
+     }
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Shaky photo",
@@ -102,7 +495,61 @@
    "tools": 2,
    "refusals": [],
    "message": "The photo is blurred. Hold still or tap to focus. Can't read the scale numbers. Get closer or reduce glare.",
-   "ms": 2246
+   "ms": 822,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": false,
+      "value": null,
+      "confidence": 0.0,
+      "threshold": 0.9,
+      "issues": [
+       {
+        "code": "blur",
+        "level": "block",
+        "text": "The photo is blurred. Hold still or tap to focus."
+       },
+       {
+        "code": "scale",
+        "level": "block",
+        "text": "Can't read the scale numbers. Get closer or reduce glare."
+       }
+      ],
+      "unit_read": null,
+      "range_read": null,
+      "numbers_read": 0,
+      "tilt_deg": 16.5,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": true,
+      "range_matches": true
+     }
+    },
+    {
+     "tool": "request_reshoot",
+     "args": {
+      "issue_codes": [
+       "blur",
+       "scale"
+      ]
+     },
+     "result": {
+      "outcome": "reshoot",
+      "guidance": "The photo is blurred. Hold still or tap to focus. Can't read the scale numbers. Get closer or reduce glare."
+     }
+    },
+    {
+     "done": "reshoot"
+    }
+   ]
   },
   {
    "name": "Photo turned 62\u00b0 away",
@@ -118,7 +565,59 @@
    "tools": 2,
    "refusals": [],
    "message": "The dial is turned 62\u00b0 away. Face it more squarely.",
-   "ms": 6413
+   "ms": 2805,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": false,
+      "value": 4.5213,
+      "confidence": 0.735,
+      "threshold": 0.9,
+      "issues": [
+       {
+        "code": "tilt",
+        "level": "block",
+        "text": "The dial is turned 62\u00b0 away. Face it more squarely."
+       }
+      ],
+      "unit_read": "\u00b0C",
+      "range_read": [
+       2.0,
+       9.0
+      ],
+      "numbers_read": 3,
+      "tilt_deg": 61.8,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": false,
+      "range_matches": true,
+      "display": "4.52 bar"
+     }
+    },
+    {
+     "tool": "request_reshoot",
+     "args": {
+      "issue_codes": [
+       "tilt"
+      ]
+     },
+     "result": {
+      "outcome": "reshoot",
+      "guidance": "The dial is turned 62\u00b0 away. Face it more squarely."
+     }
+    },
+    {
+     "done": "reshoot"
+    }
+   ]
   },
   {
    "name": "Wrong gauge photographed",
@@ -134,7 +633,58 @@
    "tools": 2,
    "refusals": [],
    "message": "This doesn't look like PI-107: the scale reads 0.0\u2013160.0, the tag says 0.00\u201310.00. Check the tag and photograph the right gauge.",
-   "ms": 5947
+   "ms": 2528,
+   "trace": [
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 109.6055,
+      "confidence": 0.989,
+      "threshold": 0.9,
+      "issues": [
+       {
+        "code": "glare_needle",
+        "level": "warn",
+        "text": "Glare crosses the needle. Step to the left or tilt the phone.",
+        "deg": 85.6038472002751
+       }
+      ],
+      "unit_read": null,
+      "range_read": [
+       0.0,
+       160.0
+      ],
+      "numbers_read": 8,
+      "tilt_deg": 16.7,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": true,
+      "range_matches": false,
+      "display": "109.61 bar"
+     }
+    },
+    {
+     "tool": "flag_wrong_gauge",
+     "args": {
+      "detail": "unit or range mismatch"
+     },
+     "result": {
+      "outcome": "mismatch",
+      "message": "This doesn't look like PI-107: the scale reads 0.0\u2013160.0, the tag says 0.00\u201310.00. Check the tag and photograph the right gauge."
+     }
+    },
+    {
+     "done": "mismatch"
+    }
+   ]
   }
  ],
  "model": [
@@ -151,8 +701,99 @@
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The reading has been logged successfully.",
-   "ms": 10734
+   "message": "The gauge reading of 8.34\u202fbar is within normal limits and has been logged.",
+   "ms": 7184,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 8.3418,
+      "confidence": 0.994,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": null,
+      "range_read": [
+       0.0,
+       16.0
+      ],
+      "numbers_read": 8,
+      "tilt_deg": 16.5,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 16
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "8.34 bar"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "compare_history"
+     ]
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 8.3418,
+      "unit": "bar",
+      "normal": [
+       7.0,
+       9.5
+      ],
+      "alarm": {
+       "low": 5.0,
+       "high": 12.0
+      },
+      "breaches": [],
+      "last": {
+       "value": 8.668,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": -0.3262,
+      "rate_per_day": 0.0728,
+      "zscore": 0.37
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "log_reading"
+     ]
+    },
+    {
+     "tool": "log_reading",
+     "args": {
+      "note": "Reading logged"
+     },
+     "result": {
+      "outcome": "logged",
+      "value": "8.34 bar"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "logged"
+    }
+   ]
   },
   {
    "name": "Bearing warming all week",
@@ -169,8 +810,108 @@
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The gauge reading of 63.5\u202f\u00b0C indicates a rising trend of about 2.7\u202f\u00b0C per day, so a maintenance work order has been held for supervisor review.",
-   "ms": 11905
+   "message": "The bearing temperature reads 63.5\u202f\u00b0C and is rising about 2.7\u202f\u00b0C per day, so a maintenance work order has been held for supervisor review.",
+   "ms": 8060,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 63.5167,
+      "confidence": 0.98,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": "\u00b0C",
+      "range_read": [
+       0.0,
+       120.0
+      ],
+      "numbers_read": 6,
+      "tilt_deg": 16.2,
+      "spec": {
+       "unit": "\u00b0C",
+       "min": 0,
+       "max": 120
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "63.5 \u00b0C"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "compare_history"
+     ]
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 63.5167,
+      "unit": "\u00b0C",
+      "normal": [
+       30,
+       70
+      ],
+      "alarm": {
+       "low": null,
+       "high": 85
+      },
+      "breaches": [
+       {
+        "code": "drift",
+        "text": "Rising 2.7 \u00b0C a day over the past week",
+        "severity": "medium"
+       }
+      ],
+      "last": {
+       "value": 62.643,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": 0.8737,
+      "rate_per_day": 2.7412,
+      "zscore": 1.53
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "hold_work_order"
+     ]
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "Bearing temperature drift",
+      "reason": "Temperature rising at 2.7\u00b0C per day, current reading 63.5\u00b0C.",
+      "priority": "medium"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "medium",
+      "struck": []
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Filter pressure drop over limit",
@@ -187,8 +928,122 @@
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The reading has been logged and a high\u2011priority work order drafted because the pressure drop across filter\u202fF\u20111 exceeds the limit.",
-   "ms": 10826
+   "message": "The reading shows a high differential pressure across filter F\u20111 (1.44\u202fbar vs\u202f1.20\u202fbar limit), so a maintenance work order has been held for supervisor review.",
+   "ms": 7553,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 5.7334,
+      "confidence": 0.997,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": "bar",
+      "range_read": [
+       0.0,
+       10.0
+      ],
+      "numbers_read": 9,
+      "tilt_deg": 15.9,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "5.73 bar"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "compare_history"
+     ]
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 5.7334,
+      "unit": "bar",
+      "normal": [
+       4.5,
+       7.5
+      ],
+      "alarm": {
+       "low": 3.5,
+       "high": 9.0
+      },
+      "breaches": [
+       {
+        "code": "differential",
+        "text": "Pressure drop across filter F-1 is 1.44 bar, at or over the 1.20 bar limit",
+        "severity": "high"
+       }
+      ],
+      "last": {
+       "value": 5.936,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": -0.2026,
+      "rate_per_day": -0.0437,
+      "zscore": -2.99,
+      "related": {
+       "across": "filter F-1",
+       "with": "PI-104",
+       "dp": 1.4406,
+       "limit": 1.2,
+       "unit": "bar",
+       "breaches": [
+        {
+         "code": "differential",
+         "text": "Pressure drop across filter F-1 is 1.44 bar, at or over the 1.20 bar limit",
+         "severity": "high"
+        }
+       ]
+      }
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "hold_work_order"
+     ]
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "High differential pressure across filter F-1",
+      "reason": "Pressure drop across filter F-1 is 1.44 bar, exceeding the 1.20 bar limit (PI-105 reading 5.73 bar, PI-104 inferred).",
+      "priority": "high"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "high",
+      "struck": []
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Air receiver over its alarm limit",
@@ -205,8 +1060,108 @@
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The gauge reading of 145.6\u202fpsi exceeds the alarm high limit of 140\u202fpsi, so a high\u2011priority work order has been held for supervisor review.",
-   "ms": 11339
+   "message": "The reading shows 145.6\u202fpsi, which exceeds the alarm high limit of 140\u202fpsi, so a maintenance work order has been held pending supervisor review.",
+   "ms": 7690,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 145.5865,
+      "confidence": 0.982,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": "psi",
+      "range_read": [
+       0.0,
+       160.0
+      ],
+      "numbers_read": 6,
+      "tilt_deg": 16.0,
+      "spec": {
+       "unit": "psi",
+       "min": 0,
+       "max": 160
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "145.6 psi"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "compare_history"
+     ]
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 145.5865,
+      "unit": "psi",
+      "normal": [
+       90,
+       125
+      ],
+      "alarm": {
+       "low": 80,
+       "high": 140
+      },
+      "breaches": [
+       {
+        "code": "alarm_high",
+        "text": "145.6 psi is at or above the 140.0 psi alarm limit",
+        "severity": "urgent"
+       }
+      ],
+      "last": {
+       "value": 105.962,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": 39.6245,
+      "rate_per_day": 0.8182,
+      "zscore": 6.64
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "hold_work_order"
+     ]
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "High pressure on Air receiver PI-106",
+      "reason": "Reading 145.6 psi exceeds alarm high limit of 140 psi",
+      "priority": "urgent"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "urgent",
+      "struck": []
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Intake below its alarm limit",
@@ -223,8 +1178,108 @@
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 3,
    "refusals": [],
-   "message": "The reading of 0.60\u202fbar triggers a low\u2011pressure alarm, so a maintenance work order has been held pending supervisor review.",
-   "ms": 12296
+   "message": "The reading shows 0.60\u202fbar, which is at or below the alarm low limit of 0.80\u202fbar, so an urgent work\u2011order hold has been placed pending supervisor review.",
+   "ms": 7948,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 0.6046,
+      "confidence": 0.969,
+      "threshold": 0.9,
+      "issues": [],
+      "unit_read": null,
+      "range_read": [
+       0.0,
+       6.0
+      ],
+      "numbers_read": 5,
+      "tilt_deg": 16.2,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 6
+      },
+      "unit_matches": true,
+      "range_matches": true,
+      "display": "0.60 bar"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "compare_history"
+     ]
+    },
+    {
+     "tool": "compare_history",
+     "args": {},
+     "result": {
+      "value": 0.6046,
+      "unit": "bar",
+      "normal": [
+       1.2,
+       2.4
+      ],
+      "alarm": {
+       "low": 0.8,
+       "high": null
+      },
+      "breaches": [
+       {
+        "code": "alarm_low",
+        "text": "0.60 bar is at or below the 0.80 bar alarm limit",
+        "severity": "urgent"
+       }
+      ],
+      "last": {
+       "value": 1.937,
+       "at": "2026-10-05T09:30:00Z",
+       "days_ago": 0.71
+      },
+      "delta": -1.3324,
+      "rate_per_day": -0.0522,
+      "zscore": -15.33
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "hold_work_order"
+     ]
+    },
+    {
+     "tool": "hold_work_order",
+     "args": {
+      "title": "Low pressure alarm on PI-101",
+      "reason": "Current reading 0.60 bar is at or below the alarm low limit of 0.80 bar for gauge PI-101 (Intake header).",
+      "priority": "urgent"
+     },
+     "result": {
+      "outcome": "held",
+      "priority": "urgent",
+      "struck": []
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "held"
+    }
+   ]
   },
   {
    "name": "Shaky photo",
@@ -240,7 +1295,77 @@
    "tools": 2,
    "refusals": [],
    "message": "Please retake the photo, ensuring it\u2019s in focus and the scale numbers are clearly visible without glare.",
-   "ms": 6390
+   "ms": 4811,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": false,
+      "value": null,
+      "confidence": 0.0,
+      "threshold": 0.9,
+      "issues": [
+       {
+        "code": "blur",
+        "level": "block",
+        "text": "The photo is blurred. Hold still or tap to focus."
+       },
+       {
+        "code": "scale",
+        "level": "block",
+        "text": "Can't read the scale numbers. Get closer or reduce glare."
+       }
+      ],
+      "unit_read": null,
+      "range_read": null,
+      "numbers_read": 0,
+      "tilt_deg": 16.5,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": true,
+      "range_matches": true
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "request_reshoot"
+     ]
+    },
+    {
+     "tool": "request_reshoot",
+     "args": {
+      "issue_codes": [
+       "blur",
+       "scale"
+      ]
+     },
+     "result": {
+      "outcome": "reshoot",
+      "guidance": "The photo is blurred. Hold still or tap to focus. Can't read the scale numbers. Get closer or reduce glare."
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "reshoot"
+    }
+   ]
   },
   {
    "name": "Photo turned 62\u00b0 away",
@@ -251,12 +1376,80 @@
    "breaches": [],
    "pass": true,
    "read_value": 4.5213,
-   "confidence": 0.736,
+   "confidence": 0.735,
    "engine": "NVIDIA Nemotron on Nebius",
    "tools": 2,
    "refusals": [],
-   "message": "Please retake the photo ensuring the gauge face is square to the camera to correct the tilt issue.",
-   "ms": 7133
+   "message": "Please retake the photo, making sure the gauge face is square to the camera to correct the tilt.",
+   "ms": 7789,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": false,
+      "value": 4.5213,
+      "confidence": 0.735,
+      "threshold": 0.9,
+      "issues": [
+       {
+        "code": "tilt",
+        "level": "block",
+        "text": "The dial is turned 62\u00b0 away. Face it more squarely."
+       }
+      ],
+      "unit_read": "\u00b0C",
+      "range_read": [
+       2.0,
+       9.0
+      ],
+      "numbers_read": 3,
+      "tilt_deg": 61.8,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": false,
+      "range_matches": true,
+      "display": "4.52 bar"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "request_reshoot"
+     ]
+    },
+    {
+     "tool": "request_reshoot",
+     "args": {
+      "issue_codes": [
+       "tilt"
+      ]
+     },
+     "result": {
+      "outcome": "reshoot",
+      "guidance": "The dial is turned 62\u00b0 away. Face it more squarely."
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "reshoot"
+    }
+   ]
   },
   {
    "name": "Wrong gauge photographed",
@@ -272,7 +1465,74 @@
    "tools": 2,
    "refusals": [],
    "message": "This doesn't look like PI-107: the scale reads 0.0\u2013160.0, the tag says 0.00\u201310.00. Check the tag and photograph the right gauge.",
-   "ms": 8040
+   "ms": 7500,
+   "trace": [
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "read_gauge"
+     ]
+    },
+    {
+     "tool": "read_gauge",
+     "args": {
+      "mode": "auto"
+     },
+     "result": {
+      "mode": "auto",
+      "ok": true,
+      "value": 109.6055,
+      "confidence": 0.989,
+      "threshold": 0.9,
+      "issues": [
+       {
+        "code": "glare_needle",
+        "level": "warn",
+        "text": "Glare crosses the needle. Step to the left or tilt the phone.",
+        "deg": 85.6038472002751
+       }
+      ],
+      "unit_read": null,
+      "range_read": [
+       0.0,
+       160.0
+      ],
+      "numbers_read": 8,
+      "tilt_deg": 16.7,
+      "spec": {
+       "unit": "bar",
+       "min": 0,
+       "max": 10
+      },
+      "unit_matches": true,
+      "range_matches": false,
+      "display": "109.61 bar"
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": [
+      "flag_wrong_gauge"
+     ]
+    },
+    {
+     "tool": "flag_wrong_gauge",
+     "args": {
+      "detail": "Unit matches (bar) but printed range [0,160] does not match gauge spec range [0,10]."
+     },
+     "result": {
+      "outcome": "mismatch",
+      "message": "This doesn't look like PI-107: the scale reads 0.0\u2013160.0, the tag says 0.00\u201310.00. Check the tag and photograph the right gauge."
+     }
+    },
+    {
+     "model": "NVIDIA Nemotron on Nebius",
+     "calls": []
+    },
+    {
+     "done": "mismatch"
+    }
+   ]
   }
  ]
 }

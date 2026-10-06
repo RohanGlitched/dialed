@@ -1,6 +1,7 @@
 import agent from "@/public/evidence/agent.json";
 import ev from "@/public/evidence/results.json";
 import { REPO_URL } from "@/lib/site";
+import { AgentFlow, AgentTraces } from "./Agentic";
 import s from "./evidence.module.css";
 
 type Credit = { title: string; author: string; license: string; source: string };
@@ -198,6 +199,10 @@ export function EvidencePage() {
           </table>
         </div>
         {"model" in agent && <p className={s.note}>Model runs used {(agent as { model?: Scenario[] }).model?.[0]?.engine}.</p>}
+        <h3 className={s.h3}>How the vision result changes what happens next</h3>
+        <AgentFlow />
+        <p className={s.intro}>Three recorded runs. In each, the next tool the model chose depended on what the OpenCV 5 reading returned: a week&apos;s drift led to a held work order, blocking photo checks led to a re-shoot with their reasons, and a printed range that disagreed with the tag led to a tag check.</p>
+        <AgentTraces />
       </Section>
 
       <Section id="speed" title="Speed and the two DNN engines">

@@ -74,6 +74,10 @@ def run(use_model: bool) -> list[dict]:
                 "read_value": rec.get("read_value"), "confidence": rec.get("confidence"),
                 "engine": rec.get("engine"), "tools": sum(1 for s in rec["steps"] if s.get("kind") == "tool"),
                 "refusals": [r["result"]["refused"] for r in refusals], "message": rec.get("message"), "ms": ms,
+                # the decision trace, for the report: which tool ran with what, and what it returned
+                "trace": [{"tool": st["name"], "args": st.get("args"), "result": st.get("result")} if st["kind"] == "tool"
+                          else {"model": st.get("model"), "calls": st.get("calls")} if st["kind"] == "model"
+                          else {st["kind"]: st.get("text") or st.get("outcome")} for st in rec["steps"]],
             })
             print(("PASS" if ok else "FAIL"), name, rec["outcome"], codes, rec.get("engine"))
         finally:

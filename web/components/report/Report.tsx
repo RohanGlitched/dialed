@@ -3,6 +3,7 @@ import agent from "@/public/evidence/agent.json";
 import ev from "@/public/evidence/results.json";
 import hero from "@/public/showcase/hero/inspect.json";
 import { Coverage, IssueBars, Reliability, Scatter, type Row } from "@/components/evidence/EvidencePage";
+import { AgentFlow, AgentTraces } from "@/components/evidence/Agentic";
 import { REPO_URL, SITE_URL } from "@/lib/site";
 import s from "./report.module.css";
 
@@ -78,6 +79,9 @@ export function Report() {
         <h2>4. The agent</h2>
         <p>A tool-calling model (Claude Haiku 4.5 on Amazon Bedrock; NVIDIA Nemotron on Nebius as the fallback; a rule engine if neither answers) chooses among six tools: read_gauge (auto, or with the gauge&apos;s enrolled scale angles), compare_history, request_reshoot, log_reading, hold_work_order and flag_wrong_gauge. The vision output changes every later step: a blocking photo issue or low confidence leads to a re-shoot with the measured reason; a unit or range that disagrees with the gauge&apos;s registration leads to a tag check; a measured breach leads to a held work order.</p>
         <p><b>Guards in code</b> decide whether each action is allowed: no reading is logged below 90% confidence; a work order needs a measured breach (alarm limit, a week&apos;s drift, or the pressure drop across a paired filter) and its priority cannot be set below the breach; every figure the model writes is checked against the measurements and unknown figures are struck through; only a person approves a work order. Each capture&apos;s full trace (model turns, tool calls, refusals, timings) is stored with the photo and shown on the approvals desk.</p>
+        <AgentFlow />
+        <p>Recorded runs from <code>scripts/agent_eval.py</code>, where the OpenCV 5 output decided the next tool call:</p>
+        <AgentTraces />
         <table className={s.tbl}>
           <thead><tr><th>Scenario</th><th>Expected</th><th>Rule engine</th><th>Model</th></tr></thead>
           <tbody>

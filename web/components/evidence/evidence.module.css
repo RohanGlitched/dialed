@@ -60,3 +60,4 @@
 .credit { margin: 4px 0 0; font-size: 12px; color: var(--steel); }
 .credit a { color: var(--ink-2); }
 .links { display: flex; gap: 12px; flex-wrap: wrap; margin: 4px 0 0 !important; }
+.h3 { font: 800 clamp(20px, 2.2vw, 26px) / 1.1 var(--cond); margin: 40px 0 12px; }
