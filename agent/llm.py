@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import time
 import urllib.request
 
@@ -115,7 +116,12 @@ def _bedrock(model: str, system: str, messages: list[dict], tools: list[dict], t
         if "toolUse" in block:
             tu = block["toolUse"]
             calls.append({"id": tu["toolUseId"], "name": tu["name"], "args": tu.get("input") or {}})
-    return {"text": text.strip(), "tool_calls": calls}
+    return {"text": _clean(text), "tool_calls": calls}
+
+
+def _clean(text: str) -> str:
+    """Nova models wrap their reasoning in <thinking> tags; keep only what they say to the operator."""
+    return re.sub(r"<thinking>.*?(</thinking>|$)", "", text, flags=re.S).strip()
 
 
 # ---------- Nebius (OpenAI-compatible) ----------

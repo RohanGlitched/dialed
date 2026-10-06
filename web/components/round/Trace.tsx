@@ -11,6 +11,9 @@ const TOOL: Record<string, string> = {
   flag_wrong_gauge: "Flag the tag",
 };
 
+/** Model text without the <thinking> blocks some models (Amazon Nova) wrap their reasoning in. */
+const said = (t?: string) => (t || "").replace(/<thinking>[\s\S]*?(<\/thinking>|$)/g, "").trim();
+
 export function Trace({ steps, engine }: { steps: Step[]; engine?: string | null }) {
   const n = steps.filter((x) => x.kind === "tool").length;
   return (
@@ -35,7 +38,7 @@ function StepRow({ st }: { st: Step }) {
       <>
         <span className={s.kind}>Model</span>
         <div className={s.body}>
-          {st.text ? <p className={s.say}>&ldquo;{st.text}&rdquo;</p> : null}
+          {said(st.text) ? <p className={s.say}>&ldquo;{said(st.text)}&rdquo;</p> : null}
           {st.calls.length > 0 && <p className={s.meta}>calls {st.calls.map((c) => TOOL[c] ?? c).join(", ")}</p>}
           <p className={s.ms}>{st.model}, {st.ms} ms</p>
         </div>
