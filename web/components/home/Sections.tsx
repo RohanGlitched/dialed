@@ -150,7 +150,7 @@ export function Architecture() {
         <Node x={20} y={120} w={200} h={140} t="Phone browser" lines={["OpenCV.js 5 (WASM)", "live dial fit, tilt,", "glare, focus checks"]} />
         <Node x={290} y={140} w={170} h={100} t="CloudFront" lines={["site from S3", "/api to Lambda"]} />
         <Node x={530} y={90} w={250} h={200} t="AWS Lambda (arm64)" lines={["OpenCV 5.0 reader", "cv.dnn text models", "agent tools and guards", "Function URL"]} bold />
-        <Node x={860} y={30} w={170} h={90} t="Amazon Bedrock" lines={["Claude Haiku 4.5"]} />
+        <Node x={860} y={30} w={170} h={90} t="Amazon Bedrock" lines={["Amazon Nova Micro"]} />
         <Node x={860} y={150} w={170} h={90} t="S3" lines={["photos, dials, traces"]} />
         <Node x={860} y={270} w={170} h={90} t="DynamoDB" lines={["gauges, readings, orders"]} />
         <Node x={1060} y={150} w={120} h={90} t="Desk" lines={["supervisor"]} />
@@ -162,7 +162,7 @@ export function Architecture() {
         <path d="M1030,195 H1056" className={s.line} markerEnd="url(#aa)" />
       </svg>
       <ul className={s.archNotes}>
-        <li><b>One function, cold start included.</b> OpenCV 5 and both text models ship in the Lambda package; reading the printed numbers is most of the time, about two seconds a photo.</li>
+        <li><b>One function, cold start included.</b> OpenCV 5 and both text models ship in the Lambda package; a warm read takes about two seconds on Lambda, most of it reading the printed numbers.</li>
         <li><b>Two DNN engines, each where it&apos;s faster.</b> On CPU, OpenCV 5&apos;s new engine ran the text detector 2 to 4 times faster across our runs; the classic engine ran the recogniser 3 to 4 times faster.</li>
         <li><b>Repeatable.</b> One CloudFormation template creates every resource; one script builds and deploys.</li>
       </ul>

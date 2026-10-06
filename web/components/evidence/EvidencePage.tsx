@@ -14,6 +14,7 @@ const sets = ev.sets as unknown as Record<string, SetT>;
 const oos = ((ev as unknown as { out_of_scope?: Oos[] }).out_of_scope ?? []) as Oos[];
 type First = { summary: Record<string, number | null>; out_of_scope_n: number; out_of_scope_accepted: number };
 const first = (ev as unknown as { blind1_first_run?: First }).blind1_first_run;
+const lat = (ev as unknown as { lambda?: { cold_ms: number; warm_ms_median: number; warm_ms_p90: number; memory_mb: number; n: number } }).lambda;
 const REAL = new Set(["real", "blind"]);
 const NAME: Record<string, string> = { normal: "Rendered, normal", hard: "Rendered, hard", real: "Real photos, development", blind: "Real photos, blind" };
 const pct = (v: number | null | undefined, d = 1) => (v == null ? "–" : `${(v * 100).toFixed(d)}%`);
@@ -210,6 +211,7 @@ export function EvidencePage() {
           <div className={s.prose}>
             <p>OpenCV 5 ships a new DNN engine next to the classic one. Measured on the same CPU, they suit the two text models differently, so the reader loads each model with the engine that runs it faster.</p>
             <p>The rest of the pipeline is classical OpenCV and takes tens of milliseconds; reading the printed numbers is most of the time.</p>
+            {lat && <p><b>On AWS Lambda</b> ({lat.memory_mb} MB, arm64, Sydney), measured from the function&apos;s own logs: a cold start took {(lat.cold_ms / 1000).toFixed(1)} s, and warm reads took {(lat.warm_ms_median / 1000).toFixed(1)} s median and {(lat.warm_ms_p90 / 1000).toFixed(1)} s at p90 over {lat.n} photos. Upload and download time comes on top and depends on your network.</p>}
           </div>
           <div className={s.tblWrap}><table className={`${s.tbl} ${s.tblSmall}`}>
             <thead><tr><th scope="col">Model</th><th scope="col">Classic engine</th><th scope="col">New engine</th><th scope="col">Used</th></tr></thead>

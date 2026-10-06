@@ -36,7 +36,7 @@ export function LogicSheet() {
         <Box x={20} y={170} w={130} h={80} t="Photo" sub="phone or upload" />
         <Box x={200} y={150} w={190} h={120} t="OpenCV 5 reader" sub="AWS Lambda" bold />
         <Box x={440} y={150} w={170} h={120} t="Measurements" sub="value, confidence, issues, unit, range" />
-        <Box x={660} y={130} w={200} h={160} t="Model" sub="Claude on Bedrock or Nemotron; rule engine if neither answers" bold />
+        <Box x={660} y={130} w={200} h={160} t="Model" sub="Amazon Nova Micro on Bedrock; rule engine if it doesn't answer" bold />
         <Box x={660} y={325} w={200} h={88} t="Guards" sub="confidence, breach, figures, tag" red />
         <path d="M150,210 H196" className={s.arrow} markerEnd="url(#la)" />
         <path d="M390,210 H436" className={s.arrow} markerEnd="url(#la)" />

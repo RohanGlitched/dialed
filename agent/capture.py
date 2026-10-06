@@ -19,8 +19,10 @@ from __future__ import annotations
 
 import base64
 import json
+import os
 import secrets
 import time
+from datetime import datetime, timezone
 
 import cv2
 import numpy as np
@@ -33,6 +35,8 @@ from .llm import LLMError, chat, label
 
 ACCEPT_AT = 0.9  # calibrated P(within 2% of span); see vision/calibration.json
 MAX_TURNS = 6
+# spending guard: after this many model-assisted captures in a UTC day, the rule engine decides alone
+DAILY_MODEL_CAPTURES = int(os.environ.get("DIALED_LLM_DAILY_CAP", "400"))
 
 SYSTEM = """You are Dialed's round agent. An operator on a plant round photographed one analog gauge.
 Your job: decide what happens to this reading, using only the tools. Be brief.
@@ -243,6 +247,9 @@ class Capture:
 
     def run(self, use_model: bool = True) -> dict:
         t0 = time.perf_counter()
+        if use_model and self.store.bump("llm-" + datetime.now(timezone.utc).strftime("%Y-%m-%d")) > DAILY_MODEL_CAPTURES:
+            use_model = False
+            self.steps.append({"kind": "note", "text": "Today's model budget is used up, so the rule engine made the decision with the same tools and guards."})
         if use_model:
             try:
                 self._model_loop()

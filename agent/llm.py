@@ -4,9 +4,10 @@ Messages use the OpenAI shape internally:
   {"role": "user"|"assistant"|"tool", "content": str, "tool_calls": [...], "tool_call_id": str}
 Tools are JSON-schema function specs: {"name", "description", "parameters"}.
 
-Providers, tried in the order of DIALED_LLM (comma list), default "bedrock,nebius":
-  bedrock: Amazon Bedrock Converse API (Claude Haiku 4.5, then Amazon Nova Lite)
-  nebius:  Nebius Token Factory, OpenAI-compatible (Nemotron)
+Providers, tried in the order of DIALED_LLM (comma list), default "bedrock":
+  bedrock: Amazon Bedrock Converse API (Amazon Nova Micro, then Nova Lite, through the region's
+           cross-region inference profile: us., eu. or apac.)
+  nebius:  Nebius Token Factory, OpenAI-compatible (Nemotron); optional, for local comparisons
 If every provider fails, the caller falls back to the rule engine (agent/policy.py).
 """
 from __future__ import annotations
@@ -21,7 +22,14 @@ class LLMError(Exception):
     pass
 
 
-BEDROCK_MODELS = [m for m in os.environ.get("DIALED_BEDROCK_MODELS", "us.anthropic.claude-haiku-4-5-20251001-v1:0,us.amazon.nova-lite-v1:0").split(",") if m]
+def _geo() -> str:
+    r = os.environ.get("AWS_REGION") or os.environ.get("AWS_DEFAULT_REGION") or "us-east-1"
+    return "apac" if r.startswith("ap-") else "eu" if r.startswith("eu-") else "us"
+
+
+# Nova Micro is the cheapest Bedrock model with tool use; Nova Lite is the fallback
+BEDROCK_MODELS = [m for m in os.environ.get("DIALED_BEDROCK_MODELS", f"{_geo()}.amazon.nova-micro-v1:0,{_geo()}.amazon.nova-lite-v1:0").split(",") if m]
+MAX_TOKENS = int(os.environ.get("DIALED_MAX_TOKENS", "600"))
 NEBIUS_MODELS = [m for m in os.environ.get("DIALED_NEBIUS_MODELS", "nvidia/nemotron-3-super-120b-a12b").split(",") if m]
 NEBIUS_URL = os.environ.get("NEBIUS_BASE_URL", "https://api.tokenfactory.nebius.com/v1")
 
@@ -29,7 +37,7 @@ NEBIUS_URL = os.environ.get("NEBIUS_BASE_URL", "https://api.tokenfactory.nebius.
 def chat(system: str, messages: list[dict], tools: list[dict], timeout: float = 25.0) -> dict:
     """Returns {"text", "tool_calls": [{"id", "name", "args"}], "model", "ms"}."""
     errors = []
-    for provider in [p.strip() for p in os.environ.get("DIALED_LLM", "bedrock,nebius").split(",") if p.strip()]:
+    for provider in [p.strip() for p in os.environ.get("DIALED_LLM", "bedrock").split(",") if p.strip()]:
         models = BEDROCK_MODELS if provider == "bedrock" else NEBIUS_MODELS
         for model in models:
             t0 = time.perf_counter()
@@ -52,8 +60,8 @@ def label(model: str | None) -> str:
     if not model:
         return "Rule engine"
     m = model.lower()
-    if "haiku-4-5" in m:
-        return "Claude Haiku 4.5 on Amazon Bedrock"
+    if "nova-micro" in m:
+        return "Amazon Nova Micro on Bedrock"
     if "nova-lite" in m:
         return "Amazon Nova Lite on Bedrock"
     if "nemotron" in m:
@@ -98,7 +106,7 @@ def _bedrock(model: str, system: str, messages: list[dict], tools: list[dict], t
         system=[{"text": system}],
         messages=conv,
         toolConfig={"tools": [{"toolSpec": {"name": t["name"], "description": t["description"], "inputSchema": {"json": t["parameters"]}}} for t in tools]},
-        inferenceConfig={"maxTokens": 900, "temperature": 0.1},
+        inferenceConfig={"maxTokens": MAX_TOKENS, "temperature": 0.1},
     )
     text, calls = "", []
     for block in r["output"]["message"]["content"]:
@@ -134,7 +142,7 @@ def _nebius(model: str, system: str, messages: list[dict], tools: list[dict], ti
         "tools": [{"type": "function", "function": t} for t in tools],
         "tool_choice": "auto",
         "temperature": 0.1,
-        "max_tokens": 900,
+        "max_tokens": MAX_TOKENS,
     }
     req = urllib.request.Request(f"{NEBIUS_URL}/chat/completions", data=json.dumps(body).encode(), headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=timeout) as resp:

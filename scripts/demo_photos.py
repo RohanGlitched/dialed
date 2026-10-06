@@ -18,7 +18,7 @@ STEP = {(0, 6): (1, 5), (0, 16): (2, 4), (0, 10): (1, 5), (0, 160): (20, 4), (0,
 SHOTS = {
     "PI-101": [("", 1.85, {})],
     "PI-102": [("", 8.45, {})],
-    "TI-201": [("", 64.0, {})],
+    "TI-201": [("", 64.0, {"seed": 405})],  # the default render printed too few readable numbers for a confident read
     "PI-103": [("", 0.2, {})],
     "PI-104": [("", 7.15, {}), ("shaky", 7.15, {"blur": 5.5}), ("glare", 7.15, {"glare": True, "glare_at": (0.06, -0.14), "size": 0.5})],
     "PI-105": [("", 5.8, {})],
@@ -36,7 +36,8 @@ def main():
         rows[g["id"]] = []
         for j, (variant, value, kw) in enumerate(SHOTS[g["id"]]):
             kw = {"tilt": (14 + 6 * (i % 3), -8 + 5 * (i % 4)), "blur": 0, "glare": False, **kw}
-            img, t = synth.render(300 + i * 7 + j, spec=spec, value=value, **kw)
+            seed = kw.pop("seed", 300 + i * 7 + j)
+            img, t = synth.render(seed, spec=spec, value=value, **kw)
             s = 1400 / max(img.shape[:2])
             img = cv2.resize(img, None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
             name = f"{g['id']}{'-' + variant if variant else ''}.jpg"

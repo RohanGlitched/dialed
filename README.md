@@ -9,7 +9,7 @@
 [![AWS Lambda](https://img.shields.io/badge/AWS-Lambda%20%C2%B7%20S3%20%C2%B7%20DynamoDB%20%C2%B7%20CloudFront-ff9900)](#on-aws)
 [![License: MIT](https://img.shields.io/badge/license-MIT-14161a)](LICENSE)
 
-**[Try it live](LIVE_URL)** &nbsp; **[Read a gauge](LIVE_URL/read/)** &nbsp; **[Walk the round](LIVE_URL/round/)** &nbsp; **[Evidence](LIVE_URL/evidence/)**
+**[Try it live](https://d3p9dcbwy0l1n8.cloudfront.net)** &nbsp; **[Read a gauge](https://d3p9dcbwy0l1n8.cloudfront.net/read/)** &nbsp; **[Walk the round](https://d3p9dcbwy0l1n8.cloudfront.net/round/)** &nbsp; **[Evidence](https://d3p9dcbwy0l1n8.cloudfront.net/evidence/)**
 
 **Demo video:** _link added at submission_
 
@@ -21,9 +21,9 @@
 
 ## Try it in one minute
 
-1. Open **[Read a gauge](LIVE_URL/read/)** and pick a sample (real photos from Wikimedia Commons), or upload your own photo of any pressure or temperature gauge.
+1. Open **[Read a gauge](https://d3p9dcbwy0l1n8.cloudfront.net/read/)** and pick a sample (real photos from Wikimedia Commons), or upload your own photo of any pressure or temperature gauge.
 2. Step through the nine stages: where it found the dial, how it straightened it, where the tick marks say the true centre is, which numbers it read, how it fitted the scale.
-3. Open **[The round](LIVE_URL/round/)**, tap **TI-201** on the drawing, use its demo photo. The bearing has been warming all week, so the agent holds a work order; open it on the **[approvals desk](LIVE_URL/desk/)** and approve or reject it.
+3. Open **[The round](https://d3p9dcbwy0l1n8.cloudfront.net/round/)**, tap **TI-201** on the drawing, use its demo photo. The bearing has been warming all week, so the agent holds a work order; open it on the **[approvals desk](https://d3p9dcbwy0l1n8.cloudfront.net/desk/)** and approve or reject it.
 4. On a phone, **Use the live camera guide**: OpenCV.js 5 coaches tilt, distance, glare, focus and steadiness before the shutter unlocks.
 
 ## Why
@@ -59,11 +59,11 @@ A model chooses the next step from six tools: `read_gauge`, `compare_history`, `
 - a photo whose printed unit or range disagrees with the gauge's registration is flagged, not logged;
 - only a person approves a work order.
 
-Models: Claude Haiku 4.5 on Amazon Bedrock, NVIDIA Nemotron on Nebius as the fallback, and a rule engine that runs the same tools if neither answers.
+Model: Amazon Nova Micro on Amazon Bedrock, with Nova Lite as backup, chosen as the cheapest Bedrock model with tool use. A rule engine runs the same tools if neither answers.
 
 ## Evidence
 
-Numbers from `scripts/evidence.py` and `scripts/agent_eval.py`; the [Evidence page](LIVE_URL/evidence/) has every chart and failure.
+Numbers from `scripts/evidence.py` and `scripts/agent_eval.py`; the [Evidence page](https://d3p9dcbwy0l1n8.cloudfront.net/evidence/) has every chart and failure.
 
 | Set | Gauges | Read | Accepted | Accepted within 2% of the scale | Accepted off by >5% | Median error, accepted |
 |---|---|---|---|---|---|---|
@@ -75,7 +75,7 @@ Numbers from `scripts/evidence.py` and `scripts/agent_eval.py`; the [Evidence pa
 
 Real photos are much harder than rendered ones, and the blind runs show it. Blind batch 1 was labelled by eye and read once; it exposed print in the blank part of a dial being taken for the needle and handwheels being taken for a second gauge. Both were fixed, and that batch joined the development set. Blind batch 2, drawn at random after the fixes, held only 3 scorable dials among 22 photos, too few for a rate; the Evidence page lists each one.
 
-Photos it should decline (two needles, two gauges in one frame, the back of a gauge, no gauge): accepted **1 of 27** in development (an oven thermometer resting below its printed scale) and **0 of 19** in blind batch 2. Agent scenarios: **8/8** with the rule engine, **8/8** with NVIDIA Nemotron on Nebius.
+Photos it should decline (two needles, two gauges in one frame, the back of a gauge, no gauge): accepted **1 of 27** in development (an oven thermometer resting below its printed scale) and **0 of 19** in blind batch 2. Agent scenarios: **8/8** with the rule engine, **8/8** with Amazon Nova Micro on Bedrock.
 
 ## On AWS
 
@@ -90,7 +90,9 @@ flowchart LR
   L --> S3m
 ```
 
-One CloudFormation template (`infra/template.yaml`) creates every resource; `python infra/deploy.py` packages Linux arm64 wheels without Docker, deploys the stack, builds and uploads the site and seeds the sample plant.
+One CloudFormation template (`infra/template.yaml`) creates every resource; `python infra/deploy.py` packages Linux arm64 wheels without Docker, deploys the stack, builds and uploads the site and seeds the sample plant. It runs in Asia Pacific (Sydney), `ap-southeast-2`.
+
+Spending guards: the API function is capped at 5 concurrent runs, model-assisted captures at 400 a day (after that the rule engine decides alone), and each model reply at 600 tokens.
 
 ## Run it locally
 

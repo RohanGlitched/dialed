@@ -13,13 +13,20 @@ Parameters:
     Description: Key of the Lambda zip in CodeBucket
   LlmOrder:
     Type: String
-    Default: bedrock,nebius
-    Description: Model providers to try in order (bedrock, nebius, or off for the rule engine only)
-  NebiusApiKey:
+    Default: bedrock
+    Description: Model providers to try in order (bedrock, or off for the rule engine only)
+  BedrockModels:
     Type: String
-    Default: ""
-    NoEcho: true
-    Description: Optional fallback model key (Nebius Token Factory)
+    Default: apac.amazon.nova-micro-v1:0,apac.amazon.nova-lite-v1:0
+    Description: Bedrock models (inference profiles) to try in order; Nova Micro is the cheapest with tool use
+  DailyModelCap:
+    Type: Number
+    Default: 400
+    Description: Model-assisted captures per UTC day; after that the rule engine decides alone (spending guard)
+  MaxConcurrency:
+    Type: Number
+    Default: 5
+    Description: Reserved concurrency for the API function; caps compute spend if the URL is hammered
 
 Resources:
   Bucket:
@@ -70,7 +77,7 @@ Resources:
             Version: "2012-10-17"
             Statement:
               - Effect: Allow
-                Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:Query, dynamodb:DeleteItem]
+                Action: [dynamodb:GetItem, dynamodb:PutItem, dynamodb:UpdateItem, dynamodb:Query, dynamodb:DeleteItem]
                 Resource: !GetAtt Table.Arn
               - Effect: Allow
                 Action: [s3:GetObject, s3:PutObject]
@@ -93,8 +100,9 @@ Resources:
       Runtime: python3.12
       Architectures: [arm64]
       Handler: api.handler.handler
-      MemorySize: 2048
+      MemorySize: 3008
       Timeout: 60
+      ReservedConcurrentExecutions: !Ref MaxConcurrency
       Role: !GetAtt FnRole.Arn
       Code:
         S3Bucket: !Ref CodeBucket
@@ -104,7 +112,8 @@ Resources:
           DIALED_TABLE: !Ref Table
           DIALED_BUCKET: !Ref Bucket
           DIALED_LLM: !Ref LlmOrder
-          NEBIUS_API_KEY: !Ref NebiusApiKey
+          DIALED_BEDROCK_MODELS: !Ref BedrockModels
+          DIALED_LLM_DAILY_CAP: !Ref DailyModelCap
           OPENCV_LOG_LEVEL: ERROR
 
   FnUrl:
@@ -120,6 +129,15 @@ Resources:
       Action: lambda:InvokeFunctionUrl
       Principal: "*"
       FunctionUrlAuthType: NONE
+
+  # since Oct 2025 a public function URL also needs lambda:InvokeFunction, granted only for calls through the URL
+  FnUrlInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref Fn
+      Action: lambda:InvokeFunction
+      Principal: "*"
+      InvokedViaFunctionUrl: true
 
   ErrorsAlarm:
     Type: AWS::CloudWatch::Alarm

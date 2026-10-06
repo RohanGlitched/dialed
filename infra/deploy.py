@@ -1,6 +1,6 @@
 """Build and deploy Dialed to AWS in one command (no Docker or AWS CLI needed).
 
-  python infra/deploy.py [--stack dialed] [--region us-east-1] [--skip-web] [--skip-seed]
+  python infra/deploy.py [--stack dialed] [--region ap-southeast-2] [--skip-web] [--skip-seed]
 
 Credentials come from the usual boto3 chain (AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY or a profile).
 Steps:
@@ -104,7 +104,9 @@ def build_web() -> Path:
     env = {**os.environ, "NEXT_PUBLIC_API_BASE": "", "NEXT_DIST_DIR": ".next-build"}
     npm = "npm.cmd" if os.name == "nt" else "npm"
     sh(npm, "run", "build", cwd=web, env=env)
-    return web / "out"
+    # with a custom distDir, Next.js writes the static export into that folder instead of out/
+    dist = web / env["NEXT_DIST_DIR"]
+    return dist if (dist / "index.html").exists() else web / "out"
 
 
 def upload_site(s3, bucket: str, out: Path):
@@ -126,10 +128,10 @@ def upload_site(s3, bucket: str, out: Path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--stack", default="dialed")
-    ap.add_argument("--region", default=os.environ.get("AWS_REGION", "us-east-1"))
+    ap.add_argument("--region", default=os.environ.get("AWS_REGION", "ap-southeast-2"))
     ap.add_argument("--skip-web", action="store_true")
     ap.add_argument("--skip-seed", action="store_true")
-    ap.add_argument("--llm", default="bedrock,nebius")
+    ap.add_argument("--llm", default="bedrock")
     a = ap.parse_args()
     os.environ["AWS_REGION"] = a.region
     sess = boto3.Session(region_name=a.region)
@@ -144,7 +146,7 @@ def main():
     s3.upload_file(str(zip_path), code_bucket, code_key)
     print(f"uploaded s3://{code_bucket}/{code_key}")
 
-    created = deploy_stack(cf, a.stack, {"CodeBucket": code_bucket, "CodeKey": code_key, "LlmOrder": a.llm, "NebiusApiKey": os.environ.get("NEBIUS_API_KEY", "").strip().strip('"')})
+    created = deploy_stack(cf, a.stack, {"CodeBucket": code_bucket, "CodeKey": code_key, "LlmOrder": a.llm})
     out = stack_outputs(cf, a.stack)
     print(json.dumps(out, indent=1))
 

@@ -56,6 +56,13 @@ class LocalStore:
         if p.exists():
             p.unlink()
 
+    def bump(self, counter: str) -> int:
+        """Add one to a named counter and return the new value."""
+        c = self.get("counter", counter) or {"n": 0}
+        c["n"] += 1
+        self.put("counter", counter, c)
+        return c["n"]
+
     def put_blob(self, key: str, data: bytes, content_type: str = "application/octet-stream") -> str:
         p = self.root / "blobs" / key
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -108,6 +115,12 @@ class AwsStore:
 
     def delete(self, kind: str, id: str, partition: str | None = None) -> None:
         self.table.delete_item(Key={"pk": self._pk(kind, partition), "sk": id})
+
+    def bump(self, counter: str) -> int:
+        """Atomically add one to a named counter and return the new value."""
+        r = self.table.update_item(Key={"pk": "counter", "sk": counter}, UpdateExpression="ADD n :one",
+                                   ExpressionAttributeValues={":one": 1}, ReturnValues="UPDATED_NEW")
+        return int(r["Attributes"]["n"])
 
     # blobs live under media/ in the site bucket; CloudFront serves /media/* from there
     def put_blob(self, key: str, data: bytes, content_type: str = "application/octet-stream") -> str:

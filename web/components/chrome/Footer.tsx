@@ -49,7 +49,7 @@ export function Footer() {
             <li><a href="https://opencv.org/">OpenCV 5.0</a> in the cloud and <a href="https://docs.opencv.org/">OpenCV.js</a> on your phone</li>
             <li>Text models from the <a href="https://github.com/opencv/opencv_zoo">OpenCV Model Zoo</a> (PP-OCRv3, CRNN; Apache 2.0)</li>
             <li>AWS Lambda, S3, DynamoDB, CloudFront; Amazon Bedrock</li>
-            <li>NVIDIA Nemotron on Nebius as the fallback model</li>
+            <li>Amazon Nova Micro on Bedrock for the agent&apos;s decisions</li>
             <li>Sofia Sans by Lettersoup (SIL Open Font License)</li>
           </ul>
         </section>
