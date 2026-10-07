@@ -45,6 +45,8 @@ def face_texture(dial: np.ndarray) -> np.ndarray:
 
 
 def inspect(img: np.ndarray, scale: R.Scale | None = None, images: bool = True) -> dict:
+    if img.ndim == 2:
+        img = cv2.cvtColor(img, cv2.COLOR_GRAY2BGR)
     trace: dict = {}
     rd = R.read(img, scale=scale, trace=trace)
     d = rd.debug

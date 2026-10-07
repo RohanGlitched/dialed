@@ -92,7 +92,9 @@ flowchart LR
 
 One CloudFormation template (`infra/template.yaml`) creates every resource; `python infra/deploy.py` packages Linux arm64 wheels without Docker, deploys the stack, builds and uploads the site and seeds the sample plant. It runs in Asia Pacific (Sydney), `ap-southeast-2`.
 
-Spending guards: the API function is capped at 5 concurrent runs, model-assisted captures at 400 a day (after that the rule engine decides alone), and each model reply at 600 tokens.
+Spending guards: the API function is capped at 5 concurrent runs, model-assisted captures at 400 a day (after that the rule engine decides alone), each model reply at 600 tokens, and each visitor at 30 photos an hour.
+
+The sample plant's two weeks of history roll forward by whole days once a day (`agent/seedroll.py`), so the round always has this week's bearing drift and filter loading for the agent to find; readings people make keep their dates.
 
 ## Deploy to AWS
 

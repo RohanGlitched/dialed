@@ -116,6 +116,32 @@ def test_guards_refuse_a_work_order_without_a_breach(store):
     assert c.outcome is None
 
 
+def test_seeded_history_rolls_forward_but_real_readings_stay(store):
+    from datetime import datetime, timedelta, timezone
+
+    from agent import seedroll
+
+    real = {"id": "20261006T165827Z-abc123", "gauge": "TI-201", "at": "2026-10-06T16:58:27Z", "outcome": "held", "value": 64.0, "seeded": False}
+    store.put("reading", real["id"], real, partition="TI-201")
+    before = store.list("reading", partition="TI-201")
+    seeds_before = sorted(r["value"] for r in before if r.get("seeded"))
+    # one day (every shifted id lands on an existing id), then twenty (none do)
+    for ahead in (1, 21):
+        now = datetime.now(timezone.utc) + timedelta(days=ahead)
+        seedroll._checked_at = 0
+        moved = seedroll.roll_if_stale(store, ["TI-201"], now=now)
+        after = store.list("reading", partition="TI-201")
+        seeds = [r for r in after if r.get("seeded")]
+        assert moved == len(seeds) == len(seeds_before)
+        assert sorted(r["value"] for r in seeds) == seeds_before
+        newest = max(F._t(r["at"]) for r in seeds)
+        assert timedelta(0) <= now - newest < timedelta(days=1)
+        assert store.get("reading", real["id"], partition="TI-201")["at"] == real["at"]
+    # the same day again is a no-op
+    seedroll._checked_at = 0
+    assert seedroll.roll_if_stale(store, ["TI-201"], now=now) == 0
+
+
 def test_api_round_and_read(store, monkeypatch):
     import importlib
 

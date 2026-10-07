@@ -22,6 +22,8 @@ import traceback
 
 from agent import facts as F
 from agent.capture import ACCEPT_AT, Capture
+from agent.plant import GAUGES
+from agent.seedroll import roll_if_stale
 from agent.store import LocalStore, from_env
 
 MAX_PHOTO = 4_500_000
@@ -76,6 +78,7 @@ def route(method: str, path: str, event: dict):
     m = re.fullmatch(r"/api/round/([\w-]+)", path)
     if m and method == "GET":
         rnd = s.get("round", m.group(1)) or _404("round")
+        _fresh(s)
         gauges = []
         for gid in rnd["gauges"]:
             g = s.get("gauge", gid)
@@ -88,6 +91,7 @@ def route(method: str, path: str, event: dict):
     m = re.fullmatch(r"/api/gauge/([\w-]+)", path)
     if m and method == "GET":
         g = s.get("gauge", m.group(1)) or _404("gauge")
+        _fresh(s)
         readings = s.list("reading", partition=g["id"], newest_first=True, limit=int(q.get("limit", 120)))
         orders = [o for o in s.list("order", newest_first=True) if o["gauge"] == g["id"]]
         return _resp(200, {"gauge": g, "readings": [_slim(r) for r in readings], "orders": orders})
@@ -99,6 +103,7 @@ def route(method: str, path: str, event: dict):
         _limit(event)
         body = _json(event)
         g = s.get("gauge", str(body.get("gauge", ""))) or _404("gauge")
+        _fresh(s)
         photo = _b64photo(body.get("photo"))
         rec = Capture(s, g, photo, run_id=body.get("run"), operator=str(body.get("operator") or "guest")[:40]).run(use_model=os.environ.get("DIALED_LLM", "") != "off")
         return _resp(200, rec)
@@ -141,6 +146,16 @@ def route(method: str, path: str, event: dict):
 
 
 # ---------- helpers ----------
+
+def _fresh(s):
+    """The sample plant's seeded history rolls forward once a day, so the round always has this week's drift to find."""
+    try:
+        n = roll_if_stale(s, [g["id"] for g in GAUGES])
+        if n:
+            print(f"rolled {n} seeded readings forward")
+    except Exception:
+        traceback.print_exc()
+
 
 def _slim(r: dict) -> dict:
     out = {k: r.get(k) for k in ("id", "gauge", "at", "outcome", "value", "read_value", "unit", "confidence", "message", "engine", "images", "order", "seeded", "issues")}
@@ -198,8 +213,10 @@ _hits: dict[str, list[float]] = {}
 
 
 def _limit(event):
-    """Per-IP hourly cap on photo processing (per warm instance; CloudFront and Lambda concurrency limits sit above it)."""
-    ip = event.get("requestContext", {}).get("http", {}).get("sourceIp", "?")
+    """Per-visitor hourly cap on photo processing (per warm instance; CloudFront and Lambda concurrency limits sit above it).
+    Behind CloudFront, sourceIp is the edge server, so the visitor is the first address in X-Forwarded-For."""
+    headers = event.get("headers") or {}
+    ip = (headers.get("x-forwarded-for") or "").split(",")[0].strip() or event.get("requestContext", {}).get("http", {}).get("sourceIp", "?")
     now = time.time()
     hits = [t for t in _hits.get(ip, []) if now - t < 3600]
     if len(hits) >= READ_LIMIT:
