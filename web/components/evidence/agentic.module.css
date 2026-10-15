@@ -26,3 +26,12 @@
 .tbl th[scope="row"] { font: 700 15px var(--cond); }
 .group { text-align: left; padding: 16px 0 6px; font: 800 13px var(--cond); color: var(--needle); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--ink); }
 .sub { display: block; font: 400 12.5px var(--text); color: var(--steel); }
+
+@media (max-width: 560px) {
+  .cards { min-width: 0; }
+  .cards thead { display: none; }
+  .cards, .cards tbody, .cards tr, .cards td, .cards th { display: block; width: 100%; }
+  .cards tr { border-top: 1px solid var(--rule); padding: 8px 0 10px; }
+  .cards td, .cards th[scope="row"] { border: 0; padding: 2px 0; }
+  .cards td[data-label]::before { content: attr(data-label); display: inline-block; min-width: 110px; font: 600 12px var(--cond); color: var(--steel); }
+}

@@ -61,3 +61,12 @@
 .credit a { color: var(--ink-2); }
 .links { display: flex; gap: 12px; flex-wrap: wrap; margin: 4px 0 0 !important; }
 .h3 { font: 800 clamp(20px, 2.2vw, 26px) / 1.1 var(--cond); margin: 40px 0 12px; }
+
+@media (max-width: 560px) {
+  .cards { min-width: 0; }
+  .cards thead { display: none; }
+  .cards, .cards tbody, .cards tr, .cards td, .cards th[scope="row"] { display: block; width: 100%; }
+  .cards tr { border-top: 1.5px solid var(--ink); padding: 10px 0 12px; }
+  .cards td, .cards th[scope="row"] { border: 0; padding: 2px 0; }
+  .cards td[data-label]::before { content: attr(data-label); display: inline-block; min-width: 128px; font: 600 12px var(--cond); color: var(--steel); }
+}

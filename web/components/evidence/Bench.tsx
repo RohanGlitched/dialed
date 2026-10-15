@@ -31,7 +31,7 @@ export function benchHeadline() {
 export function BenchTable({ set = "bench-test" }: { set?: string }) {
   return (
     <div className={s.tblWrap}>
-      <table className={s.tbl}>
+      <table className={`${s.tbl} ${s.cards}`}>
         <thead>
           <tr><th scope="col">Reader</th><th scope="col">Answered</th><th scope="col">Answers within 2% of the scale</th><th scope="col">Answers off by 5% or more</th><th scope="col">Photos read right</th><th scope="col">Photos to decline it answered</th></tr>
         </thead>
@@ -43,11 +43,11 @@ export function BenchTable({ set = "bench-test" }: { set?: string }) {
             return (
               <tr key={row.label}>
                 <th scope="row">{row.label}<span className={s.setLabel}>{row.note}</span></th>
-                <td>{x.accepted} of {x.n}</td>
-                <td><b>{x.accepted_within_2pct}</b> ({pct(x.precision_2pct)})</td>
-                <td>{x.accepted_over_5pct}</td>
-                <td>{x.accepted_within_2pct} of {x.n} ({pct(x.correct_and_accepted)})</td>
-                <td>{row.gated || !run?.decline ? "–" : `${run.decline.accepted} of ${run.decline.n}`}</td>
+                <td data-label="Answered">{x.accepted} of {x.n}</td>
+                <td data-label="Within 2%"><b>{x.accepted_within_2pct}</b> ({pct(x.precision_2pct)})</td>
+                <td data-label="Off by 5%+">{x.accepted_over_5pct}</td>
+                <td data-label="Read right">{x.accepted_within_2pct} of {x.n} ({pct(x.correct_and_accepted)})</td>
+                <td data-label="Declines answered">{row.gated || !run?.decline ? "–" : `${run.decline.accepted} of ${run.decline.n}`}</td>
               </tr>
             );
           })}

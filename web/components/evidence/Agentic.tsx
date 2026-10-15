@@ -96,7 +96,7 @@ export function AgentTable({ compact = false }: { compact?: boolean }) {
   const groups: [string, string][] = [["core", "Round situations"], ["adversarial", "Attempts to steer the agent, and an outage"], ["active", "Active perception over two photos"]];
   return (
     <div className={s.tblWrap}>
-      <table className={s.tbl}>
+      <table className={`${s.tbl} ${s.cards}`}>
         <thead><tr><th scope="col">Scenario</th><th scope="col">Expected</th><th scope="col">Rule engine</th><th scope="col">Amazon Nova Micro</th>{!compact && <th scope="col">Latency p50 / p90</th>}{!compact && <th scope="col">Cost per decision</th>}</tr></thead>
         <tbody>
           {groups.map(([g, label]) => (
@@ -108,11 +108,11 @@ export function AgentTable({ compact = false }: { compact?: boolean }) {
                 return (
                   <tr key={r.name}>
                     <th scope="row">{r.name}<span className={s.sub}>{r.gauge}{r.note ? `; note: “${r.note}”` : ""}</span></th>
-                    <td>{r.expected.toUpperCase().replace("HELD", "HOLD").replace("MISMATCH", "CHECK TAG").replace("RESHOOT", "RE-SHOOT")}{r.expected_breach ? ` (${r.expected_breach.replace("_", " ")})` : ""}</td>
-                    <td>{rules ? pctRuns(rules) : "model only"}</td>
-                    <td>{pctRuns(m)}{m && m.refused_steps ? <span className={s.sub}>{m.refused_steps} steps refused by guards</span> : null}{m?.failures.length ? <span className={s.sub}>failed: {m.failures.join("; ")}</span> : null}</td>
-                    {!compact && <td>{m ? `${(m.ms_p50 / 1000).toFixed(1)} / ${(m.ms_p90 / 1000).toFixed(1)} s` : "–"}</td>}
-                    {!compact && <td>{m && m.model_calls ? `$${m.usd_per_decision.toFixed(5)}` : "–"}</td>}
+                    <td data-label="Expected">{r.expected.toUpperCase().replace("HELD", "HOLD").replace("MISMATCH", "CHECK TAG").replace("RESHOOT", "RE-SHOOT")}{r.expected_breach ? ` (${r.expected_breach.replace("_", " ")})` : ""}</td>
+                    <td data-label="Rule engine">{rules ? pctRuns(rules) : "model only"}</td>
+                    <td data-label="Nova Micro">{pctRuns(m)}{m && m.refused_steps ? <span className={s.sub}>{m.refused_steps} steps refused by guards</span> : null}{m?.failures.length ? <span className={s.sub}>failed: {m.failures.join("; ")}</span> : null}</td>
+                    {!compact && <td data-label="p50 / p90">{m ? `${(m.ms_p50 / 1000).toFixed(1)} / ${(m.ms_p90 / 1000).toFixed(1)} s` : "–"}</td>}
+                    {!compact && <td data-label="Per decision">{m && m.model_calls ? `$${m.usd_per_decision.toFixed(5)}` : "–"}</td>}
                   </tr>
                 );
               })}

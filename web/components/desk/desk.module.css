@@ -80,6 +80,12 @@
 }
 @media (max-width: 560px) {
   .hang { width: 100%; }
+  /* the decided table becomes one card per order */
+  .tbl thead { display: none; }
+  .tbl, .tbl tbody, .tbl tr, .tbl td { display: block; width: 100%; }
+  .tbl tr { border-top: 1.5px solid var(--ink); padding: 10px 0; }
+  .tbl td { border: 0; padding: 3px 0; overflow-wrap: anywhere; }
+  .tbl td[data-label]::before { content: attr(data-label); display: inline-block; min-width: 76px; font: 600 12px var(--cond); color: var(--steel); }
 }
 
 .opNote { margin: 8px 0; padding: 8px 10px; background: var(--panel); border-left: 3px solid var(--steel); font-size: 15px; }

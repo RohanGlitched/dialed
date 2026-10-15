@@ -107,11 +107,11 @@ export function DeskPage() {
               {decided.map((o) => (
                 <tr key={o.id}>
                   <td><button className={s.linkBtn} onClick={() => open(o.id)}>{o.id}</button></td>
-                  <td>{o.gauge} {o.gauge_name}</td>
-                  <td><span className={`tag ${o.status}`}>{o.status.toUpperCase()}</span></td>
-                  <td>{o.decided_by}</td>
-                  <td>{o.decided_at ? ago(o.at, +new Date(o.decided_at)) : "–"}</td>
-                  <td className={s.noteCell}>{o.note || "–"}</td>
+                  <td data-label="Gauge">{o.gauge} {o.gauge_name}</td>
+                  <td data-label="Decision"><span className={`tag ${o.status}`}>{o.status.toUpperCase()}</span></td>
+                  <td data-label="By">{o.decided_by}</td>
+                  <td data-label="Waited">{o.decided_at ? ago(o.at, +new Date(o.decided_at)) : "–"}</td>
+                  <td className={s.noteCell} data-label="Note">{o.note || "–"}</td>
                 </tr>
               ))}
             </tbody>

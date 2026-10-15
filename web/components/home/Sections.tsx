@@ -130,7 +130,7 @@ export function Accuracy() {
             ))}
             <text x={30} y={258} className={s.axis}>error as % of the scale span (accepted readings)</text>
           </svg>
-          <figcaption className="muted small">Errors of every accepted reading, as a share of the scale. The confidence threshold is 90%; below it the agent asks for another photo instead of guessing. {acc - within2} of {acc} accepted readings were off by 2% or more{over5 === 0 ? ", none by more than 5%" : ""}.</figcaption>
+          <figcaption className="muted small">Errors of every accepted reading on rendered gauges, as a share of the scale. The confidence threshold is 90%; below it the agent asks for another photo instead of guessing. {acc - within2} of {acc} accepted readings were off by 2% or more{over5 === 0 ? ", none by more than 5%" : ""}.</figcaption>
         </figure>
       </div>
       <Link className="btn ghost" href="/evidence/">See every chart, the failures and the method</Link>
