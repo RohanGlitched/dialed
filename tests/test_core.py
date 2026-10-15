@@ -182,8 +182,8 @@ def test_only_the_desk_passcode_releases_a_work_order(store, monkeypatch):
     store.put("order", "WO-1", {"id": "WO-1", "gauge": "TI-201", "reading": "x", "status": "held", "at": F.now_iso()})
     ev = lambda body, ip="203.0.113.9": {"rawPath": "/api/order/WO-1/decision", "headers": {"cloudfront-viewer-address": ip + ":1"},
                                          "requestContext": {"http": {"method": "POST", "sourceIp": "t"}}, "body": json.dumps(body)}
-    assert H.handler(ev({"decision": "approve", "by": "bot"}))["statusCode"] == 403
-    assert H.handler(ev({"decision": "approve", "by": "bot", "passcode": "guess"}))["statusCode"] == 403
+    assert H.handler(ev({"decision": "approve", "by": "bot"}))["statusCode"] == 401
+    assert H.handler(ev({"decision": "approve", "by": "bot", "passcode": "guess"}))["statusCode"] == 401
     assert store.get("order", "WO-1")["status"] == "held"
     r = H.handler(ev({"decision": "approve", "by": "Asha", "passcode": "test-desk-code"}))
     assert r["statusCode"] == 200
@@ -193,7 +193,7 @@ def test_only_the_desk_passcode_releases_a_work_order(store, monkeypatch):
     store.put("order", "WO-2", {"id": "WO-2", "gauge": "TI-201", "reading": "x", "status": "held", "at": F.now_iso()})
     ev2 = lambda body: {**ev(body, "198.51.100.4"), "rawPath": "/api/order/WO-2/decision"}
     codes = [H.handler(ev2({"decision": "reject", "passcode": f"g{i}"}))["statusCode"] for i in range(11)]
-    assert codes[:10] == [403] * 10 and codes[10] == 429
+    assert codes[:10] == [401] * 10 and codes[10] == 429
     assert H.handler(ev2({"decision": "reject", "passcode": "test-desk-code"}))["statusCode"] == 429
 
 

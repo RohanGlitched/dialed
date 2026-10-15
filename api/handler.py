@@ -288,7 +288,7 @@ def _check_passcode(s, event, given):
         raise ApiError(429, "Too many wrong passcodes from here this hour. Try again later.")
     if not _passcode_ok(given):
         s.bump(tag)
-        raise ApiError(403, "That desk passcode isn't right. Only a supervisor with the desk passcode can release or reject a work order (judges: it's in the testing instructions).")
+        raise ApiError(401, "That desk passcode isn't right. Only a supervisor with the desk passcode can release or reject a work order (judges: it's in the testing instructions).")
 
 
 def _cors() -> dict:
