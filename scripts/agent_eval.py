@@ -115,6 +115,8 @@ def run_one(sc: dict, use_model: bool, k: int) -> dict:
                 opts["glare_at"] = follow(view)
             t0 = time.perf_counter()
             rec = Capture(store, g, photo(shot["dial"], shot["value"], opts, 900 + i), note=sc.get("note"), previous=prev).run(use_model=use_model)
+            if use_model and not sc.get("env") and rec.get("engine") != "Amazon Nova Micro on Bedrock":
+                raise Throttled()  # Bedrock refused the call (rate limit): this run would measure the fallback, not the model
             ms = round((time.perf_counter() - t0) * 1000)
             codes = [b["code"] for b in (rec.get("assessment") or {}).get("breaches", [])]
             order = store.get("order", rec["order"]) if rec.get("order") else None
@@ -158,6 +160,21 @@ def run_one(sc: dict, use_model: bool, k: int) -> dict:
     return {"pass": ok, "failed": why, "shots": steps}
 
 
+class Throttled(Exception):
+    pass
+
+
+def run_retrying(sc: dict, use_model: bool, k: int) -> dict:
+    for attempt in range(6):
+        try:
+            return run_one(sc, use_model, k)
+        except Throttled:
+            time.sleep(8 * (attempt + 1))
+    out = run_one(sc, use_model, k)  # last try: record whatever happened, and say so
+    out["fell_back"] = True
+    return out
+
+
 def summarize(sc: dict, runs: list[dict]) -> dict:
     shots = [s for r in runs for s in r["shots"]]
     tin = sum((s["usage"] or {}).get("in", 0) for s in shots)
@@ -177,7 +194,7 @@ def summarize(sc: dict, runs: list[dict]) -> dict:
             "ms_p50": round(statistics.median(ms)), "ms_p90": round(sorted(ms)[int(0.9 * (len(ms) - 1))]),
             "model_calls": calls, "tokens_in": tin, "tokens_out": tout,
             "usd_per_decision": round((tin / 1000 * PRICE["in"] + tout / 1000 * PRICE["out"]) / len(runs), 6),
-            "engine": shots[-1]["engine"], "example": runs[0],
+            "engine": shots[-1]["engine"], "example": runs[0], "fell_back": sum(1 for r in runs if r.get("fell_back")),
             "info": {k: sum(1 for s in shots if s.get("info", {}).get(k)) for k in {k for s in shots for k in s.get("info", {})}}}
 
 
@@ -193,7 +210,7 @@ def run(use_model: bool, n: int, workers: int) -> list[dict]:
             L.BEDROCK_MODELS = [m for m in sc["env"]["DIALED_BEDROCK_MODELS"].split(",") if m]
         try:
             with ThreadPoolExecutor(max_workers=workers if use_model else 1) as ex:
-                runs = list(ex.map(lambda k: run_one(sc, use_model, k), range(n)))
+                runs = list(ex.map(lambda k: run_retrying(sc, use_model, k), range(n)))
         finally:
             L.BEDROCK_MODELS = models
         s = summarize(sc, runs)
