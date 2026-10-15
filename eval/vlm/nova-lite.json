@@ -1,0 +1,2234 @@
+{
+ "real/r03.jpg": {
+  "text": "{\"readable\": true, \"value\": 160, \"unit\": \"POUNDS PER SQ. INCH\", \"scale_min\": 0, \"scale_max\": 400, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 54,
+   "totalTokens": 2035
+  },
+  "ms": 3154
+ },
+ "real/r04.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"\u00b0C\", \"scale_min\": -40, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2618,
+   "outputTokens": 48,
+   "totalTokens": 2666
+  },
+  "ms": 3763
+ },
+ "real/r05.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"\u00b0C\", \"scale_min\": -30, \"scale_max\": 130, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1885,
+   "outputTokens": 48,
+   "totalTokens": 1933
+  },
+  "ms": 3436
+ },
+ "real/r06.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"\u00b0C\", \"scale_min\": 0, \"scale_max\": 220, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 3742
+ },
+ "real/r09.jpg": {
+  "text": "{\"readable\": true, \"value\": 200, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 4000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1469,
+   "outputTokens": 48,
+   "totalTokens": 1517
+  },
+  "ms": 4600
+ },
+ "bench/f007.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"POUNDS PRESSURE PER SQ. INCH\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 56,
+   "totalTokens": 2053
+  },
+  "ms": 5212
+ },
+ "bench/f009.jpg": {
+  "text": "{\"readable\": true, \"value\": 50, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 45,
+   "totalTokens": 2026
+  },
+  "ms": 5271
+ },
+ "bench/f013.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"lbf/in^2\", \"scale_min\": 0, \"scale_max\": 160, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 52,
+   "totalTokens": 2033
+  },
+  "ms": 4905
+ },
+ "bench/f014.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 18, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 44,
+   "totalTokens": 1876
+  },
+  "ms": 5215
+ },
+ "bench/f016.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 5838
+ },
+ "bench/f022.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"kg/cm2\", \"scale_min\": 0.5, \"scale_max\": 2, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 50,
+   "totalTokens": 2031
+  },
+  "ms": 5010
+ },
+ "bench/f041.jpg": {
+  "text": "{\"readable\": true, \"value\": 400, \"unit\": \"kg/cm2\", \"scale_min\": 0, \"scale_max\": 1000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 51,
+   "totalTokens": 2032
+  },
+  "ms": 4214
+ },
+ "bench/f042.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"lbf/in\\u00b2\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 56,
+   "totalTokens": 1888
+  },
+  "ms": 4499
+ },
+ "bench/f082.jpg": {
+  "text": "{\"readable\": true, \"value\": 65, \"unit\": \"psi\", \"scale_min\": 10, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 6188
+ },
+ "bench/f084.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 140, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2716,
+   "outputTokens": 47,
+   "totalTokens": 2763
+  },
+  "ms": 4555
+ },
+ "bench/f085.jpg": {
+  "text": "{\"readable\": true, \"value\": 70, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 3850
+ },
+ "bench/f485.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"F\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 46,
+   "totalTokens": 2811
+  },
+  "ms": 3545
+ },
+ "bench/f495.jpg": {
+  "text": "{\"readable\": true, \"value\": 6500, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 10000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 50,
+   "totalTokens": 2815
+  },
+  "ms": 4503
+ },
+ "bench/f498.jpg": {
+  "text": "{\"readable\": true, \"value\": 2500, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 3000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 49,
+   "totalTokens": 1881
+  },
+  "ms": 3549
+ },
+ "bench/f501.jpg": {
+  "text": "{\"readable\": true, \"value\": 250, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 4012
+ },
+ "bench/f504.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 48,
+   "totalTokens": 1880
+  },
+  "ms": 4149
+ },
+ "bench/f505.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 48,
+   "totalTokens": 1880
+  },
+  "ms": 4130
+ },
+ "bench/f728.jpg": {
+  "text": "{\"readable\": true, \"value\": 25, \"unit\": \"B.R. (STD)\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 50,
+   "totalTokens": 1871
+  },
+  "ms": 3632
+ },
+ "bench/f729.jpg": {
+  "text": "{\"readable\": true, \"value\": 25, \"unit\": \"VACUUM\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 3611
+ },
+ "bench/f736.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"mmHg\", \"scale_min\": 0, \"scale_max\": 1000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 49,
+   "totalTokens": 2030
+  },
+  "ms": 4008
+ },
+ "bench/f739.jpg": {
+  "text": "{\"readable\": true, \"value\": 24, \"unit\": \"vacuum\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2667,
+   "outputTokens": 45,
+   "totalTokens": 2712
+  },
+  "ms": 4693
+ },
+ "bench/wa002.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"psi\", \"scale_min\": -5, \"scale_max\": 40, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 45,
+   "totalTokens": 1877
+  },
+  "ms": 3895
+ },
+ "bench/wa025.jpg": {
+  "text": "{\"readable\": true, \"value\": 55, \"unit\": \"KILOGRAMMES\", \"scale_min\": 0, \"scale_max\": 55, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 48,
+   "totalTokens": 1880
+  },
+  "ms": 4009
+ },
+ "bench/wa026.jpg": {
+  "text": "{\"readable\": true, \"value\": 4, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 44,
+   "totalTokens": 1865
+  },
+  "ms": 4531
+ },
+ "bench/wa034.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 250, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 877,
+   "outputTokens": 47,
+   "totalTokens": 924
+  },
+  "ms": 3808
+ },
+ "bench/wa048.jpg": {
+  "text": "{\"readable\": true, \"value\": 80, \"unit\": \"MANOMETER\", \"scale_min\": 20, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 49,
+   "totalTokens": 1881
+  },
+  "ms": 4794
+ },
+ "bench/wa054.jpg": {
+  "text": "{\"readable\": true, \"value\": 70, \"unit\": \"Meter Wasser\", \"scale_min\": 10, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 48,
+   "totalTokens": 1880
+  },
+  "ms": 5099
+ },
+ "bench/wa060.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"\\u00b0C\", \"scale_min\": 50, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 53,
+   "totalTokens": 1874
+  },
+  "ms": 4587
+ },
+ "bench/wa066.jpg": {
+  "text": "{\"readable\": true, \"value\": 350, \"unit\": \"\u00b0F\", \"scale_min\": 50, \"scale_max\": 700, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 49,
+   "totalTokens": 2030
+  },
+  "ms": 4941
+ },
+ "bench/wa069.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"kPa\", \"scale_min\": 0, \"scale_max\": 250, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2717,
+   "outputTokens": 47,
+   "totalTokens": 2764
+  },
+  "ms": 5592
+ },
+ "bench/wa077.jpg": {
+  "text": "{\"readable\": true, \"value\": 140, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 5353
+ },
+ "bench/wa079.jpg": {
+  "text": "{\"readable\": true, \"value\": 25000, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 35000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 51,
+   "totalTokens": 2816
+  },
+  "ms": 5148
+ },
+ "bench/wa083.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 3, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 3887
+ },
+ "bench/wa090.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"lb/in\\u00b2\", \"scale_min\": 0, \"scale_max\": 140, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 55,
+   "totalTokens": 1876
+  },
+  "ms": 4793
+ },
+ "bench/wa097.jpg": {
+  "text": "{\"readable\": true, \"value\": 25, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 46,
+   "totalTokens": 2027
+  },
+  "ms": 3996
+ },
+ "bench/wa143.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"mmHg\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1271,
+   "outputTokens": 48,
+   "totalTokens": 1319
+  },
+  "ms": 3960
+ },
+ "bench/wa176.jpg": {
+  "text": "{\"readable\": true, \"value\": 18, \"unit\": \"kg/cm^2\", \"scale_min\": 12, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 50,
+   "totalTokens": 2047
+  },
+  "ms": 3619
+ },
+ "bench/wa183.jpg": {
+  "text": "{\"readable\": true, \"value\": 29, \"unit\": \"inches of mercury\", \"scale_min\": 10, \"scale_max\": 35, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 4844
+ },
+ "bench/wa207.jpg": {
+  "text": "{\"readable\": true, \"value\": 70, \"unit\": \"lb/in\\u00b2\", \"scale_min\": 20, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 893,
+   "outputTokens": 55,
+   "totalTokens": 948
+  },
+  "ms": 4806
+ },
+ "bench/wa240.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"kgf/cm\\u00b2\", \"scale_min\": 0, \"scale_max\": 10, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2669,
+   "outputTokens": 53,
+   "totalTokens": 2722
+  },
+  "ms": 5686
+ },
+ "bench/wa288.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.6, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 10, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 4851
+ },
+ "bench/wa425.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"C\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 46,
+   "totalTokens": 2811
+  },
+  "ms": 3535
+ },
+ "bench/wa426.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 48,
+   "totalTokens": 2813
+  },
+  "ms": 3556
+ },
+ "bench/wa431.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"OIL PRES\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 3262
+ },
+ "bench/wa484.jpg": {
+  "text": "{\"readable\": true, \"value\": 30, \"unit\": \"\u00b0F\", \"scale_min\": -80, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1469,
+   "outputTokens": 48,
+   "totalTokens": 1517
+  },
+  "ms": 5586
+ },
+ "bench/wa507.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"\\u00b0F\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 52,
+   "totalTokens": 941
+  },
+  "ms": 4464
+ },
+ "bench/wa551.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"\u00b0C\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1469,
+   "outputTokens": 48,
+   "totalTokens": 1517
+  },
+  "ms": 4019
+ },
+ "bench/wa708.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"mmHg\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1304,
+   "outputTokens": 48,
+   "totalTokens": 1352
+  },
+  "ms": 4438
+ },
+ "bench/wa714.jpg": {
+  "text": "{\"readable\": true, \"value\": -100, \"unit\": \"mbar\", \"scale_min\": -1020, \"scale_max\": 600, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 50,
+   "totalTokens": 2031
+  },
+  "ms": 3981
+ },
+ "bench/wb010.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"\u043a\u0433\u0441/\u0441\u043c2\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1271,
+   "outputTokens": 52,
+   "totalTokens": 1323
+  },
+  "ms": 4194
+ },
+ "bench/wb011.jpg": {
+  "text": "{\"readable\": true, \"value\": 145, \"unit\": \"m\", \"scale_min\": 0, \"scale_max\": 250, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 3802
+ },
+ "bench/wb012.jpg": {
+  "text": "{\"readable\": true, \"value\": 250, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 3949
+ },
+ "bench/wb013.jpg": {
+  "text": "{\"readable\": true, \"value\": 2.5, \"unit\": \"MP\", \"scale_min\": 0, \"scale_max\": 4, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 877,
+   "outputTokens": 45,
+   "totalTokens": 922
+  },
+  "ms": 3446
+ },
+ "bench/wb025.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 23, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1949,
+   "outputTokens": 46,
+   "totalTokens": 1995
+  },
+  "ms": 4625
+ },
+ "bench/wb037.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"OIL PRESS\", \"scale_min\": 20, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 48,
+   "totalTokens": 2813
+  },
+  "ms": 5257
+ },
+ "bench/wb088.jpg": {
+  "text": "{\"readable\": true, \"value\": 160, \"unit\": \"PSI\", \"scale_min\": 40, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 49,
+   "totalTokens": 2814
+  },
+  "ms": 3798
+ },
+ "bench/wb092.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"OIL POUNDS\", \"scale_min\": 20, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 50,
+   "totalTokens": 2815
+  },
+  "ms": 3450
+ },
+ "bench/wb099.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"Ctm.\", \"scale_min\": 10, \"scale_max\": 76, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 4628
+ },
+ "bench/wb127.jpg": {
+  "text": "{\"readable\": true, \"value\": 12, \"unit\": \"kg/cm\\u00b2\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1949,
+   "outputTokens": 53,
+   "totalTokens": 2002
+  },
+  "ms": 4000
+ },
+ "bench/wb139.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"null\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 44,
+   "totalTokens": 2809
+  },
+  "ms": 3614
+ },
+ "bench/wb151.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"OIL PRESSURE\", \"scale_min\": 40, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 50,
+   "totalTokens": 2815
+  },
+  "ms": 3431
+ },
+ "bench/wb156.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.3, \"unit\": \"kg/cm2\", \"scale_min\": 0, \"scale_max\": 5, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2618,
+   "outputTokens": 48,
+   "totalTokens": 2666
+  },
+  "ms": 4045
+ },
+ "bench/wb177.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"null\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 44,
+   "totalTokens": 2809
+  },
+  "ms": 3396
+ },
+ "bench/f026.jpg": {
+  "text": "{\"readable\": true, \"value\": 12, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 3939
+ },
+ "bench/f044.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 15, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1469,
+   "outputTokens": 45,
+   "totalTokens": 1514
+  },
+  "ms": 4062
+ },
+ "bench/f072.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 4000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1469,
+   "outputTokens": 48,
+   "totalTokens": 1517
+  },
+  "ms": 5069
+ },
+ "bench/f091.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"lbs pr inch\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 49,
+   "totalTokens": 1870
+  },
+  "ms": 4255
+ },
+ "bench/f118.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"F\", \"scale_min\": -40, \"scale_max\": 160, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1931,
+   "outputTokens": 48,
+   "totalTokens": 1979
+  },
+  "ms": 4587
+ },
+ "bench/f273.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 8, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 45,
+   "totalTokens": 2042
+  },
+  "ms": 4009
+ },
+ "bench/f286.jpg": {
+  "text": "{\"readable\": true, \"value\": 35, \"unit\": \"lbs per inch\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 48,
+   "totalTokens": 2045
+  },
+  "ms": 4020
+ },
+ "bench/f300.jpg": {
+  "text": "{\"readable\": true, \"value\": 200, \"unit\": \"LBS.PER.\\\"\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 51,
+   "totalTokens": 2032
+  },
+  "ms": 4355
+ },
+ "bench/f313.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 150, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 4985
+ },
+ "bench/f478.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"\u00b0C\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 3606
+ },
+ "bench/f481.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"F\", \"scale_min\": -40, \"scale_max\": 160, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1865,
+   "outputTokens": 46,
+   "totalTokens": 1911
+  },
+  "ms": 4004
+ },
+ "bench/f559.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2471,
+   "outputTokens": 47,
+   "totalTokens": 2518
+  },
+  "ms": 4542
+ },
+ "bench/wa006.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 25, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1469,
+   "outputTokens": 45,
+   "totalTokens": 1514
+  },
+  "ms": 4010
+ },
+ "bench/wa014.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 230, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 3902
+ },
+ "bench/wa028.jpg": {
+  "text": "{\"readable\": true, \"value\": 59, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 3573
+ },
+ "bench/wa046.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.8, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 1.6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 3800
+ },
+ "bench/wa050.jpg": {
+  "text": "{\"readable\": true, \"value\": 2.5, \"unit\": \"Kg p.cm.\", \"scale_min\": 0, \"scale_max\": 3, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 49,
+   "totalTokens": 2030
+  },
+  "ms": 3925
+ },
+ "bench/wa061.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"\u00b0F\", \"scale_min\": 0, \"scale_max\": 220, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 4014
+ },
+ "bench/wa067.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"VACUUM\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 47,
+   "totalTokens": 2028
+  },
+  "ms": 4114
+ },
+ "bench/wa072.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"kg\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 45,
+   "totalTokens": 2042
+  },
+  "ms": 3823
+ },
+ "bench/wa084.jpg": {
+  "text": "{\"readable\": true, \"value\": 160, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 3923
+ },
+ "bench/wa085.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"mWS\", \"scale_min\": -30, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 877,
+   "outputTokens": 46,
+   "totalTokens": 923
+  },
+  "ms": 3597
+ },
+ "bench/wa087.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 16, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 45,
+   "totalTokens": 934
+  },
+  "ms": 3943
+ },
+ "bench/wa096.jpg": {
+  "text": "{\"readable\": true, \"value\": 140, \"unit\": \"HP\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 47,
+   "totalTokens": 2028
+  },
+  "ms": 4254
+ },
+ "bench/wa110.jpg": {
+  "text": "{\"readable\": true, \"value\": 48, \"unit\": \"m Wasser\", \"scale_min\": 0, \"scale_max\": 50, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2569,
+   "outputTokens": 46,
+   "totalTokens": 2615
+  },
+  "ms": 5059
+ },
+ "bench/wa112.jpg": {
+  "text": "{\"readable\": true, \"value\": 300, \"unit\": \"BOALT\", \"scale_min\": 0, \"scale_max\": 400, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 4640
+ },
+ "bench/wa160.jpg": {
+  "text": "{\"readable\": true, \"value\": 17, \"unit\": \"Meter Wasser\", \"scale_min\": 1, \"scale_max\": 25, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 46,
+   "totalTokens": 2027
+  },
+  "ms": 3789
+ },
+ "bench/wa180.jpg": {
+  "text": "{\"readable\": true, \"value\": 12, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 45,
+   "totalTokens": 2026
+  },
+  "ms": 4027
+ },
+ "bench/wa184.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 1.6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 4209
+ },
+ "bench/wa189.jpg": {
+  "text": "{\"readable\": true, \"value\": 250, \"unit\": \"Libras\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 3994
+ },
+ "bench/wa196.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 12, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 4241
+ },
+ "bench/wa233.jpg": {
+  "text": "{\"readable\": true, \"value\": 160, \"unit\": \"mmHg\", \"scale_min\": 180, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1917,
+   "outputTokens": 50,
+   "totalTokens": 1967
+  },
+  "ms": 4216
+ },
+ "bench/wa367.jpg": {
+  "text": "{\"readable\": true, \"value\": 15, \"unit\": \"inHg\", \"scale_min\": 10, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 3639
+ },
+ "bench/wa433.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"oil\", \"scale_min\": 0, \"scale_max\": 90, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 44,
+   "totalTokens": 2809
+  },
+  "ms": 4326
+ },
+ "bench/wa449.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 45,
+   "totalTokens": 2810
+  },
+  "ms": 3640
+ },
+ "bench/wa452.jpg": {
+  "text": "{\"readable\": true, \"value\": 1, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 10, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 44,
+   "totalTokens": 2809
+  },
+  "ms": 3408
+ },
+ "bench/wa705.jpg": {
+  "text": "{\"readable\": true, \"value\": 160, \"unit\": \"mmHg\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 3591
+ },
+ "bench/wb020.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 4419
+ },
+ "bench/wb129.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"Kg p.cm\", \"scale_min\": 0, \"scale_max\": 22, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1949,
+   "outputTokens": 49,
+   "totalTokens": 1998
+  },
+  "ms": 6819
+ },
+ "bench/wb130.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"metri di colonna d'acqua di mare\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 54,
+   "totalTokens": 2051
+  },
+  "ms": 4337
+ },
+ "bench/wb131.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.01, \"unit\": \"Atmospheres\", \"scale_min\": 0, \"scale_max\": 3, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 49,
+   "totalTokens": 938
+  },
+  "ms": 3193
+ },
+ "bench/wb175.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"kPa\", \"scale_min\": 0, \"scale_max\": 9, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 44,
+   "totalTokens": 2809
+  },
+  "ms": 3577
+ },
+ "bench/wb183.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"10\", \"scale_min\": 0, \"scale_max\": 12, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 45,
+   "totalTokens": 2810
+  },
+  "ms": 3618
+ },
+ "bench/wb230.jpg": {
+  "text": "{\"readable\": true, \"value\": 3.5, \"unit\": null, \"scale_min\": 0, \"scale_max\": 15, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 45,
+   "totalTokens": 2810
+  },
+  "ms": 3689
+ },
+ "real/r10.jpg": {
+  "text": "{\"readable\": true, \"value\": 30, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 40, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 4322
+ },
+ "real/r12.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.8, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 1.5, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 4042
+ },
+ "real/r15.jpg": {
+  "text": "{\"readable\": true, \"value\": 35000, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 35000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1757,
+   "outputTokens": 51,
+   "totalTokens": 1808
+  },
+  "ms": 3617
+ },
+ "real/r18.jpg": {
+  "text": "{\"readable\": true, \"value\": 10.5, \"unit\": \"Kg. pr kvcm.\", \"scale_min\": 0, \"scale_max\": 15, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 53,
+   "totalTokens": 1874
+  },
+  "ms": 3847
+ },
+ "real/r20.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 45, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2667,
+   "outputTokens": 45,
+   "totalTokens": 2712
+  },
+  "ms": 4814
+ },
+ "real/r23.jpg": {
+  "text": "{\"readable\": true, \"value\": 50, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 45,
+   "totalTokens": 2026
+  },
+  "ms": 4249
+ },
+ "real/r24.jpg": {
+  "text": "{\"readable\": true, \"value\": 250, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 3500, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 4561
+ },
+ "real/r25.jpg": {
+  "text": "{\"readable\": true, \"value\": 1000, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 2000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 49,
+   "totalTokens": 1881
+  },
+  "ms": 4447
+ },
+ "real/r26.jpg": {
+  "text": "{\"readable\": true, \"value\": 4.2, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 46,
+   "totalTokens": 1878
+  },
+  "ms": 3911
+ },
+ "real/r27.jpg": {
+  "text": "{\"readable\": true, \"value\": 250, \"unit\": \"kg/cm2\", \"scale_min\": 0, \"scale_max\": 800, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 50,
+   "totalTokens": 1871
+  },
+  "ms": 3998
+ },
+ "real/r28.jpg": {
+  "text": "{\"readable\": true, \"value\": 600, \"unit\": \"kg/cm2\", \"scale_min\": 0, \"scale_max\": 800, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 50,
+   "totalTokens": 1871
+  },
+  "ms": 5756
+ },
+ "real/r30.jpg": {
+  "text": "{\"readable\": true, \"value\": 1000, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 4000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 49,
+   "totalTokens": 2814
+  },
+  "ms": 7740
+ },
+ "real/r31.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"lb. per sq. in\", \"scale_min\": 0, \"scale_max\": 270, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 52,
+   "totalTokens": 1873
+  },
+  "ms": 3600
+ },
+ "real/r33.jpg": {
+  "text": "{\"readable\": true, \"value\": 25, \"unit\": \"\\u00b0C\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 50,
+   "totalTokens": 2815
+  },
+  "ms": 5700
+ },
+ "real/r35.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 10, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1337,
+   "outputTokens": 44,
+   "totalTokens": 1381
+  },
+  "ms": 4415
+ },
+ "real/r36.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"lb/in\\u00b2\", \"scale_min\": 0, \"scale_max\": 160, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 55,
+   "totalTokens": 2036
+  },
+  "ms": 5405
+ },
+ "real/r37.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 400, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 4638
+ },
+ "blind1/b01.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 4679
+ },
+ "blind1/b02.jpg": {
+  "text": "{\"readable\": true, \"value\": 25, \"unit\": \"\u00b0C\", \"scale_min\": 0, \"scale_max\": 50, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 4485
+ },
+ "blind1/b04.jpg": {
+  "text": "{\"readable\": true, \"value\": 70, \"unit\": \"F\", \"scale_min\": -20, \"scale_max\": 110, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 4042
+ },
+ "blind1/b05.jpg": {
+  "text": "{\"readable\": true, \"value\": 24, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2569,
+   "outputTokens": 46,
+   "totalTokens": 2615
+  },
+  "ms": 4190
+ },
+ "blind1/b11.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.2, \"unit\": \"kg/cm^2\", \"scale_min\": 0, \"scale_max\": 7, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2525,
+   "outputTokens": 49,
+   "totalTokens": 2574
+  },
+  "ms": 4106
+ },
+ "blind1/b12.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"LA PER O\", \"scale_min\": 10, \"scale_max\": 110, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 50,
+   "totalTokens": 1882
+  },
+  "ms": 3738
+ },
+ "blind1/b13.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 220, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2716,
+   "outputTokens": 47,
+   "totalTokens": 2763
+  },
+  "ms": 8777
+ },
+ "blind1/b17.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"kg/cm2\", \"scale_min\": 0, \"scale_max\": 250, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 50,
+   "totalTokens": 2031
+  },
+  "ms": 3665
+ },
+ "blind1/b18.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"kg/cm2\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 49,
+   "totalTokens": 1870
+  },
+  "ms": 3303
+ },
+ "blind1/b19.jpg": {
+  "text": "{\"readable\": true, \"value\": 140, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 180, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 47,
+   "totalTokens": 2044
+  },
+  "ms": 3778
+ },
+ "blind1/b20.jpg": {
+  "text": "{\"readable\": true, \"value\": 800, \"unit\": \"Pa\", \"scale_min\": 0, \"scale_max\": 1000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 48,
+   "totalTokens": 1880
+  },
+  "ms": 3757
+ },
+ "blind1/b21.jpg": {
+  "text": "{\"readable\": true, \"value\": 50, \"unit\": \"LB3 PRESSURE\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 49,
+   "totalTokens": 1870
+  },
+  "ms": 4104
+ },
+ "blind1/b23.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"\u00b0F\", \"scale_min\": -20, \"scale_max\": 80, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1853,
+   "outputTokens": 47,
+   "totalTokens": 1900
+  },
+  "ms": 3600
+ },
+ "blind1/b24.jpg": {
+  "text": "{\"readable\": true, \"value\": 25, \"unit\": \"\\u00b0C\", \"scale_min\": 20, \"scale_max\": 40, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 51,
+   "totalTokens": 2032
+  },
+  "ms": 3954
+ },
+ "blind1/b26.jpg": {
+  "text": "{\"readable\": true, \"value\": 105, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 150, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 47,
+   "totalTokens": 2028
+  },
+  "ms": 3604
+ },
+ "blind/c27.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"\\u00b0C\", \"scale_min\": -40, \"scale_max\": 150, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1093,
+   "outputTokens": 53,
+   "totalTokens": 1146
+  },
+  "ms": 3527
+ },
+ "blind/c29.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"atmospheres\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 50,
+   "totalTokens": 2031
+  },
+  "ms": 3891
+ },
+ "blind/c36.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"hpz\", \"scale_min\": 0, \"scale_max\": 50, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 3344
+ },
+ "bench/f002.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"LBS PER INCH\", \"scale_min\": 10, \"scale_max\": 70, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2471,
+   "outputTokens": 50,
+   "totalTokens": 2521
+  },
+  "ms": 3899
+ },
+ "bench/f036.jpg": {
+  "text": "{\"readable\": true, \"value\": 30, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 150, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 47,
+   "totalTokens": 2028
+  },
+  "ms": 3649
+ },
+ "bench/f038.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"RPM\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 7772
+ },
+ "bench/f061.jpg": {
+  "text": "{\"readable\": true, \"value\": 12, \"unit\": \"kg/cm\\u00b2\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 53,
+   "totalTokens": 1885
+  },
+  "ms": 3845
+ },
+ "bench/f075.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"kg/cm\\u00b2\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1885,
+   "outputTokens": 55,
+   "totalTokens": 1940
+  },
+  "ms": 3812
+ },
+ "bench/f099.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"The image shows a digital display instead of an analog gauge.\"}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 23,
+   "totalTokens": 1844
+  },
+  "ms": 3594
+ },
+ "bench/f105.jpg": {
+  "text": "{\"readable\": true, \"value\": 350, \"unit\": \"F\\u00b0\", \"scale_min\": 200, \"scale_max\": 500, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 55,
+   "totalTokens": 2820
+  },
+  "ms": 4665
+ },
+ "bench/f311.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 3, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 3846
+ },
+ "bench/f507.jpg": {
+  "text": "{\"readable\": true, \"value\": 2.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 140, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2477,
+   "outputTokens": 47,
+   "totalTokens": 2524
+  },
+  "ms": 4364
+ },
+ "bench/f520.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"MPH\", \"scale_min\": 0, \"scale_max\": 160, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 3763
+ },
+ "bench/f561.jpg": {
+  "text": "{\"readable\": true, \"value\": 1500, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 5000, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 49,
+   "totalTokens": 2030
+  },
+  "ms": 3336
+ },
+ "bench/f616.jpg": {
+  "text": "{\"readable\": true, \"value\": 110, \"unit\": \"MPH\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 48,
+   "totalTokens": 2045
+  },
+  "ms": 3330
+ },
+ "bench/wa009-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 25, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 45,
+   "totalTokens": 2042
+  },
+  "ms": 4164
+ },
+ "bench/wa012-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 1000, \"unit\": \"hPa\", \"scale_min\": 960, \"scale_max\": 1060, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 940,
+   "outputTokens": 52,
+   "totalTokens": 992
+  },
+  "ms": 3685
+ },
+ "bench/wa015-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 12, \"unit\": \"t/mn\", \"scale_min\": 0, \"scale_max\": 16, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 4181
+ },
+ "bench/wa024-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 30, \"unit\": \"m\", \"scale_min\": 0, \"scale_max\": 70, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1853,
+   "outputTokens": 45,
+   "totalTokens": 1898
+  },
+  "ms": 3871
+ },
+ "bench/wa039-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 4.2, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1799,
+   "outputTokens": 45,
+   "totalTokens": 1844
+  },
+  "ms": 3835
+ },
+ "bench/wa043-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 70, \"unit\": \"m\", \"scale_min\": 20, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2471,
+   "outputTokens": 47,
+   "totalTokens": 2518
+  },
+  "ms": 4139
+ },
+ "bench/wa044-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 3, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 43,
+   "totalTokens": 2808
+  },
+  "ms": 5014
+ },
+ "bench/wa047-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 3, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 3759
+ },
+ "bench/wa062-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"\u00b0C\", \"scale_min\": 50, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2520,
+   "outputTokens": 49,
+   "totalTokens": 2569
+  },
+  "ms": 3741
+ },
+ "bench/wa073.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"mm\", \"scale_min\": 0, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 3187
+ },
+ "bench/wa074-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 200, \"unit\": \"grammes\", \"scale_min\": 100, \"scale_max\": 550, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 50,
+   "totalTokens": 1871
+  },
+  "ms": 3600
+ },
+ "bench/wa078-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.2, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 0.6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 47,
+   "totalTokens": 1879
+  },
+  "ms": 4156
+ },
+ "bench/wa099-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 2.2, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 4, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 45,
+   "totalTokens": 2810
+  },
+  "ms": 3790
+ },
+ "bench/wa118.jpg": {
+  "text": "{\"readable\": true, \"value\": 55, \"unit\": \"DEPTH TO K\", \"scale_min\": 40, \"scale_max\": 70, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 48,
+   "totalTokens": 2045
+  },
+  "ms": 4476
+ },
+ "bench/wa126-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2667,
+   "outputTokens": 47,
+   "totalTokens": 2714
+  },
+  "ms": 5014
+ },
+ "bench/wa136.jpg": {
+  "text": "{\"readable\": true, \"value\": 15, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 45,
+   "totalTokens": 2042
+  },
+  "ms": 4825
+ },
+ "bench/wa142-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 43,
+   "totalTokens": 2040
+  },
+  "ms": 6960
+ },
+ "bench/wa146-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"POUNDS PER INCH WATER\", \"scale_min\": 0, \"scale_max\": 80, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 51,
+   "totalTokens": 2032
+  },
+  "ms": 5944
+ },
+ "bench/wa150-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 3.5, \"unit\": \"t\", \"scale_min\": 0, \"scale_max\": 6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 6422
+ },
+ "bench/wa185-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 4500, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 6644
+ },
+ "bench/wa197.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"Vakuumbremse\", \"scale_min\": 20, \"scale_max\": 70, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 49,
+   "totalTokens": 1881
+  },
+  "ms": 5655
+ },
+ "bench/wa198-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"mWS\", \"scale_min\": 0, \"scale_max\": 30, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 5718
+ },
+ "bench/wa206-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 12, \"unit\": \"kgf/cm2\", \"scale_min\": 0, \"scale_max\": 16, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 49,
+   "totalTokens": 1870
+  },
+  "ms": 5678
+ },
+ "bench/wa218-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"m Wasser\", \"scale_min\": 0, \"scale_max\": 25, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 46,
+   "totalTokens": 1867
+  },
+  "ms": 5751
+ },
+ "bench/wa237-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 400, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 46,
+   "totalTokens": 1878
+  },
+  "ms": 8445
+ },
+ "bench/wa250.jpg": {
+  "text": "{\"readable\": true, \"value\": 370, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 600, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 48,
+   "totalTokens": 1880
+  },
+  "ms": 5002
+ },
+ "bench/wa256-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 45, \"unit\": \"OIL\", \"scale_min\": 0, \"scale_max\": 75, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 45,
+   "totalTokens": 1866
+  },
+  "ms": 5407
+ },
+ "bench/wa262-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"BAR\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 925,
+   "outputTokens": 47,
+   "totalTokens": 972
+  },
+  "ms": 6069
+ },
+ "bench/wa273-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.05, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 0.1, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1799,
+   "outputTokens": 48,
+   "totalTokens": 1847
+  },
+  "ms": 5783
+ },
+ "bench/wa280-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 2.5, \"unit\": \"kg/cm\\u00b2\", \"scale_min\": 0, \"scale_max\": 5, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 53,
+   "totalTokens": 2034
+  },
+  "ms": 5224
+ },
+ "bench/wa281-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 200, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 47,
+   "totalTokens": 2028
+  },
+  "ms": 6574
+ },
+ "bench/wa333.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.2, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 0.8, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 5152
+ },
+ "bench/wa342.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"No gauge visible\"}",
+  "usage": {
+   "inputTokens": 1917,
+   "outputTokens": 14,
+   "totalTokens": 1931
+  },
+  "ms": 6033
+ },
+ "bench/wa464.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"K\", \"scale_min\": 0, \"scale_max\": 50, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 45,
+   "totalTokens": 2810
+  },
+  "ms": 4852
+ },
+ "bench/wa516-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 30, \"unit\": \"DEG F\", \"scale_min\": -40, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 49,
+   "totalTokens": 1881
+  },
+  "ms": 5790
+ },
+ "bench/wa539.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"Fahrenheit\", \"scale_min\": 32, \"scale_max\": 180, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 50,
+   "totalTokens": 2031
+  },
+  "ms": 4108
+ },
+ "bench/wa565-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"\u00b0C\", \"scale_min\": 0, \"scale_max\": 80, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2471,
+   "outputTokens": 46,
+   "totalTokens": 2517
+  },
+  "ms": 6097
+ },
+ "bench/wa697.jpg": {
+  "text": "{\"readable\": true, \"value\": 150, \"unit\": \"Fahrenheit\", \"scale_min\": 40, \"scale_max\": 240, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 50,
+   "totalTokens": 2031
+  },
+  "ms": 5073
+ },
+ "bench/wa713.jpg": {
+  "text": "{\"readable\": true, \"value\": 5, \"unit\": \"Hg.\", \"scale_min\": 3, \"scale_max\": 7, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 43,
+   "totalTokens": 1864
+  },
+  "ms": 5332
+ },
+ "bench/wb003-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"m\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1725,
+   "outputTokens": 46,
+   "totalTokens": 1771
+  },
+  "ms": 5152
+ },
+ "bench/wb148.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"BR\", \"scale_min\": 0, \"scale_max\": 160, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 4975
+ },
+ "bench/wb214.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"km/h\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 48,
+   "totalTokens": 2813
+  },
+  "ms": 4779
+ },
+ "bench/wb216-d.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"PRESSURE\", \"scale_min\": 40, \"scale_max\": 200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 49,
+   "totalTokens": 2814
+  },
+  "ms": 5059
+ },
+ "real/r01.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"\u00b0C\", \"scale_min\": 20, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 49,
+   "totalTokens": 2046
+  },
+  "ms": 6487
+ },
+ "real/r02.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"degrees\", \"scale_min\": 0, \"scale_max\": 1200, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1917,
+   "outputTokens": 49,
+   "totalTokens": 1966
+  },
+  "ms": 9077
+ },
+ "real/r07.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 10, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1370,
+   "outputTokens": 44,
+   "totalTokens": 1414
+  },
+  "ms": 5305
+ },
+ "real/r08.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"grammes\", \"scale_min\": 0, \"scale_max\": 350, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 48,
+   "totalTokens": 2029
+  },
+  "ms": 5452
+ },
+ "real/r11.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 10, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 44,
+   "totalTokens": 1876
+  },
+  "ms": 5424
+ },
+ "real/r14.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 150, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1853,
+   "outputTokens": 48,
+   "totalTokens": 1901
+  },
+  "ms": 5321
+ },
+ "real/r16.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"No gauge visible\"}",
+  "usage": {
+   "inputTokens": 1757,
+   "outputTokens": 14,
+   "totalTokens": 1771
+  },
+  "ms": 5136
+ },
+ "real/r17.jpg": {
+  "text": "{\"readable\": true, \"value\": 50, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 46,
+   "totalTokens": 2027
+  },
+  "ms": 5300
+ },
+ "real/r19.jpg": {
+  "text": "{\"readable\": true, \"value\": 200, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 47,
+   "totalTokens": 936
+  },
+  "ms": 5572
+ },
+ "real/r21.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.9}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 44,
+   "totalTokens": 2041
+  },
+  "ms": 5176
+ },
+ "real/r22.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.5, \"unit\": \"atmospheres\", \"scale_min\": 0, \"scale_max\": 5, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2716,
+   "outputTokens": 48,
+   "totalTokens": 2764
+  },
+  "ms": 5622
+ },
+ "real/r29.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"\u00b0C\", \"scale_min\": 0, \"scale_max\": 120, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 47,
+   "totalTokens": 2028
+  },
+  "ms": 4698
+ },
+ "real/r32.jpg": {
+  "text": "{\"readable\": true, \"value\": 0.0, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 1.6, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 6942
+ },
+ "real/r34.jpg": {
+  "text": "{\"readable\": true, \"value\": 60, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 46,
+   "totalTokens": 1878
+  },
+  "ms": 6023
+ },
+ "real/r39.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"kg/cm\\u00b2\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 53,
+   "totalTokens": 2034
+  },
+  "ms": 6044
+ },
+ "real/r40.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 47,
+   "totalTokens": 936
+  },
+  "ms": 5443
+ },
+ "blind1/b03.jpg": {
+  "text": "{\"readable\": true, \"value\": 180, \"unit\": \"\\u00b0C\", \"scale_min\": 50, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2717,
+   "outputTokens": 53,
+   "totalTokens": 2770
+  },
+  "ms": 5588
+ },
+ "blind1/b06.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"needle is not visible\"}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 15,
+   "totalTokens": 1996
+  },
+  "ms": 5405
+ },
+ "blind1/b07.jpg": {
+  "text": "{\"readable\": true, \"value\": 400, \"unit\": \"mbar\", \"scale_min\": 0, \"scale_max\": 800, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2569,
+   "outputTokens": 47,
+   "totalTokens": 2616
+  },
+  "ms": 5419
+ },
+ "blind1/b08.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"no gauge visible\"}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 14,
+   "totalTokens": 1995
+  },
+  "ms": 4437
+ },
+ "blind1/b09.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"No gauge visible\"}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 14,
+   "totalTokens": 1995
+  },
+  "ms": 4370
+ },
+ "blind1/b10.jpg": {
+  "text": "{\"readable\": true, \"value\": 195, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 47,
+   "totalTokens": 1868
+  },
+  "ms": 5311
+ },
+ "blind1/b14.jpg": {
+  "text": "{\"readable\": true, \"value\": 200, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 47,
+   "totalTokens": 936
+  },
+  "ms": 5107
+ },
+ "blind1/b15.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"The image shows a mechanical device with a dial, but the scale is not visible or readable.\"}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 30,
+   "totalTokens": 1862
+  },
+  "ms": 5149
+ },
+ "blind1/b16.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"No gauge visible\"}",
+  "usage": {
+   "inputTokens": 2716,
+   "outputTokens": 14,
+   "totalTokens": 2730
+  },
+  "ms": 4810
+ },
+ "blind1/b22.jpg": {
+  "text": "{\"readable\": true, \"value\": 2.5, \"unit\": \"bar\", \"scale_min\": 0, \"scale_max\": 4, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 45,
+   "totalTokens": 1877
+  },
+  "ms": 4685
+ },
+ "blind1/b25.jpg": {
+  "text": "{\"readable\": true, \"value\": 70, \"unit\": \"F\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1883,
+   "outputTokens": 46,
+   "totalTokens": 1929
+  },
+  "ms": 4913
+ },
+ "blind/c01.jpg": {
+  "text": "{\"readable\": true, \"value\": 40, \"unit\": \"rpm\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1725,
+   "outputTokens": 45,
+   "totalTokens": 1770
+  },
+  "ms": 4945
+ },
+ "blind/c03.jpg": {
+  "text": "{\"readable\": true, \"value\": 50, \"unit\": \"in. Hg\", \"scale_min\": 20, \"scale_max\": 70, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 48,
+   "totalTokens": 2813
+  },
+  "ms": 4466
+ },
+ "blind/c05.jpg": {
+  "text": "{\"readable\": true, \"value\": 1.5, \"unit\": \"m\", \"scale_min\": 0, \"scale_max\": 3, \"confidence\": 0.9}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 44,
+   "totalTokens": 1865
+  },
+  "ms": 4877
+ },
+ "blind/c06.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"No gauge is visible in the image\"}",
+  "usage": {
+   "inputTokens": 1832,
+   "outputTokens": 18,
+   "totalTokens": 1850
+  },
+  "ms": 4985
+ },
+ "blind/c07.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"no gauge\"}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 13,
+   "totalTokens": 1994
+  },
+  "ms": 6124
+ },
+ "blind/c09.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1981,
+   "outputTokens": 45,
+   "totalTokens": 2026
+  },
+  "ms": 5368
+ },
+ "blind/c10.jpg": {
+  "text": "{\"readable\": true, \"value\": 57, \"unit\": null, \"scale_min\": 0, \"scale_max\": 100, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 45,
+   "totalTokens": 2810
+  },
+  "ms": 5960
+ },
+ "blind/c12.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"No gauge visible\"}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 14,
+   "totalTokens": 2779
+  },
+  "ms": 4924
+ },
+ "blind/c13.jpg": {
+  "text": "{\"readable\": true, \"value\": 0, \"unit\": \"gasoline pressure\", \"scale_min\": 0, \"scale_max\": 12, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 2765,
+   "outputTokens": 47,
+   "totalTokens": 2812
+  },
+  "ms": 4236
+ },
+ "blind/c14.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"multiple gauges, unclear which to read\"}",
+  "usage": {
+   "inputTokens": 1917,
+   "outputTokens": 19,
+   "totalTokens": 1936
+  },
+  "ms": 5361
+ },
+ "blind/c15.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"no gauge visible\"}",
+  "usage": {
+   "inputTokens": 1725,
+   "outputTokens": 14,
+   "totalTokens": 1739
+  },
+  "ms": 5823
+ },
+ "blind/c23.jpg": {
+  "text": "{\"readable\": true, \"value\": 7, \"unit\": \"pm\", \"scale_min\": 6, \"scale_max\": 8, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 889,
+   "outputTokens": 43,
+   "totalTokens": 932
+  },
+  "ms": 5243
+ },
+ "blind/c25.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 500, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1997,
+   "outputTokens": 46,
+   "totalTokens": 2043
+  },
+  "ms": 5634
+ },
+ "blind/c26.jpg": {
+  "text": "{\"readable\": false, \"reason\": \"no gauge visible\"}",
+  "usage": {
+   "inputTokens": 1799,
+   "outputTokens": 14,
+   "totalTokens": 1813
+  },
+  "ms": 5890
+ },
+ "blind/c28.jpg": {
+  "text": "{\"readable\": true, \"value\": 115, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 250, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 4466
+ },
+ "blind/c30.jpg": {
+  "text": "{\"readable\": true, \"value\": 100, \"unit\": \"psi\", \"scale_min\": 0, \"scale_max\": 300, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 909,
+   "outputTokens": 47,
+   "totalTokens": 956
+  },
+  "ms": 4296
+ },
+ "blind/c31.jpg": {
+  "text": "{\"readable\": true, \"value\": 10, \"unit\": \"lbt/in\", \"scale_min\": 0, \"scale_max\": 20, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1964,
+   "outputTokens": 48,
+   "totalTokens": 2012
+  },
+  "ms": 3615
+ },
+ "blind/c32.jpg": {
+  "text": "{\"readable\": true, \"value\": 120, \"unit\": \"PSI\", \"scale_min\": 0, \"scale_max\": 150, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1821,
+   "outputTokens": 48,
+   "totalTokens": 1869
+  },
+  "ms": 4354
+ },
+ "blind/c34.jpg": {
+  "text": "{\"readable\": true, \"value\": 20, \"unit\": \"LBS PER SQ IN USE\", \"scale_min\": 0, \"scale_max\": 60, \"confidence\": 0.95}",
+  "usage": {
+   "inputTokens": 1789,
+   "outputTokens": 50,
+   "totalTokens": 1839
+  },
+  "ms": 3859
+ }
+}

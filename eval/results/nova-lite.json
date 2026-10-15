@@ -1,0 +1,3518 @@
+{
+ "name": "nova-lite",
+ "kind": "vlm",
+ "model": "apac.amazon.nova-lite-v1:0",
+ "sets": {
+  "bench-test": {
+   "summary": {
+    "n": 63,
+    "read": 63,
+    "accepted": 63,
+    "coverage": 1.0,
+    "accepted_within_2pct": 4,
+    "precision_2pct": 0.0635,
+    "accepted_over_5pct": 51,
+    "correct_and_accepted": 0.0635,
+    "within_2pct_all_reads": 0.0635,
+    "median_err_accepted": 0.4,
+    "at_rest": {
+     "n": 35,
+     "accepted": 35,
+     "accepted_within_2pct": 2
+    },
+    "needle_off_zero": {
+     "n": 28,
+     "accepted": 28,
+     "accepted_within_2pct": 2
+    }
+   },
+   "summary_at_090": {
+    "n": 63,
+    "read": 63,
+    "accepted": 63,
+    "coverage": 1.0,
+    "accepted_within_2pct": 4,
+    "precision_2pct": 0.0635,
+    "accepted_over_5pct": 51,
+    "correct_and_accepted": 0.0635,
+    "within_2pct_all_reads": 0.0635,
+    "median_err_accepted": 0.4,
+    "at_rest": {
+     "n": 35,
+     "accepted": 35,
+     "accepted_within_2pct": 2
+    },
+    "needle_off_zero": {
+     "n": 28,
+     "accepted": 28,
+     "accepted_within_2pct": 2
+    }
+   },
+   "rows": [
+    {
+     "file": "f007.jpg",
+     "set": "bench-test",
+     "read": 150.0,
+     "err": 0.00333,
+     "scored_against": {
+      "value": 151,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f009.jpg",
+     "set": "bench-test",
+     "read": 50.0,
+     "err": 12.375,
+     "scored_against": {
+      "value": 0.5,
+      "unit": "bar",
+      "min": 0.5,
+      "max": 4.5
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f013.jpg",
+     "set": "bench-test",
+     "read": 120.0,
+     "err": 0.75,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f014.jpg",
+     "set": "bench-test",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 18.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f016.jpg",
+     "set": "bench-test",
+     "read": 40.0,
+     "err": 0.125,
+     "scored_against": {
+      "value": 90.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 400.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f022.jpg",
+     "set": "bench-test",
+     "read": 1.5,
+     "err": 0.05,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f041.jpg",
+     "set": "bench-test",
+     "read": 400.0,
+     "err": 0.048,
+     "scored_against": {
+      "value": 448,
+      "unit": "psi",
+      "min": 0,
+      "max": 1000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f042.jpg",
+     "set": "bench-test",
+     "read": 180.0,
+     "err": 0.16,
+     "scored_against": {
+      "value": 132,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f082.jpg",
+     "set": "bench-test",
+     "read": 65.0,
+     "err": 0.65,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f084.jpg",
+     "set": "bench-test",
+     "read": 100.0,
+     "err": 0.27,
+     "scored_against": {
+      "value": 73.0,
+      "unit": "\u00b0F",
+      "min": 40.0,
+      "max": 140.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f085.jpg",
+     "set": "bench-test",
+     "read": 70.0,
+     "err": 0.038,
+     "scored_against": {
+      "value": 73.8,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f485.jpg",
+     "set": "bench-test",
+     "read": 20.0,
+     "err": 0.025,
+     "scored_against": {
+      "value": 21.5,
+      "unit": "\u00b0C",
+      "min": -10.0,
+      "max": 50.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f495.jpg",
+     "set": "bench-test",
+     "read": 6500.0,
+     "err": 0.65,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 10000.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f498.jpg",
+     "set": "bench-test",
+     "read": 2500.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 3000.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f501.jpg",
+     "set": "bench-test",
+     "read": 250.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f504.jpg",
+     "set": "bench-test",
+     "read": 150.0,
+     "err": 0.07667,
+     "scored_against": {
+      "value": 173.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f505.jpg",
+     "set": "bench-test",
+     "read": 150.0,
+     "err": 0.07667,
+     "scored_against": {
+      "value": 173.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f728.jpg",
+     "set": "bench-test",
+     "read": 25.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f729.jpg",
+     "set": "bench-test",
+     "read": 25.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f736.jpg",
+     "set": "bench-test",
+     "read": 100.0,
+     "err": 0.1,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmAq",
+      "min": 0.0,
+      "max": 1000.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f739.jpg",
+     "set": "bench-test",
+     "read": 24.0,
+     "err": 0.8,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa002.jpg",
+     "set": "bench-test",
+     "read": 10.0,
+     "err": 0.20833,
+     "scored_against": {
+      "value": 3.75,
+      "unit": "inHg",
+      "min": 0,
+      "max": 30
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa025.jpg",
+     "set": "bench-test",
+     "read": 55.0,
+     "err": 1.57143,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 35.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa026.jpg",
+     "set": "bench-test",
+     "read": 4.0,
+     "err": 0.01667,
+     "scored_against": {
+      "value": 3.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa034.jpg",
+     "set": "bench-test",
+     "read": 150.0,
+     "err": 0.364,
+     "scored_against": {
+      "value": 59.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa048.jpg",
+     "set": "bench-test",
+     "read": 80.0,
+     "err": 0.02,
+     "scored_against": {
+      "value": 78.0,
+      "unit": "?",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa054.jpg",
+     "set": "bench-test",
+     "read": 70.0,
+     "err": 0.077,
+     "scored_against": {
+      "value": 62.3,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa060.jpg",
+     "set": "bench-test",
+     "read": 150.0,
+     "err": 0.174,
+     "scored_against": {
+      "value": 106.5,
+      "unit": "\u00b0C",
+      "min": 50.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa066.jpg",
+     "set": "bench-test",
+     "read": 350.0,
+     "err": 0.15692,
+     "scored_against": {
+      "value": 248.0,
+      "unit": "\u00b0F",
+      "min": 50.0,
+      "max": 700.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa069.jpg",
+     "set": "bench-test",
+     "read": 10.0,
+     "err": 0.04,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa077.jpg",
+     "set": "bench-test",
+     "read": 140.0,
+     "err": 0.7,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa079.jpg",
+     "set": "bench-test",
+     "read": 25000.0,
+     "err": 0.362,
+     "scored_against": {
+      "value": 12330.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 35000.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa083.jpg",
+     "set": "bench-test",
+     "read": 1.5,
+     "err": 0.25833,
+     "scored_against": {
+      "value": 9.25,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa090.jpg",
+     "set": "bench-test",
+     "read": 120.0,
+     "err": 0.63571,
+     "scored_against": {
+      "value": 31.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 140.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa097.jpg",
+     "set": "bench-test",
+     "read": 25.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa143.jpg",
+     "set": "bench-test",
+     "read": 120.0,
+     "err": 0.4,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa176.jpg",
+     "set": "bench-test",
+     "read": 18.0,
+     "err": 0.89,
+     "scored_against": {
+      "value": 0.2,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa183.jpg",
+     "set": "bench-test",
+     "read": 29.0,
+     "err": 0.036,
+     "scored_against": {
+      "value": 29.9,
+      "unit": "inHg",
+      "min": 10.0,
+      "max": 35.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa207.jpg",
+     "set": "bench-test",
+     "read": 70.0,
+     "err": 0.7,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa240.jpg",
+     "set": "bench-test",
+     "read": 0.0,
+     "err": 0.63333,
+     "scored_against": {
+      "value": 95.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 150.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa288.jpg",
+     "set": "bench-test",
+     "read": 0.6,
+     "err": 0.04,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 15.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa425.jpg",
+     "set": "bench-test",
+     "read": 10.0,
+     "err": 0.08333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa426.jpg",
+     "set": "bench-test",
+     "read": 100.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa431.jpg",
+     "set": "bench-test",
+     "read": 40.0,
+     "err": 0.4,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa484.jpg",
+     "set": "bench-test",
+     "read": 30.0,
+     "err": 0.078,
+     "scored_against": {
+      "value": 22.2,
+      "unit": "\u00b0C",
+      "min": -50.0,
+      "max": 50.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa507.jpg",
+     "set": "bench-test",
+     "read": 180.0,
+     "err": 0.5,
+     "scored_against": {
+      "value": 80.0,
+      "unit": "\u00b0F",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa551.jpg",
+     "set": "bench-test",
+     "read": 100.0,
+     "err": 0.35533,
+     "scored_against": {
+      "value": 46.7,
+      "unit": "\u00b0C",
+      "min": -30.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa708.jpg",
+     "set": "bench-test",
+     "read": 120.0,
+     "err": 0.4,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa714.jpg",
+     "set": "bench-test",
+     "read": -100.0,
+     "err": 0.64,
+     "scored_against": {
+      "value": -740.0,
+      "unit": "mbar",
+      "min": -1000.0,
+      "max": 0.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wb010.jpg",
+     "set": "bench-test",
+     "read": 150.0,
+     "err": 0.5,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kgf/cm2",
+      "min": 0.0,
+      "max": 300
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb011.jpg",
+     "set": "bench-test",
+     "read": 145.0,
+     "err": 0.58,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kgf/cm2",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb012.jpg",
+     "set": "bench-test",
+     "read": 250.0,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb013.jpg",
+     "set": "bench-test",
+     "read": 2.5,
+     "err": 0.625,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "MPa",
+      "min": 0.0,
+      "max": 4.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb025.jpg",
+     "set": "bench-test",
+     "read": 1.5,
+     "err": 0.042,
+     "scored_against": {
+      "value": 0.45,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wb037.jpg",
+     "set": "bench-test",
+     "read": 60.0,
+     "err": 0.6,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb088.jpg",
+     "set": "bench-test",
+     "read": 160.0,
+     "err": 0.8,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb092.jpg",
+     "set": "bench-test",
+     "read": 60.0,
+     "err": 0.5,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb099.jpg",
+     "set": "bench-test",
+     "read": 60.0,
+     "err": 0.78947,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "cm Hg",
+      "min": 0.0,
+      "max": 76.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb127.jpg",
+     "set": "bench-test",
+     "read": 12.0,
+     "err": 0.6,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb139.jpg",
+     "set": "bench-test",
+     "read": 0.0,
+     "err": 0.395,
+     "scored_against": {
+      "value": 7.9,
+      "unit": "?",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wb151.jpg",
+     "set": "bench-test",
+     "read": 120.0,
+     "err": 0.6,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb156.jpg",
+     "set": "bench-test",
+     "read": 0.3,
+     "err": 0.06,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 5.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb177.jpg",
+     "set": "bench-test",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "?",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    }
+   ]
+  },
+  "bench-dev": {
+   "summary": {
+    "n": 44,
+    "read": 44,
+    "accepted": 44,
+    "coverage": 1.0,
+    "accepted_within_2pct": 7,
+    "precision_2pct": 0.1591,
+    "accepted_over_5pct": 36,
+    "correct_and_accepted": 0.1591,
+    "within_2pct_all_reads": 0.1591,
+    "median_err_accepted": 0.37516,
+    "at_rest": {
+     "n": 26,
+     "accepted": 26,
+     "accepted_within_2pct": 5
+    },
+    "needle_off_zero": {
+     "n": 18,
+     "accepted": 18,
+     "accepted_within_2pct": 2
+    }
+   },
+   "summary_at_090": {
+    "n": 44,
+    "read": 44,
+    "accepted": 44,
+    "coverage": 1.0,
+    "accepted_within_2pct": 7,
+    "precision_2pct": 0.1591,
+    "accepted_over_5pct": 36,
+    "correct_and_accepted": 0.1591,
+    "within_2pct_all_reads": 0.1591,
+    "median_err_accepted": 0.37516,
+    "at_rest": {
+     "n": 26,
+     "accepted": 26,
+     "accepted_within_2pct": 5
+    },
+    "needle_off_zero": {
+     "n": 18,
+     "accepted": 18,
+     "accepted_within_2pct": 2
+    }
+   },
+   "rows": [
+    {
+     "file": "f026.jpg",
+     "set": "bench-dev",
+     "read": 12.0,
+     "err": 0.2,
+     "scored_against": {
+      "value": 7.8,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 21.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f044.jpg",
+     "set": "bench-dev",
+     "read": 10.0,
+     "err": 0.4125,
+     "scored_against": {
+      "value": 3.4,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 16.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f072.jpg",
+     "set": "bench-dev",
+     "read": 100.0,
+     "err": 0.025,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 4000.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f091.jpg",
+     "set": "bench-dev",
+     "read": 150.0,
+     "err": 0.75,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f118.jpg",
+     "set": "bench-dev",
+     "read": 100.0,
+     "err": 0.145,
+     "scored_against": {
+      "value": 71.0,
+      "unit": "\u00b0F",
+      "min": -40.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f273.jpg",
+     "set": "bench-dev",
+     "read": 0.5,
+     "err": 0.35714,
+     "scored_against": {
+      "value": 3.0,
+      "unit": "bar",
+      "min": 0,
+      "max": 7
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f286.jpg",
+     "set": "bench-dev",
+     "read": 35.0,
+     "err": 0.29167,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "f300.jpg",
+     "set": "bench-dev",
+     "read": 200.0,
+     "err": 0.10333,
+     "scored_against": {
+      "value": 169.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f313.jpg",
+     "set": "bench-dev",
+     "read": 100.0,
+     "err": 0.21875,
+     "scored_against": {
+      "value": 65.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f478.jpg",
+     "set": "bench-dev",
+     "read": 100.0,
+     "err": 0.64583,
+     "scored_against": {
+      "value": 22.5,
+      "unit": "\u00b0C",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f481.jpg",
+     "set": "bench-dev",
+     "read": 0.0,
+     "err": 0.35,
+     "scored_against": {
+      "value": 70.0,
+      "unit": "\u00b0F",
+      "min": -40.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "f559.jpg",
+     "set": "bench-dev",
+     "read": 120.0,
+     "err": 0.00167,
+     "scored_against": {
+      "value": 119.5,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa006.jpg",
+     "set": "bench-dev",
+     "read": 10.0,
+     "err": 0.424,
+     "scored_against": {
+      "value": 20.6,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa014.jpg",
+     "set": "bench-dev",
+     "read": 150.0,
+     "err": 0.65217,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 230.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa028.jpg",
+     "set": "bench-dev",
+     "read": 59.0,
+     "err": 0.98333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "msw",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa046.jpg",
+     "set": "bench-dev",
+     "read": 0.8,
+     "err": 0.01053,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "cmHg",
+      "min": 0.0,
+      "max": 76.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa050.jpg",
+     "set": "bench-dev",
+     "read": 2.5,
+     "err": 0.83333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 3.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa061.jpg",
+     "set": "bench-dev",
+     "read": 180.0,
+     "err": 0.39318,
+     "scored_against": {
+      "value": 93.5,
+      "unit": "\u00b0F",
+      "min": 0.0,
+      "max": 220.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa067.jpg",
+     "set": "bench-dev",
+     "read": 20.0,
+     "err": 0.66667,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa072.jpg",
+     "set": "bench-dev",
+     "read": 10.0,
+     "err": 0.2,
+     "scored_against": {
+      "value": 6.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa084.jpg",
+     "set": "bench-dev",
+     "read": 160.0,
+     "err": 0.8,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa085.jpg",
+     "set": "bench-dev",
+     "read": 0.0,
+     "err": 0.05,
+     "scored_against": {
+      "value": -2.0,
+      "unit": "mmWS",
+      "min": -10,
+      "max": 30.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa087.jpg",
+     "set": "bench-dev",
+     "read": 10.0,
+     "err": 0.625,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 16.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa096.jpg",
+     "set": "bench-dev",
+     "read": 140.0,
+     "err": 0.7,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa110.jpg",
+     "set": "bench-dev",
+     "read": 48.0,
+     "err": 0.882,
+     "scored_against": {
+      "value": 3.9,
+      "unit": "m",
+      "min": 0.0,
+      "max": 50.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa112.jpg",
+     "set": "bench-dev",
+     "read": 300.0,
+     "err": 0.75,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 400.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa160.jpg",
+     "set": "bench-dev",
+     "read": 17.0,
+     "err": 0.68,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa180.jpg",
+     "set": "bench-dev",
+     "read": 12.0,
+     "err": 0.12,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa184.jpg",
+     "set": "bench-dev",
+     "read": 0.5,
+     "err": 0.61875,
+     "scored_against": {
+      "value": 1.49,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 1.6
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa189.jpg",
+     "set": "bench-dev",
+     "read": 250.0,
+     "err": 0.73,
+     "scored_against": {
+      "value": 31.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "wa196.jpg",
+     "set": "bench-dev",
+     "read": 1.5,
+     "err": 0.125,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 12.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa233.jpg",
+     "set": "bench-dev",
+     "read": 160.0,
+     "err": 0.53333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa367.jpg",
+     "set": "bench-dev",
+     "read": 15.0,
+     "err": 0.75,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa433.jpg",
+     "set": "bench-dev",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 90
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa449.jpg",
+     "set": "bench-dev",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa452.jpg",
+     "set": "bench-dev",
+     "read": 1.0,
+     "err": 0.1,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 10.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wa705.jpg",
+     "set": "bench-dev",
+     "read": 160.0,
+     "err": 0.53333,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb020.jpg",
+     "set": "bench-dev",
+     "read": 0.5,
+     "err": 0.00833,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "msw",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb129.jpg",
+     "set": "bench-dev",
+     "read": 10.0,
+     "err": 0.45455,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 22.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb130.jpg",
+     "set": "bench-dev",
+     "read": 40.0,
+     "err": 0.4,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m sea water",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb131.jpg",
+     "set": "bench-dev",
+     "read": 1.01,
+     "err": 0.33667,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "atm",
+      "min": 0.0,
+      "max": 3.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb175.jpg",
+     "set": "bench-dev",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb183.jpg",
+     "set": "bench-dev",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "?",
+      "min": 0.0,
+      "max": 12.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "wb230.jpg",
+     "set": "bench-dev",
+     "read": 3.5,
+     "err": 0.20333,
+     "scored_against": {
+      "value": 0.45,
+      "unit": "?",
+      "min": 0.0,
+      "max": 15.0
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    }
+   ]
+  },
+  "real-dev": {
+   "summary": {
+    "n": 37,
+    "read": 37,
+    "accepted": 37,
+    "coverage": 1.0,
+    "accepted_within_2pct": 5,
+    "precision_2pct": 0.1351,
+    "accepted_over_5pct": 29,
+    "correct_and_accepted": 0.1351,
+    "within_2pct_all_reads": 0.1351,
+    "median_err_accepted": 0.21,
+    "at_rest": {
+     "n": 17,
+     "accepted": 17,
+     "accepted_within_2pct": 2
+    },
+    "needle_off_zero": {
+     "n": 20,
+     "accepted": 20,
+     "accepted_within_2pct": 3
+    }
+   },
+   "summary_at_090": {
+    "n": 37,
+    "read": 37,
+    "accepted": 37,
+    "coverage": 1.0,
+    "accepted_within_2pct": 5,
+    "precision_2pct": 0.1351,
+    "accepted_over_5pct": 29,
+    "correct_and_accepted": 0.1351,
+    "within_2pct_all_reads": 0.1351,
+    "median_err_accepted": 0.21,
+    "at_rest": {
+     "n": 17,
+     "accepted": 17,
+     "accepted_within_2pct": 2
+    },
+    "needle_off_zero": {
+     "n": 20,
+     "accepted": 20,
+     "accepted_within_2pct": 3
+    }
+   },
+   "rows": [
+    {
+     "file": "r03.jpg",
+     "set": "real-dev",
+     "read": 160.0,
+     "err": 0.0625,
+     "scored_against": {
+      "value": 185,
+      "unit": "psi",
+      "min": 0,
+      "max": 400
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r04.jpg",
+     "set": "real-dev",
+     "read": 20.0,
+     "err": 0.00667,
+     "scored_against": {
+      "value": 20.6,
+      "unit": "\u00b0C",
+      "min": -40,
+      "max": 50
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r05.jpg",
+     "set": "real-dev",
+     "read": 20.0,
+     "err": 0.0125,
+     "scored_against": {
+      "value": 21,
+      "unit": "\u00b0C",
+      "min": -30,
+      "max": 50
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r06.jpg",
+     "set": "real-dev",
+     "read": 100.0,
+     "err": 0.11818,
+     "scored_against": {
+      "value": 74,
+      "unit": "\u00b0F",
+      "min": 0,
+      "max": 220
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r09.jpg",
+     "set": "real-dev",
+     "read": 200.0,
+     "err": 0.05,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r10.jpg",
+     "set": "real-dev",
+     "read": 30.0,
+     "err": 0.75,
+     "scored_against": {
+      "value": 0,
+      "unit": "bar",
+      "min": 0,
+      "max": 40
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r12.jpg",
+     "set": "real-dev",
+     "read": 0.8,
+     "err": 0.05333,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 15
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r15.jpg",
+     "set": "real-dev",
+     "read": 35000.0,
+     "err": 0.97222,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 36000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r18.jpg",
+     "set": "real-dev",
+     "read": 10.5,
+     "err": 0.7,
+     "scored_against": {
+      "value": 0,
+      "unit": "kg/cm\u00b2",
+      "min": 0,
+      "max": 15
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r20.jpg",
+     "set": "real-dev",
+     "read": 20.0,
+     "err": 0.5,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 40
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r23.jpg",
+     "set": "real-dev",
+     "read": 50.0,
+     "err": 0.78182,
+     "scored_against": {
+      "value": 7,
+      "unit": "psi",
+      "min": 10,
+      "max": 65
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r24.jpg",
+     "set": "real-dev",
+     "read": 250.0,
+     "err": 0.0625,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r25.jpg",
+     "set": "real-dev",
+     "read": 1000.0,
+     "err": 0.121,
+     "scored_against": {
+      "value": 758,
+      "unit": "kPa",
+      "min": 0,
+      "max": 2000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r26.jpg",
+     "set": "real-dev",
+     "read": 4.2,
+     "err": 0.29667,
+     "scored_against": {
+      "value": 22,
+      "unit": "psi",
+      "min": 0,
+      "max": 60
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r27.jpg",
+     "set": "real-dev",
+     "read": 250.0,
+     "err": 0.33,
+     "scored_against": {
+      "value": 580,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r28.jpg",
+     "set": "real-dev",
+     "read": 600.0,
+     "err": 0.04,
+     "scored_against": {
+      "value": 640,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r30.jpg",
+     "set": "real-dev",
+     "read": 1000.0,
+     "err": 0.05,
+     "scored_against": {
+      "value": 800,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r31.jpg",
+     "set": "real-dev",
+     "read": 100.0,
+     "err": 0.14074,
+     "scored_against": {
+      "value": 62,
+      "unit": "psi",
+      "min": 0,
+      "max": 270
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r33.jpg",
+     "set": "real-dev",
+     "read": 25.0,
+     "err": 0.0375,
+     "scored_against": {
+      "value": 22,
+      "unit": "\u00b0C",
+      "min": -20,
+      "max": 60
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r35.jpg",
+     "set": "real-dev",
+     "read": 0.0,
+     "err": 0.0,
+     "scored_against": {
+      "value": 0,
+      "unit": "bar",
+      "min": 0,
+      "max": 10
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "r36.jpg",
+     "set": "real-dev",
+     "read": 120.0,
+     "err": 0.0125,
+     "scored_against": {
+      "value": 122,
+      "unit": "psi",
+      "min": 0,
+      "max": 160
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "r37.jpg",
+     "set": "real-dev",
+     "read": 150.0,
+     "err": 0.25,
+     "scored_against": {
+      "value": 250,
+      "unit": "psi",
+      "min": 0,
+      "max": 400
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b01.jpg",
+     "set": "real-dev",
+     "read": 150.0,
+     "err": 0.34,
+     "scored_against": {
+      "value": 48,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b02.jpg",
+     "set": "real-dev",
+     "read": 25.0,
+     "err": 0.145,
+     "scored_against": {
+      "value": 39.5,
+      "unit": "\u00b0C",
+      "min": -50,
+      "max": 50
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b04.jpg",
+     "set": "real-dev",
+     "read": 70.0,
+     "err": 0.03636,
+     "scored_against": {
+      "value": 74,
+      "unit": "\u00b0F",
+      "min": 0,
+      "max": 110
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b05.jpg",
+     "set": "real-dev",
+     "read": 24.0,
+     "err": 0.8,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 30
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b11.jpg",
+     "set": "real-dev",
+     "read": 1.2,
+     "err": 0.012,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 100
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b12.jpg",
+     "set": "real-dev",
+     "read": 100.0,
+     "err": 0.90909,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 110
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b13.jpg",
+     "set": "real-dev",
+     "read": 180.0,
+     "err": 0.81818,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 220
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b17.jpg",
+     "set": "real-dev",
+     "read": 150.0,
+     "err": 0.272,
+     "scored_against": {
+      "value": 82,
+      "unit": "kg/cm\u00b2",
+      "min": 0,
+      "max": 250
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b18.jpg",
+     "set": "real-dev",
+     "read": 40.0,
+     "err": 0.4,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 100
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b19.jpg",
+     "set": "real-dev",
+     "read": 140.0,
+     "err": 0.82353,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 170
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b20.jpg",
+     "set": "real-dev",
+     "read": 800.0,
+     "err": 0.21,
+     "scored_against": {
+      "value": 590,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b21.jpg",
+     "set": "real-dev",
+     "read": 50.0,
+     "err": 0.22124,
+     "scored_against": {
+      "value": 0,
+      "unit": "fsw",
+      "min": 0,
+      "max": 226
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "b23.jpg",
+     "set": "real-dev",
+     "read": 20.0,
+     "err": 0.22,
+     "scored_against": {
+      "value": -2,
+      "unit": "\u00b0F",
+      "min": -20,
+      "max": 80
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b24.jpg",
+     "set": "real-dev",
+     "read": 25.0,
+     "err": 0.11,
+     "scored_against": {
+      "value": 14,
+      "unit": "\u00b0C",
+      "min": -50,
+      "max": 50
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "b26.jpg",
+     "set": "real-dev",
+     "read": 105.0,
+     "err": 0.7,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 150
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    }
+   ]
+  },
+  "blind2": {
+   "summary": {
+    "n": 3,
+    "read": 3,
+    "accepted": 3,
+    "coverage": 1.0,
+    "accepted_within_2pct": 0,
+    "precision_2pct": 0.0,
+    "accepted_over_5pct": 3,
+    "correct_and_accepted": 0.0,
+    "within_2pct_all_reads": 0.0,
+    "median_err_accepted": 0.46667,
+    "at_rest": {
+     "n": 1,
+     "accepted": 1,
+     "accepted_within_2pct": 0
+    },
+    "needle_off_zero": {
+     "n": 2,
+     "accepted": 2,
+     "accepted_within_2pct": 0
+    }
+   },
+   "summary_at_090": {
+    "n": 3,
+    "read": 3,
+    "accepted": 3,
+    "coverage": 1.0,
+    "accepted_within_2pct": 0,
+    "precision_2pct": 0.0,
+    "accepted_over_5pct": 3,
+    "correct_and_accepted": 0.0,
+    "within_2pct_all_reads": 0.0,
+    "median_err_accepted": 0.46667,
+    "at_rest": {
+     "n": 1,
+     "accepted": 1,
+     "accepted_within_2pct": 0
+    },
+    "needle_off_zero": {
+     "n": 2,
+     "accepted": 2,
+     "accepted_within_2pct": 0
+    }
+   },
+   "rows": [
+    {
+     "file": "c27.jpg",
+     "set": "blind2",
+     "read": 100.0,
+     "err": 0.46667,
+     "scored_against": {
+      "value": 30,
+      "unit": "\u00b0C",
+      "min": 0,
+      "max": 150
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    },
+    {
+     "file": "c29.jpg",
+     "set": "blind2",
+     "read": 150.0,
+     "err": 1.0,
+     "scored_against": {
+      "value": 0,
+      "unit": "atm",
+      "min": 0,
+      "max": 150
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": true
+    },
+    {
+     "file": "c36.jpg",
+     "set": "blind2",
+     "read": 20.0,
+     "err": 0.098,
+     "scored_against": {
+      "value": 15.1,
+      "unit": "bar",
+      "min": 0,
+      "max": 50
+     },
+     "accepted": true,
+     "accepted_at_090": true,
+     "conf": 0.95,
+     "reason": null,
+     "at_rest": false
+    }
+   ]
+  }
+ },
+ "decline": {
+  "n": 101,
+  "accepted": 87,
+  "rows": [
+   {
+    "file": "f002.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 40.0,
+    "why": "dial cut off by the frame; needle tip outside the photo"
+   },
+   {
+    "file": "f036.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 30.0,
+    "why": "two pointers (red maximum pointer and black needle)"
+   },
+   {
+    "file": "f038.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 150.0,
+    "why": "three gauges in the frame"
+   },
+   {
+    "file": "f061.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 12.0,
+    "why": "two pointers (red maximum pointer) and a small inner dial"
+   },
+   {
+    "file": "f075.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 180.0,
+    "why": "contact gauge: two set pointers besides the needle"
+   },
+   {
+    "file": "f099.jpg",
+    "folder": "bench",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "not a gauge (a parking meter)"
+   },
+   {
+    "file": "f105.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 350.0,
+    "why": "needle rests in the blank arc below the first number (cold oven)"
+   },
+   {
+    "file": "f311.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 1.5,
+    "why": "two dials with two needles on one face"
+   },
+   {
+    "file": "f507.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 2.5,
+    "why": "two pointers (red set pointer and black needle)"
+   },
+   {
+    "file": "f520.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "not a single gauge (a car dashboard on a bench)"
+   },
+   {
+    "file": "f561.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 1500.0,
+    "why": "two pointers (red maximum pointer)"
+   },
+   {
+    "file": "f616.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 110.0,
+    "why": "speedometer cut off by the frame"
+   },
+   {
+    "file": "wa009-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa012-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 1000.0,
+    "why": "no dial (a column instrument)"
+   },
+   {
+    "file": "wa015-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 12.0,
+    "why": "a panel of many gauges"
+   },
+   {
+    "file": "wa024-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 30.0,
+    "why": "two gauges in one console"
+   },
+   {
+    "file": "wa039-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 4.2,
+    "why": "two pointers (a red set pointer and the needle)"
+   },
+   {
+    "file": "wa043-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 70.0,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa044-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 3.0,
+    "why": "two dials on one face (pressure and temperature)"
+   },
+   {
+    "file": "wa047-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 1.5,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa062-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "two dials on one face"
+   },
+   {
+    "file": "wa073.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "painted reference pointers beside the needle; scale partly unreadable"
+   },
+   {
+    "file": "wa074-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 200.0,
+    "why": "three pointers"
+   },
+   {
+    "file": "wa078-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 0.2,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa099-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 2.2,
+    "why": "two pointers (a red set pointer and the needle)"
+   },
+   {
+    "file": "wa118.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 55.0,
+    "why": "two needles (red and white)"
+   },
+   {
+    "file": "wa126-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "two gauges on a regulator"
+   },
+   {
+    "file": "wa136.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 15.0,
+    "why": "two needles (red set pointer and black needle)"
+   },
+   {
+    "file": "wa142-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "three gauges in the frame"
+   },
+   {
+    "file": "wa146-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 10.0,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa150-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 3.5,
+    "why": "two dials on a dashboard"
+   },
+   {
+    "file": "wa185-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "two gauges on a regulator"
+   },
+   {
+    "file": "wa197.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 60.0,
+    "why": "two needles (reservoir and train pipe)"
+   },
+   {
+    "file": "wa198-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "a wall of gauges"
+   },
+   {
+    "file": "wa206-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 12.0,
+    "why": "three gauges in the frame"
+   },
+   {
+    "file": "wa218-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 10.0,
+    "why": "several gauges in the frame"
+   },
+   {
+    "file": "wa237-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "two gauges in one console"
+   },
+   {
+    "file": "wa250.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 370.0,
+    "why": "two pointers (red set pointer and black needle)"
+   },
+   {
+    "file": "wa256-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 45.0,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa262-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 180.0,
+    "why": "two gauges in one console"
+   },
+   {
+    "file": "wa273-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 0.05,
+    "why": "two gauges on a panel"
+   },
+   {
+    "file": "wa280-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 2.5,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa281-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 200.0,
+    "why": "two gauges on a regulator"
+   },
+   {
+    "file": "wa333.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 0.2,
+    "why": "dial seen from behind through clear plastic: the scale is mirrored"
+   },
+   {
+    "file": "wa342.jpg",
+    "folder": "bench",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "not a gauge photo (a locomotive)"
+   },
+   {
+    "file": "wa464.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "two needles on a dual (left and right engine) gauge"
+   },
+   {
+    "file": "wa516-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 30.0,
+    "why": "a thermometer with a clock face inside it"
+   },
+   {
+    "file": "wa539.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 120.0,
+    "why": "long pointer rests in the blank part of the dial below the first number (off scale)"
+   },
+   {
+    "file": "wa565-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "a thermometer and a hygrometer side by side"
+   },
+   {
+    "file": "wa697.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 150.0,
+    "why": "arrow pointer rests in the blank part of the dial (off scale)"
+   },
+   {
+    "file": "wa713.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 5.0,
+    "why": "two needles on a dual vacuum and ammeter instrument"
+   },
+   {
+    "file": "wb003-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wb148.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "arrow pointer rests in the blank part of the dial below 0 (off scale); photo rotated"
+   },
+   {
+    "file": "wb214.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 60.0,
+    "why": "needle rests on its stop 10 degrees below 0, in the blank arc"
+   },
+   {
+    "file": "wb216-d.jpg",
+    "folder": "bench",
+    "readable": true,
+    "accepted": true,
+    "read": 120.0,
+    "why": "two pointers"
+   },
+   {
+    "file": "r01.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "two needles, two scales"
+   },
+   {
+    "file": "r02.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "pyrometer with three scales"
+   },
+   {
+    "file": "r07.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "two needles"
+   },
+   {
+    "file": "r08.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "several needles, faded"
+   },
+   {
+    "file": "r11.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "gauge tiny in the frame"
+   },
+   {
+    "file": "r14.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "gauge tiny in the frame"
+   },
+   {
+    "file": "r16.jpg",
+    "folder": "real",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "the back of a gauge, no face"
+   },
+   {
+    "file": "r17.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 50.0,
+    "why": "extreme close-up, part of a dial"
+   },
+   {
+    "file": "r19.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 200.0,
+    "why": "two gauges in one photo"
+   },
+   {
+    "file": "r21.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "dirty glass, scale unreadable"
+   },
+   {
+    "file": "r22.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 0.5,
+    "why": "compound vacuum and pressure scale"
+   },
+   {
+    "file": "r29.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 60.0,
+    "why": "two needles, two scales"
+   },
+   {
+    "file": "r32.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "gauge tiny in the frame"
+   },
+   {
+    "file": "r34.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 60.0,
+    "why": "open mechanism"
+   },
+   {
+    "file": "r39.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 10.0,
+    "why": "mechanism and a loose dial"
+   },
+   {
+    "file": "r40.jpg",
+    "folder": "real",
+    "readable": true,
+    "accepted": true,
+    "read": 40.0,
+    "why": "two gauges in one photo"
+   },
+   {
+    "file": "b03.jpg",
+    "folder": "blind1",
+    "readable": true,
+    "accepted": true,
+    "read": 180.0,
+    "why": "needle below the printed scale (oven thermometer at room temperature)"
+   },
+   {
+    "file": "b06.jpg",
+    "folder": "blind1",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "a valve, no gauge"
+   },
+   {
+    "file": "b07.jpg",
+    "folder": "blind1",
+    "readable": true,
+    "accepted": true,
+    "read": 400.0,
+    "why": "contact gauge with two set-point needles"
+   },
+   {
+    "file": "b08.jpg",
+    "folder": "blind1",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "pump with no dial"
+   },
+   {
+    "file": "b09.jpg",
+    "folder": "blind1",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "pump with no dial"
+   },
+   {
+    "file": "b10.jpg",
+    "folder": "blind1",
+    "readable": true,
+    "accepted": true,
+    "read": 195.0,
+    "why": "fire-extinguisher gauge with no numbers"
+   },
+   {
+    "file": "b14.jpg",
+    "folder": "blind1",
+    "readable": true,
+    "accepted": true,
+    "read": 200.0,
+    "why": "two gauges in one frame"
+   },
+   {
+    "file": "b15.jpg",
+    "folder": "blind1",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "gauge mechanism, no dial face"
+   },
+   {
+    "file": "b16.jpg",
+    "folder": "blind1",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "back of a gauge"
+   },
+   {
+    "file": "b22.jpg",
+    "folder": "blind1",
+    "readable": true,
+    "accepted": true,
+    "read": 2.5,
+    "why": "second, red set pointer"
+   },
+   {
+    "file": "b25.jpg",
+    "folder": "blind1",
+    "readable": true,
+    "accepted": true,
+    "read": 70.0,
+    "why": "two gauges in one frame"
+   },
+   {
+    "file": "c01.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 40.0,
+    "why": "several small gauges on a test board"
+   },
+   {
+    "file": "c03.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 50.0,
+    "why": "small dial with an inset second dial"
+   },
+   {
+    "file": "c05.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 1.5,
+    "why": "engine-order telegraph, words not numbers"
+   },
+   {
+    "file": "c06.jpg",
+    "folder": "blind",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "gauges seen edge-on"
+   },
+   {
+    "file": "c07.jpg",
+    "folder": "blind",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "the side of a gauge, no face"
+   },
+   {
+    "file": "c09.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "the back of a gauge"
+   },
+   {
+    "file": "c10.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 57.0,
+    "why": "the back of a gauge"
+   },
+   {
+    "file": "c12.jpg",
+    "folder": "blind",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "the back of a gauge"
+   },
+   {
+    "file": "c13.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 0.0,
+    "why": "steep angle, most of the scale out of view"
+   },
+   {
+    "file": "c14.jpg",
+    "folder": "blind",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "a computer screen, not a gauge"
+   },
+   {
+    "file": "c15.jpg",
+    "folder": "blind",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "no gauge"
+   },
+   {
+    "file": "c23.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 7.0,
+    "why": "two gauges in one frame"
+   },
+   {
+    "file": "c25.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "several gauges in one frame"
+   },
+   {
+    "file": "c26.jpg",
+    "folder": "blind",
+    "readable": false,
+    "accepted": false,
+    "read": null,
+    "why": "sight glass, no gauge"
+   },
+   {
+    "file": "c28.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 115.0,
+    "why": "two needles on one dial"
+   },
+   {
+    "file": "c30.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 100.0,
+    "why": "tyre inflator with no dial"
+   },
+   {
+    "file": "c31.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 10.0,
+    "why": "gauge cut off by the frame, behind a bottle"
+   },
+   {
+    "file": "c32.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 120.0,
+    "why": "compound gauge, vacuum and pressure on one dial"
+   },
+   {
+    "file": "c34.jpg",
+    "folder": "blind",
+    "readable": true,
+    "accepted": true,
+    "read": 20.0,
+    "why": "two gauges in one frame"
+   }
+  ]
+ },
+ "spend": {
+  "calls": 248,
+  "input_tokens": 495329,
+  "output_tokens": 11403,
+  "usd": 0.0325
+ }
+}

@@ -1,10 +1,10 @@
-"""Write CREDITS.md from truth.json and out_of_scope.json in eval/real, eval/blind1 and eval/blind."""
+"""Write CREDITS.md from truth.json and out_of_scope.json in eval/real, eval/blind1, eval/blind and eval/bench."""
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 rows = []
-for D in (ROOT / "eval" / k for k in ("real", "blind1", "blind")):
+for D in (ROOT / "eval" / k for k in ("real", "blind1", "blind", "bench")):
     for f in ("truth.json", "out_of_scope.json"):
         if (D / f).exists():
             rows += [{**r, "file": f"{D.name}/{r['file']}"} for r in json.loads((D / f).read_text(encoding="utf-8"))]
@@ -13,14 +13,14 @@ lines = [
     "",
     "## Photos",
     "",
-    "Real gauge photos come from Wikimedia Commons. Each keeps its licence; Dialed's straightened and unrolled versions of a photo are shared under the same licence as the photo. The true reading of each scored photo was read by eye from the photo.",
+    "Real gauge photos come from Wikimedia Commons and, for the benchmark in eval/bench, also from Flickr (found through Openverse); only CC0, public-domain, CC BY and CC BY-SA photos are used. Each keeps its licence; Dialed's straightened and unrolled versions of a photo are shared under the same licence as the photo. The true reading of each scored photo was read by eye from the photo (in eval/bench, twice, independently).",
     "",
-    "| File | Photo | Author | Licence |",
-    "|---|---|---|---|",
+    "| File | Photo | Author | Licence | Source |",
+    "|---|---|---|---|---|",
 ]
 for r in sorted(rows, key=lambda r: r["file"]):
     title = r["title"].removeprefix("File:").replace("|", "/")
-    lines.append(f"| `{r['file']}` | [{title}]({r['source']}) | {r['author'].replace('|', '/')} | {r['license']} |")
+    lines.append(f"| `{r['file']}` | [{title}]({r['source']}) | {r['author'].replace('|', '/')} | {r['license']} | {r.get('via', 'Wikimedia Commons')} |")
 lines += [
     "",
     "## Software and models",
