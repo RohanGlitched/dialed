@@ -62,6 +62,7 @@
 .grow input { width: 100%; }
 .btns { display: flex; gap: 10px; }
 .decided { margin: 0; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.passHint { flex-basis: 100%; margin: 0; font-size: 14px; color: var(--steel); }
 .msg { flex-basis: 100%; margin: 0; font-weight: 600; }
 .tbl { width: 100%; border-collapse: collapse; font-size: 15px; }
 .tbl th { text-align: left; font: 600 13px var(--cond); color: var(--steel); padding: 0 14px 8px 0; border-bottom: 1.5px solid var(--ink); }
@@ -80,3 +81,5 @@
 @media (max-width: 560px) {
   .hang { width: 100%; }
 }
+
+.opNote { margin: 8px 0; padding: 8px 10px; background: var(--panel); border-left: 3px solid var(--steel); font-size: 15px; }

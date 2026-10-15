@@ -63,6 +63,9 @@ class LocalStore:
         self.put("counter", counter, c)
         return c["n"]
 
+    def count(self, counter: str) -> int:
+        return (self.get("counter", counter) or {}).get("n", 0)
+
     def put_blob(self, key: str, data: bytes, content_type: str = "application/octet-stream") -> str:
         p = self.root / "blobs" / key
         p.parent.mkdir(parents=True, exist_ok=True)
@@ -121,6 +124,10 @@ class AwsStore:
         r = self.table.update_item(Key={"pk": "counter", "sk": counter}, UpdateExpression="ADD n :one",
                                    ExpressionAttributeValues={":one": 1}, ReturnValues="UPDATED_NEW")
         return int(r["Attributes"]["n"])
+
+    def count(self, counter: str) -> int:
+        it = self.table.get_item(Key={"pk": "counter", "sk": counter}).get("Item") or {}
+        return int(it.get("n", 0))
 
     # blobs live under media/ in the site bucket; CloudFront serves /media/* from there
     def put_blob(self, key: str, data: bytes, content_type: str = "application/octet-stream") -> str:

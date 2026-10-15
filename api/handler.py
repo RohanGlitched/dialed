@@ -5,15 +5,17 @@ POST /api/read                       photo -> full inspect result (nothing store
 GET  /api/round/{id}                 round, gauges, latest reading per gauge, open orders
 GET  /api/gauge/{id}                 gauge, reading log, orders
 GET  /api/reading/{gauge}/{id}       one capture with its trace
-POST /api/capture                    {gauge, photo, run?} -> agent outcome
+POST /api/capture                    {gauge, photo, run?, previous?, note?} -> agent outcome (previous: the capture this photo re-shoots)
 GET  /api/orders?status=held         work orders
 GET  /api/order/{id}                 one order with its reading
-POST /api/order/{id}/decision        {decision: approve|reject, note, by}
+POST /api/order/{id}/decision        {decision: approve|reject, note, by, passcode}  (desk passcode required)
 GET  /api/blob/{key}                 (local development only) stored images
 """
 from __future__ import annotations
 
 import base64
+import hashlib
+import hmac
 import json
 import os
 import re
@@ -28,6 +30,12 @@ from agent.store import LocalStore, from_env
 
 MAX_PHOTO = 4_500_000
 READ_LIMIT = int(os.environ.get("DIALED_READ_LIMIT", "30"))  # photos per IP per hour, /read and /capture together
+PASS_TRIES = 10  # wrong desk passcodes per IP per hour
+# Only a person with the desk passcode can release or reject a work order. The passcode itself is given to
+# judges in the testing instructions and is not in this repository; only its PBKDF2 hash is. Set
+# DIALED_DESK_PASSCODE to use your own passcode (local runs, tests, your own deployment).
+DESK_SALT = "4cb2f5d626f829b5"
+DESK_HASH = "bc470e6c58844aa0d66cc5e1249ffd3211be84d48d7f3520e20703c1232a8aab"
 
 _store = None
 
@@ -105,7 +113,10 @@ def route(method: str, path: str, event: dict):
         g = s.get("gauge", str(body.get("gauge", ""))) or _404("gauge")
         _fresh(s)
         photo = _b64photo(body.get("photo"))
-        rec = Capture(s, g, photo, run_id=body.get("run"), operator=str(body.get("operator") or "guest")[:40]).run(use_model=os.environ.get("DIALED_LLM", "") != "off")
+        prev = body.get("previous")
+        prev = str(prev)[:60] if isinstance(prev, str) and re.fullmatch(r"[\w-]{6,60}", prev) else None
+        rec = Capture(s, g, photo, run_id=body.get("run"), operator=str(body.get("operator") or "guest")[:40], previous=prev,
+                      note=str(body.get("note") or "")[:300] or None).run(use_model=os.environ.get("DIALED_LLM", "") != "off")
         return _resp(200, rec)
     if path == "/api/orders" and method == "GET":
         st = q.get("status")
@@ -126,10 +137,12 @@ def route(method: str, path: str, event: dict):
         d = body.get("decision")
         if d not in ("approve", "reject"):
             raise ApiError(400, "Decision must be approve or reject.")
+        _check_passcode(s, event, body.get("passcode"))
         o["status"] = "approved" if d == "approve" else "rejected"
         o["decided_at"] = F.now_iso()
         o["decided_by"] = str(body.get("by") or "Supervisor")[:40]
         o["note"] = str(body.get("note") or "")[:500]
+        o["decided_from"] = _ip_tag(viewer_ip(event))  # salted hash of the approver's address, never the address
         s.put("order", o["id"], o)
         return _resp(200, {"order": o})
     m = re.fullmatch(r"/api/blob/(.+)", path)
@@ -212,17 +225,65 @@ def _photo(event) -> bytes:
 _hits: dict[str, list[float]] = {}
 
 
+def viewer_ip(event) -> str:
+    """The visitor's address. Behind CloudFront the function's sourceIp is the edge server, and the first
+    X-Forwarded-For entry is whatever the client chose to send. CloudFront's own CloudFront-Viewer-Address
+    header ("ip:port") is the address CloudFront saw; without it, the last X-Forwarded-For entry that isn't
+    the connecting edge is the one CloudFront appended."""
+    headers = {k.lower(): v for k, v in (event.get("headers") or {}).items()}
+    src = event.get("requestContext", {}).get("http", {}).get("sourceIp") or "?"
+    va = (headers.get("cloudfront-viewer-address") or "").strip()
+    if va:
+        return va.rsplit(":", 1)[0].strip("[]") or src  # the port is always last, for IPv4 and IPv6
+    chain = [x.strip() for x in (headers.get("x-forwarded-for") or "").split(",") if x.strip()]
+    if chain and chain[-1] == src:
+        chain = chain[:-1]
+    return chain[-1] if chain else src
+
+
+def _ip_tag(ip: str) -> str:
+    return hashlib.sha256(("dialed-visitor:" + ip).encode()).hexdigest()[:12]
+
+
+def _hour() -> str:
+    return time.strftime("%Y%m%d%H", time.gmtime())
+
+
 def _limit(event):
-    """Per-visitor hourly cap on photo processing (per warm instance; CloudFront and Lambda concurrency limits sit above it).
-    Behind CloudFront, sourceIp is the edge server, so the visitor is the first address in X-Forwarded-For."""
-    headers = event.get("headers") or {}
-    ip = (headers.get("x-forwarded-for") or "").split(",")[0].strip() or event.get("requestContext", {}).get("http", {}).get("sourceIp", "?")
-    now = time.time()
-    hits = [t for t in _hits.get(ip, []) if now - t < 3600]
-    if len(hits) >= READ_LIMIT:
+    """Per-visitor hourly cap on photo processing, counted in the store so every Lambda instance shares it
+    (CloudFront and the function's reserved concurrency sit above it). Falls back to this instance's memory
+    if the store can't count."""
+    ip = viewer_ip(event)
+    try:
+        n = store().bump(f"rate-{_ip_tag(ip)}-{_hour()}")
+    except Exception:
+        traceback.print_exc()
+        now = time.time()
+        hits = [t for t in _hits.get(ip, []) if now - t < 3600] + [now]
+        _hits[ip] = hits
+        n = len(hits)
+    if n > READ_LIMIT:
         raise ApiError(429, "You've read a lot of gauges this hour. Try again in a little while.")
-    hits.append(now)
-    _hits[ip] = hits
+
+
+def _passcode_ok(given) -> bool:
+    if not isinstance(given, str) or not given or len(given) > 200:
+        return False
+    own = os.environ.get("DIALED_DESK_PASSCODE")
+    if own:
+        return hmac.compare_digest(given.strip().encode(), own.strip().encode())
+    h = hashlib.pbkdf2_hmac("sha256", given.strip().lower().encode(), bytes.fromhex(DESK_SALT), 200_000).hex()
+    return hmac.compare_digest(h, DESK_HASH)
+
+
+def _check_passcode(s, event, given):
+    tag = f"pass-{_ip_tag(viewer_ip(event))}-{_hour()}"
+    fails = s.count(tag)
+    if fails >= PASS_TRIES:
+        raise ApiError(429, "Too many wrong passcodes from here this hour. Try again later.")
+    if not _passcode_ok(given):
+        s.bump(tag)
+        raise ApiError(403, "That desk passcode isn't right. Only a supervisor with the desk passcode can release or reject a work order (judges: it's in the testing instructions).")
 
 
 def _cors() -> dict:

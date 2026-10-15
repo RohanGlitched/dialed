@@ -141,6 +141,7 @@ function OrderDetail({ id, onDecided }: { id: string; onDecided: () => void }) {
   const [history, setHistory] = useState<{ at: string; value: number; outcome?: string }[]>([]);
   const [note, setNote] = useState("");
   const [by, setBy] = useState("");
+  const [pass, setPass] = useState("");
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   useEffect(() => {
@@ -156,12 +157,17 @@ function OrderDetail({ id, onDecided }: { id: string; onDecided: () => void }) {
     }).catch((e) => setMsg(e instanceof ApiError ? e.message : "Couldn't open this order."));
     try {
       setBy(localStorage.getItem("dialed.name") || "");
+      setPass(sessionStorage.getItem("dialed.desk") || "");
     } catch {
       /* private mode */
     }
   }, [id]);
 
   const decide = async (decision: "approve" | "reject") => {
+    if (!pass.trim()) {
+      setMsg("Enter the desk passcode first. Only a supervisor with the passcode can release or reject a work order.");
+      return;
+    }
     setBusy(true);
     try {
       try {
@@ -169,7 +175,12 @@ function OrderDetail({ id, onDecided }: { id: string; onDecided: () => void }) {
       } catch {
         /* private mode */
       }
-      const r = await post<{ order: Order }>(`/api/order/${id}/decision`, { decision, note, by: by || "Supervisor" });
+      const r = await post<{ order: Order }>(`/api/order/${id}/decision`, { decision, note, by: by || "Supervisor", passcode: pass.trim() });
+      try {
+        sessionStorage.setItem("dialed.desk", pass.trim());
+      } catch {
+        /* private mode */
+      }
       setD((x) => (x ? { ...x, order: r.order } : x));
       setMsg(decision === "approve" ? `${id} approved. It's released to maintenance.` : `${id} rejected. The reading stays in the log.`);
       onDecided();
@@ -198,6 +209,7 @@ function OrderDetail({ id, onDecided }: { id: string; onDecided: () => void }) {
           <div className={s.reason}>
             <h3 className="h3">Reason</h3>
             <p><Checked text={o.reason} /></p>
+            {o.operator_note && <p className={s.opNote}><b>Operator&apos;s note</b> (as written, not checked): “{o.operator_note}”</p>}
             {o.struck.length > 0 && <p className={s.struckNote}>Struck figures ({o.struck.join(", ")}) didn&apos;t match any measurement.</p>}
             <h3 className="h3">Measured breaches</h3>
             <ul className={s.breaches}>
@@ -242,6 +254,10 @@ function OrderDetail({ id, onDecided }: { id: string; onDecided: () => void }) {
                 <span>Your name</span>
                 <input value={by} onChange={(e) => setBy(e.target.value)} placeholder="Supervisor" maxLength={40} autoComplete="name" />
               </label>
+              <label className={s.field}>
+                <span>Desk passcode</span>
+                <input type="password" value={pass} onChange={(e) => setPass(e.target.value)} placeholder="Supervisor passcode" maxLength={80} autoComplete="off" aria-describedby="pass-hint" />
+              </label>
               <label className={`${s.field} ${s.grow}`}>
                 <span>Note (optional)</span>
                 <input value={note} onChange={(e) => setNote(e.target.value)} placeholder="e.g. check bearing grease first" maxLength={300} />
@@ -256,6 +272,7 @@ function OrderDetail({ id, onDecided }: { id: string; onDecided: () => void }) {
               <span className={`tag ${o.status}`}>{o.status.toUpperCase()}</span> by {o.decided_by} {o.decided_at ? new Date(o.decided_at).toLocaleString() : ""}{o.note ? `: “${o.note}”` : ""}
             </p>
           )}
+          {o.status === "held" && <p id="pass-hint" className={s.passHint}>Releasing a work order needs the desk passcode, so a passer-by or a bot can&apos;t approve one. Judges: the passcode is in the Devpost testing instructions. Everything else on the desk is open.</p>}
           {msg && <p className={s.msg} role="status">{msg}</p>}
         </div>
       </div>
