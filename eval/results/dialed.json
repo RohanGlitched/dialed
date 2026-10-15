@@ -1,0 +1,6092 @@
+{
+ "name": "dialed",
+ "kind": "dialed",
+ "reader": "current",
+ "env": {},
+ "sets": {
+  "bench-test": {
+   "summary": {
+    "n": 63,
+    "read": 48,
+    "accepted": 5,
+    "coverage": 0.0794,
+    "accepted_within_2pct": 5,
+    "precision_2pct": 1.0,
+    "accepted_over_5pct": 0,
+    "correct_and_accepted": 0.0794,
+    "within_2pct_all_reads": 0.375,
+    "median_err_accepted": 0.00371,
+    "at_rest": {
+     "n": 35,
+     "accepted": 2,
+     "accepted_within_2pct": 2
+    },
+    "needle_off_zero": {
+     "n": 28,
+     "accepted": 3,
+     "accepted_within_2pct": 3
+    }
+   },
+   "rows": [
+    {
+     "file": "f007.jpg",
+     "set": "bench-test",
+     "read": 144.3647,
+     "err": 0.02212,
+     "scored_against": {
+      "value": 151,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.045,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.0491,
+      "inliers": 2.0,
+      "inlier_share": 0.4,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0564,
+      "tilt": 0.2208,
+      "sharp": 0.7004,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9875,
+      "ticks": 0.9333,
+      "tick_lines": 0.2333,
+      "ends_margin": 0.075,
+      "tip_reach": 0.8063,
+      "beyond_numbers": 0.0564
+     },
+     "at_rest": false,
+     "ms": 2988
+    },
+    {
+     "file": "f009.jpg",
+     "set": "bench-test",
+     "read": 0.907,
+     "err": 0.10175,
+     "scored_against": {
+      "value": 0.5,
+      "unit": "bar",
+      "min": 0.5,
+      "max": 4.5
+     },
+     "ok": true,
+     "conf": 0.249,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8012,
+      "inliers": 5.0,
+      "inlier_share": 0.5,
+      "resid": 0.0172,
+      "disagree": 0.0,
+      "outside": 0.7965,
+      "tilt": 0.3522,
+      "sharp": 0.7941,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7083,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.5906,
+      "tip_reach": 0.7828,
+      "beyond_numbers": 0.7965
+     },
+     "at_rest": true,
+     "ms": 5330
+    },
+    {
+     "file": "f013.jpg",
+     "set": "bench-test",
+     "read": -0.0357,
+     "err": 0.00022,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 160.0
+     },
+     "ok": true,
+     "conf": 0.21,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8706,
+      "inliers": 3.0,
+      "inlier_share": 0.6,
+      "resid": 0.0089,
+      "disagree": 0.0,
+      "outside": 1.0004,
+      "tilt": 0.196,
+      "sharp": 0.8405,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5833,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.3481,
+      "tip_reach": 1.0815,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 4578
+    },
+    {
+     "file": "f014.jpg",
+     "set": "bench-test",
+     "read": 23.6592,
+     "err": 1.3144,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 18.0
+     },
+     "ok": false,
+     "conf": 0.002,
+     "accepted": false,
+     "issues": [
+      "range"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.1829,
+      "inliers": 3.0,
+      "inlier_share": 0.6,
+      "resid": 0.0051,
+      "disagree": 0.0,
+      "outside": 1.8864,
+      "tilt": 0.2261,
+      "sharp": 0.7052,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5375,
+      "ticks": 0.9333,
+      "tick_lines": 0.1,
+      "ends_margin": -0.2857,
+      "tip_reach": 0.1905,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 6723
+    },
+    {
+     "file": "f016.jpg",
+     "set": "bench-test",
+     "read": -22.5286,
+     "err": 0.28132,
+     "scored_against": {
+      "value": 90.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 400.0
+     },
+     "ok": true,
+     "conf": 0.002,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": -0.3394,
+      "inliers": 2.0,
+      "inlier_share": 0.4,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 1.1264,
+      "tilt": 0.3217,
+      "sharp": 0.8665,
+      "glare": 0.0113,
+      "glare_needle": 0.0,
+      "support": 0.525,
+      "ticks": 1.0,
+      "tick_lines": 0.2333,
+      "ends_margin": 0.1078,
+      "tip_reach": 0.3,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 5170
+    },
+    {
+     "file": "f022.jpg",
+     "set": "bench-test",
+     "read": 2148.58,
+     "err": 71.61933,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "ok": true,
+     "conf": 0.457,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.5493,
+      "inliers": 5.0,
+      "inlier_share": 0.5,
+      "resid": 0.0339,
+      "disagree": 0.0339,
+      "outside": 0.0,
+      "tilt": 0.0644,
+      "sharp": 0.9449,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9958,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.2357,
+      "tip_reach": 0.9172,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 6367
+    },
+    {
+     "file": "f041.jpg",
+     "set": "bench-test",
+     "read": 31.9272,
+     "err": 0.0061,
+     "scored_against": {
+      "value": 31.5,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 70.0
+     },
+     "ok": true,
+     "conf": 0.559,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8309,
+      "inliers": 4.0,
+      "inlier_share": 0.5,
+      "resid": 0.0024,
+      "disagree": 0.002,
+      "outside": 0.0,
+      "tilt": 0.3247,
+      "sharp": 0.7261,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8875,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.4387,
+      "tip_reach": 1.0839,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 7216
+    },
+    {
+     "file": "f042.jpg",
+     "set": "bench-test",
+     "read": 133.3397,
+     "err": 0.00447,
+     "scored_against": {
+      "value": 132,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "ok": true,
+     "conf": 0.703,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8887,
+      "inliers": 3.0,
+      "inlier_share": 0.6,
+      "resid": 0.0037,
+      "disagree": 0.0039,
+      "outside": 0.0,
+      "tilt": 0.135,
+      "sharp": 0.6056,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.925,
+      "ticks": 1.0,
+      "tick_lines": 0.3,
+      "ends_margin": 0.7875,
+      "tip_reach": 0.9797,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 3342
+    },
+    {
+     "file": "f082.jpg",
+     "set": "bench-test",
+     "read": 4.3758,
+     "err": 0.04376,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": true,
+     "conf": 0.892,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8764,
+      "inliers": 5.0,
+      "inlier_share": 0.8333,
+      "resid": 0.0143,
+      "disagree": 0.0,
+      "outside": 0.2604,
+      "tilt": 0.1276,
+      "sharp": 0.9675,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9417,
+      "ticks": 1.0,
+      "tick_lines": 0.5667,
+      "ends_margin": 0.7598,
+      "tip_reach": 1.0833,
+      "beyond_numbers": 0.2604
+     },
+     "at_rest": true,
+     "ms": 5578
+    },
+    {
+     "file": "f084.jpg",
+     "set": "bench-test",
+     "read": 21.6221,
+     "err": 0.02142,
+     "scored_against": {
+      "value": 22.8,
+      "unit": "\u00b0C",
+      "min": 5.0,
+      "max": 60.0
+     },
+     "ok": true,
+     "conf": 0.529,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.0,
+      "inliers": 6.0,
+      "inlier_share": 0.5455,
+      "resid": 0.0302,
+      "disagree": 0.027,
+      "outside": 0.0,
+      "tilt": 0.0882,
+      "sharp": 1.0234,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6625,
+      "ticks": 1.0,
+      "tick_lines": 0.1667,
+      "ends_margin": 0.4786,
+      "tip_reach": 0.6714,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8323
+    },
+    {
+     "file": "f085.jpg",
+     "set": "bench-test",
+     "read": 28.8834,
+     "err": 0.44917,
+     "scored_against": {
+      "value": 73.8,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": true,
+     "conf": 0.545,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.6824,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.1539,
+      "sharp": 1.0002,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.8889,
+      "tip_reach": 1.0802,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 5164
+    },
+    {
+     "file": "f485.jpg",
+     "set": "bench-test",
+     "read": 70.1423,
+     "err": 0.00794,
+     "scored_against": {
+      "value": 71.0,
+      "unit": "\u00b0F",
+      "min": 14.0,
+      "max": 122.0
+     },
+     "ok": true,
+     "conf": 0.44,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9006,
+      "inliers": 4.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0047,
+      "disagree": 0.0056,
+      "outside": 0.0,
+      "tilt": 0.1344,
+      "sharp": 0.6168,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7125,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.1592,
+      "tip_reach": 0.7325,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 4082
+    },
+    {
+     "file": "f495.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 5213
+    },
+    {
+     "file": "f498.jpg",
+     "set": "bench-test",
+     "read": 2026.3825,
+     "err": 0.67546,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 3000.0
+     },
+     "ok": true,
+     "conf": 0.203,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.4063,
+      "inliers": 4.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0083,
+      "disagree": 0.0079,
+      "outside": 0.0,
+      "tilt": 0.3119,
+      "sharp": 0.6695,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9833,
+      "ticks": 1.0,
+      "tick_lines": 0.0333,
+      "ends_margin": -0.1071,
+      "tip_reach": 0.9786,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 3605
+    },
+    {
+     "file": "f501.jpg",
+     "set": "bench-test",
+     "read": 202.3909,
+     "err": 0.67464,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.622,
+     "accepted": false,
+     "issues": [
+      "glare"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8133,
+      "inliers": 6.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0056,
+      "disagree": 0.0061,
+      "outside": 0.0,
+      "tilt": 0.0974,
+      "sharp": 1.0985,
+      "glare": 0.4155,
+      "glare_needle": 0.0,
+      "support": 0.9167,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.1379,
+      "tip_reach": 0.7241,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 8173
+    },
+    {
+     "file": "f504.jpg",
+     "set": "bench-test",
+     "read": 172.7647,
+     "err": 0.00078,
+     "scored_against": {
+      "value": 173.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.971,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8449,
+      "inliers": 5.0,
+      "inlier_share": 1.0,
+      "resid": 0.0159,
+      "disagree": 0.0067,
+      "outside": 0.0,
+      "tilt": 0.3047,
+      "sharp": 0.789,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.3958,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.6973,
+      "tip_reach": 1.0811,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 4459
+    },
+    {
+     "file": "f505.jpg",
+     "set": "bench-test",
+     "read": 172.6604,
+     "err": 0.00113,
+     "scored_against": {
+      "value": 173.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": false,
+     "conf": 0.867,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8588,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0252,
+      "disagree": 0.0074,
+      "outside": 0.0,
+      "tilt": 0.2185,
+      "sharp": 0.6881,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5708,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.6497,
+      "tip_reach": 1.0847,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 4681
+    },
+    {
+     "file": "f728.jpg",
+     "set": "bench-test",
+     "read": 48.9274,
+     "err": 1.63091,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "ok": true,
+     "conf": 0.002,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": -0.0656,
+      "inliers": 2.0,
+      "inlier_share": 0.4,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 1.2618,
+      "tilt": 0.0412,
+      "sharp": 0.8138,
+      "glare": 0.0746,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.0703,
+      "tip_reach": 0.2625,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 4110
+    },
+    {
+     "file": "f729.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 2435
+    },
+    {
+     "file": "f736.jpg",
+     "set": "bench-test",
+     "read": -589.732,
+     "err": 0.58973,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmAq",
+      "min": 0.0,
+      "max": 1000.0
+     },
+     "ok": true,
+     "conf": 0.666,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9269,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0197,
+      "disagree": 0.0,
+      "outside": 0.2609,
+      "tilt": 0.1709,
+      "sharp": 0.6882,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5958,
+      "ticks": 1.0,
+      "tick_lines": 0.5333,
+      "ends_margin": 0.7125,
+      "tip_reach": 0.9047,
+      "beyond_numbers": 0.2609
+     },
+     "at_rest": true,
+     "ms": 3571
+    },
+    {
+     "file": "f739.jpg",
+     "set": "bench-test",
+     "read": 2.2351,
+     "err": 0.0745,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "ok": true,
+     "conf": 0.436,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8297,
+      "inliers": 4.0,
+      "inlier_share": 1.0,
+      "resid": 0.0045,
+      "disagree": 0.0,
+      "outside": 0.851,
+      "tilt": 0.3249,
+      "sharp": 0.5867,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9708,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.7278,
+      "tip_reach": 1.0833,
+      "beyond_numbers": 0.851
+     },
+     "at_rest": true,
+     "ms": 4240
+    },
+    {
+     "file": "wa002.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 1736
+    },
+    {
+     "file": "wa025.jpg",
+     "set": "bench-test",
+     "read": 0.3719,
+     "err": 0.01063,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 35.0
+     },
+     "ok": true,
+     "conf": 0.939,
+     "accepted": true,
+     "issues": [
+      "blur",
+      "glare"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9517,
+      "inliers": 6.0,
+      "inlier_share": 0.8571,
+      "resid": 0.0074,
+      "disagree": 0.0,
+      "outside": 0.1851,
+      "tilt": 0.189,
+      "sharp": 0.4449,
+      "glare": 0.4054,
+      "glare_needle": 0.0,
+      "support": 0.7625,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.8904,
+      "tip_reach": 1.0822,
+      "beyond_numbers": 0.1851
+     },
+     "at_rest": true,
+     "ms": 4051
+    },
+    {
+     "file": "wa026.jpg",
+     "set": "bench-test",
+     "read": 3.4028,
+     "err": 0.00671,
+     "scored_against": {
+      "value": 3.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "ok": true,
+     "conf": 0.739,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8837,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0157,
+      "disagree": 0.0,
+      "outside": 0.1319,
+      "tilt": 0.3739,
+      "sharp": 0.7352,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.4917,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.5344,
+      "tip_reach": 0.8859,
+      "beyond_numbers": 0.1319
+     },
+     "at_rest": false,
+     "ms": 5030
+    },
+    {
+     "file": "wa034.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 7090
+    },
+    {
+     "file": "wa048.jpg",
+     "set": "bench-test",
+     "read": 77.6291,
+     "err": 0.00371,
+     "scored_against": {
+      "value": 78.0,
+      "unit": "?",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": false,
+     "conf": 0.941,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.715,
+      "inliers": 6.0,
+      "inlier_share": 1.0,
+      "resid": 0.0057,
+      "disagree": 0.0018,
+      "outside": 0.0,
+      "tilt": 0.1281,
+      "sharp": 0.3112,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5458,
+      "ticks": 1.0,
+      "tick_lines": 0.2,
+      "ends_margin": 0.6048,
+      "tip_reach": 1.0838,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 3232
+    },
+    {
+     "file": "wa054.jpg",
+     "set": "bench-test",
+     "read": 63.1427,
+     "err": 0.00843,
+     "scored_against": {
+      "value": 62.3,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": false,
+     "conf": 0.853,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.2435,
+      "inliers": 4.0,
+      "inlier_share": 0.8,
+      "resid": 0.0121,
+      "disagree": 0.0102,
+      "outside": 0.0,
+      "tilt": 0.2079,
+      "sharp": 0.3258,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8083,
+      "ticks": 1.0,
+      "tick_lines": 0.9333,
+      "ends_margin": 0.7626,
+      "tip_reach": 1.0808,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 9585
+    },
+    {
+     "file": "wa060.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "glare_needle",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 2633
+    },
+    {
+     "file": "wa066.jpg",
+     "set": "bench-test",
+     "read": 2030.3806,
+     "err": 2.74212,
+     "scored_against": {
+      "value": 248.0,
+      "unit": "\u00b0F",
+      "min": 50.0,
+      "max": 700.0
+     },
+     "ok": false,
+     "conf": 0.008,
+     "accepted": false,
+     "issues": [
+      "range"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.4806,
+      "inliers": 4.0,
+      "inlier_share": 0.4,
+      "resid": 0.1107,
+      "disagree": 0.0,
+      "outside": 1.5072,
+      "tilt": 0.3615,
+      "sharp": 0.686,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5833,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.0609,
+      "tip_reach": 0.2531,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 5223
+    },
+    {
+     "file": "wa069.jpg",
+     "set": "bench-test",
+     "read": 159.8511,
+     "err": 0.6394,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "ok": true,
+     "conf": 0.497,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.5662,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0032,
+      "disagree": 0.0039,
+      "outside": 0.0,
+      "tilt": 0.1611,
+      "sharp": 0.5817,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9833,
+      "ticks": 0.9667,
+      "tick_lines": 1.0,
+      "ends_margin": 0.3432,
+      "tip_reach": 0.5325,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 6183
+    },
+    {
+     "file": "wa077.jpg",
+     "set": "bench-test",
+     "read": 134.2988,
+     "err": 0.67149,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": true,
+     "conf": 0.197,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": -0.2849,
+      "inliers": 4.0,
+      "inlier_share": 0.5,
+      "resid": 0.0057,
+      "disagree": 0.0022,
+      "outside": 0.0,
+      "tilt": 0.0899,
+      "sharp": 0.7545,
+      "glare": 0.234,
+      "glare_needle": 0.0,
+      "support": 0.9875,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.3015,
+      "tip_reach": 1.0809,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 4890
+    },
+    {
+     "file": "wa079.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 5933
+    },
+    {
+     "file": "wa083.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 8959
+    },
+    {
+     "file": "wa090.jpg",
+     "set": "bench-test",
+     "read": 527.0427,
+     "err": 3.54316,
+     "scored_against": {
+      "value": 31.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 140.0
+     },
+     "ok": true,
+     "conf": 0.733,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9522,
+      "inliers": 4.0,
+      "inlier_share": 0.3636,
+      "resid": 0.0199,
+      "disagree": 0.0081,
+      "outside": 0.0,
+      "tilt": 0.1874,
+      "sharp": 0.9075,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8875,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.7895,
+      "tip_reach": 1.0827,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 9111
+    },
+    {
+     "file": "wa097.jpg",
+     "set": "bench-test",
+     "read": 34.13,
+     "err": 1.13767,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "ok": true,
+     "conf": 0.081,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8709,
+      "inliers": 3.0,
+      "inlier_share": 0.375,
+      "resid": 0.0172,
+      "disagree": 0.0,
+      "outside": 0.6377,
+      "tilt": 0.0625,
+      "sharp": 0.6271,
+      "glare": 0.0157,
+      "glare_needle": 0.0,
+      "support": 0.8083,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.343,
+      "tip_reach": 0.7791,
+      "beyond_numbers": 0.6377
+     },
+     "at_rest": true,
+     "ms": 11013
+    },
+    {
+     "file": "wa143.jpg",
+     "set": "bench-test",
+     "read": 2.9218,
+     "err": 0.00974,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.989,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8217,
+      "inliers": 9.0,
+      "inlier_share": 0.75,
+      "resid": 0.007,
+      "disagree": 0.0,
+      "outside": 0.0854,
+      "tilt": 0.184,
+      "sharp": 0.5249,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6208,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.4426,
+      "tip_reach": 1.082,
+      "beyond_numbers": 0.0854
+     },
+     "at_rest": true,
+     "ms": 10755
+    },
+    {
+     "file": "wa176.jpg",
+     "set": "bench-test",
+     "read": -115.2394,
+     "err": 5.77197,
+     "scored_against": {
+      "value": 0.2,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "ok": true,
+     "conf": 0.125,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.3632,
+      "inliers": 2.0,
+      "inlier_share": 0.5,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.1346,
+      "tilt": 0.0449,
+      "sharp": 0.426,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5875,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.1875,
+      "tip_reach": 1.0852,
+      "beyond_numbers": 0.1346
+     },
+     "at_rest": false,
+     "ms": 3052
+    },
+    {
+     "file": "wa183.jpg",
+     "set": "bench-test",
+     "read": 3764.884,
+     "err": 149.39936,
+     "scored_against": {
+      "value": 29.9,
+      "unit": "inHg",
+      "min": 10.0,
+      "max": 35.0
+     },
+     "ok": true,
+     "conf": 0.154,
+     "accepted": false,
+     "issues": [
+      "glare_needle"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9312,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.8656,
+      "tilt": 0.0849,
+      "sharp": 0.6562,
+      "glare": 0.1997,
+      "glare_needle": 1.0,
+      "support": 0.6542,
+      "ticks": 1.0,
+      "tick_lines": 0.9,
+      "ends_margin": 0.285,
+      "tip_reach": 0.744,
+      "beyond_numbers": 0.8656
+     },
+     "at_rest": false,
+     "ms": 5364
+    },
+    {
+     "file": "wa207.jpg",
+     "set": "bench-test",
+     "read": 132.3217,
+     "err": 1.32322,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": false,
+     "conf": 0.086,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8625,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.002,
+      "disagree": 0.0,
+      "outside": 1.308,
+      "tilt": 0.2759,
+      "sharp": 0.3888,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9375,
+      "ticks": 0.7667,
+      "tick_lines": 0.2333,
+      "ends_margin": 0.2121,
+      "tip_reach": 1.0833,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 6034
+    },
+    {
+     "file": "wa240.jpg",
+     "set": "bench-test",
+     "read": 95.7217,
+     "err": 0.00481,
+     "scored_against": {
+      "value": 95.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 150.0
+     },
+     "ok": true,
+     "conf": 0.159,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8836,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.8093,
+      "tilt": 0.1451,
+      "sharp": 0.7687,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.975,
+      "ticks": 1.0,
+      "tick_lines": 0.0333,
+      "ends_margin": 0.6643,
+      "tip_reach": 0.8531,
+      "beyond_numbers": 0.8093
+     },
+     "at_rest": false,
+     "ms": 7053
+    },
+    {
+     "file": "wa288.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 8860
+    },
+    {
+     "file": "wa425.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 4073
+    },
+    {
+     "file": "wa426.jpg",
+     "set": "bench-test",
+     "read": 2.345,
+     "err": 0.01954,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "ok": false,
+     "conf": 0.848,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8899,
+      "inliers": 5.0,
+      "inlier_share": 1.0,
+      "resid": 0.0149,
+      "disagree": 0.0,
+      "outside": 0.1766,
+      "tilt": 0.3916,
+      "sharp": 0.3217,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7375,
+      "ticks": 0.75,
+      "tick_lines": 0.3333,
+      "ends_margin": 0.3636,
+      "tip_reach": 1.0833,
+      "beyond_numbers": 0.1766
+     },
+     "at_rest": true,
+     "ms": 6248
+    },
+    {
+     "file": "wa431.jpg",
+     "set": "bench-test",
+     "read": -5.5127,
+     "err": 0.05513,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": false,
+     "conf": 0.442,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8429,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.3189,
+      "tilt": 0.2773,
+      "sharp": 0.3053,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6875,
+      "ticks": 0.85,
+      "tick_lines": 0.8667,
+      "ends_margin": 0.5859,
+      "tip_reach": 0.7781,
+      "beyond_numbers": 0.3189
+     },
+     "at_rest": true,
+     "ms": 5063
+    },
+    {
+     "file": "wa484.jpg",
+     "set": "bench-test",
+     "read": 18.9741,
+     "err": 0.03226,
+     "scored_against": {
+      "value": 22.2,
+      "unit": "\u00b0C",
+      "min": -50.0,
+      "max": 50.0
+     },
+     "ok": true,
+     "conf": 0.809,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8589,
+      "inliers": 3.0,
+      "inlier_share": 0.6,
+      "resid": 0.009,
+      "disagree": 0.0082,
+      "outside": 0.0,
+      "tilt": 0.0484,
+      "sharp": 0.972,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9667,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.7238,
+      "tip_reach": 0.9171,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 15356
+    },
+    {
+     "file": "wa507.jpg",
+     "set": "bench-test",
+     "read": 78.7407,
+     "err": 0.0063,
+     "scored_against": {
+      "value": 80.0,
+      "unit": "\u00b0F",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": true,
+     "conf": 0.483,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8935,
+      "inliers": 5.0,
+      "inlier_share": 0.8333,
+      "resid": 0.0041,
+      "disagree": 0.0046,
+      "outside": 0.0,
+      "tilt": 0.1682,
+      "sharp": 0.5467,
+      "glare": 0.1074,
+      "glare_needle": 0.0,
+      "support": 0.7792,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": -0.2849,
+      "tip_reach": 0.1919,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 9243
+    },
+    {
+     "file": "wa551.jpg",
+     "set": "bench-test",
+     "read": 46.6836,
+     "err": 0.00011,
+     "scored_against": {
+      "value": 46.7,
+      "unit": "\u00b0C",
+      "min": -30.0,
+      "max": 120.0
+     },
+     "ok": true,
+     "conf": 0.984,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8742,
+      "inliers": 10.0,
+      "inlier_share": 0.7143,
+      "resid": 0.0023,
+      "disagree": 0.0016,
+      "outside": 0.0,
+      "tilt": 0.1333,
+      "sharp": 0.6201,
+      "glare": 0.0204,
+      "glare_needle": 0.0,
+      "support": 0.725,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.4518,
+      "tip_reach": 1.0843,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8778
+    },
+    {
+     "file": "wa708.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 6133
+    },
+    {
+     "file": "wa714.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 7680
+    },
+    {
+     "file": "wb010.jpg",
+     "set": "bench-test",
+     "read": 378.2262,
+     "err": 1.26075,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kgf/cm2",
+      "min": 0.0,
+      "max": 300
+     },
+     "ok": true,
+     "conf": 0.332,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.5758,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.3112,
+      "tilt": 0.4082,
+      "sharp": 0.5204,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.4333,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.5284,
+      "tip_reach": 0.7216,
+      "beyond_numbers": 0.3112
+     },
+     "at_rest": true,
+     "ms": 6242
+    },
+    {
+     "file": "wb011.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 6475
+    },
+    {
+     "file": "wb012.jpg",
+     "set": "bench-test",
+     "read": 3.9809,
+     "err": 0.01327,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": false,
+     "conf": 0.499,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9764,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.2301,
+      "tilt": 0.0841,
+      "sharp": 0.321,
+      "glare": 0.3065,
+      "glare_needle": 0.0,
+      "support": 0.7417,
+      "ticks": 0.8,
+      "tick_lines": 0.2333,
+      "ends_margin": 0.5723,
+      "tip_reach": 0.7651,
+      "beyond_numbers": 0.2301
+     },
+     "at_rest": true,
+     "ms": 4576
+    },
+    {
+     "file": "wb013.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 5872
+    },
+    {
+     "file": "wb025.jpg",
+     "set": "bench-test",
+     "read": 0.3572,
+     "err": 0.00371,
+     "scored_against": {
+      "value": 0.45,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "ok": true,
+     "conf": 0.986,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.0001,
+      "inliers": 11.0,
+      "inlier_share": 0.7857,
+      "resid": 0.0036,
+      "disagree": 0.0,
+      "outside": 0.1201,
+      "tilt": 0.1457,
+      "sharp": 0.7159,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7292,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.3508,
+      "tip_reach": 1.0838,
+      "beyond_numbers": 0.1201
+     },
+     "at_rest": false,
+     "ms": 10976
+    },
+    {
+     "file": "wb037.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 5193
+    },
+    {
+     "file": "wb088.jpg",
+     "set": "bench-test",
+     "read": 276.1972,
+     "err": 1.38099,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": false,
+     "conf": 0.766,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8999,
+      "inliers": 5.0,
+      "inlier_share": 0.8333,
+      "resid": 0.007,
+      "disagree": 0.0,
+      "outside": 0.4762,
+      "tilt": 0.1796,
+      "sharp": 0.2354,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7583,
+      "ticks": 0.6167,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.7172,
+      "tip_reach": 0.9094,
+      "beyond_numbers": 0.4762
+     },
+     "at_rest": true,
+     "ms": 5611
+    },
+    {
+     "file": "wb092.jpg",
+     "set": "bench-test",
+     "read": 3.7799,
+     "err": 0.0315,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "ok": true,
+     "conf": 0.558,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7469,
+      "inliers": 5.0,
+      "inlier_share": 0.7143,
+      "resid": 0.0186,
+      "disagree": 0.0,
+      "outside": 0.1622,
+      "tilt": 0.0933,
+      "sharp": 0.4298,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 0.5167,
+      "tick_lines": 0.0,
+      "ends_margin": 0.3094,
+      "tip_reach": 0.6891,
+      "beyond_numbers": 0.1622
+     },
+     "at_rest": true,
+     "ms": 3663
+    },
+    {
+     "file": "wb099.jpg",
+     "set": "bench-test",
+     "read": 90.7023,
+     "err": 1.19345,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "cm Hg",
+      "min": 0.0,
+      "max": 76.0
+     },
+     "ok": true,
+     "conf": 0.488,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9461,
+      "inliers": 4.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0056,
+      "disagree": 0.0,
+      "outside": 0.414,
+      "tilt": 0.2295,
+      "sharp": 0.5229,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8417,
+      "ticks": 0.9333,
+      "tick_lines": 0.2667,
+      "ends_margin": 0.3812,
+      "tip_reach": 1.0829,
+      "beyond_numbers": 0.414
+     },
+     "at_rest": true,
+     "ms": 7143
+    },
+    {
+     "file": "wb127.jpg",
+     "set": "bench-test",
+     "read": -0.7172,
+     "err": 0.03586,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "ok": true,
+     "conf": 0.772,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9011,
+      "inliers": 6.0,
+      "inlier_share": 0.75,
+      "resid": 0.0109,
+      "disagree": 0.0,
+      "outside": 1.0717,
+      "tilt": 0.2816,
+      "sharp": 0.7073,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6833,
+      "ticks": 1.0,
+      "tick_lines": 0.8667,
+      "ends_margin": 0.777,
+      "tip_reach": 1.0863,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 6437
+    },
+    {
+     "file": "wb139.jpg",
+     "set": "bench-test",
+     "read": 7.9488,
+     "err": 0.00244,
+     "scored_against": {
+      "value": 7.9,
+      "unit": "?",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "ok": false,
+     "conf": 0.886,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9598,
+      "inliers": 3.0,
+      "inlier_share": 1.0,
+      "resid": 0.0011,
+      "disagree": 0.0006,
+      "outside": 0.0,
+      "tilt": 0.2139,
+      "sharp": 0.2093,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5458,
+      "ticks": 0.5333,
+      "tick_lines": 0.8667,
+      "ends_margin": 0.5611,
+      "tip_reach": 0.7557,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 2437
+    },
+    {
+     "file": "wb151.jpg",
+     "set": "bench-test",
+     "read": 251.1918,
+     "err": 1.25596,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": false,
+     "conf": 0.237,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9537,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 1.2798,
+      "tilt": 0.1556,
+      "sharp": 0.2584,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8542,
+      "ticks": 0.9167,
+      "tick_lines": 0.6667,
+      "ends_margin": 0.8578,
+      "tip_reach": 1.05,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 1602
+    },
+    {
+     "file": "wb156.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1991
+    },
+    {
+     "file": "wb177.jpg",
+     "set": "bench-test",
+     "read": -69.378,
+     "err": 3.4689,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "?",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "ok": false,
+     "conf": 0.254,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9429,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 3.7041,
+      "tilt": 0.3034,
+      "sharp": 0.2487,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7333,
+      "ticks": 0.7167,
+      "tick_lines": 0.9333,
+      "ends_margin": 0.8936,
+      "tip_reach": 1.0851,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 2192
+    }
+   ]
+  },
+  "bench-dev": {
+   "summary": {
+    "n": 44,
+    "read": 32,
+    "accepted": 7,
+    "coverage": 0.1591,
+    "accepted_within_2pct": 5,
+    "precision_2pct": 0.7143,
+    "accepted_over_5pct": 0,
+    "correct_and_accepted": 0.1136,
+    "within_2pct_all_reads": 0.5,
+    "median_err_accepted": 0.01822,
+    "at_rest": {
+     "n": 26,
+     "accepted": 3,
+     "accepted_within_2pct": 2
+    },
+    "needle_off_zero": {
+     "n": 18,
+     "accepted": 4,
+     "accepted_within_2pct": 3
+    }
+   },
+   "rows": [
+    {
+     "file": "f026.jpg",
+     "set": "bench-dev",
+     "read": 114.7531,
+     "err": 0.00584,
+     "scored_against": {
+      "value": 113.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.578,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8924,
+      "inliers": 4.0,
+      "inlier_share": 0.4,
+      "resid": 0.002,
+      "disagree": 0.002,
+      "outside": 0.0,
+      "tilt": 0.0997,
+      "sharp": 0.8452,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.5833,
+      "ticks": 0.9333,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.3842,
+      "tip_reach": 1.0847,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 6715
+    },
+    {
+     "file": "f044.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 10883
+    },
+    {
+     "file": "f072.jpg",
+     "set": "bench-dev",
+     "read": 35.9782,
+     "err": 0.00899,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 4000.0
+     },
+     "ok": true,
+     "conf": 0.514,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7109,
+      "inliers": 4.0,
+      "inlier_share": 0.5714,
+      "resid": 0.0011,
+      "disagree": 0.0,
+      "outside": 0.3213,
+      "tilt": 0.1046,
+      "sharp": 0.9383,
+      "glare": 0.1552,
+      "glare_needle": 0.0,
+      "support": 0.9958,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.7218,
+      "tip_reach": 1.0827,
+      "beyond_numbers": 0.3213
+     },
+     "at_rest": true,
+     "ms": 11749
+    },
+    {
+     "file": "f091.jpg",
+     "set": "bench-dev",
+     "read": 7.9797,
+     "err": 0.0399,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": true,
+     "conf": 0.817,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9362,
+      "inliers": 6.0,
+      "inlier_share": 0.75,
+      "resid": 0.0066,
+      "disagree": 0.0,
+      "outside": 0.0973,
+      "tilt": 0.1025,
+      "sharp": 0.7973,
+      "glare": 0.0453,
+      "glare_needle": 0.0,
+      "support": 0.85,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.3422,
+      "tip_reach": 1.0802,
+      "beyond_numbers": 0.0973
+     },
+     "at_rest": true,
+     "ms": 7586
+    },
+    {
+     "file": "f118.jpg",
+     "set": "bench-dev",
+     "read": 71.2945,
+     "err": 0.00147,
+     "scored_against": {
+      "value": 71.0,
+      "unit": "\u00b0F",
+      "min": -40.0,
+      "max": 160.0
+     },
+     "ok": true,
+     "conf": 0.768,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.2029,
+      "inliers": 7.0,
+      "inlier_share": 0.875,
+      "resid": 0.0102,
+      "disagree": 0.0085,
+      "outside": 0.0,
+      "tilt": 0.2056,
+      "sharp": 0.9624,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7542,
+      "ticks": 1.0,
+      "tick_lines": 0.0333,
+      "ends_margin": 0.1656,
+      "tip_reach": 1.0859,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8828
+    },
+    {
+     "file": "f273.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 8851
+    },
+    {
+     "file": "f286.jpg",
+     "set": "bench-dev",
+     "read": 3.856,
+     "err": 0.03213,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "ok": true,
+     "conf": 0.924,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.952,
+      "inliers": 6.0,
+      "inlier_share": 1.0,
+      "resid": 0.0185,
+      "disagree": 0.0,
+      "outside": 0.1614,
+      "tilt": 0.2814,
+      "sharp": 0.7574,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 0.2,
+      "ends_margin": 0.6398,
+      "tip_reach": 1.0806,
+      "beyond_numbers": 0.1614
+     },
+     "at_rest": true,
+     "ms": 5043
+    },
+    {
+     "file": "f300.jpg",
+     "set": "bench-dev",
+     "read": -122.1499,
+     "err": 0.9705,
+     "scored_against": {
+      "value": 169.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.028,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.0176,
+      "inliers": 4.0,
+      "inlier_share": 0.8,
+      "resid": 0.0172,
+      "disagree": 0.0,
+      "outside": 0.8607,
+      "tilt": 0.3588,
+      "sharp": 0.7022,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6208,
+      "ticks": 0.9667,
+      "tick_lines": 0.5333,
+      "ends_margin": -0.0844,
+      "tip_reach": 0.5063,
+      "beyond_numbers": 0.8607
+     },
+     "at_rest": false,
+     "ms": 8389
+    },
+    {
+     "file": "f313.jpg",
+     "set": "bench-dev",
+     "read": 164.2306,
+     "err": 0.62019,
+     "scored_against": {
+      "value": 65.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 160.0
+     },
+     "ok": true,
+     "conf": 0.01,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.831,
+      "inliers": 2.0,
+      "inlier_share": 0.4,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 2.8558,
+      "tilt": 0.2361,
+      "sharp": 0.7916,
+      "glare": 0.3464,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.5217,
+      "tip_reach": 0.7319,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 6093
+    },
+    {
+     "file": "f478.jpg",
+     "set": "bench-dev",
+     "read": 22.5228,
+     "err": 0.00019,
+     "scored_against": {
+      "value": 22.5,
+      "unit": "\u00b0C",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "ok": true,
+     "conf": 0.886,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8936,
+      "inliers": 5.0,
+      "inlier_share": 0.8333,
+      "resid": 0.0033,
+      "disagree": 0.0037,
+      "outside": 0.0,
+      "tilt": 0.4356,
+      "sharp": 0.6862,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.925,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.2263,
+      "tip_reach": 1.0842,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8909
+    },
+    {
+     "file": "f481.jpg",
+     "set": "bench-dev",
+     "read": 71.3887,
+     "err": 0.00694,
+     "scored_against": {
+      "value": 70.0,
+      "unit": "\u00b0F",
+      "min": -40.0,
+      "max": 160.0
+     },
+     "ok": true,
+     "conf": 0.951,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.6324,
+      "inliers": 8.0,
+      "inlier_share": 1.0,
+      "resid": 0.0072,
+      "disagree": 0.0021,
+      "outside": 0.0,
+      "tilt": 0.2722,
+      "sharp": 0.7765,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9125,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.3929,
+      "tip_reach": 1.0857,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 7182
+    },
+    {
+     "file": "f559.jpg",
+     "set": "bench-dev",
+     "read": 124.9671,
+     "err": 0.01822,
+     "scored_against": {
+      "value": 119.5,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.98,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8445,
+      "inliers": 6.0,
+      "inlier_share": 0.75,
+      "resid": 0.0141,
+      "disagree": 0.0098,
+      "outside": 0.0,
+      "tilt": 0.1634,
+      "sharp": 0.9792,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6875,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.8587,
+      "tip_reach": 1.0815,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 14844
+    },
+    {
+     "file": "wa006.jpg",
+     "set": "bench-dev",
+     "read": 21.0333,
+     "err": 0.01733,
+     "scored_against": {
+      "value": 20.6,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "ok": true,
+     "conf": 0.849,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9162,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0256,
+      "disagree": 0.0245,
+      "outside": 0.0,
+      "tilt": 0.4767,
+      "sharp": 0.6866,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7417,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.7077,
+      "tip_reach": 0.9795,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 13625
+    },
+    {
+     "file": "wa014.jpg",
+     "set": "bench-dev",
+     "read": -0.255,
+     "err": 0.00111,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 230.0
+     },
+     "ok": true,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.756,
+      "inliers": 2.0,
+      "inlier_share": 0.3333,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 15.255,
+      "tilt": 0.0734,
+      "sharp": 0.6715,
+      "glare": 0.1037,
+      "glare_needle": 0.0,
+      "support": 0.9917,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.539,
+      "tip_reach": 1.0851,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 8519
+    },
+    {
+     "file": "wa028.jpg",
+     "set": "bench-dev",
+     "read": 36.9004,
+     "err": 0.61501,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "msw",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "ok": true,
+     "conf": 0.332,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": -0.6761,
+      "inliers": 8.0,
+      "inlier_share": 0.5,
+      "resid": 0.0128,
+      "disagree": 0.0177,
+      "outside": 0.0,
+      "tilt": 0.2667,
+      "sharp": 0.4606,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6708,
+      "ticks": 0.55,
+      "tick_lines": 0.2667,
+      "ends_margin": 0.0856,
+      "tip_reach": 0.2793,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 16133
+    },
+    {
+     "file": "wa046.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 7039
+    },
+    {
+     "file": "wa050.jpg",
+     "set": "bench-dev",
+     "read": -2.7913,
+     "err": 0.93043,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 3.0
+     },
+     "ok": false,
+     "conf": 0.22,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8643,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 1.7791,
+      "tilt": 0.2489,
+      "sharp": 0.3071,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7792,
+      "ticks": 0.9833,
+      "tick_lines": 0.4,
+      "ends_margin": 0.8719,
+      "tip_reach": 1.0641,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 6110
+    },
+    {
+     "file": "wa061.jpg",
+     "set": "bench-dev",
+     "read": 91.2526,
+     "err": 0.01022,
+     "scored_against": {
+      "value": 93.5,
+      "unit": "\u00b0F",
+      "min": 0.0,
+      "max": 220.0
+     },
+     "ok": true,
+     "conf": 0.995,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.895,
+      "inliers": 12.0,
+      "inlier_share": 0.75,
+      "resid": 0.013,
+      "disagree": 0.019,
+      "outside": 0.0,
+      "tilt": 0.2807,
+      "sharp": 0.5773,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7292,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.6234,
+      "tip_reach": 0.8156,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 10054
+    },
+    {
+     "file": "wa067.jpg",
+     "set": "bench-dev",
+     "read": 19.1981,
+     "err": 0.63994,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "ok": true,
+     "conf": 0.677,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8792,
+      "inliers": 5.0,
+      "inlier_share": 1.0,
+      "resid": 0.0094,
+      "disagree": 0.0068,
+      "outside": 0.0,
+      "tilt": 0.0604,
+      "sharp": 0.6114,
+      "glare": 0.0057,
+      "glare_needle": 0.0,
+      "support": 0.9583,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.202,
+      "tip_reach": 0.7222,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 6722
+    },
+    {
+     "file": "wa072.jpg",
+     "set": "bench-dev",
+     "read": 2.746,
+     "err": 0.1627,
+     "scored_against": {
+      "value": 6.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "ok": true,
+     "conf": 0.019,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.6624,
+      "inliers": 2.0,
+      "inlier_share": 0.3333,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 1.8757,
+      "tilt": 0.4293,
+      "sharp": 0.4748,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7333,
+      "ticks": 1.0,
+      "tick_lines": 0.2,
+      "ends_margin": 0.4145,
+      "tip_reach": 1.0855,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 10750
+    },
+    {
+     "file": "wa084.jpg",
+     "set": "bench-dev",
+     "read": 135.6282,
+     "err": 0.67814,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": true,
+     "conf": 0.024,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.0377,
+      "inliers": 2.0,
+      "inlier_share": 0.3333,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.4454,
+      "tilt": 0.3594,
+      "sharp": 0.5584,
+      "glare": 0.0258,
+      "glare_needle": 0.0,
+      "support": 0.4458,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.1778,
+      "tip_reach": 1.0519,
+      "beyond_numbers": 0.4454
+     },
+     "at_rest": true,
+     "ms": 10165
+    },
+    {
+     "file": "wa085.jpg",
+     "set": "bench-dev",
+     "read": 762.9152,
+     "err": 19.12288,
+     "scored_against": {
+      "value": -2.0,
+      "unit": "mmWS",
+      "min": -10,
+      "max": 30.0
+     },
+     "ok": false,
+     "conf": 0.689,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8977,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.1099,
+      "sharp": 0.3894,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7875,
+      "ticks": 0.4333,
+      "tick_lines": 0.0333,
+      "ends_margin": 0.777,
+      "tip_reach": 1.0863,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 5270
+    },
+    {
+     "file": "wa087.jpg",
+     "set": "bench-dev",
+     "read": 0.0329,
+     "err": 0.00206,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 16.0
+     },
+     "ok": true,
+     "conf": 0.4,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9755,
+      "inliers": 3.0,
+      "inlier_share": 1.0,
+      "resid": 0.0018,
+      "disagree": 0.0,
+      "outside": 2.9918,
+      "tilt": 0.1053,
+      "sharp": 0.4655,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.8705,
+      "tip_reach": 1.0829,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 9730
+    },
+    {
+     "file": "wa096.jpg",
+     "set": "bench-dev",
+     "read": 129.3021,
+     "err": 0.64651,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "ok": true,
+     "conf": 0.822,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8914,
+      "inliers": 7.0,
+      "inlier_share": 0.7778,
+      "resid": 0.0054,
+      "disagree": 0.0051,
+      "outside": 0.0,
+      "tilt": 0.1033,
+      "sharp": 0.7263,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9208,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.2139,
+      "tip_reach": 0.763,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 4618
+    },
+    {
+     "file": "wa110.jpg",
+     "set": "bench-dev",
+     "read": 1.8636,
+     "err": 0.04073,
+     "scored_against": {
+      "value": 3.9,
+      "unit": "m",
+      "min": 0.0,
+      "max": 50.0
+     },
+     "ok": true,
+     "conf": 0.952,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9341,
+      "inliers": 8.0,
+      "inlier_share": 0.8889,
+      "resid": 0.0206,
+      "disagree": 0.0,
+      "outside": 1.0085,
+      "tilt": 0.2899,
+      "sharp": 0.7151,
+      "glare": 0.0026,
+      "glare_needle": 0.0,
+      "support": 0.7208,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.8936,
+      "tip_reach": 1.0851,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 7638
+    },
+    {
+     "file": "wa112.jpg",
+     "set": "bench-dev",
+     "read": 2.9422,
+     "err": 0.00736,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 400.0
+     },
+     "ok": true,
+     "conf": 0.992,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9242,
+      "inliers": 8.0,
+      "inlier_share": 1.0,
+      "resid": 0.0066,
+      "disagree": 0.0,
+      "outside": 0.1345,
+      "tilt": 0.311,
+      "sharp": 0.5934,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.975,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.746,
+      "tip_reach": 1.0847,
+      "beyond_numbers": 0.1345
+     },
+     "at_rest": true,
+     "ms": 3554
+    },
+    {
+     "file": "wa160.jpg",
+     "set": "bench-dev",
+     "read": 30.3763,
+     "err": 1.21505,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "ok": true,
+     "conf": 0.742,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8244,
+      "inliers": 6.0,
+      "inlier_share": 0.8571,
+      "resid": 0.015,
+      "disagree": 0.0,
+      "outside": 0.672,
+      "tilt": 0.3719,
+      "sharp": 0.8389,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.775,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.2273,
+      "tip_reach": 1.0844,
+      "beyond_numbers": 0.672
+     },
+     "at_rest": true,
+     "ms": 6701
+    },
+    {
+     "file": "wa180.jpg",
+     "set": "bench-dev",
+     "read": -0.0753,
+     "err": 0.00075,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": false,
+     "conf": 0.017,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8978,
+      "inliers": 2.0,
+      "inlier_share": 0.5,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 4.0251,
+      "tilt": 0.1405,
+      "sharp": 0.3578,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.925,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.5811,
+      "tip_reach": 1.0811,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 3318
+    },
+    {
+     "file": "wa184.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 5504
+    },
+    {
+     "file": "wa189.jpg",
+     "set": "bench-dev",
+     "read": 140.9908,
+     "err": 0.36664,
+     "scored_against": {
+      "value": 31.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": false,
+     "conf": 0.03,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.1363,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.5346,
+      "sharp": 0.3675,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.575,
+      "ticks": 1.0,
+      "tick_lines": 0.1667,
+      "ends_margin": 0.0,
+      "tip_reach": 0.1935,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 2580
+    },
+    {
+     "file": "wa196.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 4300
+    },
+    {
+     "file": "wa233.jpg",
+     "set": "bench-dev",
+     "read": -1.1685,
+     "err": 0.0039,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": false,
+     "conf": 0.397,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7338,
+      "inliers": 6.0,
+      "inlier_share": 0.4615,
+      "resid": 0.0201,
+      "disagree": 0.0,
+      "outside": 0.6117,
+      "tilt": 0.634,
+      "sharp": 0.8527,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6958,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.1053,
+      "tip_reach": 0.75,
+      "beyond_numbers": 0.6117
+     },
+     "at_rest": true,
+     "ms": 5005
+    },
+    {
+     "file": "wa367.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1539
+    },
+    {
+     "file": "wa433.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1309
+    },
+    {
+     "file": "wa449.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "glare_needle",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1895
+    },
+    {
+     "file": "wa452.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 2004
+    },
+    {
+     "file": "wa705.jpg",
+     "set": "bench-dev",
+     "read": 5.7885,
+     "err": 0.01929,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "ok": true,
+     "conf": 0.996,
+     "accepted": true,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7238,
+      "inliers": 11.0,
+      "inlier_share": 0.8462,
+      "resid": 0.0076,
+      "disagree": 0.0,
+      "outside": 0.0508,
+      "tilt": 0.295,
+      "sharp": 0.481,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9625,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.5066,
+      "tip_reach": 1.0855,
+      "beyond_numbers": 0.0508
+     },
+     "at_rest": true,
+     "ms": 4654
+    },
+    {
+     "file": "wb020.jpg",
+     "set": "bench-dev",
+     "read": -0.1401,
+     "err": 0.00233,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "msw",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "ok": true,
+     "conf": 0.282,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9396,
+      "inliers": 4.0,
+      "inlier_share": 0.4,
+      "resid": 0.0004,
+      "disagree": 0.0,
+      "outside": 0.757,
+      "tilt": 0.135,
+      "sharp": 0.6486,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9875,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": 0.75,
+      "tip_reach": 0.9868,
+      "beyond_numbers": 0.757
+     },
+     "at_rest": true,
+     "ms": 4345
+    },
+    {
+     "file": "wb129.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1391
+    },
+    {
+     "file": "wb130.jpg",
+     "set": "bench-dev",
+     "read": 1.6352,
+     "err": 0.01635,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m sea water",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "ok": true,
+     "conf": 0.256,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.722,
+      "inliers": 4.0,
+      "inlier_share": 0.5714,
+      "resid": 0.0049,
+      "disagree": 0.0,
+      "outside": 0.6394,
+      "tilt": 0.0958,
+      "sharp": 0.5995,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9042,
+      "ticks": 1.0,
+      "tick_lines": 0.3333,
+      "ends_margin": 0.3359,
+      "tip_reach": 1.084,
+      "beyond_numbers": 0.6394
+     },
+     "at_rest": true,
+     "ms": 2450
+    },
+    {
+     "file": "wb131.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1196
+    },
+    {
+     "file": "wb175.jpg",
+     "set": "bench-dev",
+     "read": 14.2757,
+     "err": 0.23793,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "ok": false,
+     "conf": 0.627,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9614,
+      "inliers": 2.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.0396,
+      "sharp": 0.2428,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9833,
+      "ticks": 0.3833,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.7078,
+      "tip_reach": 0.9,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 1693
+    },
+    {
+     "file": "wb183.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 1328
+    },
+    {
+     "file": "wb230.jpg",
+     "set": "bench-dev",
+     "read": -0.853,
+     "err": 0.08687,
+     "scored_against": {
+      "value": 0.45,
+      "unit": "?",
+      "min": 0.0,
+      "max": 15.0
+     },
+     "ok": false,
+     "conf": 0.056,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9705,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 4.2843,
+      "tilt": 0.2103,
+      "sharp": 0.2169,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6458,
+      "ticks": 0.3333,
+      "tick_lines": 0.4333,
+      "ends_margin": 0.5049,
+      "tip_reach": 0.699,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 1173
+    }
+   ]
+  },
+  "real-dev": {
+   "summary": {
+    "n": 37,
+    "read": 29,
+    "accepted": 7,
+    "coverage": 0.1892,
+    "accepted_within_2pct": 6,
+    "precision_2pct": 0.8571,
+    "accepted_over_5pct": 0,
+    "correct_and_accepted": 0.1622,
+    "within_2pct_all_reads": 0.6552,
+    "median_err_accepted": 0.00952,
+    "at_rest": {
+     "n": 17,
+     "accepted": 0,
+     "accepted_within_2pct": 0
+    },
+    "needle_off_zero": {
+     "n": 20,
+     "accepted": 7,
+     "accepted_within_2pct": 6
+    }
+   },
+   "rows": [
+    {
+     "file": "r03.jpg",
+     "set": "real-dev",
+     "read": 179.8387,
+     "err": 0.0129,
+     "scored_against": {
+      "value": 185,
+      "unit": "psi",
+      "min": 0,
+      "max": 400
+     },
+     "ok": true,
+     "conf": 0.858,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9142,
+      "inliers": 5.0,
+      "inlier_share": 1.0,
+      "resid": 0.0196,
+      "disagree": 0.0068,
+      "outside": 0.0,
+      "tilt": 0.3303,
+      "sharp": 0.8365,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7667,
+      "ticks": 1.0,
+      "tick_lines": 0.1667,
+      "ends_margin": 0.383,
+      "tip_reach": 1.0851,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 4682
+    },
+    {
+     "file": "r04.jpg",
+     "set": "real-dev",
+     "read": 66.9974,
+     "err": 0.01252,
+     "scored_against": {
+      "value": 69,
+      "unit": "\u00b0F",
+      "min": -40,
+      "max": 120
+     },
+     "ok": true,
+     "conf": 0.992,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9314,
+      "inliers": 11.0,
+      "inlier_share": 0.5789,
+      "resid": 0.0056,
+      "disagree": 0.0072,
+      "outside": 0.0,
+      "tilt": 0.1477,
+      "sharp": 0.8473,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8542,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.7278,
+      "tip_reach": 1.0333,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 16432
+    },
+    {
+     "file": "r05.jpg",
+     "set": "real-dev",
+     "read": 70.6252,
+     "err": 0.00391,
+     "scored_against": {
+      "value": 70,
+      "unit": "\u00b0F",
+      "min": -30,
+      "max": 130
+     },
+     "ok": true,
+     "conf": 0.994,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9625,
+      "inliers": 12.0,
+      "inlier_share": 0.6316,
+      "resid": 0.0112,
+      "disagree": 0.0075,
+      "outside": 0.0,
+      "tilt": 0.1771,
+      "sharp": 0.8907,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9167,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.5989,
+      "tip_reach": 0.9091,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 14250
+    },
+    {
+     "file": "r06.jpg",
+     "set": "real-dev",
+     "read": 71.9048,
+     "err": 0.00952,
+     "scored_against": {
+      "value": 74,
+      "unit": "\u00b0F",
+      "min": 0,
+      "max": 220
+     },
+     "ok": true,
+     "conf": 0.99,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8168,
+      "inliers": 10.0,
+      "inlier_share": 0.7692,
+      "resid": 0.0061,
+      "disagree": 0.0043,
+      "outside": 0.0,
+      "tilt": 0.0835,
+      "sharp": 0.9388,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8958,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.7516,
+      "tip_reach": 1.085,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 13156
+    },
+    {
+     "file": "r09.jpg",
+     "set": "real-dev",
+     "read": 24.5354,
+     "err": 0.00613,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "ok": true,
+     "conf": 0.321,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7279,
+      "inliers": 4.0,
+      "inlier_share": 0.5,
+      "resid": 0.0025,
+      "disagree": 0.0,
+      "outside": 0.3252,
+      "tilt": 0.1045,
+      "sharp": 0.9145,
+      "glare": 0.1593,
+      "glare_needle": 0.0,
+      "support": 0.9958,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.5227,
+      "tip_reach": 0.8485,
+      "beyond_numbers": 0.3252
+     },
+     "at_rest": true,
+     "ms": 7620
+    },
+    {
+     "file": "r10.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 13052
+    },
+    {
+     "file": "r12.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 6013
+    },
+    {
+     "file": "r15.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "glare_needle",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 10401
+    },
+    {
+     "file": "r18.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 3549
+    },
+    {
+     "file": "r20.jpg",
+     "set": "real-dev",
+     "read": -38.1705,
+     "err": 0.95426,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 40
+     },
+     "ok": true,
+     "conf": 0.161,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7048,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0246,
+      "disagree": 0.0,
+      "outside": 0.9334,
+      "tilt": 0.0693,
+      "sharp": 0.9225,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9583,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.7547,
+      "tip_reach": 0.9469,
+      "beyond_numbers": 0.9334
+     },
+     "at_rest": true,
+     "ms": 10157
+    },
+    {
+     "file": "r23.jpg",
+     "set": "real-dev",
+     "read": 0.4611,
+     "err": 0.00972,
+     "scored_against": {
+      "value": 0.5,
+      "unit": "bar",
+      "min": 0.5,
+      "max": 4.5
+     },
+     "ok": true,
+     "conf": 0.419,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8686,
+      "inliers": 7.0,
+      "inlier_share": 0.7,
+      "resid": 0.0125,
+      "disagree": 0.0,
+      "outside": 0.0097,
+      "tilt": 0.3097,
+      "sharp": 0.7367,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7208,
+      "ticks": 1.0,
+      "tick_lines": 0.1667,
+      "ends_margin": -0.3008,
+      "tip_reach": 0.188,
+      "beyond_numbers": 0.0097
+     },
+     "at_rest": true,
+     "ms": 7610
+    },
+    {
+     "file": "r24.jpg",
+     "set": "real-dev",
+     "read": 9.1489,
+     "err": 0.00229,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "ok": true,
+     "conf": 0.768,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8307,
+      "inliers": 4.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0082,
+      "disagree": 0.0,
+      "outside": 0.2043,
+      "tilt": 0.183,
+      "sharp": 0.4694,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8333,
+      "ticks": 0.85,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.8951,
+      "tip_reach": 1.0839,
+      "beyond_numbers": 0.2043
+     },
+     "at_rest": true,
+     "ms": 6570
+    },
+    {
+     "file": "r25.jpg",
+     "set": "real-dev",
+     "read": 771.4814,
+     "err": 0.00674,
+     "scored_against": {
+      "value": 758,
+      "unit": "kPa",
+      "min": 0,
+      "max": 2000
+     },
+     "ok": true,
+     "conf": 0.766,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.1116,
+      "inliers": 7.0,
+      "inlier_share": 0.5385,
+      "resid": 0.005,
+      "disagree": 0.0059,
+      "outside": 0.0,
+      "tilt": 0.1015,
+      "sharp": 0.9395,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8083,
+      "ticks": 1.0,
+      "tick_lines": 0.2667,
+      "ends_margin": 0.3566,
+      "tip_reach": 1.0853,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 12882
+    },
+    {
+     "file": "r26.jpg",
+     "set": "real-dev",
+     "read": 22.638,
+     "err": 0.01063,
+     "scored_against": {
+      "value": 22,
+      "unit": "psi",
+      "min": 0,
+      "max": 60
+     },
+     "ok": true,
+     "conf": 0.496,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.3912,
+      "inliers": 4.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0239,
+      "disagree": 0.0263,
+      "outside": 0.0,
+      "tilt": 0.0819,
+      "sharp": 0.775,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.4667,
+      "tip_reach": 1.0815,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8732
+    },
+    {
+     "file": "r27.jpg",
+     "set": "real-dev",
+     "read": 594.0203,
+     "err": 0.01402,
+     "scored_against": {
+      "value": 580,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "ok": true,
+     "conf": 0.812,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7006,
+      "inliers": 3.0,
+      "inlier_share": 0.75,
+      "resid": 0.0068,
+      "disagree": 0.0034,
+      "outside": 0.0,
+      "tilt": 0.2253,
+      "sharp": 0.6366,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.7406,
+      "tip_reach": 0.9328,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 9845
+    },
+    {
+     "file": "r28.jpg",
+     "set": "real-dev",
+     "read": 610.4733,
+     "err": 0.02953,
+     "scored_against": {
+      "value": 640,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "ok": true,
+     "conf": 0.902,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.6253,
+      "inliers": 4.0,
+      "inlier_share": 0.8,
+      "resid": 0.0132,
+      "disagree": 0.0089,
+      "outside": 0.0,
+      "tilt": 0.2291,
+      "sharp": 0.6642,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9833,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.7451,
+      "tip_reach": 1.085,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 11640
+    },
+    {
+     "file": "r30.jpg",
+     "set": "real-dev",
+     "read": 833.5598,
+     "err": 0.00839,
+     "scored_against": {
+      "value": 800,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "ok": true,
+     "conf": 0.725,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8109,
+      "inliers": 5.0,
+      "inlier_share": 0.7143,
+      "resid": 0.0127,
+      "disagree": 0.0044,
+      "outside": 0.0,
+      "tilt": 0.1128,
+      "sharp": 0.9946,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.6042,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.2632,
+      "tip_reach": 1.0819,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8178
+    },
+    {
+     "file": "r31.jpg",
+     "set": "real-dev",
+     "read": 58.9482,
+     "err": 0.0113,
+     "scored_against": {
+      "value": 62,
+      "unit": "psi",
+      "min": 0,
+      "max": 270
+     },
+     "ok": true,
+     "conf": 0.6,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7941,
+      "inliers": 3.0,
+      "inlier_share": 1.0,
+      "resid": 0.0017,
+      "disagree": 0.0,
+      "outside": 0.2588,
+      "tilt": 0.3908,
+      "sharp": 0.5699,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9583,
+      "ticks": 1.0,
+      "tick_lines": 0.9667,
+      "ends_margin": 0.1905,
+      "tip_reach": 1.0816,
+      "beyond_numbers": 0.2588
+     },
+     "at_rest": false,
+     "ms": 5906
+    },
+    {
+     "file": "r33.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 10535
+    },
+    {
+     "file": "r35.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 7574
+    },
+    {
+     "file": "r36.jpg",
+     "set": "real-dev",
+     "read": 56.416,
+     "err": 0.4099,
+     "scored_against": {
+      "value": 122,
+      "unit": "psi",
+      "min": 0,
+      "max": 160
+     },
+     "ok": true,
+     "conf": 0.023,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.2634,
+      "inliers": 2.0,
+      "inlier_share": 0.5,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.4052,
+      "sharp": 0.6666,
+      "glare": 0.0133,
+      "glare_needle": 0.0,
+      "support": 0.6583,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.0,
+      "tip_reach": 0.1888,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 5253
+    },
+    {
+     "file": "r37.jpg",
+     "set": "real-dev",
+     "read": 245.0594,
+     "err": 0.01235,
+     "scored_against": {
+      "value": 250,
+      "unit": "psi",
+      "min": 0,
+      "max": 400
+     },
+     "ok": true,
+     "conf": 0.996,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9124,
+      "inliers": 13.0,
+      "inlier_share": 1.0,
+      "resid": 0.012,
+      "disagree": 0.0185,
+      "outside": 0.0,
+      "tilt": 0.397,
+      "sharp": 0.64,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9458,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.2794,
+      "tip_reach": 1.0809,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 9537
+    },
+    {
+     "file": "b01.jpg",
+     "set": "real-dev",
+     "read": 45.875,
+     "err": 0.00708,
+     "scored_against": {
+      "value": 48,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "ok": true,
+     "conf": 0.969,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9159,
+      "inliers": 5.0,
+      "inlier_share": 0.8333,
+      "resid": 0.0093,
+      "disagree": 0.0,
+      "outside": 0.0165,
+      "tilt": 0.3609,
+      "sharp": 0.5699,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7333,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.8542,
+      "tip_reach": 1.0833,
+      "beyond_numbers": 0.0165
+     },
+     "at_rest": false,
+     "ms": 11254
+    },
+    {
+     "file": "b02.jpg",
+     "set": "real-dev",
+     "read": 40.3112,
+     "err": 0.00811,
+     "scored_against": {
+      "value": 39.5,
+      "unit": "\u00b0C",
+      "min": -50,
+      "max": 50
+     },
+     "ok": true,
+     "conf": 0.216,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.3693,
+      "inliers": 4.0,
+      "inlier_share": 0.5714,
+      "resid": 0.0068,
+      "disagree": 0.0,
+      "outside": 0.0052,
+      "tilt": 0.0947,
+      "sharp": 0.8047,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.4333,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.2625,
+      "tip_reach": 0.4547,
+      "beyond_numbers": 0.0052
+     },
+     "at_rest": false,
+     "ms": 5967
+    },
+    {
+     "file": "b04.jpg",
+     "set": "real-dev",
+     "read": -55.4643,
+     "err": 1.17695,
+     "scored_against": {
+      "value": 74,
+      "unit": "\u00b0F",
+      "min": 0,
+      "max": 110
+     },
+     "ok": true,
+     "conf": 0.003,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": -0.4849,
+      "inliers": 4.0,
+      "inlier_share": 0.3636,
+      "resid": 0.0361,
+      "disagree": 0.0,
+      "outside": 1.3969,
+      "tilt": 0.0829,
+      "sharp": 0.6804,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9333,
+      "ticks": 1.0,
+      "tick_lines": 0.1,
+      "ends_margin": 0.0247,
+      "tip_reach": 0.4877,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": false,
+     "ms": 7359
+    },
+    {
+     "file": "b05.jpg",
+     "set": "real-dev",
+     "read": 10.704,
+     "err": 0.3568,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 30
+     },
+     "ok": true,
+     "conf": 0.004,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.1703,
+      "inliers": 2.0,
+      "inlier_share": 0.5,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 1.8592,
+      "tilt": 0.4104,
+      "sharp": 0.8049,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.3792,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.2344,
+      "tip_reach": 0.4406,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 5463
+    },
+    {
+     "file": "b11.jpg",
+     "set": "real-dev",
+     "read": 0.3879,
+     "err": 0.00388,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 100
+     },
+     "ok": true,
+     "conf": 0.876,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9428,
+      "inliers": 5.0,
+      "inlier_share": 0.8333,
+      "resid": 0.0015,
+      "disagree": 0.0,
+      "outside": 0.2452,
+      "tilt": 0.0469,
+      "sharp": 0.74,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 0.1667,
+      "ends_margin": 0.8424,
+      "tip_reach": 1.0848,
+      "beyond_numbers": 0.2452
+     },
+     "at_rest": true,
+     "ms": 5931
+    },
+    {
+     "file": "b12.jpg",
+     "set": "real-dev",
+     "read": 6.6996,
+     "err": 0.06091,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 110
+     },
+     "ok": true,
+     "conf": 0.855,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9066,
+      "inliers": 6.0,
+      "inlier_share": 0.6667,
+      "resid": 0.0118,
+      "disagree": 0.0,
+      "outside": 0.0471,
+      "tilt": 0.5743,
+      "sharp": 0.485,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.4958,
+      "ticks": 1.0,
+      "tick_lines": 0.5333,
+      "ends_margin": 0.2486,
+      "tip_reach": 1.0578,
+      "beyond_numbers": 0.0471
+     },
+     "at_rest": true,
+     "ms": 6175
+    },
+    {
+     "file": "b13.jpg",
+     "set": "real-dev",
+     "read": 10.4756,
+     "err": 0.04762,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 220
+     },
+     "ok": true,
+     "conf": 0.713,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.8788,
+      "inliers": 4.0,
+      "inlier_share": 0.5,
+      "resid": 0.0083,
+      "disagree": 0.0,
+      "outside": 0.0476,
+      "tilt": 0.2354,
+      "sharp": 0.7967,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9917,
+      "ticks": 1.0,
+      "tick_lines": 0.0667,
+      "ends_margin": 0.8344,
+      "tip_reach": 1.0266,
+      "beyond_numbers": 0.0476
+     },
+     "at_rest": true,
+     "ms": 15502
+    },
+    {
+     "file": "b17.jpg",
+     "set": "real-dev",
+     "read": 69.9832,
+     "err": 0.04807,
+     "scored_against": {
+      "value": 82,
+      "unit": "kg/cm\u00b2",
+      "min": 0,
+      "max": 250
+     },
+     "ok": true,
+     "conf": 0.027,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9076,
+      "inliers": 2.0,
+      "inlier_share": 0.5,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.3002,
+      "tilt": 0.5419,
+      "sharp": 0.473,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9,
+      "ticks": 0.8833,
+      "tick_lines": 0.1,
+      "ends_margin": 0.0,
+      "tip_reach": 0.1871,
+      "beyond_numbers": 0.3002
+     },
+     "at_rest": false,
+     "ms": 3000
+    },
+    {
+     "file": "b18.jpg",
+     "set": "real-dev",
+     "read": 0.6265,
+     "err": 0.00626,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 100
+     },
+     "ok": true,
+     "conf": 0.331,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9002,
+      "inliers": 2.0,
+      "inlier_share": 0.4,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.3588,
+      "sharp": 0.6977,
+      "glare": 0.1241,
+      "glare_needle": 0.0,
+      "support": 0.7583,
+      "ticks": 1.0,
+      "tick_lines": 0.0333,
+      "ends_margin": 0.6938,
+      "tip_reach": 0.8906,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 9296
+    },
+    {
+     "file": "b19.jpg",
+     "set": "real-dev",
+     "read": 15.0078,
+     "err": 0.08828,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 170
+     },
+     "ok": true,
+     "conf": 0.04,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.7886,
+      "inliers": 2.0,
+      "inlier_share": 0.5,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 2.2496,
+      "tilt": 0.3735,
+      "sharp": 0.4176,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 1.0,
+      "ticks": 1.0,
+      "tick_lines": 0.8,
+      "ends_margin": 0.3397,
+      "tip_reach": 1.0833,
+      "beyond_numbers": 1.0
+     },
+     "at_rest": true,
+     "ms": 6248
+    },
+    {
+     "file": "b20.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 4300
+    },
+    {
+     "file": "b21.jpg",
+     "set": "real-dev",
+     "read": 4.4121,
+     "err": 0.01952,
+     "scored_against": {
+      "value": 0,
+      "unit": "fsw",
+      "min": 0,
+      "max": 226
+     },
+     "ok": true,
+     "conf": 0.705,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.928,
+      "inliers": 6.0,
+      "inlier_share": 0.3529,
+      "resid": 0.0023,
+      "disagree": 0.0,
+      "outside": 0.1347,
+      "tilt": 0.0734,
+      "sharp": 0.9123,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.7667,
+      "ticks": 1.0,
+      "tick_lines": 0.0,
+      "ends_margin": 0.5766,
+      "tip_reach": 0.8156,
+      "beyond_numbers": 0.1347
+     },
+     "at_rest": true,
+     "ms": 10109
+    },
+    {
+     "file": "b23.jpg",
+     "set": "real-dev",
+     "read": -2.3089,
+     "err": 0.00309,
+     "scored_against": {
+      "value": -2,
+      "unit": "\u00b0F",
+      "min": -20,
+      "max": 80
+     },
+     "ok": true,
+     "conf": 0.927,
+     "accepted": true,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.5474,
+      "inliers": 6.0,
+      "inlier_share": 0.6,
+      "resid": 0.0086,
+      "disagree": 0.002,
+      "outside": 0.0,
+      "tilt": 0.1796,
+      "sharp": 0.7599,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.8667,
+      "ticks": 1.0,
+      "tick_lines": 1.0,
+      "ends_margin": 0.6938,
+      "tip_reach": 0.8859,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 8986
+    },
+    {
+     "file": "b24.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 2396
+    },
+    {
+     "file": "b26.jpg",
+     "set": "real-dev",
+     "read": 97.9316,
+     "err": 0.65288,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 150
+     },
+     "ok": false,
+     "conf": 0.149,
+     "accepted": false,
+     "issues": [
+      "glare_needle"
+     ],
+     "rectify": "affine",
+     "features": {
+      "contrast": -0.1016,
+      "inliers": 5.0,
+      "inlier_share": 0.625,
+      "resid": 0.004,
+      "disagree": 0.0015,
+      "outside": 0.0,
+      "tilt": 0.0793,
+      "sharp": 0.7785,
+      "glare": 0.1138,
+      "glare_needle": 1.0,
+      "support": 0.7333,
+      "ticks": 1.0,
+      "tick_lines": 0.1333,
+      "ends_margin": -0.1437,
+      "tip_reach": 0.8276,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": true,
+     "ms": 5582
+    }
+   ]
+  },
+  "blind2": {
+   "summary": {
+    "n": 3,
+    "read": 1,
+    "accepted": 0,
+    "coverage": 0.0,
+    "accepted_within_2pct": 0,
+    "precision_2pct": null,
+    "accepted_over_5pct": 0,
+    "correct_and_accepted": 0.0,
+    "within_2pct_all_reads": 1.0,
+    "median_err_accepted": null,
+    "at_rest": {
+     "n": 1,
+     "accepted": 0,
+     "accepted_within_2pct": 0
+    },
+    "needle_off_zero": {
+     "n": 2,
+     "accepted": 0,
+     "accepted_within_2pct": 0
+    }
+   },
+   "rows": [
+    {
+     "file": "c27.jpg",
+     "set": "blind2",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": false,
+     "ms": 2987
+    },
+    {
+     "file": "c29.jpg",
+     "set": "blind2",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "ok": false,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "rectify": "affine",
+     "features": {},
+     "at_rest": true,
+     "ms": 2137
+    },
+    {
+     "file": "c36.jpg",
+     "set": "blind2",
+     "read": 15.1481,
+     "err": 0.00096,
+     "scored_against": {
+      "value": 15.1,
+      "unit": "bar",
+      "min": 0,
+      "max": 50
+     },
+     "ok": true,
+     "conf": 0.776,
+     "accepted": false,
+     "issues": [],
+     "rectify": "affine",
+     "features": {
+      "contrast": 0.9205,
+      "inliers": 2.0,
+      "inlier_share": 1.0,
+      "resid": 0.0,
+      "disagree": 0.0,
+      "outside": 0.0,
+      "tilt": 0.2265,
+      "sharp": 0.6669,
+      "glare": 0.0,
+      "glare_needle": 0.0,
+      "support": 0.9583,
+      "ticks": 1.0,
+      "tick_lines": 0.8667,
+      "ends_margin": 0.5096,
+      "tip_reach": 1.0828,
+      "beyond_numbers": 0.0
+     },
+     "at_rest": false,
+     "ms": 3005
+    }
+   ]
+  }
+ },
+ "decline": {
+  "n": 101,
+  "accepted": 1,
+  "rows": [
+   {
+    "file": "f002.jpg",
+    "read": 204.699,
+    "conf": 0.058,
+    "accepted": false,
+    "issues": [
+     "tilt"
+    ],
+    "folder": "bench",
+    "why": "dial cut off by the frame; needle tip outside the photo"
+   },
+   {
+    "file": "f036.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two pointers (red maximum pointer and black needle)"
+   },
+   {
+    "file": "f038.jpg",
+    "read": 0.0261,
+    "conf": 0.849,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "three gauges in the frame"
+   },
+   {
+    "file": "f061.jpg",
+    "read": -14.6961,
+    "conf": 0.106,
+    "accepted": false,
+    "issues": [
+     "glare"
+    ],
+    "folder": "bench",
+    "why": "two pointers (red maximum pointer) and a small inner dial"
+   },
+   {
+    "file": "f075.jpg",
+    "read": 238.233,
+    "conf": 0.721,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "contact gauge: two set pointers besides the needle"
+   },
+   {
+    "file": "f099.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "glare",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "not a gauge (a parking meter)"
+   },
+   {
+    "file": "f105.jpg",
+    "read": 664.8782,
+    "conf": 0.377,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "needle rests in the blank arc below the first number (cold oven)"
+   },
+   {
+    "file": "f311.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two dials with two needles on one face"
+   },
+   {
+    "file": "f507.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two pointers (red set pointer and black needle)"
+   },
+   {
+    "file": "f520.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "nodial"
+    ],
+    "folder": "bench",
+    "why": "not a single gauge (a car dashboard on a bench)"
+   },
+   {
+    "file": "f561.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two pointers (red maximum pointer)"
+   },
+   {
+    "file": "f616.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "speedometer cut off by the frame"
+   },
+   {
+    "file": "wa009-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa012-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "no dial (a column instrument)"
+   },
+   {
+    "file": "wa015-d.jpg",
+    "read": -62.8002,
+    "conf": 0.009,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "glare_needle"
+    ],
+    "folder": "bench",
+    "why": "a panel of many gauges"
+   },
+   {
+    "file": "wa024-d.jpg",
+    "read": 60.8881,
+    "conf": 0.039,
+    "accepted": false,
+    "issues": [
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "two gauges in one console"
+   },
+   {
+    "file": "wa039-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two pointers (a red set pointer and the needle)"
+   },
+   {
+    "file": "wa043-d.jpg",
+    "read": 39.2554,
+    "conf": 0.956,
+    "accepted": true,
+    "issues": [],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa044-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two dials on one face (pressure and temperature)"
+   },
+   {
+    "file": "wa047-d.jpg",
+    "read": -110.4138,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "glare_needle",
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa062-d.jpg",
+    "read": 1182.7007,
+    "conf": 0.462,
+    "accepted": false,
+    "issues": [
+     "tilt"
+    ],
+    "folder": "bench",
+    "why": "two dials on one face"
+   },
+   {
+    "file": "wa073.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "painted reference pointers beside the needle; scale partly unreadable"
+   },
+   {
+    "file": "wa074-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "three pointers"
+   },
+   {
+    "file": "wa078-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "multiple",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa099-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two pointers (a red set pointer and the needle)"
+   },
+   {
+    "file": "wa118.jpg",
+    "read": 185.7798,
+    "conf": 0.84,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "two needles (red and white)"
+   },
+   {
+    "file": "wa126-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges on a regulator"
+   },
+   {
+    "file": "wa136.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "multiple",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two needles (red set pointer and black needle)"
+   },
+   {
+    "file": "wa142-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "three gauges in the frame"
+   },
+   {
+    "file": "wa146-d.jpg",
+    "read": 26.9297,
+    "conf": 0.076,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa150-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two dials on a dashboard"
+   },
+   {
+    "file": "wa185-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "multiple",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges on a regulator"
+   },
+   {
+    "file": "wa197.jpg",
+    "read": 202.0878,
+    "conf": 0.039,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "two needles (reservoir and train pipe)"
+   },
+   {
+    "file": "wa198-d.jpg",
+    "read": -0.0643,
+    "conf": 0.433,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "a wall of gauges"
+   },
+   {
+    "file": "wa206-d.jpg",
+    "read": -21.6309,
+    "conf": 0.161,
+    "accepted": false,
+    "issues": [
+     "blur"
+    ],
+    "folder": "bench",
+    "why": "three gauges in the frame"
+   },
+   {
+    "file": "wa218-d.jpg",
+    "read": -0.3534,
+    "conf": 0.247,
+    "accepted": false,
+    "issues": [
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "several gauges in the frame"
+   },
+   {
+    "file": "wa237-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "multiple",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges in one console"
+   },
+   {
+    "file": "wa250.jpg",
+    "read": 19.578,
+    "conf": 0.348,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "two pointers (red set pointer and black needle)"
+   },
+   {
+    "file": "wa256-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa262-d.jpg",
+    "read": -19.0613,
+    "conf": 0.093,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "two gauges in one console"
+   },
+   {
+    "file": "wa273-d.jpg",
+    "read": -0.2062,
+    "conf": 0.983,
+    "accepted": false,
+    "issues": [
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "two gauges on a panel"
+   },
+   {
+    "file": "wa280-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wa281-d.jpg",
+    "read": 197.5676,
+    "conf": 0.656,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "glare_needle",
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "two gauges on a regulator"
+   },
+   {
+    "file": "wa333.jpg",
+    "read": -13.1876,
+    "conf": 0.011,
+    "accepted": false,
+    "issues": [
+     "tilt"
+    ],
+    "folder": "bench",
+    "why": "dial seen from behind through clear plastic: the scale is mirrored"
+   },
+   {
+    "file": "wa342.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "not a gauge photo (a locomotive)"
+   },
+   {
+    "file": "wa464.jpg",
+    "read": 16.3928,
+    "conf": 0.02,
+    "accepted": false,
+    "issues": [
+     "blur"
+    ],
+    "folder": "bench",
+    "why": "two needles on a dual (left and right engine) gauge"
+   },
+   {
+    "file": "wa516-d.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "bench",
+    "why": "a thermometer with a clock face inside it"
+   },
+   {
+    "file": "wa539.jpg",
+    "read": 94.6981,
+    "conf": 0.026,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "long pointer rests in the blank part of the dial below the first number (off scale)"
+   },
+   {
+    "file": "wa565-d.jpg",
+    "read": -44.8892,
+    "conf": 0.188,
+    "accepted": false,
+    "issues": [
+     "multiple"
+    ],
+    "folder": "bench",
+    "why": "a thermometer and a hygrometer side by side"
+   },
+   {
+    "file": "wa697.jpg",
+    "read": 21.4292,
+    "conf": 0.317,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "arrow pointer rests in the blank part of the dial (off scale)"
+   },
+   {
+    "file": "wa713.jpg",
+    "read": 122.821,
+    "conf": 0.152,
+    "accepted": false,
+    "issues": [
+     "glare_needle"
+    ],
+    "folder": "bench",
+    "why": "two needles on a dual vacuum and ammeter instrument"
+   },
+   {
+    "file": "wb003-d.jpg",
+    "read": -0.2668,
+    "conf": 0.63,
+    "accepted": false,
+    "issues": [],
+    "folder": "bench",
+    "why": "two gauges in the frame"
+   },
+   {
+    "file": "wb148.jpg",
+    "read": 124.0684,
+    "conf": 0.026,
+    "accepted": false,
+    "issues": [
+     "blur"
+    ],
+    "folder": "bench",
+    "why": "arrow pointer rests in the blank part of the dial below 0 (off scale); photo rotated"
+   },
+   {
+    "file": "wb214.jpg",
+    "read": -15.8149,
+    "conf": 0.015,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur"
+    ],
+    "folder": "bench",
+    "why": "needle rests on its stop 10 degrees below 0, in the blank arc"
+   },
+   {
+    "file": "wb216-d.jpg",
+    "read": 227.8221,
+    "conf": 0.817,
+    "accepted": false,
+    "issues": [
+     "blur"
+    ],
+    "folder": "bench",
+    "why": "two pointers"
+   },
+   {
+    "file": "r01.jpg",
+    "read": 306.5226,
+    "conf": 0.003,
+    "accepted": false,
+    "issues": [],
+    "folder": "real",
+    "why": "two needles, two scales"
+   },
+   {
+    "file": "r02.jpg",
+    "read": -114.3149,
+    "conf": 0.335,
+    "accepted": false,
+    "issues": [],
+    "folder": "real",
+    "why": "pyrometer with three scales"
+   },
+   {
+    "file": "r07.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "real",
+    "why": "two needles"
+   },
+   {
+    "file": "r08.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "real",
+    "why": "several needles, faded"
+   },
+   {
+    "file": "r11.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple",
+     "scale"
+    ],
+    "folder": "real",
+    "why": "gauge tiny in the frame"
+   },
+   {
+    "file": "r14.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "real",
+    "why": "gauge tiny in the frame"
+   },
+   {
+    "file": "r16.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "real",
+    "why": "the back of a gauge, no face"
+   },
+   {
+    "file": "r17.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "small",
+     "blur",
+     "glare",
+     "scale"
+    ],
+    "folder": "real",
+    "why": "extreme close-up, part of a dial"
+   },
+   {
+    "file": "r19.jpg",
+    "read": 225.9019,
+    "conf": 0.343,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple"
+    ],
+    "folder": "real",
+    "why": "two gauges in one photo"
+   },
+   {
+    "file": "r21.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "real",
+    "why": "dirty glass, scale unreadable"
+   },
+   {
+    "file": "r22.jpg",
+    "read": 3.7067,
+    "conf": 0.486,
+    "accepted": false,
+    "issues": [],
+    "folder": "real",
+    "why": "compound vacuum and pressure scale"
+   },
+   {
+    "file": "r29.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "real",
+    "why": "two needles, two scales"
+   },
+   {
+    "file": "r32.jpg",
+    "read": 178.6305,
+    "conf": 0.093,
+    "accepted": false,
+    "issues": [
+     "tilt"
+    ],
+    "folder": "real",
+    "why": "gauge tiny in the frame"
+   },
+   {
+    "file": "r34.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "real",
+    "why": "open mechanism"
+   },
+   {
+    "file": "r39.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "real",
+    "why": "mechanism and a loose dial"
+   },
+   {
+    "file": "r40.jpg",
+    "read": -13.2716,
+    "conf": 0.856,
+    "accepted": false,
+    "issues": [
+     "multiple"
+    ],
+    "folder": "real",
+    "why": "two gauges in one photo"
+   },
+   {
+    "file": "b03.jpg",
+    "read": 43.0619,
+    "conf": 0.746,
+    "accepted": false,
+    "issues": [],
+    "folder": "blind1",
+    "why": "needle below the printed scale (oven thermometer at room temperature)"
+   },
+   {
+    "file": "b06.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "a valve, no gauge"
+   },
+   {
+    "file": "b07.jpg",
+    "read": 737.8813,
+    "conf": 0.175,
+    "accepted": false,
+    "issues": [],
+    "folder": "blind1",
+    "why": "contact gauge with two set-point needles"
+   },
+   {
+    "file": "b08.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "pump with no dial"
+   },
+   {
+    "file": "b09.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "pump with no dial"
+   },
+   {
+    "file": "b10.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "fire-extinguisher gauge with no numbers"
+   },
+   {
+    "file": "b14.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "glare",
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "two gauges in one frame"
+   },
+   {
+    "file": "b15.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "gauge mechanism, no dial face"
+   },
+   {
+    "file": "b16.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "back of a gauge"
+   },
+   {
+    "file": "b22.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "blind1",
+    "why": "second, red set pointer"
+   },
+   {
+    "file": "b25.jpg",
+    "read": -70.4918,
+    "conf": 0.046,
+    "accepted": false,
+    "issues": [],
+    "folder": "blind1",
+    "why": "two gauges in one frame"
+   },
+   {
+    "file": "c01.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "several small gauges on a test board"
+   },
+   {
+    "file": "c03.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "small dial with an inset second dial"
+   },
+   {
+    "file": "c05.jpg",
+    "read": 5959.0085,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt"
+    ],
+    "folder": "blind",
+    "why": "engine-order telegraph, words not numbers"
+   },
+   {
+    "file": "c06.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "glare",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "gauges seen edge-on"
+   },
+   {
+    "file": "c07.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "the side of a gauge, no face"
+   },
+   {
+    "file": "c09.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "the back of a gauge"
+   },
+   {
+    "file": "c10.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "the back of a gauge"
+   },
+   {
+    "file": "c12.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "the back of a gauge"
+   },
+   {
+    "file": "c13.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "steep angle, most of the scale out of view"
+   },
+   {
+    "file": "c14.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "a computer screen, not a gauge"
+   },
+   {
+    "file": "c15.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "no gauge"
+   },
+   {
+    "file": "c23.jpg",
+    "read": 89.3841,
+    "conf": 0.003,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "small",
+     "blur",
+     "multiple"
+    ],
+    "folder": "blind",
+    "why": "two gauges in one frame"
+   },
+   {
+    "file": "c25.jpg",
+    "read": -2.1718,
+    "conf": 0.984,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "multiple"
+    ],
+    "folder": "blind",
+    "why": "several gauges in one frame"
+   },
+   {
+    "file": "c26.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "sight glass, no gauge"
+   },
+   {
+    "file": "c28.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "two needles on one dial"
+   },
+   {
+    "file": "c30.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "tyre inflator with no dial"
+   },
+   {
+    "file": "c31.jpg",
+    "read": null,
+    "conf": 0.0,
+    "accepted": false,
+    "issues": [
+     "small",
+     "blur",
+     "scale"
+    ],
+    "folder": "blind",
+    "why": "gauge cut off by the frame, behind a bottle"
+   },
+   {
+    "file": "c32.jpg",
+    "read": 108.7543,
+    "conf": 0.423,
+    "accepted": false,
+    "issues": [],
+    "folder": "blind",
+    "why": "compound gauge, vacuum and pressure on one dial"
+   },
+   {
+    "file": "c34.jpg",
+    "read": 29.0426,
+    "conf": 0.003,
+    "accepted": false,
+    "issues": [
+     "tilt",
+     "blur",
+     "multiple"
+    ],
+    "folder": "blind",
+    "why": "two gauges in one frame"
+   }
+  ]
+ }
+}

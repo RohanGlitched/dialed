@@ -1,0 +1,6519 @@
+{
+ "runs": {
+  "classic": {
+   "kind": "classic",
+   "reader": null,
+   "env": null,
+   "model": null,
+   "spend": null,
+   "sets": {
+    "bench-test": {
+     "summary": {
+      "n": 63,
+      "read": 41,
+      "accepted": 41,
+      "coverage": 0.6508,
+      "accepted_within_2pct": 10,
+      "precision_2pct": 0.2439,
+      "accepted_over_5pct": 18,
+      "correct_and_accepted": 0.1587,
+      "within_2pct_all_reads": 0.2439,
+      "median_err_accepted": 0.04473,
+      "at_rest": {
+       "n": 35,
+       "accepted": 21,
+       "accepted_within_2pct": 6
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 20,
+       "accepted_within_2pct": 4
+      }
+     }
+    },
+    "bench-dev": {
+     "summary": {
+      "n": 44,
+      "read": 30,
+      "accepted": 30,
+      "coverage": 0.6818,
+      "accepted_within_2pct": 9,
+      "precision_2pct": 0.3,
+      "accepted_over_5pct": 15,
+      "correct_and_accepted": 0.2045,
+      "within_2pct_all_reads": 0.3,
+      "median_err_accepted": 0.04638,
+      "at_rest": {
+       "n": 26,
+       "accepted": 16,
+       "accepted_within_2pct": 6
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 14,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "real-dev": {
+     "summary": {
+      "n": 37,
+      "read": 23,
+      "accepted": 23,
+      "coverage": 0.6216,
+      "accepted_within_2pct": 11,
+      "precision_2pct": 0.4783,
+      "accepted_over_5pct": 9,
+      "correct_and_accepted": 0.2973,
+      "within_2pct_all_reads": 0.4783,
+      "median_err_accepted": 0.03782,
+      "at_rest": {
+       "n": 17,
+       "accepted": 9,
+       "accepted_within_2pct": 3
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 14,
+       "accepted_within_2pct": 8
+      }
+     }
+    },
+    "blind2": {
+     "summary": {
+      "n": 3,
+      "read": 2,
+      "accepted": 2,
+      "coverage": 0.6667,
+      "accepted_within_2pct": 1,
+      "precision_2pct": 0.5,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.3333,
+      "within_2pct_all_reads": 0.5,
+      "median_err_accepted": 0.01955,
+      "at_rest": {
+       "n": 1,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 2,
+       "accepted_within_2pct": 1
+      }
+     }
+    }
+   },
+   "decline": null
+  },
+  "dialed": {
+   "kind": "dialed",
+   "reader": "current",
+   "env": {},
+   "model": null,
+   "spend": null,
+   "sets": {
+    "bench-test": {
+     "summary": {
+      "n": 63,
+      "read": 48,
+      "accepted": 5,
+      "coverage": 0.0794,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 1.0,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0794,
+      "within_2pct_all_reads": 0.375,
+      "median_err_accepted": 0.00371,
+      "at_rest": {
+       "n": 35,
+       "accepted": 2,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 3,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "bench-dev": {
+     "summary": {
+      "n": 44,
+      "read": 32,
+      "accepted": 7,
+      "coverage": 0.1591,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 0.7143,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.1136,
+      "within_2pct_all_reads": 0.5,
+      "median_err_accepted": 0.01822,
+      "at_rest": {
+       "n": 26,
+       "accepted": 3,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 4,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "real-dev": {
+     "summary": {
+      "n": 37,
+      "read": 29,
+      "accepted": 7,
+      "coverage": 0.1892,
+      "accepted_within_2pct": 6,
+      "precision_2pct": 0.8571,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.1622,
+      "within_2pct_all_reads": 0.6552,
+      "median_err_accepted": 0.00952,
+      "at_rest": {
+       "n": 17,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 7,
+       "accepted_within_2pct": 6
+      }
+     }
+    },
+    "blind2": {
+     "summary": {
+      "n": 3,
+      "read": 1,
+      "accepted": 0,
+      "coverage": 0.0,
+      "accepted_within_2pct": 0,
+      "precision_2pct": null,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0,
+      "within_2pct_all_reads": 1.0,
+      "median_err_accepted": null,
+      "at_rest": {
+       "n": 1,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      }
+     }
+    }
+   },
+   "decline": {
+    "n": 101,
+    "accepted": 1
+   }
+  },
+  "no-ends-check": {
+   "kind": "dialed",
+   "reader": "current",
+   "env": {
+    "DIALED_ENDS": "off"
+   },
+   "model": null,
+   "spend": null,
+   "sets": {
+    "bench-test": {
+     "summary": {
+      "n": 63,
+      "read": 48,
+      "accepted": 5,
+      "coverage": 0.0794,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 1.0,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0794,
+      "within_2pct_all_reads": 0.3542,
+      "median_err_accepted": 0.00371,
+      "at_rest": {
+       "n": 35,
+       "accepted": 2,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 3,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "bench-dev": {
+     "summary": {
+      "n": 44,
+      "read": 32,
+      "accepted": 7,
+      "coverage": 0.1591,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 0.7143,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.1136,
+      "within_2pct_all_reads": 0.5312,
+      "median_err_accepted": 0.01822,
+      "at_rest": {
+       "n": 26,
+       "accepted": 3,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 4,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "real-dev": {
+     "summary": {
+      "n": 37,
+      "read": 29,
+      "accepted": 7,
+      "coverage": 0.1892,
+      "accepted_within_2pct": 6,
+      "precision_2pct": 0.8571,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.1622,
+      "within_2pct_all_reads": 0.6552,
+      "median_err_accepted": 0.00952,
+      "at_rest": {
+       "n": 17,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 7,
+       "accepted_within_2pct": 6
+      }
+     }
+    },
+    "blind2": {
+     "summary": {
+      "n": 3,
+      "read": 1,
+      "accepted": 0,
+      "coverage": 0.0,
+      "accepted_within_2pct": 0,
+      "precision_2pct": null,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0,
+      "within_2pct_all_reads": 1.0,
+      "median_err_accepted": null,
+      "at_rest": {
+       "n": 1,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      }
+     }
+    }
+   },
+   "decline": {
+    "n": 101,
+    "accepted": 1
+   }
+  },
+  "nova-lite": {
+   "kind": "vlm",
+   "reader": null,
+   "env": null,
+   "model": "apac.amazon.nova-lite-v1:0",
+   "spend": {
+    "calls": 248,
+    "input_tokens": 495329,
+    "output_tokens": 11403,
+    "usd": 0.0325
+   },
+   "sets": {
+    "bench-test": {
+     "summary": {
+      "n": 63,
+      "read": 63,
+      "accepted": 63,
+      "coverage": 1.0,
+      "accepted_within_2pct": 4,
+      "precision_2pct": 0.0635,
+      "accepted_over_5pct": 51,
+      "correct_and_accepted": 0.0635,
+      "within_2pct_all_reads": 0.0635,
+      "median_err_accepted": 0.4,
+      "at_rest": {
+       "n": 35,
+       "accepted": 35,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 28,
+       "accepted_within_2pct": 2
+      }
+     },
+     "summary_at_090": {
+      "n": 63,
+      "read": 63,
+      "accepted": 63,
+      "coverage": 1.0,
+      "accepted_within_2pct": 4,
+      "precision_2pct": 0.0635,
+      "accepted_over_5pct": 51,
+      "correct_and_accepted": 0.0635,
+      "within_2pct_all_reads": 0.0635,
+      "median_err_accepted": 0.4,
+      "at_rest": {
+       "n": 35,
+       "accepted": 35,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 28,
+       "accepted_within_2pct": 2
+      }
+     }
+    },
+    "bench-dev": {
+     "summary": {
+      "n": 44,
+      "read": 44,
+      "accepted": 44,
+      "coverage": 1.0,
+      "accepted_within_2pct": 7,
+      "precision_2pct": 0.1591,
+      "accepted_over_5pct": 36,
+      "correct_and_accepted": 0.1591,
+      "within_2pct_all_reads": 0.1591,
+      "median_err_accepted": 0.37516,
+      "at_rest": {
+       "n": 26,
+       "accepted": 26,
+       "accepted_within_2pct": 5
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 18,
+       "accepted_within_2pct": 2
+      }
+     },
+     "summary_at_090": {
+      "n": 44,
+      "read": 44,
+      "accepted": 44,
+      "coverage": 1.0,
+      "accepted_within_2pct": 7,
+      "precision_2pct": 0.1591,
+      "accepted_over_5pct": 36,
+      "correct_and_accepted": 0.1591,
+      "within_2pct_all_reads": 0.1591,
+      "median_err_accepted": 0.37516,
+      "at_rest": {
+       "n": 26,
+       "accepted": 26,
+       "accepted_within_2pct": 5
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 18,
+       "accepted_within_2pct": 2
+      }
+     }
+    },
+    "real-dev": {
+     "summary": {
+      "n": 37,
+      "read": 37,
+      "accepted": 37,
+      "coverage": 1.0,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 0.1351,
+      "accepted_over_5pct": 29,
+      "correct_and_accepted": 0.1351,
+      "within_2pct_all_reads": 0.1351,
+      "median_err_accepted": 0.21,
+      "at_rest": {
+       "n": 17,
+       "accepted": 17,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 20,
+       "accepted_within_2pct": 3
+      }
+     },
+     "summary_at_090": {
+      "n": 37,
+      "read": 37,
+      "accepted": 37,
+      "coverage": 1.0,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 0.1351,
+      "accepted_over_5pct": 29,
+      "correct_and_accepted": 0.1351,
+      "within_2pct_all_reads": 0.1351,
+      "median_err_accepted": 0.21,
+      "at_rest": {
+       "n": 17,
+       "accepted": 17,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 20,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "blind2": {
+     "summary": {
+      "n": 3,
+      "read": 3,
+      "accepted": 3,
+      "coverage": 1.0,
+      "accepted_within_2pct": 0,
+      "precision_2pct": 0.0,
+      "accepted_over_5pct": 3,
+      "correct_and_accepted": 0.0,
+      "within_2pct_all_reads": 0.0,
+      "median_err_accepted": 0.46667,
+      "at_rest": {
+       "n": 1,
+       "accepted": 1,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 2,
+       "accepted_within_2pct": 0
+      }
+     },
+     "summary_at_090": {
+      "n": 3,
+      "read": 3,
+      "accepted": 3,
+      "coverage": 1.0,
+      "accepted_within_2pct": 0,
+      "precision_2pct": 0.0,
+      "accepted_over_5pct": 3,
+      "correct_and_accepted": 0.0,
+      "within_2pct_all_reads": 0.0,
+      "median_err_accepted": 0.46667,
+      "at_rest": {
+       "n": 1,
+       "accepted": 1,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 2,
+       "accepted_within_2pct": 0
+      }
+     }
+    }
+   },
+   "decline": {
+    "n": 101,
+    "accepted": 87
+   }
+  },
+  "submitted": {
+   "kind": "dialed",
+   "reader": "ref:dd8b575",
+   "env": {},
+   "model": null,
+   "spend": null,
+   "sets": {
+    "bench-test": {
+     "summary": {
+      "n": 63,
+      "read": 48,
+      "accepted": 10,
+      "coverage": 0.1587,
+      "accepted_within_2pct": 6,
+      "precision_2pct": 0.6,
+      "accepted_over_5pct": 1,
+      "correct_and_accepted": 0.0952,
+      "within_2pct_all_reads": 0.3542,
+      "median_err_accepted": 0.01018,
+      "at_rest": {
+       "n": 35,
+       "accepted": 6,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 4,
+       "accepted_within_2pct": 4
+      }
+     }
+    },
+    "bench-dev": {
+     "summary": {
+      "n": 44,
+      "read": 33,
+      "accepted": 12,
+      "coverage": 0.2727,
+      "accepted_within_2pct": 5,
+      "precision_2pct": 0.4167,
+      "accepted_over_5pct": 5,
+      "correct_and_accepted": 0.1136,
+      "within_2pct_all_reads": 0.5152,
+      "median_err_accepted": 0.03643,
+      "at_rest": {
+       "n": 26,
+       "accepted": 7,
+       "accepted_within_2pct": 2
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 5,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "real-dev": {
+     "summary": {
+      "n": 37,
+      "read": 29,
+      "accepted": 12,
+      "coverage": 0.3243,
+      "accepted_within_2pct": 11,
+      "precision_2pct": 0.9167,
+      "accepted_over_5pct": 1,
+      "correct_and_accepted": 0.2973,
+      "within_2pct_all_reads": 0.6552,
+      "median_err_accepted": 0.00962,
+      "at_rest": {
+       "n": 17,
+       "accepted": 4,
+       "accepted_within_2pct": 3
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 8,
+       "accepted_within_2pct": 8
+      }
+     }
+    },
+    "blind2": {
+     "summary": {
+      "n": 3,
+      "read": 1,
+      "accepted": 0,
+      "coverage": 0.0,
+      "accepted_within_2pct": 0,
+      "precision_2pct": null,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0,
+      "within_2pct_all_reads": 1.0,
+      "median_err_accepted": null,
+      "at_rest": {
+       "n": 1,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      }
+     }
+    }
+   },
+   "decline": {
+    "n": 101,
+    "accepted": 4
+   }
+  },
+  "with-projective": {
+   "kind": "dialed",
+   "reader": "current",
+   "env": {
+    "DIALED_RECTIFY": "projective"
+   },
+   "model": null,
+   "spend": null,
+   "sets": {
+    "bench-test": {
+     "summary": {
+      "n": 63,
+      "read": 49,
+      "accepted": 3,
+      "coverage": 0.0476,
+      "accepted_within_2pct": 3,
+      "precision_2pct": 1.0,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0476,
+      "within_2pct_all_reads": 0.4082,
+      "median_err_accepted": 0.00371,
+      "at_rest": {
+       "n": 35,
+       "accepted": 1,
+       "accepted_within_2pct": 1
+      },
+      "needle_off_zero": {
+       "n": 28,
+       "accepted": 2,
+       "accepted_within_2pct": 2
+      }
+     }
+    },
+    "bench-dev": {
+     "summary": {
+      "n": 44,
+      "read": 32,
+      "accepted": 7,
+      "coverage": 0.1591,
+      "accepted_within_2pct": 4,
+      "precision_2pct": 0.5714,
+      "accepted_over_5pct": 2,
+      "correct_and_accepted": 0.0909,
+      "within_2pct_all_reads": 0.4375,
+      "median_err_accepted": 0.01822,
+      "at_rest": {
+       "n": 26,
+       "accepted": 3,
+       "accepted_within_2pct": 1
+      },
+      "needle_off_zero": {
+       "n": 18,
+       "accepted": 4,
+       "accepted_within_2pct": 3
+      }
+     }
+    },
+    "real-dev": {
+     "summary": {
+      "n": 37,
+      "read": 30,
+      "accepted": 8,
+      "coverage": 0.2162,
+      "accepted_within_2pct": 7,
+      "precision_2pct": 0.875,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.1892,
+      "within_2pct_all_reads": 0.6667,
+      "median_err_accepted": 0.00863,
+      "at_rest": {
+       "n": 17,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 20,
+       "accepted": 8,
+       "accepted_within_2pct": 7
+      }
+     }
+    },
+    "blind2": {
+     "summary": {
+      "n": 3,
+      "read": 1,
+      "accepted": 0,
+      "coverage": 0.0,
+      "accepted_within_2pct": 0,
+      "precision_2pct": null,
+      "accepted_over_5pct": 0,
+      "correct_and_accepted": 0.0,
+      "within_2pct_all_reads": 1.0,
+      "median_err_accepted": null,
+      "at_rest": {
+       "n": 1,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      },
+      "needle_off_zero": {
+       "n": 2,
+       "accepted": 0,
+       "accepted_within_2pct": 0
+      }
+     }
+    }
+   },
+   "decline": {
+    "n": 101,
+    "accepted": 2
+   }
+  }
+ },
+ "test_photos": [
+  {
+   "file": "f007.jpg",
+   "thumb": "/evidence/bench/f007.jpg",
+   "truth": 151,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "Pressure gauge",
+    "author": "zimpenfish",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/12708857@N00/490405017",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 144.3647,
+     "err": 0.02212,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.045
+    },
+    "nova-lite": {
+     "read": 150.0,
+     "err": 0.00333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 155.8668,
+     "err": 0.01622,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 144.3647,
+     "err": 0.02212,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.093
+    }
+   }
+  },
+  {
+   "file": "f009.jpg",
+   "thumb": "/evidence/bench/f009.jpg",
+   "truth": 0.5,
+   "min": 0.5,
+   "max": 4.5,
+   "unit": "bar",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "Porsche Tire Pressure Gauge",
+    "author": "fragment.fi",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/32757845@N08/9207945919",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 0.907,
+     "err": 0.10175,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.249
+    },
+    "nova-lite": {
+     "read": 50.0,
+     "err": 12.375,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 0.907,
+     "err": 0.10175,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.789
+    }
+   }
+  },
+  {
+   "file": "f013.jpg",
+   "thumb": "/evidence/bench/f013.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 160.0,
+   "unit": "psi",
+   "alt": [
+    {
+     "value": 0.0,
+     "min": 0.0,
+     "max": 11.0,
+     "unit": "bar"
+    }
+   ],
+   "at_rest": true,
+   "credit": {
+    "title": "Pressure gauge",
+    "author": "zimpenfish",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/12708857@N00/490380276",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": -0.0357,
+     "err": 0.00022,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.21
+    },
+    "nova-lite": {
+     "read": 120.0,
+     "err": 0.75,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 3.8628,
+     "err": 0.02414,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -0.0357,
+     "err": 0.00022,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.71
+    }
+   }
+  },
+  {
+   "file": "f014.jpg",
+   "thumb": "/evidence/bench/f014.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 18.0,
+   "unit": "bar",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "pressure gauge",
+    "author": "skinnydiver",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/53197929@N00/5952902543",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 23.6592,
+     "err": 1.3144,
+     "accepted": false,
+     "issues": [
+      "range"
+     ],
+     "conf": 0.002
+    },
+    "nova-lite": {
+     "read": 0.0,
+     "err": 0.0,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 0.2581,
+     "err": 0.01434,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 23.6592,
+     "err": 1.3144,
+     "accepted": false,
+     "issues": [
+      "range"
+     ],
+     "conf": 0.129
+    }
+   }
+  },
+  {
+   "file": "f016.jpg",
+   "thumb": "/evidence/bench/f016.jpg",
+   "truth": 90.0,
+   "min": 0.0,
+   "max": 400.0,
+   "unit": "kPa",
+   "alt": [
+    {
+     "value": 13.0,
+     "min": 0.0,
+     "max": 60.0,
+     "unit": "psi"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "Pressure Gauge",
+    "author": "mikecogh",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/89165847@N00/10185653705",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": -22.5286,
+     "err": 0.28132,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.002
+    },
+    "nova-lite": {
+     "read": 40.0,
+     "err": 0.125,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 71.4241,
+     "err": 0.04644,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -22.5286,
+     "err": 0.28132,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.019
+    }
+   }
+  },
+  {
+   "file": "f022.jpg",
+   "thumb": "/evidence/bench/f022.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 30.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "Pressure Cooker - All American Model 910 - Pressure gauge",
+    "author": "FoodCraftLab",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/134946786@N05/20347045123",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 2148.58,
+     "err": 71.61933,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.457
+    },
+    "nova-lite": {
+     "read": 1.5,
+     "err": 0.05,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 5.3155,
+     "err": 0.17718,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 2148.58,
+     "err": 71.61933,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.787
+    }
+   }
+  },
+  {
+   "file": "f041.jpg",
+   "thumb": "/evidence/bench/f041.jpg",
+   "truth": 31.5,
+   "min": 0.0,
+   "max": 70.0,
+   "unit": "kg/cm2",
+   "alt": [
+    {
+     "value": 448,
+     "min": 0,
+     "max": 1000,
+     "unit": "psi"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "Pressure Gauge Yellow",
+    "author": "marketingthechange",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/132039626@N08/21458325863",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 31.9272,
+     "err": 0.0061,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.559
+    },
+    "nova-lite": {
+     "read": 400.0,
+     "err": 0.048,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 26.8206,
+     "err": 0.06685,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 31.9272,
+     "err": 0.0061,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.768
+    }
+   }
+  },
+  {
+   "file": "f042.jpg",
+   "thumb": "/evidence/bench/f042.jpg",
+   "truth": 132,
+   "min": 0,
+   "max": 300,
+   "unit": "psi",
+   "alt": [
+    {
+     "value": 9.1,
+     "min": 0,
+     "max": 20,
+     "unit": "bar"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "Pressure Gauge",
+    "author": "psd",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/45581782@N00/4985750685",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 133.3397,
+     "err": 0.00447,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.703
+    },
+    "nova-lite": {
+     "read": 180.0,
+     "err": 0.16,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 129.3359,
+     "err": 0.00888,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 133.3397,
+     "err": 0.00447,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.774
+    }
+   }
+  },
+  {
+   "file": "f082.jpg",
+   "thumb": "/evidence/bench/f082.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "Under Pressure",
+    "author": "ThenAndAgain",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/22606501@N00/60636479",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 4.3758,
+     "err": 0.04376,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.892
+    },
+    "nova-lite": {
+     "read": 65.0,
+     "err": 0.65,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -3.5343,
+     "err": 0.03534,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 4.3758,
+     "err": 0.04376,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.934
+    }
+   }
+  },
+  {
+   "file": "f084.jpg",
+   "thumb": "/evidence/bench/f084.jpg",
+   "truth": 73.0,
+   "min": 40.0,
+   "max": 140.0,
+   "unit": "\u00b0F",
+   "alt": [
+    {
+     "value": 22.8,
+     "min": 5.0,
+     "max": 60.0,
+     "unit": "\u00b0C"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "Kodak Thermometer",
+    "author": "Per Olof Forsberg",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/55907694@N04/6725882725",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 21.6221,
+     "err": 0.02142,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.529
+    },
+    "nova-lite": {
+     "read": 100.0,
+     "err": 0.27,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 62.2443,
+     "err": 0.10756,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 21.6221,
+     "err": 0.02142,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.657
+    }
+   }
+  },
+  {
+   "file": "f085.jpg",
+   "thumb": "/evidence/bench/f085.jpg",
+   "truth": 73.8,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "Increasing Pressure",
+    "author": "flattop341",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/46861107@N00/236611537",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 28.8834,
+     "err": 0.44917,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.545
+    },
+    "nova-lite": {
+     "read": 70.0,
+     "err": 0.038,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 54.3553,
+     "err": 0.19445,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 28.8834,
+     "err": 0.44917,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.508
+    }
+   }
+  },
+  {
+   "file": "f485.jpg",
+   "thumb": "/evidence/bench/f485.jpg",
+   "truth": 21.5,
+   "min": -10.0,
+   "max": 50.0,
+   "unit": "\u00b0C",
+   "alt": [
+    {
+     "value": 71.0,
+     "min": 14.0,
+     "max": 122.0,
+     "unit": "\u00b0F"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "Thermometer",
+    "author": "exfordy",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/32659528@N00/406242743",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 70.1423,
+     "err": 0.00794,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.44
+    },
+    "nova-lite": {
+     "read": 20.0,
+     "err": 0.025,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 147.0173,
+     "err": 0.70386,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.868
+    }
+   }
+  },
+  {
+   "file": "f495.jpg",
+   "thumb": "/evidence/bench/f495.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 10000.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "DSC_1455.jpg",
+    "author": "srslyguys",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/11228869@N02/9282197926",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 6500.0,
+     "err": 0.65,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -49.1781,
+     "err": 0.00492,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "f498.jpg",
+   "thumb": "/evidence/bench/f498.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 3000.0,
+   "unit": "psi",
+   "alt": [
+    {
+     "value": 0.0,
+     "min": 0.0,
+     "max": 200.0,
+     "unit": "bar"
+    }
+   ],
+   "at_rest": true,
+   "credit": {
+    "title": "sh4 under pressure",
+    "author": "Upupa4me",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/40650891@N02/8408911637",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 2026.3825,
+     "err": 0.67546,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.203
+    },
+    "nova-lite": {
+     "read": 2500.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 2135.4061,
+     "err": 0.7118,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 2026.3825,
+     "err": 0.67546,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.543
+    }
+   }
+  },
+  {
+   "file": "f501.jpg",
+   "thumb": "/evidence/bench/f501.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "SILVER SPIKE RAILROAD FESTIVAL",
+    "author": "bill85704",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/48804373@N07/13347782364",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 202.3909,
+     "err": 0.67464,
+     "accepted": false,
+     "issues": [
+      "glare"
+     ],
+     "conf": 0.622
+    },
+    "nova-lite": {
+     "read": 250.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 202.3909,
+     "err": 0.67464,
+     "accepted": true,
+     "issues": [
+      "glare"
+     ],
+     "conf": 0.95
+    }
+   }
+  },
+  {
+   "file": "f504.jpg",
+   "thumb": "/evidence/bench/f504.jpg",
+   "truth": 173.0,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "gaged",
+    "author": "Damian Gadal",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/23024164@N06/11595600776",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 172.7647,
+     "err": 0.00078,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.971
+    },
+    "nova-lite": {
+     "read": 150.0,
+     "err": 0.07667,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 174.4858,
+     "err": 0.00495,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 172.7647,
+     "err": 0.00078,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.962
+    }
+   }
+  },
+  {
+   "file": "f505.jpg",
+   "thumb": "/evidence/bench/f505.jpg",
+   "truth": 173.0,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "Under pressure",
+    "author": "Damian Gadal",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/23024164@N06/8295158338",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 172.6604,
+     "err": 0.00113,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "conf": 0.867
+    },
+    "nova-lite": {
+     "read": 150.0,
+     "err": 0.07667,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 172.6604,
+     "err": 0.00113,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "conf": 0.845
+    }
+   }
+  },
+  {
+   "file": "f728.jpg",
+   "thumb": "/evidence/bench/f728.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 30.0,
+   "unit": "inHg",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "Vacuum gauge from the LSWR brake composite",
+    "author": "James E. Petts",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/14730981@N08/9131124842",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 48.9274,
+     "err": 1.63091,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.002
+    },
+    "nova-lite": {
+     "read": 25.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 48.9274,
+     "err": 1.63091,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.04
+    }
+   }
+  },
+  {
+   "file": "f729.jpg",
+   "thumb": "/evidence/bench/f729.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 30.0,
+   "unit": "inHg",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "Vacuum gauge",
+    "author": "Ken_Mayer",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/14529688@N08/8068936935",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 25.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 4.2692,
+     "err": 0.14231,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "f736.jpg",
+   "thumb": "/evidence/bench/f736.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 250.0,
+   "unit": "mmHg",
+   "alt": [
+    {
+     "value": 0.0,
+     "min": 0.0,
+     "max": 1000.0,
+     "unit": "mmAq"
+    }
+   ],
+   "at_rest": true,
+   "credit": {
+    "title": "Depression Gauge",
+    "author": "stiefkind",
+    "license": "CC0 1.0",
+    "source": "https://www.flickr.com/photos/52924836@N00/3089413283",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": -589.732,
+     "err": 0.58973,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.666
+    },
+    "nova-lite": {
+     "read": 100.0,
+     "err": 0.1,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 60.7169,
+     "err": 0.24287,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -589.732,
+     "err": 0.58973,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.835
+    }
+   }
+  },
+  {
+   "file": "f739.jpg",
+   "thumb": "/evidence/bench/f739.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 30.0,
+   "unit": "inHg",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "No Vacuum",
+    "author": "BruceHH",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/62997919@N00/189255766",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "read": 2.2351,
+     "err": 0.0745,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.436
+    },
+    "nova-lite": {
+     "read": 24.0,
+     "err": 0.8,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 2.2351,
+     "err": 0.0745,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.792
+    }
+   }
+  },
+  {
+   "file": "wa002.jpg",
+   "thumb": "/evidence/bench/wa002.jpg",
+   "truth": -12.6,
+   "min": -100.0,
+   "max": 0.0,
+   "unit": "kPa",
+   "alt": [
+    {
+     "value": 3.75,
+     "min": 0,
+     "max": 30,
+     "unit": "inHg"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Blood Cooler Air Pressure.jpg",
+    "author": "MurphyTC",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Blood_Cooler_Air_Pressure.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 10.0,
+     "err": 0.20833,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -15.5325,
+     "err": 0.02932,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa025.jpg",
+   "thumb": "/evidence/bench/wa025.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 35.0,
+   "unit": "kg/cm2",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Man\u00f3metro de presi\u00f3n.jpg",
+    "author": "Frobles",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Man%C3%B3metro_de_presi%C3%B3n.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 0.3719,
+     "err": 0.01063,
+     "accepted": true,
+     "issues": [
+      "blur",
+      "glare"
+     ],
+     "conf": 0.939
+    },
+    "nova-lite": {
+     "read": 55.0,
+     "err": 1.57143,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -1.1731,
+     "err": 0.03352,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 0.3719,
+     "err": 0.01063,
+     "accepted": true,
+     "issues": [
+      "blur",
+      "glare"
+     ],
+     "conf": 0.972
+    }
+   }
+  },
+  {
+   "file": "wa026.jpg",
+   "thumb": "/evidence/bench/wa026.jpg",
+   "truth": 3.0,
+   "min": 0.0,
+   "max": 60.0,
+   "unit": "bar",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Druck Manometer.jpg",
+    "author": "ADwarf",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Druck_Manometer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 3.4028,
+     "err": 0.00671,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.739
+    },
+    "nova-lite": {
+     "read": 4.0,
+     "err": 0.01667,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -0.7143,
+     "err": 0.06191,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 3.4028,
+     "err": 0.00671,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.818
+    }
+   }
+  },
+  {
+   "file": "wa034.jpg",
+   "thumb": "/evidence/bench/wa034.jpg",
+   "truth": 59.0,
+   "min": 0.0,
+   "max": 250.0,
+   "unit": "bar",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Manometer mit CO2 Flasche - Bild 005.jpg",
+    "author": "Lupus in Saxonia",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer_mit_CO2_Flasche_-_Bild_005.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 150.0,
+     "err": 0.364,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 97.7982,
+     "err": 0.15519,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa048.jpg",
+   "thumb": "/evidence/bench/wa048.jpg",
+   "truth": 78.0,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "?",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:MWP manometr.JPG",
+    "author": "Monikoska",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MWP_manometr.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 77.6291,
+     "err": 0.00371,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.941
+    },
+    "nova-lite": {
+     "read": 80.0,
+     "err": 0.02,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 77.6291,
+     "err": 0.00371,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.969
+    }
+   }
+  },
+  {
+   "file": "wa054.jpg",
+   "thumb": "/evidence/bench/wa054.jpg",
+   "truth": 62.3,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "m water",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Wasserwerk am Hochablass Haupt-Druckwindkessel 5.jpg",
+    "author": "Neitram",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Wasserwerk_am_Hochablass_Haupt-Druckwindkessel_5.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 63.1427,
+     "err": 0.00843,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.853
+    },
+    "nova-lite": {
+     "read": 70.0,
+     "err": 0.077,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 63.1427,
+     "err": 0.00843,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.581
+    }
+   }
+  },
+  {
+   "file": "wa060.jpg",
+   "thumb": "/evidence/bench/wa060.jpg",
+   "truth": 106.5,
+   "min": 50.0,
+   "max": 300.0,
+   "unit": "\u00b0C",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Solar cooker thermometer.jpg",
+    "author": "DocteurCosmos",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Solar_cooker_thermometer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "glare_needle",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 150.0,
+     "err": 0.174,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 142.4839,
+     "err": 0.14394,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "glare_needle",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa066.jpg",
+   "thumb": "/evidence/bench/wa066.jpg",
+   "truth": 248.0,
+   "min": 50.0,
+   "max": 700.0,
+   "unit": "\u00b0F",
+   "alt": [
+    {
+     "value": 120.0,
+     "min": 10.0,
+     "max": 370.0,
+     "unit": "\u00b0C"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Oven thermometer 1 2017-07-24.jpg",
+    "author": "FASTILY",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Oven_thermometer_1_2017-07-24.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 2030.3806,
+     "err": 2.74212,
+     "accepted": false,
+     "issues": [
+      "range"
+     ],
+     "conf": 0.008
+    },
+    "nova-lite": {
+     "read": 350.0,
+     "err": 0.15692,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 2030.3806,
+     "err": 2.74212,
+     "accepted": false,
+     "issues": [
+      "range"
+     ],
+     "conf": 0.311
+    }
+   }
+  },
+  {
+   "file": "wa069.jpg",
+   "thumb": "/evidence/bench/wa069.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 250.0,
+   "unit": "kPa",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Manometer5.jpg",
+    "author": "Talonola",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer5.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 159.8511,
+     "err": 0.6394,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.497
+    },
+    "nova-lite": {
+     "read": 10.0,
+     "err": 0.04,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 1.9767,
+     "err": 0.00791,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 159.8511,
+     "err": 0.6394,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.669
+    }
+   }
+  },
+  {
+   "file": "wa077.jpg",
+   "thumb": "/evidence/bench/wa077.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 200.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Pressure gauge circa 1900.jpg",
+    "author": "Runner1928",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_circa_1900.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 134.2988,
+     "err": 0.67149,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.197
+    },
+    "nova-lite": {
+     "read": 140.0,
+     "err": 0.7,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 134.3229,
+     "err": 0.67161,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 134.2988,
+     "err": 0.67149,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.161
+    }
+   }
+  },
+  {
+   "file": "wa079.jpg",
+   "thumb": "/evidence/bench/wa079.jpg",
+   "truth": 850.0,
+   "min": 0.0,
+   "max": 2500.0,
+   "unit": "bar",
+   "alt": [
+    {
+     "value": 12330.0,
+     "min": 0.0,
+     "max": 35000.0,
+     "unit": "psi"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:MAXIMATOR-High-Pressure-Manometer-01a.jpg",
+    "author": "CEphoto, Uwe Aranas",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:MAXIMATOR-High-Pressure-Manometer-01a.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 25000.0,
+     "err": 0.362,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 769.6956,
+     "err": 0.03212,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa083.jpg",
+   "thumb": "/evidence/bench/wa083.jpg",
+   "truth": 9.25,
+   "min": 0.0,
+   "max": 30.0,
+   "unit": "psi",
+   "alt": [
+    {
+     "value": 0.64,
+     "min": 0,
+     "max": 2.0,
+     "unit": "bar"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:2017-10-05 06 56 51 Gas pressure indicator on the weather balloon inflation nozzle at the National Weather Service's Baltimore-Washington Weather Forecast Office in the Dulles section of Sterling, Loudoun County, Virginia.jpg",
+    "author": "Famartin",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2017-10-05_06_56_51_Gas_pressure_indicator_on_the_weather_balloon_inflation_nozzle_at_the_National_Weather_Service%27s_Baltimore-Washington_Weather_Forecast_Office_in_the_Dulles_section_of_Sterling,_Loudoun_County,_Virginia.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 1.5,
+     "err": 0.25833,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 7.9082,
+     "err": 0.04473,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa090.jpg",
+   "thumb": "/evidence/bench/wa090.jpg",
+   "truth": 2.15,
+   "min": 0.0,
+   "max": 10.0,
+   "unit": "bar",
+   "alt": [
+    {
+     "value": 31.0,
+     "min": 0.0,
+     "max": 140.0,
+     "unit": "psi"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:ReifendruckPruefen.jpg",
+    "author": "JEG14",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:ReifendruckPruefen.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 527.0427,
+     "err": 3.54316,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.733
+    },
+    "nova-lite": {
+     "read": 120.0,
+     "err": 0.63571,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 2.4989,
+     "err": 0.03489,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 527.0427,
+     "err": 3.54316,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.826
+    }
+   }
+  },
+  {
+   "file": "wa097.jpg",
+   "thumb": "/evidence/bench/wa097.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 30.0,
+   "unit": "psi",
+   "alt": [
+    {
+     "value": 0.0,
+     "min": 0.0,
+     "max": 30.0,
+     "unit": "inHg vac"
+    }
+   ],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Virginia V (ship, 1922) engine room 12 - Jos. Marsh & Co. compound vacuum and pressure gauge.jpg",
+    "author": "Joe Mabel",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Virginia_V_(ship,_1922)_engine_room_12_-_Jos._Marsh_%26_Co._compound_vacuum_and_pressure_gauge.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 34.13,
+     "err": 1.13767,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.081
+    },
+    "nova-lite": {
+     "read": 25.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 34.13,
+     "err": 1.13767,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.637
+    }
+   }
+  },
+  {
+   "file": "wa143.jpg",
+   "thumb": "/evidence/bench/wa143.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "mmHg",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Manometer1.jpg",
+    "author": "rosmary",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer1.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 2.9218,
+     "err": 0.00974,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.989
+    },
+    "nova-lite": {
+     "read": 120.0,
+     "err": 0.4,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 319.3132,
+     "err": 1.06438,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 2.9218,
+     "err": 0.00974,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.995
+    }
+   }
+  },
+  {
+   "file": "wa176.jpg",
+   "thumb": "/evidence/bench/wa176.jpg",
+   "truth": 0.2,
+   "min": 0.0,
+   "max": 20.0,
+   "unit": "kg/cm2",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Dampfspritze-Kernreuter 6759.JPG",
+    "author": "User:Karl Gruber",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Dampfspritze-Kernreuter_6759.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": -115.2394,
+     "err": 5.77197,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.125
+    },
+    "nova-lite": {
+     "read": 18.0,
+     "err": 0.89,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 14.3765,
+     "err": 0.70882,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -115.2394,
+     "err": 5.77197,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.314
+    }
+   }
+  },
+  {
+   "file": "wa183.jpg",
+   "thumb": "/evidence/bench/wa183.jpg",
+   "truth": 29.9,
+   "min": 10.0,
+   "max": 35.0,
+   "unit": "inHg",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Manifoldpresser.JPG",
+    "author": "Chopper",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Manifoldpresser.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 3764.884,
+     "err": 149.39936,
+     "accepted": false,
+     "issues": [
+      "glare_needle"
+     ],
+     "conf": 0.154
+    },
+    "nova-lite": {
+     "read": 29.0,
+     "err": 0.036,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 28.3774,
+     "err": 0.0609,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 3764.884,
+     "err": 149.39936,
+     "accepted": false,
+     "issues": [
+      "glare_needle"
+     ],
+     "conf": 0.586
+    }
+   }
+  },
+  {
+   "file": "wa207.jpg",
+   "thumb": "/evidence/bench/wa207.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Locomotion No. 1, Beamish Museum, 11 September 2010 (2).jpg",
+    "author": "dommylive from Peterlee, UK",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Locomotion_No._1,_Beamish_Museum,_11_September_2010_(2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 132.3217,
+     "err": 1.32322,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.086
+    },
+    "nova-lite": {
+     "read": 70.0,
+     "err": 0.7,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -1.694,
+     "err": 0.01694,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 66.7589,
+     "err": 0.66759,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.772
+    }
+   }
+  },
+  {
+   "file": "wa240.jpg",
+   "thumb": "/evidence/bench/wa240.jpg",
+   "truth": 6.7,
+   "min": 0.0,
+   "max": 10.0,
+   "unit": "kgf/cm2",
+   "alt": [
+    {
+     "value": 95.0,
+     "min": 0.0,
+     "max": 150.0,
+     "unit": "psi"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Pressure gauge Hisco.jpg",
+    "author": "ZianMan",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauge_Hisco.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 95.7217,
+     "err": 0.00481,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.159
+    },
+    "nova-lite": {
+     "read": 0.0,
+     "err": 0.63333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 95.7217,
+     "err": 0.00481,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.619
+    }
+   }
+  },
+  {
+   "file": "wa288.jpg",
+   "thumb": "/evidence/bench/wa288.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 15.0,
+   "unit": "psi",
+   "alt": [
+    {
+     "value": 0.0,
+     "min": 0.0,
+     "max": 1.0,
+     "unit": "bar"
+    }
+   ],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Hyperbaric oxygen cell testing pot showing gauge, gas inlet connector and valve buttons IMG 20201209 153842.jpg",
+    "author": "Pbsouthwood",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hyperbaric_oxygen_cell_testing_pot_showing_gauge,_gas_inlet_connector_and_valve_buttons_IMG_20201209_153842.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 0.6,
+     "err": 0.04,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa425.jpg",
+   "thumb": "/evidence/bench/wa425.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 120.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - 8e169e8024747381eac409ac7397b995 (page 1).jpg",
+    "author": "United States Gauge Co",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_8e169e8024747381eac409ac7397b995_(page_1).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 10.0,
+     "err": 0.08333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa426.jpg",
+   "thumb": "/evidence/bench/wa426.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 120.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - 8e169e8024747381eac409ac7397b995 (page 2).jpg",
+    "author": "United States Gauge Co",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_8e169e8024747381eac409ac7397b995_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 2.345,
+     "err": 0.01954,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.848
+    },
+    "nova-lite": {
+     "read": 100.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 2.345,
+     "err": 0.01954,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.942
+    }
+   }
+  },
+  {
+   "file": "wa431.jpg",
+   "thumb": "/evidence/bench/wa431.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - c48fe8b2ef7a92176b5843ec8064b636 (page 2).jpg",
+    "author": "United States Gauge Co",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_c48fe8b2ef7a92176b5843ec8064b636_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": -5.5127,
+     "err": 0.05513,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.442
+    },
+    "nova-lite": {
+     "read": 40.0,
+     "err": 0.4,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -5.5127,
+     "err": 0.05513,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.643
+    }
+   }
+  },
+  {
+   "file": "wa484.jpg",
+   "thumb": "/evidence/bench/wa484.jpg",
+   "truth": 72.0,
+   "min": -60.0,
+   "max": 120.0,
+   "unit": "\u00b0F",
+   "alt": [
+    {
+     "value": 22.2,
+     "min": -50.0,
+     "max": 50.0,
+     "unit": "\u00b0C"
+    }
+   ],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Raumthermometer Fahrenheit+Celsius.jpg",
+    "author": "Stilfehler",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Raumthermometer_Fahrenheit%2BCelsius.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 18.9741,
+     "err": 0.03226,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.809
+    },
+    "nova-lite": {
+     "read": 30.0,
+     "err": 0.078,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 68.3358,
+     "err": 0.02036,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 18.9741,
+     "err": 0.03226,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.81
+    }
+   }
+  },
+  {
+   "file": "wa507.jpg",
+   "thumb": "/evidence/bench/wa507.jpg",
+   "truth": 80.0,
+   "min": 0.0,
+   "max": 200.0,
+   "unit": "\u00b0F",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Compost thermometer.jpg",
+    "author": "UnifiedFunctionality",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Compost_thermometer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 78.7407,
+     "err": 0.0063,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.483
+    },
+    "nova-lite": {
+     "read": 180.0,
+     "err": 0.5,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 82.3187,
+     "err": 0.01159,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 78.7407,
+     "err": 0.0063,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.958
+    }
+   }
+  },
+  {
+   "file": "wa551.jpg",
+   "thumb": "/evidence/bench/wa551.jpg",
+   "truth": 46.7,
+   "min": -30.0,
+   "max": 120.0,
+   "unit": "\u00b0C",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Thermometer (5432770758).jpg",
+    "author": "Robbie Sproule from Montreal, Canada",
+    "license": "CC BY 2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thermometer_(5432770758).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 46.6836,
+     "err": 0.00011,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.984
+    },
+    "nova-lite": {
+     "read": 100.0,
+     "err": 0.35533,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 46.6836,
+     "err": 0.00011,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.997
+    }
+   }
+  },
+  {
+   "file": "wa708.jpg",
+   "thumb": "/evidence/bench/wa708.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "mmHg",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Erka sphygmomanometer.jpg",
+    "author": "Tiia Monto",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Erka_sphygmomanometer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 120.0,
+     "err": 0.4,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 303.4215,
+     "err": 1.01141,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wa714.jpg",
+   "thumb": "/evidence/bench/wa714.jpg",
+   "truth": -740.0,
+   "min": -1000.0,
+   "max": 0.0,
+   "unit": "mbar",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Treak Cliff Cavern - vacuum gauge - Andy Mabbett - 01.JPG",
+    "author": "Andy Mabbett",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Treak_Cliff_Cavern_-_vacuum_gauge_-_Andy_Mabbett_-_01.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": -100.0,
+     "err": 0.64,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -693.8977,
+     "err": 0.0461,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wb010.jpg",
+   "thumb": "/evidence/bench/wb010.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 300,
+   "unit": "kgf/cm2",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Manometr p\u0159\u00edstroje SK 4.jpg",
+    "author": "Hanzys",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometr_p%C5%99%C3%ADstroje_SK_4.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 378.2262,
+     "err": 1.26075,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.332
+    },
+    "nova-lite": {
+     "read": 150.0,
+     "err": 0.5,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 224.403,
+     "err": 0.74801,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 378.2262,
+     "err": 1.26075,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.447
+    }
+   }
+  },
+  {
+   "file": "wb011.jpg",
+   "thumb": "/evidence/bench/wb011.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 250.0,
+   "unit": "kgf/cm2",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Manometr RVL 1.jpg",
+    "author": "Hanzys",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometr_RVL_1.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 145.0,
+     "err": 0.58,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 6.4454,
+     "err": 0.02578,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wb012.jpg",
+   "thumb": "/evidence/bench/wb012.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 300.0,
+   "unit": "bar",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Manometr PSS 7000.jpg",
+    "author": "Hanzys",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometr_PSS_7000.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 3.9809,
+     "err": 0.01327,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.499
+    },
+    "nova-lite": {
+     "read": 250.0,
+     "err": 0.83333,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": 25.5354,
+     "err": 0.08512,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 3.9809,
+     "err": 0.01327,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.827
+    }
+   }
+  },
+  {
+   "file": "wb013.jpg",
+   "thumb": "/evidence/bench/wb013.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 4.0,
+   "unit": "MPa",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:P14508 Manometer.jpg",
+    "author": "Cardglaser",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:P14508_Manometer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 2.5,
+     "err": 0.625,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -0.0483,
+     "err": 0.01206,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wb025.jpg",
+   "thumb": "/evidence/bench/wb025.jpg",
+   "truth": 0.45,
+   "min": 0.0,
+   "max": 25.0,
+   "unit": "bar",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Manometro di precisione - Museo scienza tecnologia Milano 10860 dia.jpg",
+    "author": "Nuova Fima (Fabbrica Italiana Manometri e Affini) (progettista/ costruttore)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometro_di_precisione_-_Museo_scienza_tecnologia_Milano_10860_dia.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 0.3572,
+     "err": 0.00371,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.986
+    },
+    "nova-lite": {
+     "read": 1.5,
+     "err": 0.042,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -0.6392,
+     "err": 0.04357,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 0.3572,
+     "err": 0.00371,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.985
+    }
+   }
+  },
+  {
+   "file": "wb037.jpg",
+   "thumb": "/evidence/bench/wb037.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 100.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - f1542ddfe12f174f862da30be9e46577 (page 2).jpg",
+    "author": "unknown",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_f1542ddfe12f174f862da30be9e46577_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 60.0,
+     "err": 0.6,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wb088.jpg",
+   "thumb": "/evidence/bench/wb088.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 200.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - 9cb6ff4fc55786c6ece0ebb69f7295d3 (page 2).jpg",
+    "author": "Northern Engraving &amp; Manufacturing Co",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_9cb6ff4fc55786c6ece0ebb69f7295d3_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 276.1972,
+     "err": 1.38099,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.766
+    },
+    "nova-lite": {
+     "read": 160.0,
+     "err": 0.8,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 276.1972,
+     "err": 1.38099,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.935
+    }
+   }
+  },
+  {
+   "file": "wb092.jpg",
+   "thumb": "/evidence/bench/wb092.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 120.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - de751fbc76261b0450b665ad3d9beb2e (page 2).jpg",
+    "author": "CONSOLIDATED",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_de751fbc76261b0450b665ad3d9beb2e_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 3.7799,
+     "err": 0.0315,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.558
+    },
+    "nova-lite": {
+     "read": 60.0,
+     "err": 0.5,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -0.5949,
+     "err": 0.00496,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 3.7799,
+     "err": 0.0315,
+     "accepted": true,
+     "issues": [
+      "blur"
+     ],
+     "conf": 0.9
+    }
+   }
+  },
+  {
+   "file": "wb099.jpg",
+   "thumb": "/evidence/bench/wb099.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 76.0,
+   "unit": "cm Hg",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Rittnerbahn \u2014 Luftsaugbremsen (Druckanzeige).jpg",
+    "author": "User:Mattes",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Rittnerbahn_%E2%80%94_Luftsaugbremsen_(Druckanzeige).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 90.7023,
+     "err": 1.19345,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.488
+    },
+    "nova-lite": {
+     "read": 60.0,
+     "err": 0.78947,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -3.8006,
+     "err": 0.05001,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 90.7023,
+     "err": 1.19345,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.855
+    }
+   }
+  },
+  {
+   "file": "wb127.jpg",
+   "thumb": "/evidence/bench/wb127.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 20.0,
+   "unit": "kg/cm2",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Manometro differenziale a una lancetta e quadrante mobile - Museo scienza tecnologia Milano 10920 dia.jpg",
+    "author": "G. Spriano &amp; Co. (progettista/ costruttore)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometro_differenziale_a_una_lancetta_e_quadrante_mobile_-_Museo_scienza_tecnologia_Milano_10920_dia.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": -0.7172,
+     "err": 0.03586,
+     "accepted": false,
+     "issues": [],
+     "conf": 0.772
+    },
+    "nova-lite": {
+     "read": 12.0,
+     "err": 0.6,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": -0.8503,
+     "err": 0.04251,
+     "accepted": true,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -0.7172,
+     "err": 0.03586,
+     "accepted": true,
+     "issues": [],
+     "conf": 0.942
+    }
+   }
+  },
+  {
+   "file": "wb139.jpg",
+   "thumb": "/evidence/bench/wb139.jpg",
+   "truth": 7.9,
+   "min": 0.0,
+   "max": 20.0,
+   "unit": "?",
+   "alt": [],
+   "at_rest": false,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure, Japanese - DPLA - cd35f5ad8c4e4b2e0eacb28a846d7455 (page 1).jpg",
+    "author": "Tokyo Instrument Manufacturing Factory Co. Ltd. (Tokyo Keiki Seisakusho)",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure,_Japanese_-_DPLA_-_cd35f5ad8c4e4b2e0eacb28a846d7455_(page_1).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 7.9488,
+     "err": 0.00244,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.886
+    },
+    "nova-lite": {
+     "read": 0.0,
+     "err": 0.395,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 7.9488,
+     "err": 0.00244,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.925
+    }
+   }
+  },
+  {
+   "file": "wb151.jpg",
+   "thumb": "/evidence/bench/wb151.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 200.0,
+   "unit": "psi",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - c09afe9815257c08223c6bc1c4da9ccf (page 2).jpg",
+    "author": "The Electric Auto-Lite Co",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_c09afe9815257c08223c6bc1c4da9ccf_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": 251.1918,
+     "err": 1.25596,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.237
+    },
+    "nova-lite": {
+     "read": 120.0,
+     "err": 0.6,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": 251.1918,
+     "err": 1.25596,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.569
+    }
+   }
+  },
+  {
+   "file": "wb156.jpg",
+   "thumb": "/evidence/bench/wb156.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 5.0,
+   "unit": "kg/cm2",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure - DPLA - c69473b2e20fe09f5f38a18f26d4078c (page 8).jpg",
+    "author": "Aera Co",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure_-_DPLA_-_c69473b2e20fe09f5f38a18f26d4078c_(page_8).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    },
+    "nova-lite": {
+     "read": 0.3,
+     "err": 0.06,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "conf": 0.0
+    }
+   }
+  },
+  {
+   "file": "wb177.jpg",
+   "thumb": "/evidence/bench/wb177.jpg",
+   "truth": 0.0,
+   "min": 0.0,
+   "max": 20.0,
+   "unit": "?",
+   "alt": [],
+   "at_rest": true,
+   "credit": {
+    "title": "File:Indicator, Oil Pressure, Japanese Army - DPLA - 338c02a0d874b4d9e1426d1054894d13 (page 1).jpg",
+    "author": "Tokyo Instrument Manufacturing Factory Co. Ltd. (Tokyo Keiki Seisakusho)",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure,_Japanese_Army_-_DPLA_-_338c02a0d874b4d9e1426d1054894d13_(page_1).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "read": -69.378,
+     "err": 3.4689,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.254
+    },
+    "nova-lite": {
+     "read": 0.0,
+     "err": 0.0,
+     "accepted": true,
+     "issues": null,
+     "conf": 0.95
+    },
+    "classic": {
+     "read": null,
+     "err": null,
+     "accepted": false,
+     "issues": null,
+     "conf": null
+    },
+    "submitted": {
+     "read": -69.378,
+     "err": 3.4689,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "conf": 0.305
+    }
+   }
+  }
+ ],
+ "decline_photos": [
+  {
+   "file": "f002.jpg",
+   "why": "dial cut off by the frame; needle tip outside the photo",
+   "thumb": "/evidence/bench/f002.jpg",
+   "credit": {
+    "title": "Pressure Gauge",
+    "author": "wwarby",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/26782864@N00/3016549999",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f002.jpg",
+     "read": 204.699,
+     "conf": 0.058,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "folder": "bench",
+     "why": "dial cut off by the frame; needle tip outside the photo"
+    },
+    "nova-lite": {
+     "file": "f002.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 40.0,
+     "why": "dial cut off by the frame; needle tip outside the photo"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f002.jpg",
+     "read": 204.699,
+     "conf": 0.539,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "folder": "bench",
+     "why": "dial cut off by the frame; needle tip outside the photo"
+    }
+   }
+  },
+  {
+   "file": "f036.jpg",
+   "why": "two pointers (red maximum pointer and black needle)",
+   "thumb": "/evidence/bench/f036.jpg",
+   "credit": {
+    "title": "Close-up of air pump pressure gauge and a car tire in the blurry background",
+    "author": "Ivan Radic",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/26344495@N05/49967134291",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f036.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "small",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red maximum pointer and black needle)"
+    },
+    "nova-lite": {
+     "file": "f036.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 30.0,
+     "why": "two pointers (red maximum pointer and black needle)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f036.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "small",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red maximum pointer and black needle)"
+    }
+   }
+  },
+  {
+   "file": "f038.jpg",
+   "why": "three gauges in the frame",
+   "thumb": "/evidence/bench/f038.jpg",
+   "credit": {
+    "title": "Pressure gauges",
+    "author": "Elsie esq.",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/61132483@N00/7197950254",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f038.jpg",
+     "read": 0.0261,
+     "conf": 0.849,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "three gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "f038.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 150.0,
+     "why": "three gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f038.jpg",
+     "read": 0.0261,
+     "conf": 0.866,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "three gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "f061.jpg",
+   "why": "two pointers (red maximum pointer) and a small inner dial",
+   "thumb": "/evidence/bench/f061.jpg",
+   "credit": {
+    "title": "Pressure gauge",
+    "author": "James E. Petts",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/14730981@N08/37222170620",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f061.jpg",
+     "read": -14.6961,
+     "conf": 0.106,
+     "accepted": false,
+     "issues": [
+      "glare"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red maximum pointer) and a small inner dial"
+    },
+    "nova-lite": {
+     "file": "f061.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 12.0,
+     "why": "two pointers (red maximum pointer) and a small inner dial"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f061.jpg",
+     "read": -14.6961,
+     "conf": 0.593,
+     "accepted": false,
+     "issues": [
+      "glare"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red maximum pointer) and a small inner dial"
+    }
+   }
+  },
+  {
+   "file": "f075.jpg",
+   "why": "contact gauge: two set pointers besides the needle",
+   "thumb": "/evidence/bench/f075.jpg",
+   "credit": {
+    "title": "Swiss Made",
+    "author": "dvanzuijlekom",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/52365139@N05/15735206915",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f075.jpg",
+     "read": 238.233,
+     "conf": 0.721,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "contact gauge: two set pointers besides the needle"
+    },
+    "nova-lite": {
+     "file": "f075.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 180.0,
+     "why": "contact gauge: two set pointers besides the needle"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f075.jpg",
+     "read": 238.233,
+     "conf": 0.951,
+     "accepted": true,
+     "issues": [],
+     "folder": "bench",
+     "why": "contact gauge: two set pointers besides the needle"
+    }
+   }
+  },
+  {
+   "file": "f099.jpg",
+   "why": "not a gauge (a parking meter)",
+   "thumb": "/evidence/bench/f099.jpg",
+   "credit": {
+    "title": "fail parkingmeter",
+    "author": "karlnorling",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/97788971@N00/3893071831",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f099.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "glare",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "not a gauge (a parking meter)"
+    },
+    "nova-lite": {
+     "file": "f099.jpg",
+     "folder": "bench",
+     "readable": false,
+     "accepted": false,
+     "read": null,
+     "why": "not a gauge (a parking meter)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f099.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "glare",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "not a gauge (a parking meter)"
+    }
+   }
+  },
+  {
+   "file": "f105.jpg",
+   "why": "needle rests in the blank arc below the first number (cold oven)",
+   "thumb": "/evidence/bench/f105.jpg",
+   "credit": {
+    "title": "Rayburn Thermometer",
+    "author": "Bobby8",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/84261234@N00/27934467",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f105.jpg",
+     "read": 664.8782,
+     "conf": 0.377,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "needle rests in the blank arc below the first number (cold oven)"
+    },
+    "nova-lite": {
+     "file": "f105.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 350.0,
+     "why": "needle rests in the blank arc below the first number (cold oven)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f105.jpg",
+     "read": 664.8782,
+     "conf": 0.685,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "needle rests in the blank arc below the first number (cold oven)"
+    }
+   }
+  },
+  {
+   "file": "f311.jpg",
+   "why": "two dials with two needles on one face",
+   "thumb": "/evidence/bench/f311.jpg",
+   "credit": {
+    "title": "Steam gauge",
+    "author": "benn",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/35034357318@N01/27533429",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f311.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two dials with two needles on one face"
+    },
+    "nova-lite": {
+     "file": "f311.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 1.5,
+     "why": "two dials with two needles on one face"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f311.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two dials with two needles on one face"
+    }
+   }
+  },
+  {
+   "file": "f507.jpg",
+   "why": "two pointers (red set pointer and black needle)",
+   "thumb": "/evidence/bench/f507.jpg",
+   "credit": {
+    "title": "PSI or bar",
+    "author": "byzantiumbooks",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/10688882@N00/33404016406",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f507.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red set pointer and black needle)"
+    },
+    "nova-lite": {
+     "file": "f507.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 2.5,
+     "why": "two pointers (red set pointer and black needle)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f507.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red set pointer and black needle)"
+    }
+   }
+  },
+  {
+   "file": "f520.jpg",
+   "why": "not a single gauge (a car dashboard on a bench)",
+   "thumb": "/evidence/bench/f520.jpg",
+   "credit": {
+    "title": "New dash",
+    "author": "simonov",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/26209464@N00/4189445294",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f520.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "nodial"
+     ],
+     "folder": "bench",
+     "why": "not a single gauge (a car dashboard on a bench)"
+    },
+    "nova-lite": {
+     "file": "f520.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 100.0,
+     "why": "not a single gauge (a car dashboard on a bench)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f520.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "nodial"
+     ],
+     "folder": "bench",
+     "why": "not a single gauge (a car dashboard on a bench)"
+    }
+   }
+  },
+  {
+   "file": "f561.jpg",
+   "why": "two pointers (red maximum pointer)",
+   "thumb": "/evidence/bench/f561.jpg",
+   "credit": {
+    "title": "5000 psi gauge for hydraulic arresting system brake DSC_0403",
+    "author": "wbaiv",
+    "license": "CC BY-SA 2.0",
+    "source": "https://www.flickr.com/photos/9998127@N06/53543937387",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f561.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red maximum pointer)"
+    },
+    "nova-lite": {
+     "file": "f561.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 1500.0,
+     "why": "two pointers (red maximum pointer)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f561.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (red maximum pointer)"
+    }
+   }
+  },
+  {
+   "file": "f616.jpg",
+   "why": "speedometer cut off by the frame",
+   "thumb": "/evidence/bench/f616.jpg",
+   "credit": {
+    "title": "Jaguar F-Type Coupe R",
+    "author": "TheCarSpy",
+    "license": "CC BY 2.0",
+    "source": "https://www.flickr.com/photos/25632349@N04/16099744930",
+    "via": "Flickr (found through Openverse)"
+   },
+   "reads": {
+    "dialed": {
+     "file": "f616.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "speedometer cut off by the frame"
+    },
+    "nova-lite": {
+     "file": "f616.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 110.0,
+     "why": "speedometer cut off by the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "f616.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "speedometer cut off by the frame"
+    }
+   }
+  },
+  {
+   "file": "wa009-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa009-d.jpg",
+   "credit": {
+    "title": "File:Gauges Koskela Senior Centre.jpg",
+    "author": "Antti Lepp\u00e4nen",
+    "license": "CC BY 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gauges_Koskela_Senior_Centre.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa009-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa009-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 20.0,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa009-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa012-d.jpg",
+   "why": "no dial (a column instrument)",
+   "thumb": "/evidence/bench/wa012-d.jpg",
+   "credit": {
+    "title": "File:Watermanometer onderzijde 01.jpg",
+    "author": "Arie m den toom",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Watermanometer_onderzijde_01.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa012-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "no dial (a column instrument)"
+    },
+    "nova-lite": {
+     "file": "wa012-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 1000.0,
+     "why": "no dial (a column instrument)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa012-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "no dial (a column instrument)"
+    }
+   }
+  },
+  {
+   "file": "wa015-d.jpg",
+   "why": "a panel of many gauges",
+   "thumb": "/evidence/bench/wa015-d.jpg",
+   "credit": {
+    "title": "File:Argonaute (S636) - manometers.jpg",
+    "author": "Tangopaso",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Argonaute_(S636)_-_manometers.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa015-d.jpg",
+     "read": -62.8002,
+     "conf": 0.009,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "glare_needle"
+     ],
+     "folder": "bench",
+     "why": "a panel of many gauges"
+    },
+    "nova-lite": {
+     "file": "wa015-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 12.0,
+     "why": "a panel of many gauges"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa015-d.jpg",
+     "read": -62.8002,
+     "conf": 0.118,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur",
+      "glare_needle"
+     ],
+     "folder": "bench",
+     "why": "a panel of many gauges"
+    }
+   }
+  },
+  {
+   "file": "wa024-d.jpg",
+   "why": "two gauges in one console",
+   "thumb": "/evidence/bench/wa024-d.jpg",
+   "credit": {
+    "title": "File:Mares depth pressure gauge.jpg",
+    "author": "User:Yoruno",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mares_depth_pressure_gauge.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa024-d.jpg",
+     "read": 60.8881,
+     "conf": 0.039,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in one console"
+    },
+    "nova-lite": {
+     "file": "wa024-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 30.0,
+     "why": "two gauges in one console"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa024-d.jpg",
+     "read": 60.8881,
+     "conf": 0.207,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in one console"
+    }
+   }
+  },
+  {
+   "file": "wa039-d.jpg",
+   "why": "two pointers (a red set pointer and the needle)",
+   "thumb": "/evidence/bench/wa039-d.jpg",
+   "credit": {
+    "title": "File:Manometer-a hg.jpg",
+    "author": "Hannes Grobe",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer-a_hg.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa039-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (a red set pointer and the needle)"
+    },
+    "nova-lite": {
+     "file": "wa039-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 4.2,
+     "why": "two pointers (a red set pointer and the needle)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa039-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (a red set pointer and the needle)"
+    }
+   }
+  },
+  {
+   "file": "wa043-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa043-d.jpg",
+   "credit": {
+    "title": "File:Manometry ORP Ry\u015b i ORP \u017bbik Muzeum Wojska Polskiego w Warszawie 2025.jpg",
+    "author": "Adrian Grycuk",
+    "license": "CC BY 3.0 pl",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometry_ORP_Ry%C5%9B_i_ORP_%C5%BBbik_Muzeum_Wojska_Polskiego_w_Warszawie_2025.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa043-d.jpg",
+     "read": 39.2554,
+     "conf": 0.956,
+     "accepted": true,
+     "issues": [],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa043-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 70.0,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa043-d.jpg",
+     "read": 39.2554,
+     "conf": 0.972,
+     "accepted": true,
+     "issues": [],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa044-d.jpg",
+   "why": "two dials on one face (pressure and temperature)",
+   "thumb": "/evidence/bench/wa044-d.jpg",
+   "credit": {
+    "title": "File:Measuring instrument (termperature and pressure) ~21dyxzeo.jpg",
+    "author": "Grzegorz W. T\u0119\u017cycki",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Measuring_instrument_(termperature_and_pressure)_~21dyxzeo.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa044-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two dials on one face (pressure and temperature)"
+    },
+    "nova-lite": {
+     "file": "wa044-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 3.0,
+     "why": "two dials on one face (pressure and temperature)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa044-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two dials on one face (pressure and temperature)"
+    }
+   }
+  },
+  {
+   "file": "wa047-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa047-d.jpg",
+   "credit": {
+    "title": "File:Star Brass Mfg Co gages 141-R.jpg",
+    "author": "Didier Duforest",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Star_Brass_Mfg_Co_gages_141-R.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa047-d.jpg",
+     "read": -110.4138,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "glare_needle",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa047-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 1.5,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa047-d.jpg",
+     "read": -110.4138,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "glare_needle",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa062-d.jpg",
+   "why": "two dials on one face",
+   "thumb": "/evidence/bench/wa062-d.jpg",
+   "credit": {
+    "title": "File:Bratenthermometer-1.jpg",
+    "author": "Rainer Z ...",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Bratenthermometer-1.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa062-d.jpg",
+     "read": 1182.7007,
+     "conf": 0.462,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "folder": "bench",
+     "why": "two dials on one face"
+    },
+    "nova-lite": {
+     "file": "wa062-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 100.0,
+     "why": "two dials on one face"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa062-d.jpg",
+     "read": 1182.7007,
+     "conf": 0.505,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "folder": "bench",
+     "why": "two dials on one face"
+    }
+   }
+  },
+  {
+   "file": "wa073.jpg",
+   "why": "painted reference pointers beside the needle; scale partly unreadable",
+   "thumb": "/evidence/bench/wa073.jpg",
+   "credit": {
+    "title": "File:Lufbery pressure.jpg",
+    "author": "FranksValli",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lufbery_pressure.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa073.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "painted reference pointers beside the needle; scale partly unreadable"
+    },
+    "nova-lite": {
+     "file": "wa073.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 100.0,
+     "why": "painted reference pointers beside the needle; scale partly unreadable"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa073.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "painted reference pointers beside the needle; scale partly unreadable"
+    }
+   }
+  },
+  {
+   "file": "wa074-d.jpg",
+   "why": "three pointers",
+   "thumb": "/evidence/bench/wa074-d.jpg",
+   "credit": {
+    "title": "File:Lufbery pressure closeup.jpg",
+    "author": "FranksValli",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lufbery_pressure_closeup.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa074-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "three pointers"
+    },
+    "nova-lite": {
+     "file": "wa074-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 200.0,
+     "why": "three pointers"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa074-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "three pointers"
+    }
+   }
+  },
+  {
+   "file": "wa078-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa078-d.jpg",
+   "credit": {
+    "title": "File:Pressure gauges.jpg",
+    "author": "Bitjungle",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauges.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa078-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa078-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 0.2,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa078-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa099-d.jpg",
+   "why": "two pointers (a red set pointer and the needle)",
+   "thumb": "/evidence/bench/wa099-d.jpg",
+   "credit": {
+    "title": "File:Wasserdruckanzeige.JPG",
+    "author": "Fritz J\u00f6rn",
+    "license": "CC BY-SA 3.0 de",
+    "source": "https://commons.wikimedia.org/wiki/File:Wasserdruckanzeige.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa099-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (a red set pointer and the needle)"
+    },
+    "nova-lite": {
+     "file": "wa099-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 2.2,
+     "why": "two pointers (a red set pointer and the needle)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa099-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two pointers (a red set pointer and the needle)"
+    }
+   }
+  },
+  {
+   "file": "wa118.jpg",
+   "why": "two needles (red and white)",
+   "thumb": "/evidence/bench/wa118.jpg",
+   "credit": {
+    "title": "File:USS Bowfin Depth Gauge.jpg",
+    "author": "MarylandGeoffrey",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:USS_Bowfin_Depth_Gauge.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa118.jpg",
+     "read": 185.7798,
+     "conf": 0.84,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two needles (red and white)"
+    },
+    "nova-lite": {
+     "file": "wa118.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 55.0,
+     "why": "two needles (red and white)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa118.jpg",
+     "read": 185.7798,
+     "conf": 0.215,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two needles (red and white)"
+    }
+   }
+  },
+  {
+   "file": "wa126-d.jpg",
+   "why": "two gauges on a regulator",
+   "thumb": "/evidence/bench/wa126-d.jpg",
+   "credit": {
+    "title": "File:Druckminderer-O hg.jpg",
+    "author": "Hannes Grobe",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Druckminderer-O_hg.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa126-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a regulator"
+    },
+    "nova-lite": {
+     "file": "wa126-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 100.0,
+     "why": "two gauges on a regulator"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa126-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a regulator"
+    }
+   }
+  },
+  {
+   "file": "wa136.jpg",
+   "why": "two needles (red set pointer and black needle)",
+   "thumb": "/evidence/bench/wa136.jpg",
+   "credit": {
+    "title": "File:Doppelmembrandruckminderer.jpg",
+    "author": "--Heppina (talk) 18:29, 28 October 2025 (UTC)",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Doppelmembrandruckminderer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa136.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two needles (red set pointer and black needle)"
+    },
+    "nova-lite": {
+     "file": "wa136.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 15.0,
+     "why": "two needles (red set pointer and black needle)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa136.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two needles (red set pointer and black needle)"
+    }
+   }
+  },
+  {
+   "file": "wa142-d.jpg",
+   "why": "three gauges in the frame",
+   "thumb": "/evidence/bench/wa142-d.jpg",
+   "credit": {
+    "title": "File:Manometer.jpg",
+    "author": "unknown",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa142-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "three gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa142-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 0.0,
+     "why": "three gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa142-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "three gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa146-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa146-d.jpg",
+   "credit": {
+    "title": "File:Pressure gauges Walsall Gala Baths 9-4-15.JPG",
+    "author": "KateGoodall",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pressure_gauges_Walsall_Gala_Baths_9-4-15.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa146-d.jpg",
+     "read": 26.9297,
+     "conf": 0.076,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa146-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 10.0,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa146-d.jpg",
+     "read": 26.9297,
+     "conf": 0.113,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa150-d.jpg",
+   "why": "two dials on a dashboard",
+   "thumb": "/evidence/bench/wa150-d.jpg",
+   "credit": {
+    "title": "File:ZIL-131-tires-manometer-valve-and-speedmeter.jpg",
+    "author": "Vivan755",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:ZIL-131-tires-manometer-valve-and-speedmeter.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa150-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two dials on a dashboard"
+    },
+    "nova-lite": {
+     "file": "wa150-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 3.5,
+     "why": "two dials on a dashboard"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa150-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two dials on a dashboard"
+    }
+   }
+  },
+  {
+   "file": "wa185-d.jpg",
+   "why": "two gauges on a regulator",
+   "thumb": "/evidence/bench/wa185-d.jpg",
+   "credit": {
+    "title": "File:Manomoxy.jpg",
+    "author": "'91 Hermit",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manomoxy.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa185-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a regulator"
+    },
+    "nova-lite": {
+     "file": "wa185-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 100.0,
+     "why": "two gauges on a regulator"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa185-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a regulator"
+    }
+   }
+  },
+  {
+   "file": "wa197.jpg",
+   "why": "two needles (reservoir and train pipe)",
+   "thumb": "/evidence/bench/wa197.jpg",
+   "credit": {
+    "title": "File:F\u00fchrerstand der RhB Ge 2-4 222 - Ausschnitt.jpg",
+    "author": "JoachimKohler-HB",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:F%C3%BChrerstand_der_RhB_Ge_2-4_222_-_Ausschnitt.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa197.jpg",
+     "read": 202.0878,
+     "conf": 0.039,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two needles (reservoir and train pipe)"
+    },
+    "nova-lite": {
+     "file": "wa197.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 60.0,
+     "why": "two needles (reservoir and train pipe)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa197.jpg",
+     "read": 202.0878,
+     "conf": 0.267,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two needles (reservoir and train pipe)"
+    }
+   }
+  },
+  {
+   "file": "wa198-d.jpg",
+   "why": "a wall of gauges",
+   "thumb": "/evidence/bench/wa198-d.jpg",
+   "credit": {
+    "title": "File:W-KNIPEX-Museum 06.jpg",
+    "author": "Dat doris",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:W-KNIPEX-Museum_06.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa198-d.jpg",
+     "read": -0.0643,
+     "conf": 0.433,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "a wall of gauges"
+    },
+    "nova-lite": {
+     "file": "wa198-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 20.0,
+     "why": "a wall of gauges"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa198-d.jpg",
+     "read": -0.0643,
+     "conf": 0.649,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "a wall of gauges"
+    }
+   }
+  },
+  {
+   "file": "wa206-d.jpg",
+   "why": "three gauges in the frame",
+   "thumb": "/evidence/bench/wa206-d.jpg",
+   "credit": {
+    "title": "File:Da Lat locomotive dials.JPG",
+    "author": "Dragfyre",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Da_Lat_locomotive_dials.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa206-d.jpg",
+     "read": -21.6309,
+     "conf": 0.161,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "three gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa206-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 12.0,
+     "why": "three gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa206-d.jpg",
+     "read": -21.6309,
+     "conf": 0.314,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "three gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa218-d.jpg",
+   "why": "several gauges in the frame",
+   "thumb": "/evidence/bench/wa218-d.jpg",
+   "credit": {
+    "title": "File:Laboe U995 Tiefenmesser.JPG",
+    "author": "TeWeBs",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Laboe_U995_Tiefenmesser.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa218-d.jpg",
+     "read": -0.3534,
+     "conf": 0.247,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "several gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa218-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 10.0,
+     "why": "several gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa218-d.jpg",
+     "read": -0.3534,
+     "conf": 0.913,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "several gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa237-d.jpg",
+   "why": "two gauges in one console",
+   "thumb": "/evidence/bench/wa237-d.jpg",
+   "credit": {
+    "title": "File:A depth gauge and submersible pressure gauge.jpg",
+    "author": "Pilarbini",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_depth_gauge_and_submersible_pressure_gauge.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa237-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in one console"
+    },
+    "nova-lite": {
+     "file": "wa237-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 20.0,
+     "why": "two gauges in one console"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa237-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in one console"
+    }
+   }
+  },
+  {
+   "file": "wa250.jpg",
+   "why": "two pointers (red set pointer and black needle)",
+   "thumb": "/evidence/bench/wa250.jpg",
+   "credit": {
+    "title": "File:A mechanical sanitary tank pressure gauge of the USS Growler (SSG-577).jpg",
+    "author": "Oleg Yunakov",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_mechanical_sanitary_tank_pressure_gauge_of_the_USS_Growler_(SSG-577).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa250.jpg",
+     "read": 19.578,
+     "conf": 0.348,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two pointers (red set pointer and black needle)"
+    },
+    "nova-lite": {
+     "file": "wa250.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 370.0,
+     "why": "two pointers (red set pointer and black needle)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa250.jpg",
+     "read": 19.578,
+     "conf": 0.754,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two pointers (red set pointer and black needle)"
+    }
+   }
+  },
+  {
+   "file": "wa256-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa256-d.jpg",
+   "credit": {
+    "title": "File:Murphy oil pressure switch gauges.jpeg",
+    "author": "User:codybrom",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Murphy_oil_pressure_switch_gauges.jpeg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa256-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa256-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 45.0,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa256-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa262-d.jpg",
+   "why": "two gauges in one console",
+   "thumb": "/evidence/bench/wa262-d.jpg",
+   "credit": {
+    "title": "File:Air pressure and depth gauge of Scuba set.jpg",
+    "author": "Shagil Kannur",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Air_pressure_and_depth_gauge_of_Scuba_set.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa262-d.jpg",
+     "read": -19.0613,
+     "conf": 0.093,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in one console"
+    },
+    "nova-lite": {
+     "file": "wa262-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 180.0,
+     "why": "two gauges in one console"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa262-d.jpg",
+     "read": -19.0613,
+     "conf": 0.34,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges in one console"
+    }
+   }
+  },
+  {
+   "file": "wa273-d.jpg",
+   "why": "two gauges on a panel",
+   "thumb": "/evidence/bench/wa273-d.jpg",
+   "credit": {
+    "title": "File:23 0049813 Convair Negative Image - Gas pressure gauges (53867505708).jpg",
+    "author": "San Diego Air &amp; Space Museum Archives",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:23_0049813_Convair_Negative_Image_-_Gas_pressure_gauges_(53867505708).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa273-d.jpg",
+     "read": -0.2062,
+     "conf": 0.983,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a panel"
+    },
+    "nova-lite": {
+     "file": "wa273-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 0.05,
+     "why": "two gauges on a panel"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa273-d.jpg",
+     "read": -0.2062,
+     "conf": 0.982,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a panel"
+    }
+   }
+  },
+  {
+   "file": "wa280-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wa280-d.jpg",
+   "credit": {
+    "title": "File:Manometer-Wkr-Marienberg.jpg",
+    "author": "Blauer elephant",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer-Wkr-Marienberg.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa280-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wa280-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 2.5,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa280-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "multiple",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wa281-d.jpg",
+   "why": "two gauges on a regulator",
+   "thumb": "/evidence/bench/wa281-d.jpg",
+   "credit": {
+    "title": "File:Manometer-sauerstoff.jpg",
+    "author": "Nutzdatenbegleiter (talk)",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometer-sauerstoff.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa281-d.jpg",
+     "read": 197.5676,
+     "conf": 0.656,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "glare_needle",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a regulator"
+    },
+    "nova-lite": {
+     "file": "wa281-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 200.0,
+     "why": "two gauges on a regulator"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa281-d.jpg",
+     "read": 197.5676,
+     "conf": 0.692,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "glare_needle",
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "two gauges on a regulator"
+    }
+   }
+  },
+  {
+   "file": "wa333.jpg",
+   "why": "dial seen from behind through clear plastic: the scale is mirrored",
+   "thumb": "/evidence/bench/wa333.jpg",
+   "credit": {
+    "title": "File:Au\u00dfenthermometer R\u00fcckseite.jpg",
+    "author": "Levin Holtkamp",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Au%C3%9Fenthermometer_R%C3%BCckseite.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa333.jpg",
+     "read": -13.1876,
+     "conf": 0.011,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "folder": "bench",
+     "why": "dial seen from behind through clear plastic: the scale is mirrored"
+    },
+    "nova-lite": {
+     "file": "wa333.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 0.2,
+     "why": "dial seen from behind through clear plastic: the scale is mirrored"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa333.jpg",
+     "read": -13.1876,
+     "conf": 0.179,
+     "accepted": false,
+     "issues": [
+      "tilt"
+     ],
+     "folder": "bench",
+     "why": "dial seen from behind through clear plastic: the scale is mirrored"
+    }
+   }
+  },
+  {
+   "file": "wa342.jpg",
+   "why": "not a gauge photo (a locomotive)",
+   "thumb": "/evidence/bench/wa342.jpg",
+   "credit": {
+    "title": "File:Baldwin 2-4-0 steam locomotive of the 3ft gauge Powelltown tramway at Yarra Junction, Victoria in 1913.jpg",
+    "author": "Unknown photographer",
+    "license": "Public domain",
+    "source": "https://commons.wikimedia.org/wiki/File:Baldwin_2-4-0_steam_locomotive_of_the_3ft_gauge_Powelltown_tramway_at_Yarra_Junction,_Victoria_in_1913.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa342.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "not a gauge photo (a locomotive)"
+    },
+    "nova-lite": {
+     "file": "wa342.jpg",
+     "folder": "bench",
+     "readable": false,
+     "accepted": false,
+     "read": null,
+     "why": "not a gauge photo (a locomotive)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa342.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "tilt",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "not a gauge photo (a locomotive)"
+    }
+   }
+  },
+  {
+   "file": "wa464.jpg",
+   "why": "two needles on a dual (left and right engine) gauge",
+   "thumb": "/evidence/bench/wa464.jpg",
+   "credit": {
+    "title": "File:Indicator, Hydraulic Pressure, Brakes, Japanese Army - DPLA - e899945ec1d8d97278af5f63ba98f267 (page 2).jpg",
+    "author": "Shinagawa Manufacturing Plant (Shinagawa Seisakusho)",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Hydraulic_Pressure,_Brakes,_Japanese_Army_-_DPLA_-_e899945ec1d8d97278af5f63ba98f267_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa464.jpg",
+     "read": 16.3928,
+     "conf": 0.02,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "two needles on a dual (left and right engine) gauge"
+    },
+    "nova-lite": {
+     "file": "wa464.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 20.0,
+     "why": "two needles on a dual (left and right engine) gauge"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa464.jpg",
+     "read": 16.3928,
+     "conf": 0.131,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "two needles on a dual (left and right engine) gauge"
+    }
+   }
+  },
+  {
+   "file": "wa516-d.jpg",
+   "why": "a thermometer with a clock face inside it",
+   "thumb": "/evidence/bench/wa516-d.jpg",
+   "credit": {
+    "title": "File:Thermometer for degree Fahrenheit and Celsius.jpg",
+    "author": "Marc-Lautenbacher",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Thermometer_for_degree_Fahrenheit_and_Celsius.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa516-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "a thermometer with a clock face inside it"
+    },
+    "nova-lite": {
+     "file": "wa516-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 30.0,
+     "why": "a thermometer with a clock face inside it"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa516-d.jpg",
+     "read": null,
+     "conf": 0.0,
+     "accepted": false,
+     "issues": [
+      "blur",
+      "scale"
+     ],
+     "folder": "bench",
+     "why": "a thermometer with a clock face inside it"
+    }
+   }
+  },
+  {
+   "file": "wa539.jpg",
+   "why": "long pointer rests in the blank part of the dial below the first number (off scale)",
+   "thumb": "/evidence/bench/wa539.jpg",
+   "credit": {
+    "title": "File:Temperature gauge attached to shower unit.JPG",
+    "author": "Staff or persons working for Harrogate Museums and Arts service",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Temperature_gauge_attached_to_shower_unit.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa539.jpg",
+     "read": 94.6981,
+     "conf": 0.026,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "long pointer rests in the blank part of the dial below the first number (off scale)"
+    },
+    "nova-lite": {
+     "file": "wa539.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 120.0,
+     "why": "long pointer rests in the blank part of the dial below the first number (off scale)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa539.jpg",
+     "read": 94.6981,
+     "conf": 0.103,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "long pointer rests in the blank part of the dial below the first number (off scale)"
+    }
+   }
+  },
+  {
+   "file": "wa565-d.jpg",
+   "why": "a thermometer and a hygrometer side by side",
+   "thumb": "/evidence/bench/wa565-d.jpg",
+   "credit": {
+    "title": "File:Hygrometer-thermometer hg.jpg",
+    "author": "Hannes Grobe",
+    "license": "CC BY 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hygrometer-thermometer_hg.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa565-d.jpg",
+     "read": -44.8892,
+     "conf": 0.188,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "a thermometer and a hygrometer side by side"
+    },
+    "nova-lite": {
+     "file": "wa565-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 20.0,
+     "why": "a thermometer and a hygrometer side by side"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa565-d.jpg",
+     "read": -44.8892,
+     "conf": 0.658,
+     "accepted": false,
+     "issues": [
+      "multiple"
+     ],
+     "folder": "bench",
+     "why": "a thermometer and a hygrometer side by side"
+    }
+   }
+  },
+  {
+   "file": "wa697.jpg",
+   "why": "arrow pointer rests in the blank part of the dial (off scale)",
+   "thumb": "/evidence/bench/wa697.jpg",
+   "credit": {
+    "title": "File:Georgetown PowerPlant Museum 191 - gauge.jpg",
+    "author": "Joe Mabel",
+    "license": "CC BY-SA 4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Georgetown_PowerPlant_Museum_191_-_gauge.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa697.jpg",
+     "read": 21.4292,
+     "conf": 0.317,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "arrow pointer rests in the blank part of the dial (off scale)"
+    },
+    "nova-lite": {
+     "file": "wa697.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 150.0,
+     "why": "arrow pointer rests in the blank part of the dial (off scale)"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa697.jpg",
+     "read": 21.4292,
+     "conf": 0.529,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "arrow pointer rests in the blank part of the dial (off scale)"
+    }
+   }
+  },
+  {
+   "file": "wa713.jpg",
+   "why": "two needles on a dual vacuum and ammeter instrument",
+   "thumb": "/evidence/bench/wa713.jpg",
+   "credit": {
+    "title": "File:Vacuum ammeter gauge.JPG",
+    "author": "RobbieMcConnel",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vacuum_ammeter_gauge.JPG",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wa713.jpg",
+     "read": 122.821,
+     "conf": 0.152,
+     "accepted": false,
+     "issues": [
+      "glare_needle"
+     ],
+     "folder": "bench",
+     "why": "two needles on a dual vacuum and ammeter instrument"
+    },
+    "nova-lite": {
+     "file": "wa713.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 5.0,
+     "why": "two needles on a dual vacuum and ammeter instrument"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wa713.jpg",
+     "read": 122.821,
+     "conf": 0.44,
+     "accepted": false,
+     "issues": [
+      "glare_needle"
+     ],
+     "folder": "bench",
+     "why": "two needles on a dual vacuum and ammeter instrument"
+    }
+   }
+  },
+  {
+   "file": "wb003-d.jpg",
+   "why": "two gauges in the frame",
+   "thumb": "/evidence/bench/wb003-d.jpg",
+   "credit": {
+    "title": "File:Manometers of Delfinul.jpg",
+    "author": "Mircea87",
+    "license": "CC BY-SA 3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Manometers_of_Delfinul.jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wb003-d.jpg",
+     "read": -0.2668,
+     "conf": 0.63,
+     "accepted": false,
+     "issues": [],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    },
+    "nova-lite": {
+     "file": "wb003-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 20.0,
+     "why": "two gauges in the frame"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wb003-d.jpg",
+     "read": -0.2668,
+     "conf": 0.937,
+     "accepted": true,
+     "issues": [],
+     "folder": "bench",
+     "why": "two gauges in the frame"
+    }
+   }
+  },
+  {
+   "file": "wb148.jpg",
+   "why": "arrow pointer rests in the blank part of the dial below 0 (off scale); photo rotated",
+   "thumb": "/evidence/bench/wb148.jpg",
+   "credit": {
+    "title": "File:Indicator, Oil Pressure, MK D.D. - DPLA - ac72cb025c60f4ad5636dc0d3901fb18 (page 2).jpg",
+    "author": "J. W. Benson Ltd",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure,_MK_D.D._-_DPLA_-_ac72cb025c60f4ad5636dc0d3901fb18_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wb148.jpg",
+     "read": 124.0684,
+     "conf": 0.026,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "arrow pointer rests in the blank part of the dial below 0 (off scale); photo rotated"
+    },
+    "nova-lite": {
+     "file": "wb148.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 100.0,
+     "why": "arrow pointer rests in the blank part of the dial below 0 (off scale); photo rotated"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wb148.jpg",
+     "read": 124.0684,
+     "conf": 0.203,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "arrow pointer rests in the blank part of the dial below 0 (off scale); photo rotated"
+    }
+   }
+  },
+  {
+   "file": "wb214.jpg",
+   "why": "needle rests on its stop 10 degrees below 0, in the blank arc",
+   "thumb": "/evidence/bench/wb214.jpg",
+   "credit": {
+    "title": "File:Indicator, Oil Pressure, Japanese Army - DPLA - 6d700151d2031d5f292ee572f760ff31 (page 1).jpg",
+    "author": "Shinagawa Manufacturing Plant (Shinagawa Seisakusho)",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Oil_Pressure,_Japanese_Army_-_DPLA_-_6d700151d2031d5f292ee572f760ff31_(page_1).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wb214.jpg",
+     "read": -15.8149,
+     "conf": 0.015,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "needle rests on its stop 10 degrees below 0, in the blank arc"
+    },
+    "nova-lite": {
+     "file": "wb214.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 60.0,
+     "why": "needle rests on its stop 10 degrees below 0, in the blank arc"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wb214.jpg",
+     "read": -15.8149,
+     "conf": 0.242,
+     "accepted": false,
+     "issues": [
+      "small",
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "needle rests on its stop 10 degrees below 0, in the blank arc"
+    }
+   }
+  },
+  {
+   "file": "wb216-d.jpg",
+   "why": "two pointers",
+   "thumb": "/evidence/bench/wb216-d.jpg",
+   "credit": {
+    "title": "File:Indicator, Autosyn, Dual, Oil Pressure, B-9, B-9A - DPLA - 77e8d82e914a0914148fe68bdebed121 (page 2).jpg",
+    "author": "Bendix Aviation Corp., Pioneer Instrument Division",
+    "license": "CC0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indicator,_Autosyn,_Dual,_Oil_Pressure,_B-9,_B-9A_-_DPLA_-_77e8d82e914a0914148fe68bdebed121_(page_2).jpg",
+    "via": "Wikimedia Commons"
+   },
+   "reads": {
+    "dialed": {
+     "file": "wb216-d.jpg",
+     "read": 227.8221,
+     "conf": 0.817,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "two pointers"
+    },
+    "nova-lite": {
+     "file": "wb216-d.jpg",
+     "folder": "bench",
+     "readable": true,
+     "accepted": true,
+     "read": 120.0,
+     "why": "two pointers"
+    },
+    "classic": null,
+    "submitted": {
+     "file": "wb216-d.jpg",
+     "read": 227.8221,
+     "conf": 0.507,
+     "accepted": false,
+     "issues": [
+      "blur"
+     ],
+     "folder": "bench",
+     "why": "two pointers"
+    }
+   }
+  }
+ ]
+}

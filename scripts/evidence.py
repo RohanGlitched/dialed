@@ -41,14 +41,15 @@ def _one(args):
     folder, t = args
     img = cv2.imread(str(Path(folder) / t["file"]))
     r = R.read(img)
-    err = None
+    err, used = None, None
     if r.value is not None:
         # dual-scale dials: score against whichever printed scale the reader used (the closest)
         scales = [t] + t.get("alt", [])
-        err = min(abs(r.value - sc["value"]) / (sc["max"] - sc["min"]) for sc in scales)
+        err, used = min(((abs(r.value - sc["value"]) / (sc["max"] - sc["min"]), sc) for sc in scales), key=lambda x: x[0])
     return {
         "file": t["file"],
         "truth": t["value"],
+        "scored": {"value": used["value"], "unit": used.get("unit", t["unit"])} if r.value is not None else None,
         "min": t["min"],
         "max": t["max"],
         "unit": t["unit"],
@@ -173,6 +174,9 @@ def main():
                                       "out_of_scope_accepted": first["out_of_scope_accepted"]}
     bundle["bench"] = bench()
     bundle["calibration"] = json.loads((ROOT / "vision" / "calibration.json").read_text())
+    old = OUT / "results.json"
+    if old.exists() and "lambda" in json.loads(old.read_text()):
+        bundle["lambda"] = json.loads(old.read_text())["lambda"]  # measured on the deployed function, kept across rebuilds
     (OUT / "results.json").write_text(json.dumps(bundle))
     print("bench", bundle["bench"])
 

@@ -1,0 +1,1913 @@
+{
+ "name": "classic",
+ "kind": "classic",
+ "sets": {
+  "bench-test": {
+   "summary": {
+    "n": 63,
+    "read": 41,
+    "accepted": 41,
+    "coverage": 0.6508,
+    "accepted_within_2pct": 10,
+    "precision_2pct": 0.2439,
+    "accepted_over_5pct": 18,
+    "correct_and_accepted": 0.1587,
+    "within_2pct_all_reads": 0.2439,
+    "median_err_accepted": 0.04473,
+    "at_rest": {
+     "n": 35,
+     "accepted": 21,
+     "accepted_within_2pct": 6
+    },
+    "needle_off_zero": {
+     "n": 28,
+     "accepted": 20,
+     "accepted_within_2pct": 4
+    }
+   },
+   "rows": [
+    {
+     "file": "f007.jpg",
+     "set": "bench-test",
+     "read": 155.8668,
+     "err": 0.01622,
+     "scored_against": {
+      "value": 151,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f009.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "f013.jpg",
+     "set": "bench-test",
+     "read": 3.8628,
+     "err": 0.02414,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f014.jpg",
+     "set": "bench-test",
+     "read": 0.2581,
+     "err": 0.01434,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 18.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f016.jpg",
+     "set": "bench-test",
+     "read": 71.4241,
+     "err": 0.04644,
+     "scored_against": {
+      "value": 90.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 400.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f022.jpg",
+     "set": "bench-test",
+     "read": 5.3155,
+     "err": 0.17718,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f041.jpg",
+     "set": "bench-test",
+     "read": 26.8206,
+     "err": 0.06685,
+     "scored_against": {
+      "value": 31.5,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 70.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f042.jpg",
+     "set": "bench-test",
+     "read": 129.3359,
+     "err": 0.00888,
+     "scored_against": {
+      "value": 132,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f082.jpg",
+     "set": "bench-test",
+     "read": -3.5343,
+     "err": 0.03534,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f084.jpg",
+     "set": "bench-test",
+     "read": 62.2443,
+     "err": 0.10756,
+     "scored_against": {
+      "value": 73.0,
+      "unit": "\u00b0F",
+      "min": 40.0,
+      "max": 140.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f085.jpg",
+     "set": "bench-test",
+     "read": 54.3553,
+     "err": 0.19445,
+     "scored_against": {
+      "value": 73.8,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f485.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "f495.jpg",
+     "set": "bench-test",
+     "read": -49.1781,
+     "err": 0.00492,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 10000.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f498.jpg",
+     "set": "bench-test",
+     "read": 2135.4061,
+     "err": 0.7118,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 3000.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f501.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "f504.jpg",
+     "set": "bench-test",
+     "read": 174.4858,
+     "err": 0.00495,
+     "scored_against": {
+      "value": 173.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f505.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "f728.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "f729.jpg",
+     "set": "bench-test",
+     "read": 4.2692,
+     "err": 0.14231,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "inHg",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f736.jpg",
+     "set": "bench-test",
+     "read": 60.7169,
+     "err": 0.24287,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f739.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa002.jpg",
+     "set": "bench-test",
+     "read": -15.5325,
+     "err": 0.02932,
+     "scored_against": {
+      "value": -12.6,
+      "unit": "kPa",
+      "min": -100.0,
+      "max": 0.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa025.jpg",
+     "set": "bench-test",
+     "read": -1.1731,
+     "err": 0.03352,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 35.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa026.jpg",
+     "set": "bench-test",
+     "read": -0.7143,
+     "err": 0.06191,
+     "scored_against": {
+      "value": 3.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 60.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa034.jpg",
+     "set": "bench-test",
+     "read": 97.7982,
+     "err": 0.15519,
+     "scored_against": {
+      "value": 59.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa048.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wa054.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wa060.jpg",
+     "set": "bench-test",
+     "read": 142.4839,
+     "err": 0.14394,
+     "scored_against": {
+      "value": 106.5,
+      "unit": "\u00b0C",
+      "min": 50.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa066.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wa069.jpg",
+     "set": "bench-test",
+     "read": 1.9767,
+     "err": 0.00791,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kPa",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa077.jpg",
+     "set": "bench-test",
+     "read": 134.3229,
+     "err": 0.67161,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa079.jpg",
+     "set": "bench-test",
+     "read": 769.6956,
+     "err": 0.03212,
+     "scored_against": {
+      "value": 850.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 2500.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa083.jpg",
+     "set": "bench-test",
+     "read": 7.9082,
+     "err": 0.04473,
+     "scored_against": {
+      "value": 9.25,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 30.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa090.jpg",
+     "set": "bench-test",
+     "read": 2.4989,
+     "err": 0.03489,
+     "scored_against": {
+      "value": 2.15,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 10.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa097.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa143.jpg",
+     "set": "bench-test",
+     "read": 319.3132,
+     "err": 1.06438,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa176.jpg",
+     "set": "bench-test",
+     "read": 14.3765,
+     "err": 0.70882,
+     "scored_against": {
+      "value": 0.2,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa183.jpg",
+     "set": "bench-test",
+     "read": 28.3774,
+     "err": 0.0609,
+     "scored_against": {
+      "value": 29.9,
+      "unit": "inHg",
+      "min": 10.0,
+      "max": 35.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa207.jpg",
+     "set": "bench-test",
+     "read": -1.694,
+     "err": 0.01694,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa240.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wa288.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa425.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa426.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa431.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa484.jpg",
+     "set": "bench-test",
+     "read": 68.3358,
+     "err": 0.02036,
+     "scored_against": {
+      "value": 72.0,
+      "unit": "\u00b0F",
+      "min": -60.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa507.jpg",
+     "set": "bench-test",
+     "read": 82.3187,
+     "err": 0.01159,
+     "scored_against": {
+      "value": 80.0,
+      "unit": "\u00b0F",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa551.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wa708.jpg",
+     "set": "bench-test",
+     "read": 303.4215,
+     "err": 1.01141,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa714.jpg",
+     "set": "bench-test",
+     "read": -693.8977,
+     "err": 0.0461,
+     "scored_against": {
+      "value": -740.0,
+      "unit": "mbar",
+      "min": -1000.0,
+      "max": 0.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wb010.jpg",
+     "set": "bench-test",
+     "read": 224.403,
+     "err": 0.74801,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kgf/cm2",
+      "min": 0.0,
+      "max": 300
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb011.jpg",
+     "set": "bench-test",
+     "read": 6.4454,
+     "err": 0.02578,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kgf/cm2",
+      "min": 0.0,
+      "max": 250.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb012.jpg",
+     "set": "bench-test",
+     "read": 25.5354,
+     "err": 0.08512,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb013.jpg",
+     "set": "bench-test",
+     "read": -0.0483,
+     "err": 0.01206,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "MPa",
+      "min": 0.0,
+      "max": 4.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb025.jpg",
+     "set": "bench-test",
+     "read": -0.6392,
+     "err": 0.04357,
+     "scored_against": {
+      "value": 0.45,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wb037.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb088.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb092.jpg",
+     "set": "bench-test",
+     "read": -0.5949,
+     "err": 0.00496,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb099.jpg",
+     "set": "bench-test",
+     "read": -3.8006,
+     "err": 0.05001,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "cm Hg",
+      "min": 0.0,
+      "max": 76.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb127.jpg",
+     "set": "bench-test",
+     "read": -0.8503,
+     "err": 0.04251,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb139.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wb151.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb156.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb177.jpg",
+     "set": "bench-test",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    }
+   ]
+  },
+  "bench-dev": {
+   "summary": {
+    "n": 44,
+    "read": 30,
+    "accepted": 30,
+    "coverage": 0.6818,
+    "accepted_within_2pct": 9,
+    "precision_2pct": 0.3,
+    "accepted_over_5pct": 15,
+    "correct_and_accepted": 0.2045,
+    "within_2pct_all_reads": 0.3,
+    "median_err_accepted": 0.04638,
+    "at_rest": {
+     "n": 26,
+     "accepted": 16,
+     "accepted_within_2pct": 6
+    },
+    "needle_off_zero": {
+     "n": 18,
+     "accepted": 14,
+     "accepted_within_2pct": 3
+    }
+   },
+   "rows": [
+    {
+     "file": "f026.jpg",
+     "set": "bench-dev",
+     "read": 108.2051,
+     "err": 0.01598,
+     "scored_against": {
+      "value": 113.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f044.jpg",
+     "set": "bench-dev",
+     "read": 6.2998,
+     "err": 0.18124,
+     "scored_against": {
+      "value": 3.4,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 16.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f072.jpg",
+     "set": "bench-dev",
+     "read": 332.8745,
+     "err": 0.08322,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 4000.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f091.jpg",
+     "set": "bench-dev",
+     "read": 1.2183,
+     "err": 0.00609,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f118.jpg",
+     "set": "bench-dev",
+     "read": -70.3663,
+     "err": 0.70683,
+     "scored_against": {
+      "value": 71.0,
+      "unit": "\u00b0F",
+      "min": -40.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f273.jpg",
+     "set": "bench-dev",
+     "read": 56.9618,
+     "err": 0.13212,
+     "scored_against": {
+      "value": 43.75,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 100.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f286.jpg",
+     "set": "bench-dev",
+     "read": 3.8374,
+     "err": 0.03198,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 120.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "f300.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "f313.jpg",
+     "set": "bench-dev",
+     "read": 175.4944,
+     "err": 0.69059,
+     "scored_against": {
+      "value": 65.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f478.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "f481.jpg",
+     "set": "bench-dev",
+     "read": 71.7551,
+     "err": 0.00878,
+     "scored_against": {
+      "value": 70.0,
+      "unit": "\u00b0F",
+      "min": -40.0,
+      "max": 160.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "f559.jpg",
+     "set": "bench-dev",
+     "read": 124.4206,
+     "err": 0.0164,
+     "scored_against": {
+      "value": 119.5,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa006.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "wa014.jpg",
+     "set": "bench-dev",
+     "read": 0.0076,
+     "err": 0.00047,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 16.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa028.jpg",
+     "set": "bench-dev",
+     "read": -0.1008,
+     "err": 0.01681,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 6.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa046.jpg",
+     "set": "bench-dev",
+     "read": 0.4746,
+     "err": 0.18253,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": -1.0,
+      "max": 1.6
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa050.jpg",
+     "set": "bench-dev",
+     "read": 0.0896,
+     "err": 0.02985,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 3.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa061.jpg",
+     "set": "bench-dev",
+     "read": -0.756,
+     "err": 0.42844,
+     "scored_against": {
+      "value": 93.5,
+      "unit": "\u00b0F",
+      "min": 0.0,
+      "max": 220.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa067.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa072.jpg",
+     "set": "bench-dev",
+     "read": 19.8326,
+     "err": 0.69163,
+     "scored_against": {
+      "value": 6.0,
+      "unit": "kg/cm2",
+      "min": 0.0,
+      "max": 20.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa084.jpg",
+     "set": "bench-dev",
+     "read": 136.9883,
+     "err": 0.68494,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa085.jpg",
+     "set": "bench-dev",
+     "read": 11.5238,
+     "err": 0.3381,
+     "scored_against": {
+      "value": -2.0,
+      "unit": "mmWS",
+      "min": -10,
+      "max": 30.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa087.jpg",
+     "set": "bench-dev",
+     "read": 0.0063,
+     "err": 0.0004,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 16.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa096.jpg",
+     "set": "bench-dev",
+     "read": -24.9319,
+     "err": 0.12466,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 200.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa110.jpg",
+     "set": "bench-dev",
+     "read": 2.4143,
+     "err": 0.02971,
+     "scored_against": {
+      "value": 3.9,
+      "unit": "m",
+      "min": 0.0,
+      "max": 50.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa112.jpg",
+     "set": "bench-dev",
+     "read": 22.1833,
+     "err": 0.05546,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 400.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa160.jpg",
+     "set": "bench-dev",
+     "read": -4.0992,
+     "err": 0.16397,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "m water",
+      "min": 0.0,
+      "max": 25.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa180.jpg",
+     "set": "bench-dev",
+     "read": 0.1949,
+     "err": 0.013,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 15.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa184.jpg",
+     "set": "bench-dev",
+     "read": 1.5497,
+     "err": 0.0373,
+     "scored_against": {
+      "value": 1.49,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 1.6
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa189.jpg",
+     "set": "bench-dev",
+     "read": 20.1969,
+     "err": 0.03601,
+     "scored_against": {
+      "value": 31.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "wa196.jpg",
+     "set": "bench-dev",
+     "read": -0.4033,
+     "err": 0.0336,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 12.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa233.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa367.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa433.jpg",
+     "set": "bench-dev",
+     "read": 93.8468,
+     "err": 1.04274,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "psi",
+      "min": 0.0,
+      "max": 90
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wa449.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa452.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wa705.jpg",
+     "set": "bench-dev",
+     "read": 102.1135,
+     "err": 0.34038,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "mmHg",
+      "min": 0.0,
+      "max": 300.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb020.jpg",
+     "set": "bench-dev",
+     "read": -0.0989,
+     "err": 0.01648,
+     "scored_against": {
+      "value": 0.0,
+      "unit": "bar",
+      "min": 0.0,
+      "max": 6.0
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "wb129.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb130.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb131.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb175.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb183.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "wb230.jpg",
+     "set": "bench-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    }
+   ]
+  },
+  "real-dev": {
+   "summary": {
+    "n": 37,
+    "read": 23,
+    "accepted": 23,
+    "coverage": 0.6216,
+    "accepted_within_2pct": 11,
+    "precision_2pct": 0.4783,
+    "accepted_over_5pct": 9,
+    "correct_and_accepted": 0.2973,
+    "within_2pct_all_reads": 0.4783,
+    "median_err_accepted": 0.03782,
+    "at_rest": {
+     "n": 17,
+     "accepted": 9,
+     "accepted_within_2pct": 3
+    },
+    "needle_off_zero": {
+     "n": 20,
+     "accepted": 14,
+     "accepted_within_2pct": 8
+    }
+   },
+   "rows": [
+    {
+     "file": "r03.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "r04.jpg",
+     "set": "real-dev",
+     "read": 69.2831,
+     "err": 0.00177,
+     "scored_against": {
+      "value": 69,
+      "unit": "\u00b0F",
+      "min": -40,
+      "max": 120
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r05.jpg",
+     "set": "real-dev",
+     "read": 71.7738,
+     "err": 0.01109,
+     "scored_against": {
+      "value": 70,
+      "unit": "\u00b0F",
+      "min": -30,
+      "max": 130
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r06.jpg",
+     "set": "real-dev",
+     "read": 65.5747,
+     "err": 0.0383,
+     "scored_against": {
+      "value": 74,
+      "unit": "\u00b0F",
+      "min": 0,
+      "max": 220
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r09.jpg",
+     "set": "real-dev",
+     "read": 310.8797,
+     "err": 0.07772,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "r10.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "r12.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "r15.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "r18.jpg",
+     "set": "real-dev",
+     "read": -0.0941,
+     "err": 0.00627,
+     "scored_against": {
+      "value": 0,
+      "unit": "kg/cm\u00b2",
+      "min": 0,
+      "max": 15
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "r20.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "r23.jpg",
+     "set": "real-dev",
+     "read": 0.0679,
+     "err": 0.10803,
+     "scored_against": {
+      "value": 0.5,
+      "unit": "bar",
+      "min": 0.5,
+      "max": 4.5
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "r24.jpg",
+     "set": "real-dev",
+     "read": 301.5155,
+     "err": 1.00505,
+     "scored_against": {
+      "value": 0,
+      "unit": "kg/cm\u00b2",
+      "min": 0,
+      "max": 300
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "r25.jpg",
+     "set": "real-dev",
+     "read": 105.2663,
+     "err": 0.01578,
+     "scored_against": {
+      "value": 110,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r26.jpg",
+     "set": "real-dev",
+     "read": 22.5384,
+     "err": 0.00897,
+     "scored_against": {
+      "value": 22,
+      "unit": "psi",
+      "min": 0,
+      "max": 60
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r27.jpg",
+     "set": "real-dev",
+     "read": 542.1821,
+     "err": 0.03782,
+     "scored_against": {
+      "value": 580,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r28.jpg",
+     "set": "real-dev",
+     "read": 633.9462,
+     "err": 0.00605,
+     "scored_against": {
+      "value": 640,
+      "unit": "kPa",
+      "min": 0,
+      "max": 1000
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r30.jpg",
+     "set": "real-dev",
+     "read": 751.2682,
+     "err": 0.01218,
+     "scored_against": {
+      "value": 800,
+      "unit": "psi",
+      "min": 0,
+      "max": 4000
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r31.jpg",
+     "set": "real-dev",
+     "read": 76.071,
+     "err": 0.05211,
+     "scored_against": {
+      "value": 62,
+      "unit": "psi",
+      "min": 0,
+      "max": 270
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r33.jpg",
+     "set": "real-dev",
+     "read": 23.2231,
+     "err": 0.01529,
+     "scored_against": {
+      "value": 22,
+      "unit": "\u00b0C",
+      "min": -20,
+      "max": 60
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r35.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "r36.jpg",
+     "set": "real-dev",
+     "read": 123.787,
+     "err": 0.01117,
+     "scored_against": {
+      "value": 122,
+      "unit": "psi",
+      "min": 0,
+      "max": 160
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "r37.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "b01.jpg",
+     "set": "real-dev",
+     "read": 219.4104,
+     "err": 0.57137,
+     "scored_against": {
+      "value": 48,
+      "unit": "psi",
+      "min": 0,
+      "max": 300
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "b02.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "b04.jpg",
+     "set": "real-dev",
+     "read": 46.8648,
+     "err": 0.39275,
+     "scored_against": {
+      "value": 23.3,
+      "unit": "\u00b0C",
+      "min": -20,
+      "max": 40
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "b05.jpg",
+     "set": "real-dev",
+     "read": 20.4205,
+     "err": 0.68068,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 30
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "b11.jpg",
+     "set": "real-dev",
+     "read": -0.1775,
+     "err": 0.00178,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 100
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "b12.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "b13.jpg",
+     "set": "real-dev",
+     "read": 239.3405,
+     "err": 1.08791,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 220
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "b17.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "b18.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "b19.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "b20.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "b21.jpg",
+     "set": "real-dev",
+     "read": 0.5371,
+     "err": 0.00537,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 100
+     },
+     "accepted": true,
+     "at_rest": true
+    },
+    {
+     "file": "b23.jpg",
+     "set": "real-dev",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": false
+    },
+    {
+     "file": "b24.jpg",
+     "set": "real-dev",
+     "read": 17.8961,
+     "err": 0.03896,
+     "scored_against": {
+      "value": 14,
+      "unit": "\u00b0C",
+      "min": -50,
+      "max": 50
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "b26.jpg",
+     "set": "real-dev",
+     "read": 100.8768,
+     "err": 0.67251,
+     "scored_against": {
+      "value": 0,
+      "unit": "psi",
+      "min": 0,
+      "max": 150
+     },
+     "accepted": true,
+     "at_rest": true
+    }
+   ]
+  },
+  "blind2": {
+   "summary": {
+    "n": 3,
+    "read": 2,
+    "accepted": 2,
+    "coverage": 0.6667,
+    "accepted_within_2pct": 1,
+    "precision_2pct": 0.5,
+    "accepted_over_5pct": 0,
+    "correct_and_accepted": 0.3333,
+    "within_2pct_all_reads": 0.5,
+    "median_err_accepted": 0.01955,
+    "at_rest": {
+     "n": 1,
+     "accepted": 0,
+     "accepted_within_2pct": 0
+    },
+    "needle_off_zero": {
+     "n": 2,
+     "accepted": 2,
+     "accepted_within_2pct": 1
+    }
+   },
+   "rows": [
+    {
+     "file": "c27.jpg",
+     "set": "blind2",
+     "read": 34.8828,
+     "err": 0.03255,
+     "scored_against": {
+      "value": 30,
+      "unit": "\u00b0C",
+      "min": 0,
+      "max": 150
+     },
+     "accepted": true,
+     "at_rest": false
+    },
+    {
+     "file": "c29.jpg",
+     "set": "blind2",
+     "read": null,
+     "err": null,
+     "scored_against": null,
+     "accepted": false,
+     "at_rest": true
+    },
+    {
+     "file": "c36.jpg",
+     "set": "blind2",
+     "read": 14.7724,
+     "err": 0.00655,
+     "scored_against": {
+      "value": 15.1,
+      "unit": "bar",
+      "min": 0,
+      "max": 50
+     },
+     "accepted": true,
+     "at_rest": false
+    }
+   ]
+  }
+ }
+}
