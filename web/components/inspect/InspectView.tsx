@@ -172,7 +172,7 @@ function Measurements({ ins }: { ins: Inspect }) {
   return (
     <section className={s.meas} aria-label="Measurements">
       <h3 className="h3">Every measurement behind the confidence</h3>
-      <p className="muted small">Confidence is a logistic model of these measurements, fitted on held-out synthetic gauges with known answers. It estimates the chance that the reading is within 2% of the scale.</p>
+      <p className="muted small">Confidence is a logistic model of these measurements, fitted on held-out synthetic gauges with known answers. It estimates the chance that the reading is within 2% of the scale. On real photos it is less reliable than on rendered ones; the <a href="/evidence/#bench">Evidence page</a> shows how it did on real photos it never saw.</p>
       <table className={s.table}>
         <thead>
           <tr><th scope="col">Measurement</th><th scope="col">Value</th><th scope="col">What it means</th></tr>
