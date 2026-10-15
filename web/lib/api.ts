@@ -18,7 +18,18 @@ async function call<T>(path: string, init?: RequestInit): Promise<T> {
   return body as T;
 }
 
-export const get = <T,>(path: string) => call<T>(path);
+/** GETs are retried when the function is briefly at its concurrency cap (Lambda answers 429): pages that load
+ * several gauges at once would otherwise show a gap. POSTs are not retried (a 429 there is the visitor limit). */
+export async function get<T>(path: string): Promise<T> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      return await call<T>(path);
+    } catch (e) {
+      if (!(e instanceof ApiError) || (e.status !== 429 && e.status !== 503) || attempt >= 3) throw e;
+      await new Promise((r) => setTimeout(r, 350 * (attempt + 1) + Math.random() * 250));
+    }
+  }
+}
 export const post = <T,>(path: string, data: unknown) => call<T>(path, { method: "POST", body: JSON.stringify(data) });
 
 /** Stored images come back as /media/... (CDN) or /api/blob/... (local API). */
