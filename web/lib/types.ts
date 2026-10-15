@@ -41,6 +41,11 @@ export type Reading = {
   inspect?: string | null;
   assessment?: Assessment | null;
   steps?: Step[];
+  next_view?: { target: string; move: string; because: string } | null;
+  previous?: string | null;
+  views?: { agree: boolean | null; diff_share_of_scale?: number; previous?: { value: number | null }; current?: { value: number | null } } | null;
+  note?: string | null;
+  usage?: { in: number; out: number; calls: number };
 };
 
 export type Breach = { code: string; text: string; severity: "urgent" | "high" | "medium" };
@@ -75,6 +80,7 @@ export type Order = {
   decided_at?: string;
   decided_by?: string;
   note?: string;
+  operator_note?: string | null;
 };
 
 export type RoundGauge = Gauge & { latest: Reading | null; recent: { at: string; value: number }[] };

@@ -22,6 +22,9 @@ export function Capture({ gauge, onCaptured, onNext, onClose }: { gauge: RoundGa
   const [msg, setMsg] = useState("");
   const [tick, setTick] = useState(0);
   const [preview, setPreview] = useState<string | null>(null);
+  const [note, setNote] = useState("");
+  // after a re-shoot request, the next photo is checked against this one (compare_views)
+  const [previous, setPrevious] = useState<string | null>(null);
   const top = useRef<HTMLDivElement>(null);
   const shots = ((demo as Record<string, DemoShot[]>)[gauge.id] ?? []) as DemoShot[];
   const span = gauge.max - gauge.min;
@@ -42,8 +45,9 @@ export function Capture({ gauge, onCaptured, onNext, onClose }: { gauge: RoundGa
     setMode("busy");
     setIns(null);
     try {
-      const r = await post<Reading>("/api/capture", { gauge: gauge.id, photo, run: new Date().toISOString().slice(0, 10) });
+      const r = await post<Reading>("/api/capture", { gauge: gauge.id, photo, run: new Date().toISOString().slice(0, 10), previous: previous ?? undefined, note: note.trim() || undefined });
       setRec(r);
+      setPrevious(r.outcome === "reshoot" ? r.id : null);
       setMode("done");
       onCaptured(r);
       if (r.inspect) get<Inspect>(r.inspect).then(setIns).catch(() => setIns(null));
@@ -99,6 +103,15 @@ export function Capture({ gauge, onCaptured, onNext, onClose }: { gauge: RoundGa
 
       {mode === "pick" && (
         <div className={s.pick}>
+          {previous && rec?.next_view && (
+            <p className={s.viewAsk} role="status">
+              <b>Next view the agent asked for:</b> {rec.next_view.target}, {rec.next_view.move}. This photo will be checked against the last one before anything is logged.
+            </p>
+          )}
+          <label className={s.noteField}>
+            <span>Note for the supervisor (optional)</span>
+            <input value={note} onChange={(e) => setNote(e.target.value)} maxLength={300} placeholder="e.g. housing hot to the touch, grinding noise" />
+          </label>
           <button className={`btn red ${s.big}`} onClick={() => setMode("camera")}>Photograph it with the camera guide</button>
           <label className={`btn ghost ${s.big}`}>
             Upload a photo
@@ -158,6 +171,10 @@ export function Capture({ gauge, onCaptured, onNext, onClose }: { gauge: RoundGa
               </p>
             )}
             <p className={s.message}>{rec.message}</p>
+            {rec.outcome === "reshoot" && rec.next_view && <p className={s.viewNext}>Next view: <b>{rec.next_view.target}</b>, {rec.next_view.move}.</p>}
+            {rec.views && rec.views.agree != null && (
+              <p className={s.viewNext}>Checked against the previous photo: {rec.views.agree ? "the two views agree" : "the two views disagree, so nothing was logged"}{rec.views.diff_share_of_scale != null ? ` (${(rec.views.diff_share_of_scale * 100).toFixed(1)}% of the scale apart)` : ""}.</p>
+            )}
             <div className={s.actions}>
               {rec.outcome === "reshoot" || rec.outcome === "mismatch" ? (
                 <button className="btn red" onClick={() => setMode("pick")}>Take it again</button>

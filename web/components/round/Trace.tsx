@@ -9,6 +9,7 @@ const TOOL: Record<string, string> = {
   log_reading: "Log the reading",
   hold_work_order: "Hold a work order",
   flag_wrong_gauge: "Flag the tag",
+  compare_views: "Check against the last photo",
 };
 
 /** Model text without the <thinking> blocks some models (Amazon Nova) wrap their reasoning in. */
@@ -104,7 +105,14 @@ function Summary({ name, r }: { name: string; r: Record<string, unknown> }) {
       </p>
     );
   }
-  if (name === "request_reshoot") return <p className={s.meta}><b>{String(r.guidance ?? "")}</b></p>;
+  if (name === "request_reshoot") {
+    const v = r.next_view as { target: string; move: string } | undefined;
+    return <p className={s.meta}><b>{String(r.guidance ?? "")}</b>{v ? ` Next view: ${v.target}, ${v.move}.` : ""}</p>;
+  }
+  if (name === "compare_views") {
+    if (r.agree == null) return <p className={s.meta}>{String(r.note ?? "No usable previous view.")}</p>;
+    return <p className={s.meta}>{r.agree ? "The two views agree" : <b>The two views disagree</b>} ({(Number(r.diff_share_of_scale ?? 0) * 100).toFixed(1)}% of the scale apart).</p>;
+  }
   if (name === "hold_work_order") return <p className={s.meta}>Priority {String(r.priority)}{Array.isArray(r.struck) && r.struck.length ? `; struck unverified figures: ${(r.struck as string[]).join(", ")}` : ""}</p>;
   if (name === "flag_wrong_gauge") return <p className={s.meta}>{String(r.message ?? "")}</p>;
   if (name === "log_reading") return <p className={s.meta}>Logged {String(r.value ?? "")}</p>;

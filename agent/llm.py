@@ -36,7 +36,7 @@ NEBIUS_URL = os.environ.get("NEBIUS_BASE_URL", "https://api.tokenfactory.nebius.
 
 
 def chat(system: str, messages: list[dict], tools: list[dict], timeout: float = 25.0) -> dict:
-    """Returns {"text", "tool_calls": [{"id", "name", "args"}], "model", "ms"}."""
+    """Returns {"text", "tool_calls": [{"id", "name", "args"}], "model", "ms", "usage": {"in", "out"}}."""
     errors = []
     for provider in [p.strip() for p in os.environ.get("DIALED_LLM", "bedrock").split(",") if p.strip()]:
         models = BEDROCK_MODELS if provider == "bedrock" else NEBIUS_MODELS
@@ -116,7 +116,8 @@ def _bedrock(model: str, system: str, messages: list[dict], tools: list[dict], t
         if "toolUse" in block:
             tu = block["toolUse"]
             calls.append({"id": tu["toolUseId"], "name": tu["name"], "args": tu.get("input") or {}})
-    return {"text": _clean(text), "tool_calls": calls}
+    u = r.get("usage", {})
+    return {"text": _clean(text), "tool_calls": calls, "usage": {"in": u.get("inputTokens", 0), "out": u.get("outputTokens", 0)}}
 
 
 def _clean(text: str) -> str:
@@ -165,7 +166,8 @@ def _nebius(model: str, system: str, messages: list[dict], tools: list[dict], ti
     # some reasoning models wrap thoughts; keep only what follows
     if "</think>" in text:
         text = text.split("</think>")[-1].strip()
-    return {"text": text, "tool_calls": calls}
+    u = data.get("usage") or {}
+    return {"text": text, "tool_calls": calls, "usage": {"in": u.get("prompt_tokens", 0), "out": u.get("completion_tokens", 0)}}
 
 
 def _as_obj(content: str):

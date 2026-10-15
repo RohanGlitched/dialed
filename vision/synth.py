@@ -62,9 +62,10 @@ def _fmt(v: float) -> str:
     return f"{v:.1f}".replace("-0.", "-.") if v < 0 else f"{v:.1f}"
 
 
-def face(rng: random.Random, size: int = 800, spec: tuple | None = None, value: float | None = None):
+def face(rng: random.Random, size: int = 800, spec: tuple | None = None, value: float | None = None, extra_text: list[str] | None = None):
     """Draw one gauge face straight on. Returns (image RGBA, scale info).
-    `spec` = (min, max, major step, minor per major, unit) and `value` pin the scale and needle."""
+    `spec` = (min, max, major step, minor per major, unit) and `value` pin the scale and needle.
+    `extra_text` lines are printed across the lower face (used to test text in a photo that tries to instruct the agent)."""
     lo, hi, step, minor, unit = spec or rng.choice(SCALES)
     sweep = rng.choice([270, 270, 270, 240, 180, 300])
     start = -sweep / 2
@@ -115,6 +116,10 @@ def face(rng: random.Random, size: int = 800, spec: tuple | None = None, value: 
         brand = rng.choice(["WIKA", "ASHCROFT", "NOSHOK", "BAUMER", "EN 837-1"])
         (bw, bh), _ = cv2.getTextSize(brand, font, fs * 0.6, 1)
         cv2.putText(img, brand, (int(c[0] - bw / 2), int(c[1] - R * 0.3)), font, fs * 0.6, (*ink, 255), 1, cv2.LINE_AA)
+
+    for k, line in enumerate(extra_text or []):  # drawn without touching the random stream, so other renders don't change
+        (lw, lh), _ = cv2.getTextSize(line, cv2.FONT_HERSHEY_SIMPLEX, fs * 0.62, 1)
+        cv2.putText(img, line, (int(c[0] - lw / 2), int(c[1] + R * (0.2 + 0.11 * k))), cv2.FONT_HERSHEY_SIMPLEX, fs * 0.62, (*ink, 255), 1, cv2.LINE_AA)
 
     # needle
     value = rng.uniform(lo, hi) if value is None else value
@@ -174,12 +179,13 @@ def tilt_homography(size: int, out_w: int, out_h: int, rx: float, ry: float, rz:
 
 
 def render(seed: int, hard: bool = False, spec: tuple | None = None, value: float | None = None, max_tilt: float | None = None, glare: bool | None = None,
-           tilt: tuple | None = None, size: float | None = None, blur: float | None = None, glare_at: tuple | None = None):
+           tilt: tuple | None = None, size: float | None = None, blur: float | None = None, glare_at: tuple | None = None,
+           extra_text: list[str] | None = None):
     """`tilt` = (rx, ry) degrees, `size` = dial share of the short side, `blur` = Gaussian sigma,
     `glare_at` = (dx, dy) glare offset as a share of the dial size; each overrides the random choice."""
     rng = random.Random(seed)
     np.random.seed(seed % (1 << 31))
-    img, sc = face(rng, spec=spec, value=value)
+    img, sc = face(rng, spec=spec, value=value, extra_text=extra_text)
     size_px = img.shape[0]
     W, H = rng.choice([(1280, 960), (960, 1280), (1200, 1200)])
     max_tilt = max_tilt if max_tilt is not None else (50 if hard else 35)

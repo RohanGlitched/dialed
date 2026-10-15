@@ -141,5 +141,27 @@ def guidance(issues: list[dict]) -> str:
     return " ".join(texts[:2]) if texts else "Take the photo again, square on, filling the frame with the dial."
 
 
+def next_view(issues: list[dict]) -> dict:
+    """The one view to ask for next, from the measured issues: what to aim at and how to move.
+    Glare over the needle names the side to step to (measured from where the highlight sits on the dial)."""
+    codes = [i["code"] for i in issues]
+    for i in issues:
+        if i["code"] == "glare_needle":
+            side = "left" if (i.get("deg") or 0) > 0 else "right"
+            return {"target": "needle", "move": f"step to the {side}", "because": "glare_needle"}
+    # the cause first: blur, tilt or distance usually explain why the numbers couldn't be read
+    if "blur" in codes:
+        return {"target": "whole dial", "move": "hold still", "because": "blur"}
+    if "tilt" in codes:
+        return {"target": "whole dial", "move": "square on", "because": "tilt"}
+    if "multiple" in codes:
+        return {"target": "this gauge only", "move": "closer", "because": "multiple"}
+    if "small" in codes:
+        return {"target": "whole dial", "move": "closer", "because": "small"}
+    if "scale" in codes:
+        return {"target": "printed numbers", "move": "closer, square on", "because": "scale"}
+    return {"target": "whole dial", "move": "square on", "because": codes[0] if codes else "confidence"}
+
+
 def isfinite(v) -> bool:
     return isinstance(v, (int, float)) and math.isfinite(v)
