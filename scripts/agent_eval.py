@@ -115,7 +115,7 @@ def run_one(sc: dict, use_model: bool, k: int) -> dict:
                 opts["glare_at"] = follow(view)
             t0 = time.perf_counter()
             rec = Capture(store, g, photo(shot["dial"], shot["value"], opts, 900 + i), note=sc.get("note"), previous=prev).run(use_model=use_model)
-            if use_model and not sc.get("env") and rec.get("engine") != "Amazon Nova Micro on Bedrock":
+            if use_model and not sc.get("env") and rec.get("engine") != "Amazon Nova Micro on Bedrock" and not os.environ.get("DIALED_EVAL_ACCEPT_FALLBACK"):
                 raise Throttled()  # Bedrock refused the call (rate limit): this run would measure the fallback, not the model
             ms = round((time.perf_counter() - t0) * 1000)
             codes = [b["code"] for b in (rec.get("assessment") or {}).get("breaches", [])]
@@ -170,7 +170,8 @@ def run_retrying(sc: dict, use_model: bool, k: int) -> dict:
             return run_one(sc, use_model, k)
         except Throttled:
             time.sleep(8 * (attempt + 1))
-    out = run_one(sc, use_model, k)  # last try: record whatever happened, and say so
+    os.environ["DIALED_EVAL_ACCEPT_FALLBACK"] = "1"  # last try: record whatever happened, and say so
+    out = run_one(sc, use_model, k)
     out["fell_back"] = True
     return out
 
@@ -220,6 +221,7 @@ def run(use_model: bool, n: int, workers: int) -> list[dict]:
 
 
 def main():
+    os.environ.setdefault("DIALED_BEDROCK_RETRIES", "8")  # ride out Bedrock rate limits instead of measuring the fallback
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", action="store_true", help="also run with the configured model")
     ap.add_argument("--runs", type=int, default=20, help="runs per scenario for the model")

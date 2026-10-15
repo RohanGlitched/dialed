@@ -83,7 +83,9 @@ def _bedrock(model: str, system: str, messages: list[dict], tools: list[dict], t
         import boto3
         from botocore.config import Config
 
-        _brt = boto3.client("bedrock-runtime", config=Config(read_timeout=timeout, connect_timeout=5, retries={"max_attempts": 1}))
+        # one attempt in the product (the rule engine is the fallback); the evaluation raises it to ride out rate limits
+        retries = int(os.environ.get("DIALED_BEDROCK_RETRIES", "1"))
+        _brt = boto3.client("bedrock-runtime", config=Config(read_timeout=timeout, connect_timeout=5, retries={"max_attempts": retries, "mode": "adaptive" if retries > 1 else "standard"}))
     conv = []
     for m in messages:
         if m["role"] == "user":
