@@ -126,7 +126,7 @@ export function Capture({ gauge, onCaptured, onNext, onClose }: { gauge: RoundGa
                     <button onClick={() => pickDemo(d)} className={s.demoBtn} aria-label={`Use the ${d.variant} demo photo`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={d.src} alt="" />
-                      <span>{{ clear: "Clear shot", glare: "With glare on the needle", shaky: "Shaky, out of focus" }[d.variant] ?? d.variant}</span>
+                      <span>{{ clear: "Clear shot", glare: "With glare on the needle", shaky: "Shaky, out of focus", stepped: "After stepping to the left" }[d.variant] ?? d.variant}</span>
                     </button>
                   </li>
                 ))}

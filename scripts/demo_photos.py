@@ -20,7 +20,9 @@ SHOTS = {
     "PI-102": [("", 8.45, {})],
     "TI-201": [("", 64.0, {"seed": 405})],  # the default render printed too few readable numbers for a confident read
     "PI-103": [("", 0.2, {})],
-    "PI-104": [("", 7.15, {}), ("shaky", 7.15, {"blur": 5.5}), ("glare", 7.15, {"glare": True, "glare_at": (0.06, -0.14), "size": 0.5})],
+    # glare over the needle, then the view the agent asks for (step to the left): the same shot as scripts/agent_eval.py
+    "PI-104": [("", 7.15, {}), ("shaky", 7.15, {"blur": 5.5}), ("glare", 7.15, {"glare": True, "glare_at": (0.17, -0.106), "seed": 338, "tilt": (16, -6)}),
+               ("stepped", 7.15, {"glare": True, "glare_at": (-0.28, 0.22), "seed": 338, "tilt": (16, -6)})],
     "PI-105": [("", 5.8, {})],
     "PI-106": [("", 108.0, {})],
     "PI-107": [("", 4.55, {})],
