@@ -2,7 +2,8 @@
 
 Pipeline:
   1. find the dial (ellipse fit on edge contours, scored by edge support)
-  2. straighten it (affine map from the ellipse to a circle)
+  2. straighten it: first an affine map from the rim ellipse to a circle; once the pivot is known (tick lines,
+     needle line), a full projective rectification from the rim conic and the pivot (pole-polar)
   3. unwrap it to polar coordinates (warpPolar)
   4. find the needle (the angle whose ink runs the whole inner band)
   5. find the tick ring and tick marks (angular ink profile)
@@ -15,7 +16,9 @@ Angles: degrees, 0 = 12 o'clock, positive clockwise, in the straightened dial.
 from __future__ import annotations
 
 import math
+import os
 import re
+import threading
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -28,6 +31,9 @@ TEXT_DIAL = 960  # the copy the numbers are read from
 RAD = 280  # dial edge radius in the straightened image
 ANG_BINS = 1440  # quarter-degree polar resolution
 VOCAB = list("0123456789abcdefghijklmnopqrstuvwxyz")
+# "projective" (default) or "affine" (the earlier straightening, kept for ablations: scripts/bench.py)
+RECTIFY = os.environ.get("DIALED_RECTIFY", "projective")
+ENDS_CHECK = os.environ.get("DIALED_ENDS", "on") == "on"  # pointer end chosen by unbroken ink run (ablation: off)
 
 
 @dataclass
@@ -54,6 +60,7 @@ class Reading:
     numbers: list[dict] = field(default_factory=list)
     ellipse: list | None = None
     tilt: float | None = None
+    rectify: str | None = None  # "projective" or "affine": how the dial was straightened
     timings: dict = field(default_factory=dict)
     features: dict = field(default_factory=dict)
     dial: np.ndarray | None = None  # straightened dial, BGR
@@ -196,6 +203,77 @@ def straighten(img: np.ndarray, e) -> tuple[np.ndarray, np.ndarray]:
     M = np.hstack([A, off[:, None]]).astype(np.float32)
     dial = cv2.warpAffine(img, M, (DIAL, DIAL), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
     return dial, M
+
+
+def conic(e) -> np.ndarray:
+    """3x3 symmetric matrix C of the ellipse from cv2.fitEllipse: p^T C p = 0 on the rim, < 0 inside."""
+    (cx, cy), (w, h), a = e
+    t = math.radians(a)
+    c, s = math.cos(t), math.sin(t)
+    T = np.array([[c, s, -(cx * c + cy * s)], [-s, c, cx * s - cy * c], [0.0, 0.0, 1.0]])
+    return T.T @ np.diag([4.0 / (w * w), 4.0 / (h * h), -1.0]) @ T
+
+
+def _to_circle(C: np.ndarray):
+    """3x3 affine map taking the ellipse with conic C onto the circle of radius RAD in the middle of the dial
+    image, by the symmetric square root of its quadratic form (no added rotation)."""
+    M = C[:2, :2]
+    g = 2.0 * C[:2, 2]
+    try:
+        x0 = -0.5 * np.linalg.solve(M, g)
+    except np.linalg.LinAlgError:
+        return None
+    k = -(C[2, 2] + 0.5 * g @ x0)
+    if abs(k) < 1e-12:
+        return None
+    ev, V = np.linalg.eigh(M / k)
+    if ev.min() <= 0:
+        return None
+    S = V @ np.diag(np.sqrt(ev)) @ V.T
+    A = np.eye(3)
+    A[:2, :2] = RAD * S
+    A[:2, 2] = np.array([DIAL / 2, DIAL / 2]) - RAD * S @ x0
+    return A
+
+
+def straighten_matrix(e, pivot=None):
+    """3x3 map from photo pixels to the straightened dial.
+
+    Without a pivot: the affine map that turns the rim ellipse into a circle (weak perspective only).
+    With the pivot (where the needle turns, i.e. the imaged centre of the dial): projective rectification.
+    The polar of the imaged centre with respect to the rim conic, l = C c, is the image of the dial plane's
+    line at infinity (a circle's centre and the line at infinity are pole and polar, and projections keep that).
+    Sending l back to infinity removes the perspective; the affine step that remains turns the rim into a circle,
+    and the pivot lands exactly in the middle."""
+    C = conic(e)
+    if pivot is None:
+        return _to_circle(C)
+    c = np.array([pivot[0], pivot[1], 1.0])
+    l = C @ c
+    sc = float(l @ c)
+    if sc >= 0:
+        return None  # the pivot must be inside the rim
+    l = l / sc  # w = l.p is 1 at the pivot and positive across the dial
+    Hp = np.array([[1.0, 0.0, 0.0], [0.0, 1.0, 0.0], [l[0], l[1], l[2]]])
+    Hi = np.linalg.inv(Hp)
+    A = _to_circle(Hi.T @ C @ Hi)
+    return None if A is None else A @ Hp
+
+
+def warp_dial(img: np.ndarray, T: np.ndarray, size: int = DIAL, flags=cv2.INTER_CUBIC) -> np.ndarray:
+    if np.allclose(T[2], [0.0, 0.0, 1.0]):
+        return cv2.warpAffine(img, T[:2].astype(np.float32), (size, size), flags=flags, borderMode=cv2.BORDER_REPLICATE)
+    return cv2.warpPerspective(img, T, (size, size), flags=flags, borderMode=cv2.BORDER_REPLICATE)
+
+
+def local_affine(T: np.ndarray, at) -> np.ndarray:
+    """2x3 affine that matches the 3x3 map T at the photo point `at` (for the 2-D CSS animation on the site)."""
+    x, y = at
+    p = T @ np.array([x, y, 1.0])
+    w = p[2]
+    J = (T[:2, :2] * w - np.outer(p[:2], T[2, :2])) / (w * w)
+    t = p[:2] / w - J @ np.array([x, y])
+    return np.hstack([J, t[:, None]])
 
 
 def unwrap(chan: np.ndarray, center=(DIAL / 2, DIAL / 2), max_r=RAD * 1.02, r_bins=256):
@@ -511,6 +589,14 @@ def _recognise(gray: np.ndarray) -> tuple[str, float]:
 def read_text(dial: np.ndarray, center=(DIAL / 2, DIAL / 2), detect_on: np.ndarray | None = None):
     """PP-OCRv3 finds text boxes; each box is cut out along its own angle and read by CRNN in four
     orientations (numbers on gauges may be upright, radial or upside down); the most confident read wins."""
+    with _dnn_lock:  # the two networks are shared and not thread-safe (threads only run in the agent evaluation)
+        return _read_text(dial, center, detect_on)
+
+
+_dnn_lock = threading.RLock()
+
+
+def _read_text(dial: np.ndarray, center, detect_on):
     det, _ = _models()
     gray = cv2.cvtColor(dial, cv2.COLOR_BGR2GRAY)
     # find text on the smaller image (fast), cut it out of the sharper one
@@ -820,45 +906,30 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
     tm = {"dial": time.perf_counter() - t0}
     if e is None or support < 0.25:
         return Reading(False, issues=[{"code": "nodial", "level": "block", "text": "No gauge found. Fill most of the frame with the dial."}], timings=tm)
-    dial, M = straighten(small, e)
-    ink, light = ink_map(dial)
-    c0 = (DIAL / 2, DIAL / 2)
-    polar, rstep = unwrap(ink, c0)
-    ring, ticks = find_ticks(polar, rstep)
-    center, n_lines = c0, 0
-    for _ in range(2):
-        c1, n_lines = tick_center(ink, ticks, ring, center)
-        if c1 == center:
-            break
-        center = c1
-        polar, rstep = unwrap(ink, center)
-        ring, ticks = find_ticks(polar, rstep)
-    ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
-    avoid = in_gap(ticks)
-    needle_deg, peak, second, nscore = find_needle(polar, rstep, ring_r, avoid)
-    # the needle line fixes the pivot (and with it every angle) and says which end is the tip
-    gray_d = cv2.cvtColor(dial, cv2.COLOR_BGR2GRAY)
-    tries = [needle_line(ink, gray_d, c, ring_r) for c in (center, (DIAL / 2, DIAL / 2))]
-    tries = [t for t in tries if t is not None and math.hypot(t[0][0] - center[0], t[0][1] - center[1]) < 0.3 * RAD
-             and not (avoid and avoid(t[1]))]
-    nl = max(tries, key=lambda t: t[2]["line_len"] + 0.5 * t[2]["tip_len"]) if tries else None
-    needle_info = None
-    if nl is not None:
-        pivot, line_deg, needle_info = nl
-        if needle_info["tip_len"] > 0.45:
-            center = pivot
-            polar, rstep = unwrap(ink, center)
-            ring, ticks = find_ticks(polar, rstep)
-            ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
-            _, peak, second, nscore = find_needle(polar, rstep, ring_r, in_gap(ticks))
-            needle_deg = line_deg
+    T = straighten_matrix(e)
+    g = _geometry(small, T)
+    rect = "affine"
+    if RECTIFY == "projective" and T is not None:
+        # the pivot found on the affine-straightened dial, back in photo pixels
+        off = math.hypot(g["center"][0] - DIAL / 2, g["center"][1] - DIAL / 2)
+        if 1.0 < off < 0.3 * RAD:
+            q = np.linalg.inv(T) @ np.array([g["center"][0], g["center"][1], 1.0])
+            Hm = straighten_matrix(e, (q[0] / q[2], q[1] / q[2]))
+            if Hm is not None:
+                g2 = _geometry(small, Hm)
+                # after projective rectification the pivot belongs in the middle; keep it only if it is
+                off2 = math.hypot(g2["center"][0] - DIAL / 2, g2["center"][1] - DIAL / 2)
+                if off2 <= max(0.6 * off, 4.0):
+                    g, T, rect = g2, Hm, "projective"
+    dial, ink, light, polar, rstep = g["dial"], g["ink"], g["light"], g["polar"], g["rstep"]
+    ring, ticks, center, n_lines, ring_r = g["ring"], g["ticks"], g["center"], g["n_lines"], g["ring_r"]
+    needle_deg, peak, second, nscore, needle_info = g["needle_deg"], g["peak"], g["second"], g["nscore"], g["needle_info"]
     tm["geometry"] = time.perf_counter() - t0 - tm["dial"]
     t1 = time.perf_counter()
     # numbers are read from a sharper straightened copy taken from the full-resolution photo
     k = TEXT_DIAL / DIAL
-    A = np.vstack([M, [0, 0, 1]]) @ np.diag([f, f, 1.0]) if f < 1 else np.vstack([M, [0, 0, 1]])
-    M_hi = (np.diag([k, k, 1.0]) @ A)[:2].astype(np.float32)
-    dial_hi = cv2.warpAffine(img, M_hi, (TEXT_DIAL, TEXT_DIAL), flags=cv2.INTER_AREA if k * f < 1 else cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+    T_hi = np.diag([k, k, 1.0]) @ T @ np.diag([min(f, 1.0), min(f, 1.0), 1.0])
+    dial_hi = warp_dial(img, T_hi, TEXT_DIAL, cv2.INTER_AREA if k * f < 1 else cv2.INTER_CUBIC)
     found = read_text(dial_hi, (center[0] * k, center[1] * k))
     for t in found:
         t["box"] = [round(v / k) for v in t["box"]]
@@ -872,10 +943,12 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
     if any(_gauge_like(small, o) for o in (getattr(find_dial, "others", None) or [])[:3]):
         issues.append({"code": "multiple", "level": "block", "text": "There's more than one gauge in the photo. Photograph one gauge at a time."})
     ellipse = [round(e[0][0] / f, 1), round(e[0][1] / f, 1), round(e[1][0] / f, 1), round(e[1][1] / f, 1), round(e[2], 1)]
-    rd = Reading(False, needle_angle=round(needle_deg, 2), ellipse=ellipse, tilt=round(tilt, 1), issues=issues, timings=tm, dial=dial,
+    rd = Reading(False, needle_angle=round(needle_deg, 2), ellipse=ellipse, tilt=round(tilt, 1), issues=issues, timings=tm, dial=dial, rectify=rect,
                  numbers=[{"value": n["value"], "deg": round(n["deg"], 1), "box": n["box"]} for n in inliers])
     if keep_debug:
-        rd.debug = {"needle_line": needle_info, "predict": predict, "nums": nums, "unit_read": unit, "tick_lines_geo": getattr(tick_center, "last", []), "polar": polar, "rstep": rstep, "light": light, "center": center, "tick_lines": n_lines, "ink": ink, "ticks": ticks, "found": found, "gap": gap, "ring": ring, "needle_score": nscore, "peak": peak, "second": second, "M": M, "f": f}
+        piv = np.linalg.inv(T) @ np.array([center[0], center[1], 1.0])
+        rd.debug = {"needle_line": needle_info, "predict": predict, "nums": nums, "unit_read": unit, "tick_lines_geo": g["tick_lines_geo"], "polar": polar, "rstep": rstep, "light": light, "center": center, "tick_lines": n_lines, "ink": ink, "ticks": ticks, "found": found, "gap": gap, "ring": ring, "needle_score": nscore, "peak": peak, "second": second,
+                    "M": local_affine(T, (piv[0] / piv[2], piv[1] / piv[2])), "H": T, "rectify": rect, "f": f}
 
     if predict is None or (scale and scale.prefer and scale.start is not None and scale.sweep):
         if scale and scale.start is not None and scale.sweep:
@@ -906,6 +979,7 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
     if val < check_lo - 0.06 * span or val > check_hi + 0.06 * span:
         rd.issues.append({"code": "range", "level": "block", "text": "The needle points outside the scale. Re-shoot straight on."})
     contrast = (peak - second) / max(peak, 1e-6)
+    vals_lo_hi = (min(n["value"] for n in inliers), max(n["value"] for n in inliers)) if inliers else None
     for i in rd.issues:
         # glare over the needle only matters when the needle itself is hard to tell apart
         if i["code"] == "glare_needle" and contrast < 0.3:
@@ -926,6 +1000,9 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
         "support": support,
         "ticks": min(1.0, len(ticks) / 60.0),
         "tick_lines": min(1.0, n_lines / 30.0),
+        "ends_margin": max(-1.0, min(1.0, g["reach_tip"] - g["reach_tail"])),
+        "tip_reach": min(1.2, g["reach_tip"]),
+        "beyond_numbers": min(1.0, max(0.0, vals_lo_hi[0] - val, val - vals_lo_hi[1]) / span) if vals_lo_hi else 0.0,
     }
     conf = calibrated(rd.features)
     rd.value = round(val, 4)
@@ -935,6 +1012,53 @@ def read(img: np.ndarray, scale: Scale | None = None, keep_debug: bool = False, 
     rd.ok = not any(i["level"] == "block" for i in rd.issues)
     tm["total"] = time.perf_counter() - t0
     return rd
+
+
+def _geometry(small: np.ndarray, T: np.ndarray) -> dict:
+    """Stages 2-6 on one straightening: tick ring, true centre from the tick lines, needle and its line."""
+    dial = warp_dial(small, T)
+    ink, light = ink_map(dial)
+    c0 = (DIAL / 2, DIAL / 2)
+    polar, rstep = unwrap(ink, c0)
+    ring, ticks = find_ticks(polar, rstep)
+    center, n_lines = c0, 0
+    for _ in range(2):
+        c1, n_lines = tick_center(ink, ticks, ring, center)
+        if c1 == center:
+            break
+        center = c1
+        polar, rstep = unwrap(ink, center)
+        ring, ticks = find_ticks(polar, rstep)
+    tick_geo = getattr(tick_center, "last", [])
+    ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
+    avoid = in_gap(ticks)
+    needle_deg, peak, second, nscore = find_needle(polar, rstep, ring_r, avoid)
+    # the needle line fixes the pivot (and with it every angle) and says which end is the tip
+    gray_d = cv2.cvtColor(dial, cv2.COLOR_BGR2GRAY)
+    tries = [needle_line(ink, gray_d, c, ring_r) for c in (center, (DIAL / 2, DIAL / 2))]
+    tries = [t for t in tries if t is not None and math.hypot(t[0][0] - center[0], t[0][1] - center[1]) < 0.3 * RAD
+             and not (avoid and avoid(t[1]))]
+    nl = max(tries, key=lambda t: t[2]["line_len"] + 0.5 * t[2]["tip_len"]) if tries else None
+    needle_info = None
+    if nl is not None:
+        pivot, line_deg, needle_info = nl
+        if needle_info["tip_len"] > 0.45:
+            center = pivot
+            polar, rstep = unwrap(ink, center)
+            ring, ticks = find_ticks(polar, rstep)
+            ring_r = ring[0] if ring[0] > 0.5 * RAD else 0.85 * RAD
+            _, peak, second, nscore = find_needle(polar, rstep, ring_r, in_gap(ticks))
+            needle_deg = line_deg
+    # which end is the pointer: the line's own segments can run on through print that lies along it (a "100"
+    # beyond a counterweight), so the unbroken ink run from the pivot along each end has the last word
+    reach_tip = _reach(polar, deg_to_row(needle_deg), rstep, ring_r)
+    reach_tail = _reach(polar, deg_to_row(needle_deg + 180), rstep, ring_r)
+    if ENDS_CHECK and reach_tail >= 0.6 and reach_tail > reach_tip + 0.15:
+        needle_deg = (needle_deg + 360) % 360 - 180
+        reach_tip, reach_tail = reach_tail, reach_tip
+    return {"dial": dial, "ink": ink, "light": light, "polar": polar, "rstep": rstep, "ring": ring, "ticks": ticks, "center": center,
+            "n_lines": n_lines, "ring_r": ring_r, "needle_deg": needle_deg, "peak": peak, "second": second, "nscore": nscore,
+            "needle_info": needle_info, "tick_lines_geo": tick_geo, "reach_tip": reach_tip, "reach_tail": reach_tail}
 
 
 def overlay(rd: Reading) -> np.ndarray:

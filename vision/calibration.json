@@ -1,36 +1,32 @@
 {
- "weights": {
-  "contrast": 2.83873,
-  "disagree": -0.06406,
-  "glare": 0.07294,
-  "glare_needle": -0.86862,
-  "inlier_share": 1.40793,
-  "inliers": 0.62146,
-  "outside": -0.63893,
-  "resid": -0.20436,
-  "sharp": -0.10442,
-  "support": -0.67087,
-  "tick_lines": 0.34218,
-  "ticks": -0.29812,
-  "tilt": -1.50833
- },
- "bias": -2.91495,
  "fitted_on": {
-  "gauges": 535,
-  "within_2pct": 465
+  "rendered": 538,
+  "real_development": 0
  },
- "on_fit_set": {
-  "0.80": {
-   "accepted": 409,
-   "within_2pct": 0.978
-  },
-  "0.90": {
-   "accepted": 380,
-   "within_2pct": 0.9868
-  },
-  "0.95": {
-   "accepted": 314,
-   "within_2pct": 0.9873
-  }
- }
+ "rendered_fit_set": {
+  "accepted": 403,
+  "of": 538,
+  "within_2pct": 399,
+  "precision": 0.9901,
+  "ece": 0.0268
+ },
+ "weights": {
+  "beyond_numbers": -1.90597,
+  "contrast": 1.32018,
+  "disagree": -0.05504,
+  "ends_margin": 2.03332,
+  "glare": -0.14374,
+  "glare_needle": -0.20713,
+  "inlier_share": 1.72933,
+  "inliers": 0.5435,
+  "outside": -0.43413,
+  "resid": -0.16332,
+  "sharp": -0.03008,
+  "support": -0.40315,
+  "tick_lines": 1.18546,
+  "ticks": -0.82247,
+  "tilt": -0.47888,
+  "tip_reach": 1.40177
+ },
+ "bias": -5.03167
 }
