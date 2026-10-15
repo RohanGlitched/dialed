@@ -24,6 +24,7 @@
 .charts figcaption { font-size: 12px; color: var(--ink-2); }
 @media print {
   .doc { padding: 0; max-width: none; }
-  .doc section { break-inside: avoid-page; }
+  .doc h2 { break-after: avoid; }
+  .doc figure, .doc table, .doc p { break-inside: avoid; }
   .charts figure { break-inside: avoid; }
 }

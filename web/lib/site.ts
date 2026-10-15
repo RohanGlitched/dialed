@@ -11,3 +11,7 @@ export const SHEETS = [
   { n: 5, href: "/desk/", title: "Approvals" },
   { n: 6, href: "/evidence/", title: "Evidence" },
 ] as const;
+
+/** A stated confidence as a whole percent, never shown as 100%: the model is fitted on rendered gauges, and on real
+ * photos it is not that certain (see the Evidence page). */
+export const confPct = (c: number) => Math.min(99, Math.round(c * 100));

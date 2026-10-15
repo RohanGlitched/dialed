@@ -4,6 +4,7 @@ import { Unroll } from "@/components/Unroll";
 import type { Inspect } from "@/lib/types";
 import { STAGES, StageView, type StageKey } from "./Stages";
 import s from "./inspect.module.css";
+import { confPct } from "@/lib/site";
 
 const ACCEPT_AT = 0.9;
 
@@ -40,7 +41,7 @@ export function InspectView({ ins, compact = false }: { ins: Inspect; compact?: 
             <p className={s.noValue}>No reading</p>
           )}
           <p className={s.conf}>
-            <b>{Math.round(r.confidence * 100)}%</b> confidence {r.confidence >= ACCEPT_AT ? "(enough to log)" : `(needs ${Math.round(ACCEPT_AT * 100)}% to log)`}
+            <b>{confPct(r.confidence)}%</b> confidence {r.confidence >= ACCEPT_AT ? "(enough to log)" : `(needs ${Math.round(ACCEPT_AT * 100)}% to log)`}
           </p>
           <span className={`tag ${verdict}`}>{verdict === "logged" ? "WOULD LOG" : "RE-SHOOT"}</span>
           {r.issues.length > 0 && (

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ChartRecorder } from "@/components/gauge/ChartRecorder";
 import { Schematic } from "@/components/round/Schematic";
+import { benchHeadline } from "@/components/evidence/Bench";
 import { todaySet } from "@/components/round/RoundPage";
 import { get } from "@/lib/api";
 import type { Gauge, Reading, RoundData } from "@/lib/types";
@@ -95,8 +96,8 @@ export function Accuracy() {
   const sets = evidence.sets as unknown as Record<string, { summary: Record<string, number>; rows: Row[] }>;
   const n = sets.normal.summary;
   const h = sets.hard.summary;
-  const real = sets.real;
-  const rows = Object.values(sets).flatMap((x) => x.rows);
+  const rows = [...sets.normal.rows, ...sets.hard.rows]; // rendered only: real photos are reported on their own
+  const bh = benchHeadline();
   const accRows = rows.filter((r) => r.accepted);
   const acc = accRows.length;
   const all = rows.length;
@@ -109,14 +110,14 @@ export function Accuracy() {
     <section className="wrap section" aria-labelledby="acc-h">
       <div className="section-head">
         <h2 id="acc-h" className="h2">Accuracy, measured</h2>
-        <p className="lede">Scored on {all} gauges the confidence model never saw: {n.n} rendered ordinary photos, {h.n} rendered bad ones (up to 50° off-axis, heavy glare and blur){real ? `, and ${real.rows.length + (sets.blind?.rows.length ?? 0)} photos of real gauges from Wikimedia Commons, read by eye. Real photos are harder: the Evidence page keeps the development photos apart from the blind ones, and lists every failure` : ""}.</p>
+        <p className="lede">Two kinds of test, kept apart. On {bh.n} photos of real gauges it was never tuned on (Wikimedia Commons and Flickr, each read by eye twice), it is compared with a vision-language model reading the same photos. On {all} rendered gauges the answer is known exactly. Real photos are much harder: most of the time Dialed asks for a better photo instead of answering.</p>
       </div>
       <div className={s.accGrid}>
         <dl className={s.big}>
-          <div><dt>Accepted readings within 2% of the scale</dt><dd>{Math.round((within2 / Math.max(1, acc)) * 1000) / 10}<small>% of {acc}</small></dd></div>
-          <div><dt>Accepted readings off by more than 5%</dt><dd>{over5}</dd></div>
-          <div><dt>Ordinary photos accepted first time</dt><dd>{Math.round((n.accepted / n.n) * 100)}<small>%</small></dd></div>
-          <div><dt>{real ? "Development photos of real gauges read within 2%" : "Bad photos sent back for a re-shoot"}</dt><dd>{real ? Math.round((real.summary.within_2pct_all ?? 0) * real.summary.read) : Math.round((h.reshoot / h.n) * 100)}<small>{real ? ` of ${real.summary.n}` : "%"}</small></dd></div>
+          <div><dt>Real photos, never tuned on: Dialed&apos;s answers within 2% of the scale</dt><dd>{bh.d?.accepted_within_2pct}<small> of {bh.d?.accepted} answers ({bh.d?.n} photos)</small></dd></div>
+          <div><dt>Same photos, Amazon Nova Lite reading them: answers within 2%</dt><dd>{bh.v?.accepted_within_2pct}<small> of {bh.v?.accepted}</small></dd></div>
+          <div><dt>Rendered gauges: accepted readings within 2% of the scale</dt><dd>{Math.round((within2 / Math.max(1, acc)) * 1000) / 10}<small>% of {acc}</small></dd></div>
+          <div><dt>Photos it should decline that it answered (two needles, two gauges, no gauge)</dt><dd>{bh.decline?.accepted}<small> of {bh.decline?.n}; Nova Lite answered {bh.vDecline?.accepted}</small></dd></div>
         </dl>
         <figure className={s.hist}>
           <svg viewBox="0 0 520 260" role="img" aria-label="Histogram of errors of accepted readings">

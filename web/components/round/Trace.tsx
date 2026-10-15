@@ -1,6 +1,7 @@
 /** The agent's logic sheet for one capture: every model turn and tool call, with what the guards said. */
 import type { Step } from "@/lib/types";
 import s from "./trace.module.css";
+import { confPct } from "@/lib/site";
 
 const TOOL: Record<string, string> = {
   read_gauge: "Read the gauge",
@@ -88,7 +89,7 @@ function Summary({ name, r }: { name: string; r: Record<string, unknown> }) {
     const issues = (r.issues as { text: string }[] | undefined) ?? [];
     return (
       <p className={s.meta}>
-        {r.display ? <b>{String(r.display)}</b> : "no value"}, confidence {Math.round(Number(r.confidence ?? 0) * 100)}% (needs {Math.round(Number(r.threshold ?? 0.9) * 100)}%)
+        {r.display ? <b>{String(r.display)}</b> : "no value"}, confidence {confPct(Number(r.confidence ?? 0))}% (needs {Math.round(Number(r.threshold ?? 0.9) * 100)}%)
         {r.unit_matches === false || r.range_matches === false ? ", dial doesn't match the tag" : ""}
         {issues.length ? `; ${issues.map((i) => i.text).join(" ")}` : ""}
       </p>

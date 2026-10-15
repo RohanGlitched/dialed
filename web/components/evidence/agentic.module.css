@@ -17,3 +17,12 @@
 .trace code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; color: var(--ink); background: var(--panel); padding: 1px 4px; }
 .by { margin: 8px 0 0; font-size: 0.82em; color: var(--steel); }
 @media print { .flow { overflow: visible; } .flow svg { min-width: 0; } .traces { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; font-size: 12px; } .trace { padding: 10px 12px; } }
+
+.sep { list-style: none; margin-left: -18px; font: 700 12px var(--cond); color: var(--needle); text-transform: uppercase; letter-spacing: 0.04em; }
+.tblWrap { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 640px; }
+.tbl th[scope="col"] { text-align: left; font: 600 13px var(--cond); color: var(--steel); padding: 0 12px 8px 0; border-bottom: 1.5px solid var(--ink); }
+.tbl td, .tbl th[scope="row"] { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.tbl th[scope="row"] { font: 700 15px var(--cond); }
+.group { text-align: left; padding: 16px 0 6px; font: 800 13px var(--cond); color: var(--needle); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--ink); }
+.sub { display: block; font: 400 12.5px var(--text); color: var(--steel); }

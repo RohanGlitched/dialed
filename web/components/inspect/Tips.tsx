@@ -1,5 +1,6 @@
 import tips from "@/public/tips/tips.json";
 import s from "./tips.module.css";
+import { confPct } from "@/lib/site";
 
 type Side = { src: string; value: number | null; truth: number; ok: boolean; confidence: number; issues: string[] };
 
@@ -67,7 +68,7 @@ function Shot({ side, label }: { side: Side; label: string }) {
       <figcaption>
         <span className={`tag ${verdict}`}>{verdict === "logged" ? "READ" : "RE-SHOOT"}</span>
         <span className={s.val}>{side.value != null ? `${side.value.toFixed(2)} bar` : "no reading"}</span>
-        <span className={s.why}>{side.issues.find((t) => /can.t|blurred|turned|covers/i.test(t)) ?? side.issues[0] ?? `Known answer ${side.truth} bar; ${Math.round(side.confidence * 100)}% confidence.`}</span>
+        <span className={s.why}>{side.issues.find((t) => /can.t|blurred|turned|covers/i.test(t)) ?? side.issues[0] ?? `Known answer ${side.truth} bar; ${confPct(side.confidence)}% confidence.`}</span>
       </figcaption>
     </figure>
   );

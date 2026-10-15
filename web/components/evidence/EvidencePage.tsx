@@ -1,14 +1,14 @@
-import agent from "@/public/evidence/agent.json";
 import ev from "@/public/evidence/results.json";
 import { REPO_URL } from "@/lib/site";
-import { AgentFlow, AgentTraces } from "./Agentic";
+import { AGENT, AgentFlow, AgentTable, AgentTraces, agentTotals } from "./Agentic";
+import { BenchPhotos, BenchTable, benchHeadline } from "./Bench";
 import s from "./evidence.module.css";
+import { confPct } from "@/lib/site";
 
 type Credit = { title: string; author: string; license: string; source: string };
-export type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string; credit?: Credit };
+export type Row = { file: string; truth: number; min: number; max: number; unit: string; read: number | null; err: number | null; ok: boolean; conf: number; accepted: boolean; tilt: number | null; glare: boolean | null; blur: number | null; issues: string[]; ms: Record<string, number>; thumb?: string; credit?: Credit; scored?: { value: number; unit: string } | null };
 type Oos = { set?: string; file: string; why: string; read: number | null; ok: boolean; conf: number; accepted: boolean; issues: string[]; thumb?: string; credit: Credit };
 type SetT = { label: string; summary: Record<string, number | null>; rows: Row[] };
-type Scenario = { name: string; gauge: string; expected: string; expected_breach: string | null; outcome: string; breaches: string[]; pass: boolean; engine: string; tools: number; refusals: string[]; message: string };
 
 const sets = ev.sets as unknown as Record<string, SetT>;
 const oos = ((ev as unknown as { out_of_scope?: Oos[] }).out_of_scope ?? []) as Oos[];
@@ -18,17 +18,16 @@ const lat = (ev as unknown as { lambda?: { cold_ms: number; warm_ms_median: numb
 const REAL = new Set(["real", "blind"]);
 const NAME: Record<string, string> = { normal: "Rendered, normal", hard: "Rendered, hard", real: "Real photos, development", blind: "Real photos, blind" };
 const pct = (v: number | null | undefined, d = 1) => (v == null ? "–" : `${(v * 100).toFixed(d)}%`);
-const OUT: Record<string, string> = { logged: "LOGGED", held: "HOLD", reshoot: "RE-SHOOT", mismatch: "CHECK TAG" };
 
 function RealCard({ r }: { r: Row }) {
   return (
     <li>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       {r.thumb && <img src={r.thumb} alt={r.credit?.title ?? r.file} loading="lazy" />}
-      <p className={s.failVal}>{r.read == null ? "No reading" : `${r.read.toFixed(r.max - r.min <= 20 ? 2 : r.max - r.min <= 200 ? 1 : 0)}`} <span className={s.vs}>read; by eye {r.truth} {r.unit}</span></p>
+      <p className={s.failVal}>{r.read == null ? "No reading" : `${r.read.toFixed(r.max - r.min <= 20 ? 2 : r.max - r.min <= 200 ? 1 : 0)}`} <span className={s.vs}>{r.scored ? r.scored.unit : r.unit} read; by eye {r.scored ? r.scored.value : r.truth} {r.scored ? r.scored.unit : r.unit}{r.scored && r.scored.unit !== r.unit ? ` (= ${r.truth} ${r.unit} on the other printed scale)` : ""}</span></p>
       <p className={s.failMeta}>
         {r.err != null ? `${(r.err * 100).toFixed(1)}% of the scale off. ` : ""}
-        {r.accepted ? <b>Accepted.</b> : r.read == null ? `Refused (${r.issues.join(", ") || "low confidence"}).` : `Sent back, ${Math.round(r.conf * 100)}% confidence.`}
+        {r.accepted ? <b>Accepted.</b> : r.read == null ? `Refused (${r.issues.join(", ") || "low confidence"}).` : `Sent back, ${confPct(r.conf)}% confidence.`}
       </p>
       {r.credit && <p className={s.credit}><a href={r.credit.source}>{r.credit.author}</a>, {r.credit.license}</p>}
     </li>
@@ -42,23 +41,37 @@ export function EvidencePage() {
   const allWithReal = Object.values(sets).flatMap((x) => x.rows);
   const accepted = allWithReal.filter((r) => r.accepted);
   const off2 = accepted.filter((r) => (r.err ?? 0) >= 0.02).length;
+  const bh = benchHeadline();
+  const at = agentTotals();
+  void off2;
   return (
     <>
       <section className={`wrap ${s.head}`}>
         <p className="cell">Sheet 06</p>
         <h1 className={`display ${s.h1}`}>Evidence</h1>
-        <p className="lede">How accurate the reader is, how its confidence was calibrated, where it fails, how fast it runs, and whether the agent does what it should. Every figure on this page comes from files in the repository and can be regenerated with one command.</p>
+        <p className="lede">How accurate the reader is on real photos and on rendered ones (kept apart), how it compares with a classic OpenCV reader and a vision-language model, where it fails, and whether the agent does what it should, run many times. Every figure comes from files in the repository and can be regenerated with one command.</p>
         <p className={s.links}>
           <a className="btn ghost" href="/report/Dialed-technical-report.pdf">Technical report (PDF)</a>
           <a className="btn ghost" href="/report/architecture.png">Architecture diagram</a>
         </p>
         <dl className={s.top}>
-          <div><dt>Accepted readings off by 2% of the span or more</dt><dd>{off2}<small> of {accepted.length}</small></dd></div>
-          <div><dt>Gauges scored</dt><dd>{allWithReal.length}<small>{realN ? ` incl. ${realN} real` : ""}</small></dd></div>
-          <div><dt>Agent scenarios passing</dt><dd>{agent.rules.filter((r) => r.pass).length}<small> of {agent.rules.length}</small></dd></div>
-          <div><dt>OpenCV</dt><dd>{ev.opencv}</dd></div>
+          <div><dt>Real photos it was never tuned on: answers within 2%</dt><dd>{bh.d?.accepted_within_2pct}<small> of {bh.d?.accepted} answers</small></dd></div>
+          <div><dt>Same photos, answered by Amazon Nova Lite: within 2%</dt><dd>{bh.v?.accepted_within_2pct}<small> of {bh.v?.accepted}</small></dd></div>
+          <div><dt>Rendered gauges: accepted readings within 2%</dt><dd>{pct(sets.normal?.summary.accepted_within_2pct as number, 1)}</dd></div>
+          <div><dt>Agent runs passing (model, {at.perRun} runs each)</dt><dd>{at.passed}<small> of {at.runsN}</small></dd></div>
         </dl>
       </section>
+
+      <Section id="bench" title="Real photos it was never tuned on">
+        <div className={s.prose}>
+          <p><b>The set.</b> {bh.n} held-out photos of real analog gauges from Wikimedia Commons and Flickr (openly licensed, each credited below and in CREDITS.md), plus photos it should decline. Each was read by eye twice, independently, before any reader saw it; disagreements over 1% of the scale were re-read on a zoomed crop, and photos the two labels disagreed on as readable were left out. A fixed random split kept this half for scoring the final versions only. Many are museum or product shots with the needle at rest, which is common on a real round too (a stopped pump, an empty line).</p>
+          <p><b>The readers.</b> Dialed as it is now and as first submitted; this version without each new part; a classic OpenCV reader that is even told the true scale range; and Amazon Nova Lite on Bedrock, a vision-language model, reading the photo directly ({bh.spend?.calls} photos for about ${bh.spend?.usd.toFixed(2)}).</p>
+          <p><b>What did not help.</b> Full projective straightening (a homography from the rim ellipse and the pivot, the textbook fix for strong perspective) is implemented and in the table, but on real photos it measured no better than the simpler affine map, on the development photos and on these; the affine map stays the default. Fitting the confidence model on real development photos as well as rendered ones made its cross-validated precision worse, so it is fitted on rendered gauges, with three new measurements of the needle.</p>
+          <p><b>What to read off the table.</b> A reader that always answers is wrong most of the time on real photos. Dialed answers far less often and is right far more often when it does; it is not right every time, and every wrong answer it gave is shown below.</p>
+        </div>
+        <BenchTable />
+        <BenchPhotos />
+      </Section>
 
       <Section id="method" title="Method">
         <div className={s.two}>
@@ -136,7 +149,7 @@ export function EvidencePage() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 {r.thumb && <img src={r.thumb} alt={r.credit.title} loading="lazy" />}
                 <p className={s.failVal}>{r.why}</p>
-                <p className={s.failMeta}>{r.accepted ? <b>Accepted (wrongly).</b> : r.read == null ? `Refused (${r.issues.join(", ") || "no dial"}).` : `Not accepted, ${Math.round(r.conf * 100)}% confidence.`}</p>
+                <p className={s.failMeta}>{r.accepted ? <b>Accepted (wrongly).</b> : r.read == null ? `Refused (${r.issues.join(", ") || "no dial"}).` : `Not accepted, ${confPct(r.conf)}% confidence.`}</p>
                 <p className={s.credit}><a href={r.credit.source}>{r.credit.author}</a>, {r.credit.license}</p>
               </li>
             ))}
@@ -179,27 +192,10 @@ export function EvidencePage() {
         </ul>
       </Section>
 
-      <Section id="agent" title="Does the agent do the right thing?">
-        <p className={s.intro}>Eight scenarios, each a rendered photo pushed through a full capture against the sample plant&apos;s history, run once with the rule engine and once with the model. Pass means the outcome, and for holds the breach, is the one the guards should produce.</p>
-        <div className={s.tblWrap}>
-          <table className={s.tbl}>
-            <thead><tr><th scope="col">Scenario</th><th scope="col">Expected</th><th scope="col">Rule engine</th>{"model" in agent && <th scope="col">Model</th>}</tr></thead>
-            <tbody>
-              {agent.rules.map((r, i) => {
-                const m = (agent as { model?: Scenario[] }).model?.[i];
-                return (
-                  <tr key={r.name}>
-                    <th scope="row">{r.name}<span className={s.setLabel}>{r.gauge}</span></th>
-                    <td><span className={`tag ${r.expected}`}>{OUT[r.expected]}</span>{r.expected_breach ? <span className={s.breach}>{r.expected_breach.replace("_", " ")}</span> : null}</td>
-                    <td>{r.pass ? "Pass" : "Fail"}, {r.tools} tools</td>
-                    {m && <td>{m.pass ? "Pass" : "Fail"}, {m.tools} tools{m.refusals.length ? `, ${m.refusals.length} refused by guards` : ""}</td>}
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-        {"model" in agent && <p className={s.note}>Model runs used {(agent as { model?: Scenario[] }).model?.[0]?.engine}.</p>}
+      <Section id="agent" title="Does the agent do the right thing, every time?">
+        <p className={s.intro}>{at.scenarios} scenarios, each a rendered photo (or two) pushed through a full capture against the sample plant&apos;s history: {AGENT.model?.[0]?.runs ?? 0} runs each with Amazon Nova Micro, 3 with the rule engine. Pass means the outcome, and where it matters the breach, the priority, the value or the view asked for, is what the guards should produce. {at.passed} of {at.runsN} model runs passed.</p>
+        <AgentTable />
+        <p className={s.note}>What the model decides that the rules don&apos;t: nothing, by design. Its outcomes matched the rule engine&apos;s; it writes the work order&apos;s wording and the operator&apos;s sentence, and every decision boundary is in code.</p>
         <h3 className={s.h3}>How the vision result changes what happens next</h3>
         <AgentFlow />
         <p className={s.intro}>Three recorded runs. In each, the next tool the model chose depended on what the OpenCV 5 reading returned: a week&apos;s drift led to a held work order, blocking photo checks led to a re-shoot with their reasons, and a printed range that disagreed with the tag led to a tag check.</p>

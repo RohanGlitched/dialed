@@ -6,6 +6,7 @@ import type { Inspect } from "@/lib/types";
 import type { Phase } from "@/lib/unroll";
 import hero from "@/public/showcase/hero/inspect.json";
 import s from "./home.module.css";
+import { confPct } from "@/lib/site";
 
 const ins = hero as unknown as Inspect;
 const STEPS = ["Found the dial", "Straightened it", "Unrolled the scale", "Read the needle"];
@@ -54,7 +55,7 @@ export function Hero() {
             <small>{r.unit}</small>
           </p>
           <ul className={s.facts}>
-            <li><b>{Math.round(r.confidence * 100)}%</b> confidence</li>
+            <li><b>{confPct(r.confidence)}%</b> confidence</li>
             <li><b>{Math.round(r.tilt ?? 0)}°</b> camera tilt corrected</li>
             <li><b>{r.numbers.length}</b> scale numbers read</li>
             <li><b>{Math.round(r.timings.total ?? 0)} ms</b> to read</li>
