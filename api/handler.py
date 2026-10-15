@@ -47,9 +47,23 @@ def store():
     return _store
 
 
+def from_cloudfront(event) -> bool:
+    """Whether a request came through our CloudFront distribution. CloudFront adds a secret origin header
+    (DIALED_ORIGIN_SECRET, generated once by infra/deploy.py and never printed) to every API request, and replaces
+    any copy a viewer sends; a call straight to the Function URL doesn't have it. Enforced only when
+    DIALED_ORIGIN_CHECK is "on", so the header can reach every edge before the function starts requiring it."""
+    secret = os.environ.get("DIALED_ORIGIN_SECRET", "")
+    if os.environ.get("DIALED_ORIGIN_CHECK") != "on" or not secret:
+        return True
+    got = next((v for k, v in (event.get("headers") or {}).items() if k.lower() == "x-dialed-origin"), "")
+    return isinstance(got, str) and hmac.compare_digest(got.encode(), secret.encode())
+
+
 def handler(event, context=None):
     method = event.get("requestContext", {}).get("http", {}).get("method", "GET")
     path = event.get("rawPath", "/")
+    if not from_cloudfront(event):
+        return _resp(403, {"error": "Use the site: https://d3p9dcbwy0l1n8.cloudfront.net"})
     if method == "OPTIONS":
         return _resp(204, None)
     try:

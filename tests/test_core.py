@@ -159,6 +159,21 @@ def test_api_round_and_read(store, monkeypatch):
     assert H.handler(ev("GET", "/api/nope"))["statusCode"] == 404
 
 
+def test_only_cloudfront_reaches_the_api_once_the_origin_check_is_on(store, monkeypatch):
+    import api.handler as H
+
+    ev = lambda headers: {"rawPath": "/api/health", "requestContext": {"http": {"method": "GET", "sourceIp": "t"}}, "headers": headers}
+    monkeypatch.setenv("DIALED_ORIGIN_SECRET", "s" * 43)
+    monkeypatch.setenv("DIALED_ORIGIN_CHECK", "off")
+    assert H.handler(ev({}))["statusCode"] == 200  # rollout: the header is sent before it is required
+    monkeypatch.setenv("DIALED_ORIGIN_CHECK", "on")
+    assert H.handler(ev({}))["statusCode"] == 403  # straight to the Function URL
+    assert H.handler(ev({"x-dialed-origin": "s" * 42 + "x"}))["statusCode"] == 403
+    assert H.handler(ev({"X-Dialed-Origin": "s" * 43}))["statusCode"] == 200  # through CloudFront
+    monkeypatch.setenv("DIALED_ORIGIN_SECRET", "")
+    assert H.handler(ev({}))["statusCode"] == 200  # no secret configured (local runs): nothing to check
+
+
 def test_viewer_ip_ignores_a_spoofed_forwarded_for():
     from api.handler import viewer_ip
 

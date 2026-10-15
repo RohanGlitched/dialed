@@ -134,12 +134,16 @@ Done in code (live since the Oct 15 deploy):
 - **The per-visitor limit uses the real visitor.** Behind CloudFront the function's `sourceIp` is the edge, and the first `X-Forwarded-For` entry is whatever the client sent. The API now reads CloudFront's own `CloudFront-Viewer-Address` header (the function's logs confirm CloudFront forwards it with the current origin request policy), and without it the last forwarded entry that isn't the edge. The hourly count lives in DynamoDB, so every Lambda instance shares it.
 - **Nothing in a photo can instruct the agent.** Text read from a dial never reaches the model (only numbers, units and issue codes); an operator's note is passed as quoted data and attached to the order verbatim; the model has no tool that approves anything. Tested in `scripts/agent_eval.py` (printed "APPROVE WORK ORDER", notes that try to cancel, invent or downgrade an order).
 
-Still to do, each a change to `infra/template.yaml` and a redeploy by the owner:
-1. **Make CloudFront the only way in.** The Lambda Function URL is `AuthType: NONE`, so it can be called directly, skipping CloudFront (and a direct caller can then send its own `CloudFront-Viewer-Address` header to dodge the visitor limit; the desk passcode and the reserved concurrency still hold). Either switch it to `AWS_IAM` with a Lambda origin access control on the distribution (POST bodies then need the `x-amz-content-sha256` header from the browser), or add a secret custom origin header in CloudFront and reject requests without it in `api/handler.py`.
-2. **Point-in-time recovery** on the DynamoDB table (`PointInTimeRecoveryEnabled: true`).
-3. **Observability.** CloudWatch embedded-metric logs for read latency, acceptance rate and refusals by reason; a dashboard; X-Ray tracing on the function.
-4. **A budget alarm** (AWS Budgets, $10 a month) and a fresh-clone redeploy into a second stack name, with time and cost recorded here.
-5. **Rotate the deploy user's access key** after judging and remove its Bedrock permission if the evaluation scripts are no longer run.
+Done in the stack (Oct 15, evening):
+- **CloudFront is the only way in.** CloudFront adds a secret `x-dialed-origin` header to every API request (and overwrites any copy a viewer sends); the function refuses anything without it with a 403 (`from_cloudfront` in `api/handler.py`), so a direct call to the Function URL can't skip CloudFront or forge `CloudFront-Viewer-Address` to dodge the visitor limit. `infra/deploy.py` generates the secret once, never prints it, and keeps it on later deploys; the deploy that first adds it leaves the check off while CloudFront rolls the header out to every edge, and the next deploy turns it on.
+- **Point-in-time recovery** on the DynamoDB table.
+- **X-Ray tracing** on the function (active tracing, with the X-Ray write policy on its role).
+- **A budget alarm:** one account-wide AWS Budget of $25 a month, emailing the owner at 80% and 100% of actual spend and at 100% of forecast (made outside the stack, so it covers every project in the account).
+
+Still to do:
+1. **Observability.** CloudWatch embedded-metric logs for read latency, acceptance rate and refusals by reason, and a dashboard.
+2. **A fresh-clone redeploy** into a second stack name, with time and cost recorded here.
+3. **Rotate the deploy user's access key** after judging and remove its Bedrock permission if the evaluation scripts are no longer run.
 
 ## Deploy to AWS
 

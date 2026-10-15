@@ -16,6 +16,7 @@ import hashlib
 import json
 import mimetypes
 import os
+import secrets
 import shutil
 import subprocess
 import sys
@@ -74,9 +75,18 @@ def stack_outputs(cf, stack: str) -> dict:
     return {o["OutputKey"]: o["OutputValue"] for o in s.get("Outputs", [])}
 
 
+def stack_params(cf, stack: str) -> set:
+    """Names of the parameters the deployed stack already has a value for (values aren't read back)."""
+    try:
+        return {p["ParameterKey"] for p in cf.describe_stacks(StackName=stack)["Stacks"][0].get("Parameters", [])}
+    except ClientError:
+        return set()
+
+
 def deploy_stack(cf, stack: str, params: dict) -> bool:
+    """params: name -> value, or None to keep the value the stack already has."""
     body = (ROOT / "infra" / "template.yaml").read_text()
-    p = [{"ParameterKey": k, "ParameterValue": v} for k, v in params.items()]
+    p = [{"ParameterKey": k, "UsePreviousValue": True} if v is None else {"ParameterKey": k, "ParameterValue": v} for k, v in params.items()]
     try:
         cf.describe_stacks(StackName=stack)
         exists = True
@@ -132,6 +142,7 @@ def main():
     ap.add_argument("--skip-web", action="store_true")
     ap.add_argument("--skip-seed", action="store_true")
     ap.add_argument("--llm", default="bedrock")
+    ap.add_argument("--origin-check", choices=["on", "off"], help="require the CloudFront secret (default: on once the stack has one)")
     a = ap.parse_args()
     os.environ["AWS_REGION"] = a.region
     sess = boto3.Session(region_name=a.region)
@@ -146,7 +157,14 @@ def main():
     s3.upload_file(str(zip_path), code_bucket, code_key)
     print(f"uploaded s3://{code_bucket}/{code_key}")
 
-    created = deploy_stack(cf, a.stack, {"CodeBucket": code_bucket, "CodeKey": code_key, "LlmOrder": a.llm})
+    # The CloudFront-to-API secret is made once and kept. On the deploy that first adds it, the API doesn't require
+    # it yet (CloudFront needs a few minutes to send it from every edge); the next deploy turns the check on.
+    had_secret = "OriginSecret" in stack_params(cf, a.stack)
+    secret = None if had_secret else secrets.token_urlsafe(32)  # never printed
+    check = a.origin_check or ("on" if had_secret else "off")
+    created = deploy_stack(cf, a.stack, {"CodeBucket": code_bucket, "CodeKey": code_key, "LlmOrder": a.llm,
+                                         "OriginSecret": secret, "OriginCheck": check})
+    print("origin check:", check, "" if check == "on" else "(run the deploy again once CloudFront is deployed to turn it on)")
     out = stack_outputs(cf, a.stack)
     print(json.dumps(out, indent=1))
 

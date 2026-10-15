@@ -27,6 +27,16 @@ Parameters:
     Type: Number
     Default: 5
     Description: Reserved concurrency for the API function; caps compute spend if the URL is hammered
+  OriginSecret:
+    Type: String
+    NoEcho: true
+    MinLength: 32
+    Description: Secret CloudFront sends to the API in x-dialed-origin (infra/deploy.py generates it once and keeps it)
+  OriginCheck:
+    Type: String
+    Default: "off"
+    AllowedValues: ["on", "off"]
+    Description: on = the API refuses requests without the CloudFront secret (deploy.py turns it on once the header is live)
 
 Resources:
   Bucket:
@@ -57,7 +67,7 @@ Resources:
       KeySchema:
         - { AttributeName: pk, KeyType: HASH }
         - { AttributeName: sk, KeyType: RANGE }
-      PointInTimeRecoverySpecification: { PointInTimeRecoveryEnabled: false }
+      PointInTimeRecoverySpecification: { PointInTimeRecoveryEnabled: true }
 
   FnRole:
     Type: AWS::IAM::Role
@@ -70,6 +80,7 @@ Resources:
             Action: sts:AssumeRole
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess
       Policies:
         - PolicyName: dialed
           PolicyDocument:
@@ -102,6 +113,7 @@ Resources:
       MemorySize: 3008
       Timeout: 60
       ReservedConcurrentExecutions: !Ref MaxConcurrency
+      TracingConfig: { Mode: Active }
       Role: !GetAtt FnRole.Arn
       Code:
         S3Bucket: !Ref CodeBucket
@@ -113,6 +125,8 @@ Resources:
           DIALED_LLM: !Ref LlmOrder
           DIALED_BEDROCK_MODELS: !Ref BedrockModels
           DIALED_LLM_DAILY_CAP: !Ref DailyModelCap
+          DIALED_ORIGIN_SECRET: !Ref OriginSecret
+          DIALED_ORIGIN_CHECK: !Ref OriginCheck
           OPENCV_LOG_LEVEL: ERROR
 
   FnUrl:
@@ -198,6 +212,9 @@ Resources:
           - Id: api
             DomainName: !Select [2, !Split ["/", !GetAtt FnUrl.FunctionUrl]]
             CustomOriginConfig: { OriginProtocolPolicy: https-only, OriginSSLProtocols: [TLSv1.2], OriginReadTimeout: 60 }
+            # the API refuses calls without this (api/handler.py from_cloudfront); CloudFront overwrites any viewer copy
+            OriginCustomHeaders:
+              - { HeaderName: x-dialed-origin, HeaderValue: !Ref OriginSecret }
         DefaultCacheBehavior:
           TargetOriginId: site
           ViewerProtocolPolicy: redirect-to-https
