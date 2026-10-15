@@ -17,7 +17,7 @@ Readers:
   report                          one table of every run -> web/public/evidence/bench.json
 
 python scripts/bench.py run --reader current --name dialed
-python scripts/bench.py run --reader current --name no-projective --env DIALED_RECTIFY=affine
+python scripts/bench.py run --reader current --name with-projective --env DIALED_RECTIFY=projective
 python scripts/bench.py run --reader ref:dd8b575 --name submitted
 python scripts/bench.py classic
 python scripts/bench.py vlm --max-calls 150

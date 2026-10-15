@@ -31,8 +31,10 @@ TEXT_DIAL = 960  # the copy the numbers are read from
 RAD = 280  # dial edge radius in the straightened image
 ANG_BINS = 1440  # quarter-degree polar resolution
 VOCAB = list("0123456789abcdefghijklmnopqrstuvwxyz")
-# "projective" (default) or "affine" (the earlier straightening, kept for ablations: scripts/bench.py)
-RECTIFY = os.environ.get("DIALED_RECTIFY", "projective")
+# "affine" (default) or "projective". Projective rectification from the rim conic and the pivot is implemented and
+# tested, but on real photos it measured no better than the affine map (eval/results: with-projective vs dialed,
+# on the development and the held-out photos), so the simpler map stays the default.
+RECTIFY = os.environ.get("DIALED_RECTIFY", "affine")
 ENDS_CHECK = os.environ.get("DIALED_ENDS", "on") == "on"  # pointer end chosen by unbroken ink run (ablation: off)
 
 
