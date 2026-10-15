@@ -78,8 +78,8 @@ SCENARIOS = [
      "shots": [{"dial": "PI-104", "value": 7.15, "opts": {"glare": True, "glare_at": GLARE_ON_NEEDLE, "seed": 338}, "want": "reshoot", "view": "step to the left"},
                {"dial": "PI-104", "value": 7.15, "opts": {"glare": True, "seed": 338}, "follow_view": True, "want": "logged", "value_near": 7.15, "views_agree": True}]},
     {"group": "active", "name": "Re-shoot that disagrees with the first view", "gauge": "PI-102",
-     "shots": [{"dial": "PI-102", "value": 8.4, "opts": {"tilt": (58, 4)}, "want": "reshoot"},
-               {"dial": "PI-102", "value": 11.2, "want": "reshoot", "views_agree": False}]},
+     "shots": [{"dial": "PI-102", "value": 8.4, "opts": {"tilt": (58, 4), "seed": 913}, "want": "reshoot"},
+               {"dial": "PI-102", "value": 11.2, "opts": {"seed": 900}, "want": "reshoot", "views_agree": False}]},
 ]
 
 
@@ -171,7 +171,10 @@ def run_retrying(sc: dict, use_model: bool, k: int) -> dict:
         except Throttled:
             time.sleep(8 * (attempt + 1))
     os.environ["DIALED_EVAL_ACCEPT_FALLBACK"] = "1"  # last try: record whatever happened, and say so
-    out = run_one(sc, use_model, k)
+    try:
+        out = run_one(sc, use_model, k)
+    finally:
+        os.environ.pop("DIALED_EVAL_ACCEPT_FALLBACK", None)
     out["fell_back"] = True
     return out
 
@@ -228,6 +231,7 @@ def main():
     ap.add_argument("--rule-runs", type=int, default=3, help="runs per scenario for the rule engine (deterministic)")
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--only", default="", help="comma list of scenario-name prefixes")
+    ap.add_argument("--merge", action="store_true", help="with --only: replace those scenarios in the existing agent.json")
     a = ap.parse_args()
     if a.only:
         keep = tuple(x.strip() for x in a.only.split(","))
@@ -239,6 +243,14 @@ def main():
     dest.mkdir(parents=True, exist_ok=True)
     if not a.only:
         (dest / "agent.json").write_text(json.dumps(res, indent=1, default=str), encoding="utf-8")
+    elif a.merge:
+        old = json.loads((dest / "agent.json").read_text(encoding="utf-8"))
+        for k in ("rules", "model"):
+            if k in res:
+                new = {x["name"]: x for x in res[k]}
+                old[k] = [new.get(x["name"], x) for x in old.get(k, [])]
+        old["merged"] = f"{', '.join(n for n in new)} re-run {res['generated']}"
+        (dest / "agent.json").write_text(json.dumps(old, indent=1, default=str), encoding="utf-8")
     for k, v in res.items():
         if isinstance(v, list):
             print(k, sum(r["passed"] for r in v), "/", sum(r["runs"] for r in v), "runs passed")

@@ -49,6 +49,7 @@ export function AgentFlow() {
 
 function line(st: Step): string {
   const r = st.result ?? {};
+  if (r.refused) return `refused by the guards: ${String(r.refused)}`;
   if (st.tool === "read_gauge") {
     const issues = ((r.issues as { code: string; level: string }[]) ?? []).filter((i) => i.level === "block").map((i) => i.code);
     return r.value == null ? `no reading; blocking checks: ${issues.join(", ") || "none"}` : `${r.display}, ${confPct(Number(r.confidence))}% confidence; printed range ${(r.range_read as number[] | undefined)?.join("–") ?? "?"}${r.range_matches === false ? " (does not match the tag)" : ""}`;
