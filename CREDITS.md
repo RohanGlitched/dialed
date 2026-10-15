@@ -2,7 +2,7 @@
 
 ## Photos
 
-Real gauge photos come from Wikimedia Commons and, for the benchmark in eval/bench, also from Flickr (found through Openverse); only CC0, public-domain, CC BY and CC BY-SA photos are used. Each keeps its licence; Dialed's straightened and unrolled versions of a photo are shared under the same licence as the photo. The true reading of each scored photo was read by eye from the photo (in eval/bench, twice, independently).
+Real gauge photos come from Wikimedia Commons and, for the benchmark in eval/bench, also from Flickr (found through Openverse); only CC0, public-domain, CC BY and CC BY-SA photos are used. Each keeps its licence; Dialed's straightened and unrolled versions of a photo are shared under the same licence as the photo. The true reading of each scored photo was read from the photo (in eval/bench, twice, independently, on zoomed crops).
 
 | File | Photo | Author | Licence | Source |
 |---|---|---|---|---|

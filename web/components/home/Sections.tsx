@@ -110,7 +110,7 @@ export function Accuracy() {
     <section className="wrap section" aria-labelledby="acc-h">
       <div className="section-head">
         <h2 id="acc-h" className="h2">Accuracy, measured</h2>
-        <p className="lede">Two kinds of test, kept apart. On {bh.n} photos of real gauges it was never tuned on (Wikimedia Commons and Flickr, each read by eye twice), it is compared with a vision-language model reading the same photos. On {all} rendered gauges the answer is known exactly. Real photos are much harder: most of the time Dialed asks for a better photo instead of answering.</p>
+        <p className="lede">Two kinds of test, kept apart. On {bh.n} photos of real gauges it was never tuned on (Wikimedia Commons and Flickr, each read from the photo twice, independently), it is compared with a vision-language model reading the same photos. On {all} rendered gauges the answer is known exactly. Real photos are much harder: most of the time Dialed asks for a better photo instead of answering.</p>
       </div>
       <div className={s.accGrid}>
         <dl className={s.big}>
