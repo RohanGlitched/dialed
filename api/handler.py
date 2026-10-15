@@ -223,6 +223,7 @@ def _photo(event) -> bytes:
 
 
 _hits: dict[str, list[float]] = {}
+_logged_source = False
 
 
 def viewer_ip(event) -> str:
@@ -230,9 +231,13 @@ def viewer_ip(event) -> str:
     X-Forwarded-For entry is whatever the client chose to send. CloudFront's own CloudFront-Viewer-Address
     header ("ip:port") is the address CloudFront saw; without it, the last X-Forwarded-For entry that isn't
     the connecting edge is the one CloudFront appended."""
+    global _logged_source
     headers = {k.lower(): v for k, v in (event.get("headers") or {}).items()}
     src = event.get("requestContext", {}).get("http", {}).get("sourceIp") or "?"
     va = (headers.get("cloudfront-viewer-address") or "").strip()
+    if not _logged_source:  # once per instance, which source of the address is in use (no address is logged)
+        _logged_source = True
+        print("visitor address from", "cloudfront-viewer-address" if va else "x-forwarded-for" if headers.get("x-forwarded-for") else "sourceIp")
     if va:
         return va.rsplit(":", 1)[0].strip("[]") or src  # the port is always last, for IPv4 and IPv6
     chain = [x.strip() for x in (headers.get("x-forwarded-for") or "").split(",") if x.strip()]
